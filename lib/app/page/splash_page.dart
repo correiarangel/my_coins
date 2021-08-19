@@ -15,7 +15,7 @@ class SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();  
-    //Timer(Duration(seconds: 3), startHome);
+    Timer(Duration(milliseconds: 3500), startHome);
   }
 
   @override
@@ -37,7 +37,7 @@ class SplashPageState extends State<SplashPage> {
           ),
           CircularProgressIndicator(
             backgroundColor: Colors.white,
-            semanticsLabel: "Iniciando, aguarde por favor...",
+            semanticsValue: "Iniciando, aguarde por favor...",
           ),
         ],
       )),

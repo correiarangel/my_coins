@@ -20,7 +20,7 @@ class CoinRepository implements ICoinRepository {
       Iterable interbleCoins = json.decode("[$response]");
       return listCoins =
           interbleCoins.map((comodel) => 
-          CoinModel.fromJson(comodel['ARS'])).toList();
+          CoinModel.fromJson(comodel['USD'])).toList();
     } else {
       return listCoins;
     }

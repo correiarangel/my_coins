@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:my_coins/app/modules/home/card_coin.dart';
 import 'package:my_coins/app/modules/home/home_store.dart';
 
-
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -13,17 +12,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
-        actions: [
+        backgroundColor: Colors.deepPurple,
+        title: Text("My Coin",
+          style: TextStyle(color: Colors.white)
+        ),
+        /* actions: [
           TextButton.icon(
-            onPressed: () {}, 
-            icon: Icon(Icons.login_outlined,color: Colors.black), 
-            label: Text(""), 
-
+            onPressed: () {},
+            icon: Icon(Icons.login_outlined, color: Colors.black),
+            label: Text(""),
           )
-        ],
+        ], */
       ),
       body: Observer(
         builder: (context) {
@@ -49,9 +50,12 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
             return ListView.builder(
               itemCount: listCoins?.length,
               itemBuilder: (context, index) {
-                return ListTile(
+                return CardCoin(coins: listCoins, index: index);
+
+                /* ListTile(
                   title: Text(listCoins![index].name.toString()),
-                );
+                  subtitle: Text(listCoins[index].high.toString()),
+                ); */
               },
             );
           }
