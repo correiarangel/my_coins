@@ -3,7 +3,7 @@ import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
 
 part 'home_store.g.dart';
-
+// User Case
 class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
