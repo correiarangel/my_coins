@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/card_coin.dart';
-import 'package:my_coins/app/modules/home/components/card_custom.dart';
-import 'package:my_coins/app/modules/home/components/widgets_custom.dart';
-import 'package:my_coins/app/modules/home/home_store.dart';
-import 'package:my_coins/app/shared/util/const_colors.dart';
+
+import '../../shared/util/const_colors.dart';
+import 'components/card_custom.dart';
+import 'components/widgets_custom.dart';
+import 'home_store.dart';
 
 class HomePage extends StatefulWidget {
   @override

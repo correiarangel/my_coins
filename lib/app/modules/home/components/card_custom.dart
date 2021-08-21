@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:my_coins/app/modules/home/components/widgets_custom.dart';
+import 'package:my_coins/app/shared/interface/general_functions_interface.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/util/const_colors.dart';
 
 class CardCustom extends StatelessWidget {
+  final genFunctions = Modular.get<IGeneralFunctions>();
   final widGetCustm = WidGetCustm();
   final List<CoinModel>? coins;
   final int index;
@@ -19,6 +22,9 @@ class CardCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
+    String? date =
+        genFunctions.toBrazilTime(coins?[index].createDate.toString());
+    String? priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
     return Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: InkWell(
@@ -48,6 +54,14 @@ class CardCustom extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: 28.0),
+                    Text(
+                      "Dados coletados em:",
+                      style: TextStyle(
+                        color: ConstColors.colorDarkBlueGray,
+                        fontSize: 22.0,
+                      ),
+                    ),
+                    SizedBox(height: 4.0),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +74,7 @@ class CardCustom extends StatelessWidget {
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          "${coins?[index].createDate}",
+                          date == null ? "" : date,
                           style: TextStyle(
                               color: ConstColors.colorSkyMagenta,
                               fontSize: 22.0),
@@ -69,6 +83,12 @@ class CardCustom extends StatelessWidget {
                       ],
                     ),
                     sizeBoxDivisor,
+                    Text(
+                      "Tipo de converção :",
+                      style: TextStyle(
+                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                      textAlign: TextAlign.center,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +104,13 @@ class CardCustom extends StatelessWidget {
                         ),
                       ],
                     ),
-                     sizeBoxDivisor,
+                    sizeBoxDivisor,
+                    Text(
+                      "Sigla/Moéda : ",
+                      style: TextStyle(
+                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                      textAlign: TextAlign.center,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +123,7 @@ class CardCustom extends StatelessWidget {
                         ),
                         SizedBox(width: 10.0),
                         Text(
-                          "Sigla/Moéda : ${coins?[index].code}",
+                          "${coins?[index].code}",
                           style: TextStyle(
                               color: ConstColors.colorSkyMagenta,
                               fontSize: 28.0),
@@ -106,15 +132,20 @@ class CardCustom extends StatelessWidget {
                       ],
                     ),
                     sizeBoxDivisor,
-
+                    Text(
+                      "Cotação :",
+                      style: TextStyle(
+                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                      textAlign: TextAlign.center,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         //name
                         Text(
-                          "1 : ${coins?[index].code} Vale hoje:"
-                          " ${coins?[index].bid} ",
+                          "1 : ${coins?[index].code} Custa\n"
+                          " R\$ : $priceCoin",
                           style: TextStyle(
                               color: ConstColors.colorSkyMagenta,
                               fontSize: 28.0),
