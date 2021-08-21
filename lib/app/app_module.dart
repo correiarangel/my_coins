@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:my_coins/app/page/splash_page.dart';
-import 'package:my_coins/app/shared/util/const_srtring_url.dart';
+import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
 import 'package:my_coins/app/shared/util/general_functions.dart';
 
 import 'modules/home/home_module.dart';

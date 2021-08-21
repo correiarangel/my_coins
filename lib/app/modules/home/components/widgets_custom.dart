@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_coins/app/shared/util/const_colors.dart';
+import 'package:my_coins/app/shared/util/value/const_colors.dart';
 
 class WidGetCustm {
   Widget sizeBoxDivisor() {

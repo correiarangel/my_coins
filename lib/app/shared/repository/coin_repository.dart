@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:my_coins/app/shared/interface/coin_repository_interface.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
-import 'package:my_coins/app/shared/util/const_srtring_url.dart';
+import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
 
 class CoinRepository implements ICoinRepository {
   final ClientHttpService client;

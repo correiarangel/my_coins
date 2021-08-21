@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/shared/util/const_colors.dart';
+import 'package:my_coins/app/shared/util/value/const_colors.dart';
 
 class SplashPage extends StatefulWidget {
   @override

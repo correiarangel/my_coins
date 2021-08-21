@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../shared/util/const_colors.dart';
+import '../../shared/util/value/const_colors.dart';
 import 'components/card_custom.dart';
 import 'components/widgets_custom.dart';
 import 'home_store.dart';
