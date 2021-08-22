@@ -1,6 +1,7 @@
-import '../interface/general_functions_interface.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
+
+import '../interface/general_functions_interface.dart';
 
 class GeneralFunctions implements IGeneralFunctions {
   @override
@@ -15,11 +16,14 @@ class GeneralFunctions implements IGeneralFunctions {
 
   @override
   Future<String?>? getBuildAndVersion() async {
-    var packageInfo = await PackageInfo.fromPlatform();
-    var version = packageInfo.version;
-    var buildNumber = packageInfo.buildNumber;
-    //await _sharedPrefsController.saveVersion("version", '$version+$buildNumber');
-    return '$version+$buildNumber';
+    try {
+      var packageInfo = await PackageInfo.fromPlatform();
+      //await _sharedPrefsController.saveVersion("version", '$version+$buildNumber');
+      print("VERSION --- '${packageInfo.version}+${packageInfo.buildNumber}' --");
+      return '${packageInfo.version}+${packageInfo.buildNumber}';
+    } on Exception catch (_) {
+      return '';
+    }
   }
 
   @override

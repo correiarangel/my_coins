@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/widgets_custom.dart';
-import 'package:my_coins/app/shared/interface/general_functions_interface.dart';
-import 'package:my_coins/app/shared/models/coins_model.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
+
+import '../../../shared/interface/general_functions_interface.dart';
+import '../../../shared/models/coins_model.dart';
+import '../../../shared/util/value/const_colors.dart';
+import 'widgets_custom.dart';
 
 class CardCustom extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
@@ -55,9 +56,9 @@ class CardCustom extends StatelessWidget {
                   children: <Widget>[
                     SizedBox(height: 28.0),
                     Text(
-                      "Dados coletados em:",
+                      "Dados coletados em :",
                       style: TextStyle(
-                        color: ConstColors.colorDarkBlueGray,
+                        color:ConstColors.colorLavenderFloral,
                         fontSize: 22.0,
                       ),
                     ),
@@ -76,7 +77,7 @@ class CardCustom extends StatelessWidget {
                         Text(
                           date == null ? "" : date,
                           style: TextStyle(
-                              color: ConstColors.colorSkyMagenta,
+                              color: ConstColors.colorLavenderFloral,
                               fontSize: 22.0),
                           textAlign: TextAlign.center,
                         ),
@@ -86,7 +87,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Tipo de converção :",
                       style: TextStyle(
-                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -97,7 +98,7 @@ class CardCustom extends StatelessWidget {
                         Text(
                           "De : ${coins?[index].name?.replaceAll("/", " p. \n")}",
                           style: TextStyle(
-                            color: ConstColors.colorSkyMagenta,
+                            color: ConstColors.colorLavenderFloral,
                             fontSize: 22.0,
                           ),
                           textAlign: TextAlign.center,
@@ -108,7 +109,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Sigla/Moéda : ",
                       style: TextStyle(
-                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -125,7 +126,7 @@ class CardCustom extends StatelessWidget {
                         Text(
                           "${coins?[index].code}",
                           style: TextStyle(
-                              color: ConstColors.colorSkyMagenta,
+                              color: ConstColors.colorLavenderFloral,
                               fontSize: 28.0),
                           textAlign: TextAlign.left,
                         ),
@@ -135,7 +136,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Cotação :",
                       style: TextStyle(
-                          color: ConstColors.colorDarkBlueGray, fontSize: 22.0),
+                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -147,7 +148,7 @@ class CardCustom extends StatelessWidget {
                           "1 : ${coins?[index].code} Custa\n"
                           " R\$ : $priceCoin",
                           style: TextStyle(
-                              color: ConstColors.colorSkyMagenta,
+                              color: ConstColors.colorLavenderFloral,
                               fontSize: 28.0),
                           textAlign: TextAlign.center,
                         ),

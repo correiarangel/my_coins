@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
       title: 'My Coins',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-        fontFamily: 'Roboto Slab'),
+        fontFamily: 'RobotoSlab'),
     ).modular();
   }
 }
