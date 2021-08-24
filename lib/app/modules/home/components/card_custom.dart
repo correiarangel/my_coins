@@ -39,7 +39,7 @@ class CardCustom extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                    color: ConstColors.colorCadetGrey,
+                    color: ConstColors.colorSkyMagenta,
                     blurRadius: 10.0, // soften the shadow
                     spreadRadius: 2.0, //extend the shadow
                     offset: Offset(
@@ -58,7 +58,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Dados coletados em :",
                       style: TextStyle(
-                        color:ConstColors.colorLavenderFloral,
+                        color:ConstColors.colorLigthGray,
                         fontSize: 22.0,
                       ),
                     ),
@@ -87,7 +87,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Tipo de converção :",
                       style: TextStyle(
-                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
+                          color: ConstColors.colorLigthGray, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -109,7 +109,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Sigla/Moéda : ",
                       style: TextStyle(
-                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
+                          color: ConstColors.colorLigthGray, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -136,7 +136,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Cotação :",
                       style: TextStyle(
-                          color: ConstColors.colorLavenderFloral, fontSize: 22.0),
+                          color: ConstColors.colorLigthGray, fontSize: 22.0),
                       textAlign: TextAlign.center,
                     ),
                     Row(

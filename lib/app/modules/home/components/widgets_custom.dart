@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/card_about.dart';
-import 'package:my_coins/app/modules/home/components/card_custom.dart';
-import 'package:my_coins/app/modules/home/components/option_button.dart';
-import 'package:my_coins/app/shared/util/general_functions.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
-import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
+import 'package:my_coins/app/modules/home/components/card_coin_convert.dart';
+
+import '../../../shared/util/general_functions.dart';
+import '../../../shared/util/value/const_colors.dart';
+import 'card_about.dart';
+import 'card_custom.dart';
 
 class WidGetCustm {
   final genFunctions = Modular.get<GeneralFunctions>();
@@ -47,7 +47,7 @@ class WidGetCustm {
   }
 
   Container buildHeader(String? titulo, BuildContext _context, _controller,
-      {int? index = 0, String pais = '', required String? sceen}) {
+      {int? index = 0, String pais = '', required String? screen}) {
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 32.0),
       decoration: BoxDecoration(
@@ -78,96 +78,30 @@ class WidGetCustm {
             ),
           ),
           const SizedBox(height: 5.0),
-          Container(
-            alignment: Alignment.topLeft,
-            child: TextButton.icon(
-              icon: Icon(
-                Icons.search_rounded,
-                color: ConstColors.colorLavenderFloral,
-                size: 31.0,
-              ),
-              label: Text(
-                "Pesquisar Moéda",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: ConstColors.colorLavenderFloral,
-                ),
-              ),
-              onPressed: () async {
-                print("Pequise moeda................");
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget scaffoldMain(controller) {
-    return Scaffold(
-      backgroundColor: ConstColors.colorSpaceCadet,
-      appBar: AppBar(
-        backgroundColor: ConstColors.colorSpaceCadet,
-        title: Text("My Coins",
-            style: TextStyle(color: ConstColors.colorDarkBlueGray)),
-        actions: [],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(height: 28.0),
-          Text(
-            "Cotação de Cambios",
-            style: TextStyle(
-                color: ConstColors.colorDarkBlueGray,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold),
-          ),
-          Expanded(
-            child: Observer(
-              builder: (context) {
-                if (controller.coins?.error != null) {
-                  return Center(
-                      child: TextButton.icon(
-                    autofocus: true,
-                    icon: Icon(Icons.refresh),
+          screen == 'about'
+              ? Container()
+              : Container(
+                  alignment: Alignment.topLeft,
+                  child: TextButton.icon(
+                    icon: Icon(
+                      Icons.search_rounded,
+                      color: ConstColors.colorLavenderFloral,
+                      size: 31.0,
+                    ),
                     label: Text(
-                      "Ops! Algo errado; Click p/ Recarregar !",
+                      "Pesquisar Moéda",
                       style: TextStyle(
-                          color: ConstColors.colorSkyMagenta, fontSize: 18.0),
+                        fontSize: 18.0,
+                        color: ConstColors.colorLavenderFloral,
+                      ),
                     ),
-                    onPressed: () {
-                      controller.fetchCoins();
+                    onPressed: () async {
+                      print("Pequise moeda................");
                     },
-                  ));
-                } else if (controller.coins?.value == null) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      backgroundColor: ConstColors.colorSkyMagenta,
-                    ),
-                  );
-                } else {
-                  var listCoins = controller.coins?.value;
-                  return ListView.builder(
-                    itemCount: listCoins?.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                        child: CardCustom(
-                            coins: listCoins,
-                            index: index,
-                            controller: controller),
-                      );
-                    },
-                  );
-                }
-              },
-            ),
-          )
+                  ),
+                ),
         ],
       ),
-      floatingActionButton: flotBtnSearsh(controller),
     );
   }
 
@@ -177,7 +111,7 @@ class WidGetCustm {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildHeader("My Coins", context, controller, sceen: 'cotation'),
+        buildHeader("My Coins", context, controller, screen: 'cotation'),
         SizedBox(height: 28.0),
         Text(
           "Cotação de Moédas",
@@ -228,7 +162,7 @@ class WidGetCustm {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildHeader("My Coins", context, controller, sceen: 'convert'),
+        buildHeader("My Coins", context, controller, screen: 'convert'),
         SizedBox(height: 28.0),
         Text(
           "Converter Moéda",
@@ -260,13 +194,30 @@ class WidGetCustm {
                 ),
               );
             } else {
-              var listCoins = controller.coins?.value;
-              return Text("1 Real vale 0,18 de Dollar");
+              return CardCoinConvert(
+                  coins: controller.coins?.value,
+                  index: 0,
+                  controller: controller);
             }
           },
         ),
       ],
     ));
+  }
+
+  Widget buildBodyAbout(context, controller) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          buildHeader("My Coins", context, controller, screen: 'about'),
+          const SizedBox(height: 30.0),
+          CardAbout(version: controller.version, controller: controller),
+          const SizedBox(height: 21.0),
+        ],
+      ),
+    );
   }
 
   ///barra inferior
@@ -297,63 +248,6 @@ class WidGetCustm {
           title: Text("Info"),
         ),
       ],
-    );
-  }
-
-  Widget buildBodyAbout(context, controller) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          buildHeader("My Coins", context, controller, sceen: 'about'),
-          const SizedBox(height: 30.0),
-          CardAbout(version: controller.version),
-          OptionsButton(
-            btnicon: Icons.email,
-            iconcor: ConstColors.colorDarkBlueGray,
-            btncor: ConstColors.colorSkyMagenta,
-            corText: ConstColors.colorDarkBlueGray,
-            textSize: 18.0,
-            text: "ENVIAR E-MAIL @             ",
-            top: 21.0,
-            rigth: 12.0,
-            left: 12.0,
-            callback: () {
-              controller.launchURL(ConstStringUrl.urlEmail);
-            },
-          ),
-          OptionsButton(
-            btnicon: Icons.pages,
-            iconcor: ConstColors.colorDarkBlueGray,
-            btncor: ConstColors.colorSkyMagenta,
-            corText: ConstColors.colorDarkBlueGray,
-            textSize: 18.0,
-            text: "VISITAR LINKDIN             ",
-            top: 21.0,
-            rigth: 12.0,
-            left: 12.0,
-            callback: () {
-              controller.launchURL(ConstStringUrl.urlLinkDin);
-            },
-          ),
-          OptionsButton(
-            btnicon: Icons.category,
-            iconcor: ConstColors.colorDarkBlueGray,
-            btncor: ConstColors.colorSkyMagenta,
-            corText: ConstColors.colorDarkBlueGray,
-            textSize: 18.0,
-            text: "VISITAR GUITHUB             ",
-            top: 21.0,
-            rigth: 12.0,
-            left: 12.0,
-            callback: () {
-              controller.launchURL(ConstStringUrl.urlGuitHub);
-            },
-          ),
-          const SizedBox(height: 21.0),
-        ],
-      ),
     );
   }
 
