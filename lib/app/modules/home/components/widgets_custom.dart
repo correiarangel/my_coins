@@ -2,7 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/card_coin_convert.dart';
+import 'package:my_coins/app/modules/home/components/card_siglas.dart';
+import 'card_coin_convert.dart';
+import '../home_store.dart';
+import '../../../shared/models/coins_parc_model.dart';
+import '../../../shared/util/value/const_srtring.dart';
 
 import '../../../shared/util/general_functions.dart';
 import '../../../shared/util/value/const_colors.dart';
@@ -11,6 +15,20 @@ import 'card_custom.dart';
 
 class WidGetCustm {
   final genFunctions = Modular.get<GeneralFunctions>();
+  List<DropdownMenuItem<String>> listaItensDropResp = [];
+  final controller = Modular.get<HomeStore>();
+
+  final Widget circularProgress = Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      const SizedBox(height: 48.0),
+      CircularProgressIndicator(
+        backgroundColor: ConstColors.colorSkyMagenta,
+      ),
+    ],
+  );
+
   Widget sizeBoxDivisor() {
     return SizedBox(
       height: 28.0,
@@ -23,16 +41,7 @@ class WidGetCustm {
     );
   }
 
-  Widget btnSearsh(controller) {
-    return TextButton.icon(
-      icon:
-          Icon(Icons.search, color: ConstColors.colorDarkBlueGray, size: 38.0),
-      label: Text("Pesquisar outra moéda"),
-      onPressed: () {},
-    );
-  }
-
-  Widget flotBtnSearsh(controller) {
+  Widget flotBtnSearsh() {
     return FloatingActionButton(
       elevation: 8.0,
       hoverColor: ConstColors.colorDarkBlueGray,
@@ -46,8 +55,8 @@ class WidGetCustm {
     );
   }
 
-  Container buildHeader(String? titulo, BuildContext _context, _controller,
-      {int? index = 0, String pais = '', required String? screen}) {
+  Container buildHeader(String? titulo, BuildContext _context,
+      {required String?screen}) {
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 32.0),
       decoration: BoxDecoration(
@@ -78,48 +87,28 @@ class WidGetCustm {
             ),
           ),
           const SizedBox(height: 5.0),
-          screen == 'about'
-              ? Container()
-              : Container(
-                  alignment: Alignment.topLeft,
-                  child: TextButton.icon(
-                    icon: Icon(
-                      Icons.search_rounded,
-                      color: ConstColors.colorLavenderFloral,
-                      size: 31.0,
-                    ),
-                    label: Text(
-                      "Pesquisar Moéda",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        color: ConstColors.colorLavenderFloral,
-                      ),
-                    ),
-                    onPressed: () async {
-                      print("Pequise moeda................");
-                    },
-                  ),
-                ),
         ],
       ),
     );
   }
 
-  Widget buildBodyCotation(BuildContext context, controller) {
+  Widget buildBodyCotation(BuildContext context) {
+    //initItensDropdown();
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildHeader("My Coins", context, controller, screen: 'cotation'),
+        buildHeader("My Coins", context, screen: 'quotation'),
         SizedBox(height: 28.0),
         Text(
-          "Cotação de Moédas",
+          "Cambios, escolha a moéda:",
           style: TextStyle(
               color: ConstColors.colorDarkBlueGray,
               fontSize: 22.0,
               fontWeight: FontWeight.bold),
         ),
+        horizontlList(),
         Observer(
           builder: (context) {
             if (controller.coins?.error != null) {
@@ -128,22 +117,19 @@ class WidGetCustm {
                 autofocus: true,
                 icon: Icon(Icons.refresh),
                 label: Text(
-                  "Ops! Algo errado; Click p/ Recarregar !",
+                  "Ops! Erro Click p/ Recarregar !",
                   style: TextStyle(
                       color: ConstColors.colorSkyMagenta, fontSize: 18.0),
                 ),
                 onPressed: () {
-                  controller.fetchCoins();
+                  controller.fetchCoins(controller.itemSelect!);
                 },
               ));
             } else if (controller.coins?.value == null) {
-              return Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: ConstColors.colorSkyMagenta,
-                ),
-              );
+              return circularProgress;
             } else {
               var listCoins = controller.coins?.value;
+             
               return Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: CardCustom(
@@ -156,13 +142,13 @@ class WidGetCustm {
     ));
   }
 
-  Widget buildBodyCovert(BuildContext context, controller) {
+  Widget buildBodyCovert(BuildContext context) {
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildHeader("My Coins", context, controller, screen: 'convert'),
+        buildHeader("My Coins", context, screen: 'convert'),
         SizedBox(height: 28.0),
         Text(
           "Converter Moéda",
@@ -171,6 +157,7 @@ class WidGetCustm {
               fontSize: 22.0,
               fontWeight: FontWeight.bold),
         ),
+        const SizedBox(width: 30.0),
         Observer(
           builder: (context) {
             if (controller.coins?.error != null) {
@@ -179,21 +166,18 @@ class WidGetCustm {
                 autofocus: true,
                 icon: Icon(Icons.refresh),
                 label: Text(
-                  "Ops! Algo errado; Click p/ Recarregar !",
+                  "Ops! erro Click p/ Recarregar !",
                   style: TextStyle(
                       color: ConstColors.colorSkyMagenta, fontSize: 18.0),
                 ),
                 onPressed: () {
-                  controller.fetchCoins();
+                  controller.fetchCoins(controller.itemSelect!);
                 },
               ));
             } else if (controller.coins?.value == null) {
-              return Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: ConstColors.colorSkyMagenta,
-                ),
-              );
+              return circularProgress;
             } else {
+
               return CardCoinConvert(
                   coins: controller.coins?.value,
                   index: 0,
@@ -205,15 +189,15 @@ class WidGetCustm {
     ));
   }
 
-  Widget buildBodyAbout(context, controller) {
+  Widget buildBodyAbout(context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          buildHeader("My Coins", context, controller, screen: 'about'),
+          buildHeader("My Coins", context, screen: 'about'),
           const SizedBox(height: 30.0),
-          CardAbout(version: controller.version, controller: controller),
+          CardAbout(controller: controller),
           const SizedBox(height: 21.0),
         ],
       ),
@@ -221,44 +205,70 @@ class WidGetCustm {
   }
 
   ///barra inferior
-  Widget buildBottomBar(controller) {
-    return BottomNavigationBar(
-      selectedItemColor: ConstColors.colorSkyMagenta,
-      unselectedItemColor: Colors.grey,
-      backgroundColor: ConstColors.colorSpaceCadet,
-      currentIndex: controller.currentIndex,
-      onTap: controller.changePage,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.poll,
-            color: ConstColors.colorDarkBlueGray,
-          ),
-          // ignore: deprecated_member_use
-          title: Text("Cotação"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.calculate, color: ConstColors.colorDarkBlueGray),
-          // ignore: deprecated_member_use
-          title: Text("Converter"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.info, color: ConstColors.colorDarkBlueGray),
-          // ignore: deprecated_member_use
-          title: Text("Info"),
-        ),
-      ],
+  Widget buildBottomBar() {
+    return Observer(
+      builder: (context) {
+        return BottomNavigationBar(
+          selectedItemColor: ConstColors.colorSkyMagenta,
+          unselectedItemColor: Colors.grey,
+          backgroundColor: ConstColors.colorSpaceCadet,
+          currentIndex: controller.currentIndex,
+          onTap: controller.changePage,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.poll,
+                color: ConstColors.colorDarkBlueGray,
+              ),
+              // ignore: deprecated_member_use
+              title: Text("Cotação"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calculate, color: ConstColors.colorDarkBlueGray),
+              // ignore: deprecated_member_use
+              title: Text("Converter"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info, color: ConstColors.colorDarkBlueGray),
+              // ignore: deprecated_member_use
+              title: Text("Info"),
+            ),
+          ],
+        );
+      },
     );
   }
 
-  Widget? buildBody(controller, context) {
+  Widget? buildBody(context) {
     switch (controller.currentIndex) {
       case 0:
-        return buildBodyCotation(context, controller);
+        return buildBodyCotation(context);
       case 1:
-        return buildBodyCovert(context, controller);
+        return buildBodyCovert(context);
       case 2:
-        return buildBodyAbout(context, controller);
+        return buildBodyAbout(context);
     }
+  }
+
+  Widget horizontlList() {
+    List<CoinParcModel> listCoins = fillListSiglas();
+    return Container(
+        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        height: 120.0,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: listCoins.length,
+          itemBuilder: (context, index) {
+            return CardSiglas(
+                coins: listCoins, index: index, controller: controller);
+          },
+        ));
+  }
+
+  List<CoinParcModel> fillListSiglas() {
+    Iterable interbleCoins = ConstString.listSiglaCoins;
+    return interbleCoins
+        .map((coinpmodel) => CoinParcModel.fromJson(coinpmodel))
+        .toList();
   }
 }

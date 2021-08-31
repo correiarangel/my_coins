@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
+import '../../shared/util/value/const_colors.dart';
 
 import 'components/widgets_custom.dart';
 import 'home_store.dart';
@@ -15,14 +15,14 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   final widGetCustom = WidGetCustm();
   @override
   Widget build(BuildContext context) {
- return Observer(builder: (_) {
+
+    return Observer(builder: (_) {
+
       return Scaffold(
         backgroundColor: ConstColors.colorSpaceCadet,
-        body: widGetCustom.buildBody(controller, context),
-        bottomNavigationBar: widGetCustom.buildBottomBar(controller),
+        body: widGetCustom.buildBody(context),
+        bottomNavigationBar: widGetCustom.buildBottomBar(),
       );
     });
   }
 }
-
-      

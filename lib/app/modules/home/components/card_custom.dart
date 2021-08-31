@@ -26,6 +26,8 @@ class CardCustom extends StatelessWidget {
     String? date =
         genFunctions.toBrazilTime(coins?[index].createDate.toString());
     String? priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
+    controller.changesPriceCoin(priceCoin); 
+    
     return Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0),
         child: InkWell(

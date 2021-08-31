@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:my_coins/app/modules/home/components/textfield.dart';
 import 'package:my_coins/app/modules/home/components/widgets_custom.dart';
 import 'package:my_coins/app/shared/interface/general_functions_interface.dart';
 
@@ -9,6 +11,7 @@ import 'package:my_coins/app/shared/util/value/const_colors.dart';
 
 class CardCoinConvert extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
+  final fieldText = TextFielCustom();
   final widGetCustm = WidGetCustm();
   final List<CoinModel>? coins;
   final int index;
@@ -20,28 +23,9 @@ class CardCoinConvert extends StatelessWidget {
       required this.controller})
       : super(key: key);
 
-  String calcRealToDollar(String? priceCoin) {
-    String? res = "";
-    if (priceCoin != null) {
-      res = genFunctions.formatNumber(
-        (1 / double.parse(priceCoin)).toString());
-    }
-    return res!;
-  }
-
-  String calcDollarToReal(String? priceCoin) {
-    String? res = "";
-    if (priceCoin != null) {
-      res = genFunctions.formatNumber(
-        (1 / double.parse(priceCoin)).toString());
-    }
-    return res!;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final Widget sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
-    final String? priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
+    controller.changesPriceCoin("${coins?[index].bid}");
 
     return Padding(
         padding:
@@ -88,47 +72,55 @@ class CardCoinConvert extends StatelessWidget {
               ),
               const SizedBox(height: 38.0),
               Padding(
-                padding: EdgeInsets.only(
-                  left: 4.0,
-                  right: 4.0,
-                ),
-                child: Text(
-                  "1 ${coins?[index].code} Vale: $priceCoin Real(s)",
-                  style: TextStyle(
-                      color: ConstColors.colorLavenderFloral, fontSize: 28.0),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+                  padding: EdgeInsets.only(
+                    left: 4.0,
+                    right: 4.0,
+                  ),
+                  child: Observer(
+                    builder: (context) {
+                      return fieldText.textFiel(
+                          TextInputType.number,
+                          "Digite o valor",
+                          "Converter de Real p/ ${coins?[index].code}:",
+                          controller.changesValidatConvertion,
+                          controller.valueToConvert,
+                          false);
+                    },
+                  )),
               const SizedBox(height: 28.0),
               TextButton.icon(
-                onPressed: () {
-                  
-                }, 
+                onPressed: () {},
                 icon: Icon(
-                    Icons.swap_vert,
-                    color: ConstColors.colorLigthGray,
-                    size: 48.00,
-                  ),
+                  Icons.swap_vert,
+                  color: ConstColors.colorLigthGray,
+                  size: 48.00,
+                ),
                 label: Text(
                   "",
                   style: TextStyle(
                       color: ConstColors.colorLavenderFloral, fontSize: 0.0),
                   textAlign: TextAlign.center,
-                ), ),
-              const SizedBox(height: 28.0),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 4.0,
-                  right: 4.0,
-                ),
-                child: Text(
-                  "1 Real vale ${calcRealToDollar("${coins?[index].bid}")} "
-                  "de ${coins?[index].code} ",
-                  style: TextStyle(
-                      color: ConstColors.colorLavenderFloral, fontSize: 28.0),
-                  textAlign: TextAlign.center,
                 ),
               ),
+              const SizedBox(height: 28.0),
+              Padding(
+                  padding: EdgeInsets.only(
+                    left: 4.0,
+                    right: 4.0,
+                  ),
+                  child: Observer(
+                    builder: (context) {
+                      return Text(
+                        "${controller.validatConvetion == null ? '0': controller.validatConvetion}"
+                        " Real(s) vale(m)\n "
+                        "${controller.valueConvertion}  ${coins?[index].code}",
+                        style: TextStyle(
+                            color: ConstColors.colorLavenderFloral,
+                            fontSize: 28.0),
+                        textAlign: TextAlign.center,
+                      );
+                    },
+                  )),
               const SizedBox(height: 38.0),
             ],
           ),

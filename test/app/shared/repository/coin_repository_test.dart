@@ -7,12 +7,12 @@ import 'package:my_coins/app/shared/repository/coin_repository.dart';
 
 class CoinRepositoryMock extends Mock implements CoinRepository {
   @override
-  Future<List<CoinModel>>? getAllCoins() async {
+  Future<List<CoinModel>>? getAllCoins(String typeCoin) async {
     // ignore: unused_local_variable
     var listCoins;
     Iterable interbleCoins = json.decode("[$response]");
     return listCoins = interbleCoins
-        .map((comodel) => CoinModel.fromJson(comodel['USD']))
+        .map((comodel) => CoinModel.fromJson(comodel[typeCoin]))
         .toList();
   }
 }
@@ -33,7 +33,7 @@ void main() {
     List<CoinModel>? coins;
     //when(() => repository.getAllCoins()).thenReturn(() async => <CoinModel>[]);
     //act
-    coins = await repository.getAllCoins();
+    coins = await repository.getAllCoins('USD');
     //assert
     expect(coins, isA<List<CoinModel>>());
     expect(coins?.isEmpty, false);

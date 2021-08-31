@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:my_coins/app/shared/interface/client_http_interface.dart';
 
@@ -15,7 +17,7 @@ class ClientHttpService implements IClientHttp {
   @override
   Future get(String router) async {
     try {
-      final response = await dio.get(router);
+      final  response = await dio.get(router);
       return response;
     } on Exception catch (e) {
       throw "ERROR GET  $e";

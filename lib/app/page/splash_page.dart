@@ -30,10 +30,10 @@ class SplashPageState extends State<SplashPage> {
         children: <Widget>[
           
           CircleAvatar(
-            backgroundColor: ConstColors.colorSkyMagenta,
+            backgroundColor: ConstColors.colorLavenderFloral,
             child: Icon(
               Icons.monetization_on,
-              color: ConstColors.colorDarkBlueGray,
+              color: ConstColors.colorSpaceCadet,
               size: 140.0,
             ),
             radius: 100.0,
@@ -44,13 +44,11 @@ class SplashPageState extends State<SplashPage> {
             style:
                 TextStyle(
                   fontSize: 28.0, 
-                  color: ConstColors.colorSkyMagenta
+                  color: ConstColors.colorLavenderFloral
                 ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(
-            height: 21.0,
-          ),
+          SizedBox(height: 21.0),
           CircularProgressIndicator(
             backgroundColor: ConstColors.colorSkyMagenta,
             semanticsLabel: "Iniciando, aguarde por favor...",

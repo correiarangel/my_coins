@@ -1,26 +1,24 @@
 import 'dart:convert';
 
-import 'package:my_coins/app/shared/interface/coin_repository_interface.dart';
-import 'package:my_coins/app/shared/models/coins_model.dart';
-import 'package:my_coins/app/shared/services/client_http_service.dart';
-import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
+import '../interface/coin_repository_interface.dart';
+import '../models/coins_model.dart';
+import '../services/client_http_service.dart';
+import '../util/value/const_srtring_url.dart';
 
 class CoinRepository implements ICoinRepository {
-  final ClientHttpService client;
 
+  final ClientHttpService client;
   CoinRepository(this.client);
 
   @override
-  Future<List<CoinModel>>? getAllCoins() async {
+  Future<List<CoinModel>>? getAllCoins(String siglaCoins) async {
     var response = await client.get(ConstStringUrl.routerAllCoins);
-
     var listCoins;
-
     if (response.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
-      return listCoins =
-          interbleCoins.map((comodel) => 
-          CoinModel.fromJson(comodel['USD'])).toList();
+      return listCoins = interbleCoins
+          .map((comodel) => CoinModel.fromJson(comodel[siglaCoins]))
+          .toList();
     } else {
       return listCoins;
     }

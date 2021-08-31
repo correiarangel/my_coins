@@ -53,7 +53,7 @@ class OptionsButton extends StatelessWidget {
                 MaterialStateProperty.all(Colors.transparent),
             elevation: MaterialStateProperty.all(9.0),
             padding:
-                MaterialStateProperty.all(EdgeInsets.fromLTRB(40, 30, 40, 30)),
+                MaterialStateProperty.all(EdgeInsets.fromLTRB(30, 30, 30, 30)),
             shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),),
             side:  MaterialStateProperty.all(BorderSide(color: ConstColors.colorSkyMagenta))),

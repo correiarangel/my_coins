@@ -18,8 +18,6 @@ class GeneralFunctions implements IGeneralFunctions {
   Future<String?>? getBuildAndVersion() async {
     try {
       var packageInfo = await PackageInfo.fromPlatform();
-      //await _sharedPrefsController.saveVersion("version", '$version+$buildNumber');
-      print("VERSION --- '${packageInfo.version}+${packageInfo.buildNumber}' --");
       return '${packageInfo.version}+${packageInfo.buildNumber}';
     } on Exception catch (_) {
       return '';
@@ -40,5 +38,34 @@ class GeneralFunctions implements IGeneralFunctions {
   String? formatNumber(String num) {
     var numDoub = double.parse(num).toStringAsFixed(2);
     return numDoub.toString();
+  }
+
+  @override
+  String realToDollar(String? priceCoin) {
+    String? res = "";
+    if (priceCoin != null) {
+      res = formatNumber((1 / double.parse(priceCoin)).toString());
+    }
+    return res!;
+  }
+
+  @override
+  String calcRealToDollar(String? priceCoin, String? valueToConvert) {
+    String? res = "";
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
+      res = formatNumber(result.toString());
+    }
+    return res!;
+  }
+
+  @override
+  String calcDollarToReal(String? priceCoin) {
+    String? res = "";
+    if (priceCoin != null) {
+      res = formatNumber((1 / double.parse(priceCoin)).toString());
+    }
+    return res!;
   }
 }
