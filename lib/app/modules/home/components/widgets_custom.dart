@@ -56,7 +56,7 @@ class WidGetCustm {
   }
 
   Container buildHeader(String? titulo, BuildContext _context,
-      {required String?screen}) {
+      {required String? screen}) {
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 32.0),
       decoration: BoxDecoration(
@@ -129,7 +129,7 @@ class WidGetCustm {
               return circularProgress;
             } else {
               var listCoins = controller.coins?.value;
-             
+
               return Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: CardCustom(
@@ -177,7 +177,7 @@ class WidGetCustm {
             } else if (controller.coins?.value == null) {
               return circularProgress;
             } else {
-
+              controller.changesTextValidat('0');
               return CardCoinConvert(
                   coins: controller.coins?.value,
                   index: 0,

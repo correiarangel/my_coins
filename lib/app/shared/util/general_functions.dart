@@ -41,19 +41,21 @@ class GeneralFunctions implements IGeneralFunctions {
   }
 
   @override
-  String realToDollar(String? priceCoin) {
+  String realToCoin(String? priceCoin) {
     String? res = "";
     if (priceCoin != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
       res = formatNumber((1 / double.parse(priceCoin)).toString());
     }
     return res!;
   }
 
   @override
-  String calcRealToDollar(String? priceCoin, String? valueToConvert) {
+  String? calcRealToCoin(String? priceCoin, String? valueToConvert) {
     String? res = "";
     var result;
     if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
       result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
       res = formatNumber(result.toString());
     }
@@ -61,11 +63,45 @@ class GeneralFunctions implements IGeneralFunctions {
   }
 
   @override
-  String calcDollarToReal(String? priceCoin) {
+  String? calcRealToBitCoin(String? priceCoin, String? valueToConvert) {
     String? res = "";
-    if (priceCoin != null) {
-      res = formatNumber((1 / double.parse(priceCoin)).toString());
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
+      result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
+      res = double.parse(result.toString()).toStringAsFixed(5);
     }
-    return res!;
+    return res;
+  }
+
+
+  @override
+  String? calcCoinToReal(String? priceCoin,String? valueToConvert) {
+    String? res = "";
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
+      result = double.parse(priceCoin) * int.parse(valueToConvert);
+      res = double.parse(result.toString()).toStringAsFixed(2);
+    }
+    return res;
+  }
+
+   @override
+  String? calcBitCoinToReal(String? priceCoin,String? valueToConvert) {
+    String? res = "";
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
+      result = double.parse(priceCoin) * int.parse(valueToConvert);
+      res = double.parse(result.toString()).toStringAsFixed(5);
+    }
+    return res;
+  }
+
+  @override
+  String? formatNumberBr(String number) {
+    var numDoub = double.parse(number).toStringAsFixed(2);
+    return numDoub.toString().replaceAll(".", ",");
   }
 }

@@ -29,7 +29,7 @@ class CardCustom extends StatelessWidget {
     controller.changesPriceCoin(priceCoin); 
     
     return Padding(
-        padding: EdgeInsets.only(left: 10.0, right: 10.0),
+        padding: EdgeInsets.only(left: 18.0, right: 18.0),
         child: InkWell(
             splashColor: Colors.purpleAccent.withAlpha(80),
             onTap: () {

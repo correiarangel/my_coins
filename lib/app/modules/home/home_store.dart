@@ -108,10 +108,11 @@ abstract class HomeStoreBase with Store {
   changesProgressLink(bool value) => progressLink = value;
 
   @computed
+  // ignore: unnecessary_null_comparison
   bool get isValid => valueToConvert == null;
 
   String? valueToConvert() {
-    if (validatConvetion == null || validatConvetion!.isEmpty) {
+    if (textValidat == null || textValidat!.isEmpty) {
       return "É obrigatorio um valor para conversão";
     } else {
       changesValueConvertion();
@@ -120,17 +121,19 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  String? validatConvetion;
+  String? textValidat = '0';
   @action
-  changesValidatConvertion(String? value) {
-    return validatConvetion = value;
+  changesTextValidat(String? value) {
+    print(
+        "Chegou no controller @@@@@  -> $value, \n  Eu acredito em mim Choppin !");
+    return textValidat = value;
   }
 
   @observable
   String? priceCoin = "0";
   @action
   changesPriceCoin(String? value) {
-    priceCoin = genFunctions.formatNumber(value!);
+    priceCoin = genFunctions.formatNumberBr(value!);
     return priceCoin;
   }
 
@@ -138,8 +141,35 @@ abstract class HomeStoreBase with Store {
   String? valueConvertion = "0";
   @action
   changesValueConvertion() {
-    valueConvertion =
-        genFunctions.calcRealToDollar(priceCoin, validatConvetion);
+    if (isReverseConversion) {
+      if (coins != null && coins?.value?[0].code == "BTC") {
+        valueConvertion =
+            genFunctions.calcRealToBitCoin(priceCoin, textValidat);
+      } else {
+        valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
+      }
+    } else {
+      if (coins != null && coins?.value?[0].code == "BTC") {
+        valueConvertion =
+            genFunctions.calcBitCoinToReal(priceCoin, textValidat);
+      } else {
+        valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
+      }
+    }
     return valueConvertion;
+  }
+
+  @observable
+  bool isReverseConversion = true;
+  @action
+  changesIsReverseConversion() {
+
+    if(isReverseConversion){
+      isReverseConversion = false;
+    }else if(isReverseConversion == false){
+      isReverseConversion = true;
+    }
+
+    return isReverseConversion;
   }
 }

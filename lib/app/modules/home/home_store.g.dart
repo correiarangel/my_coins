@@ -181,18 +181,18 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$validatConvetionAtom = Atom(name: 'HomeStoreBase.validatConvetion');
+  final _$textValidatAtom = Atom(name: 'HomeStoreBase.textValidat');
 
   @override
-  String? get validatConvetion {
-    _$validatConvetionAtom.reportRead();
-    return super.validatConvetion;
+  String? get textValidat {
+    _$textValidatAtom.reportRead();
+    return super.textValidat;
   }
 
   @override
-  set validatConvetion(String? value) {
-    _$validatConvetionAtom.reportWrite(value, super.validatConvetion, () {
-      super.validatConvetion = value;
+  set textValidat(String? value) {
+    _$textValidatAtom.reportWrite(value, super.textValidat, () {
+      super.textValidat = value;
     });
   }
 
@@ -223,6 +223,22 @@ mixin _$HomeStore on HomeStoreBase, Store {
   set valueConvertion(String? value) {
     _$valueConvertionAtom.reportWrite(value, super.valueConvertion, () {
       super.valueConvertion = value;
+    });
+  }
+
+  final _$isReverseConversionAtom =
+      Atom(name: 'HomeStoreBase.isReverseConversion');
+
+  @override
+  bool get isReverseConversion {
+    _$isReverseConversionAtom.reportRead();
+    return super.isReverseConversion;
+  }
+
+  @override
+  set isReverseConversion(bool value) {
+    _$isReverseConversionAtom.reportWrite(value, super.isReverseConversion, () {
+      super.isReverseConversion = value;
     });
   }
 
@@ -312,11 +328,11 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesValidatConvertion(String? value) {
+  dynamic changesTextValidat(String? value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
-        name: 'HomeStoreBase.changesValidatConvertion');
+        name: 'HomeStoreBase.changesTextValidat');
     try {
-      return super.changesValidatConvertion(value);
+      return super.changesTextValidat(value);
     } finally {
       _$HomeStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -345,6 +361,17 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
+  dynamic changesIsReverseConversion() {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.changesIsReverseConversion');
+    try {
+      return super.changesIsReverseConversion();
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 coins: ${coins},
@@ -358,9 +385,10 @@ colorLinkDin: ${colorLinkDin},
 colorLinkGit: ${colorLinkGit},
 colorLinkDoc: ${colorLinkDoc},
 progressLink: ${progressLink},
-validatConvetion: ${validatConvetion},
+textValidat: ${textValidat},
 priceCoin: ${priceCoin},
 valueConvertion: ${valueConvertion},
+isReverseConversion: ${isReverseConversion},
 isValid: ${isValid}
     ''';
   }
