@@ -117,7 +117,7 @@ class WidGetCustm {
                 autofocus: true,
                 icon: Icon(Icons.refresh),
                 label: Text(
-                  "Ops! Erro Click p/ Recarregar !",
+                  "Ops! Click p/ Recarregar !",
                   style: TextStyle(
                       color: ConstColors.colorSkyMagenta, fontSize: 18.0),
                 ),
@@ -166,7 +166,7 @@ class WidGetCustm {
                 autofocus: true,
                 icon: Icon(Icons.refresh),
                 label: Text(
-                  "Ops! erro Click p/ Recarregar !",
+                  "Ops! Click p/ Recarregar !",
                   style: TextStyle(
                       color: ConstColors.colorSkyMagenta, fontSize: 18.0),
                 ),

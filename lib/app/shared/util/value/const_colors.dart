@@ -19,6 +19,5 @@ class ConstColors {
  * https://coolors.co/545c73-6c7484-665992-9ca4ac-
  * 827898-f5f5f4-383b5b-d863bb-cccccc-6a6377
  * 
- * https://coolors.co/545c73-6c7484-665992-9ca4ac-
- * bd92f9-f5f5f4-383b5b-d863bb-cccccc-6a6377
+ * https://coolors.co/545c73-6c7484-665992-9ca4ac-bd92f9-f5f5f4-383b5b-d863bb-cccccc-6a6377
  */
