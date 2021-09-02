@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:my_coins/app/modules/home/components/card_siglas.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 import 'card_coin_convert.dart';
-import '../home_store.dart';
+import '../controllers/home_store.dart';
 import '../../../shared/models/coins_parc_model.dart';
 import '../../../shared/util/value/const_srtring.dart';
 
@@ -189,7 +190,7 @@ class WidGetCustm {
     ));
   }
 
-  Widget buildBodyAbout(context) {
+  Widget buildBodyAbout(context ,RateMyApp rateMyApp,mounted) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -197,7 +198,11 @@ class WidGetCustm {
         children: <Widget>[
           buildHeader("My Coins", context, screen: 'about'),
           const SizedBox(height: 30.0),
-          CardAbout(controller: controller),
+          CardAbout(
+            controller: controller,
+            rateMyApp: rateMyApp,
+            mounted: mounted,
+          ),
           const SizedBox(height: 21.0),
         ],
       ),
@@ -239,14 +244,14 @@ class WidGetCustm {
     );
   }
 
-  Widget? buildBody(context) {
+  Widget? buildBody(context,RateMyApp rateMyApp,mounted) {
     switch (controller.currentIndex) {
       case 0:
         return buildBodyCotation(context);
       case 1:
         return buildBodyCovert(context);
       case 2:
-        return buildBodyAbout(context);
+        return buildBodyAbout(context,rateMyApp,mounted);
     }
   }
 

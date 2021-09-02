@@ -1,8 +1,11 @@
 import 'dart:io';
+
 /// יְהֹוָה my create
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:my_coins/app/modules/home/components/link_evaluation.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
@@ -14,9 +17,16 @@ import 'widgets_custom.dart';
 class CardAbout extends StatelessWidget {
   final widGetCustm = WidGetCustm();
   final controller;
+  final RateMyApp rateMyApp;
+  final mounted;
 
-  CardAbout({Key? key, required this.controller}) : super(key: key);
-  
+  CardAbout(
+      {Key? key,
+      required this.controller,
+      required this.rateMyApp,
+      required this.mounted})
+      : super(key: key);
+
   setVersion() {
     String v = "1.0.0+1";
     if (Platform.isAndroid || Platform.isIOS) {
@@ -59,6 +69,36 @@ class CardAbout extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(
+                    Icons.info,
+                    color: ConstColors.colorDarkBlueGray,
+                    size: 28.00,
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    "Info",
+                    style: TextStyle(
+                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              Padding(
+                  padding: EdgeInsets.only(left: 4.0, right: 4.0, top: 18.0),
+                  child: Text(
+                    "O App My Coins foi desenvolvido para consultar e exibir,"
+                    "dados cambiais, cotação de moédas de varios paises, "
+                    "e moédas digitais como BitCoin, Ethereum e outras.\n"
+                    "Com visual simple amigavel e cores inspiradas no "
+                    "consolidado thema Dracula.",
+                    style: TextStyle(
+                        color: ConstColors.colorLavenderFloral, fontSize: 20.0),
+                    textAlign: TextAlign.center,
+                  )),
+               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
                     Icons.design_services,
                     color: ConstColors.colorDarkBlueGray,
                     size: 28.00,
@@ -81,32 +121,34 @@ class CardAbout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  //coin
+
                   Icon(
-                    Icons.info,
+                    Icons.event_available_rounded,
                     color: ConstColors.colorDarkBlueGray,
-                    size: 28.00,
+                    size: 28.0,
                   ),
                   SizedBox(width: 10.0),
                   Text(
-                    "Info",
+                    "Avaliar",
                     style: TextStyle(
                         color: ConstColors.colorLigthGray, fontSize: 28.0),
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),
-              Padding(
-                  padding: EdgeInsets.only(left: 4.0, right: 4.0,top: 18.0),
-                  child: Text(
-                    "O App My Coins desenvolvido para consultar e exibir,"
-                    "dados cambiais, cotação de moédas de varios paises, "
-                    "e moédas digitais como BitCoin, Ethereum e outras.\n"
-                    "Com visual simple e amigavel com seu thema inspirado no "
-                    "consolidado thema Dracula.\n",
-                    style: TextStyle(
-                        color: ConstColors.colorLavenderFloral, fontSize: 20.0),
-                    textAlign: TextAlign.center,
-                  )),
+              const SizedBox(width: 18.0),
+              LinkEvaluation(
+                  icon: Icons.event_available_outlined,
+                  iconcor: ConstColors.colorDarkBlueGray,
+                  iconSize: 30,
+                  textSize: 18.0,
+                  textCor: controller.colorLinkEvaluation,
+                  text: 'Avaliar aplicativo',
+                  rigth: 10.0,
+                  left: 10.0,
+                  rateMyApp: rateMyApp,
+                  mounted: mounted), 
               sizeBoxDivisor,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,11 +170,11 @@ class CardAbout extends StatelessWidget {
                 ],
               ),
               Padding(
-                  padding: EdgeInsets.only(left: 4.0, right: 4.0,top:18.0),
+                  padding: EdgeInsets.only(left: 4.0, right: 4.0, top: 18.0),
                   child: Text(
                     "Marcos Rangel, desenvolvedor móbile Flutter.\n"
                     "Flutte é uma poderosa ferramenta para o desenvolvimento,\n"
-                    "Mobile,Web e Desktop, documentação nos links abaixo:\n",
+                    "Móbile, Web e Desktop, documentação nos links abaixo.\n",
                     style: TextStyle(
                         color: ConstColors.colorLavenderFloral, fontSize: 20.0),
                     textAlign: TextAlign.center,
@@ -183,7 +225,7 @@ class CardAbout extends StatelessWidget {
                 left: 10.0,
                 url: ConstStringUrl.urlLinkDin,
               ),
-             // sizeBoxDivisor,
+              // sizeBoxDivisor,
               LinkCustom(
                   icon: Icons.category,
                   iconcor: ConstColors.colorDarkBlueGray,

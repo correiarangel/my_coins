@@ -74,6 +74,18 @@ class GeneralFunctions implements IGeneralFunctions {
     return res;
   }
 
+    @override
+  String? calcRealToLiteCoin(String? priceCoin, String? valueToConvert) {
+    String? res = "";
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
+      result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
+      res = double.parse(result.toString()).toStringAsFixed(3);
+    }
+    return res;
+  }
+
 
   @override
   String? calcCoinToReal(String? priceCoin,String? valueToConvert) {
@@ -87,7 +99,7 @@ class GeneralFunctions implements IGeneralFunctions {
     return res;
   }
 
-   @override
+  @override
   String? calcBitCoinToReal(String? priceCoin,String? valueToConvert) {
     String? res = "";
     var result;
@@ -95,6 +107,18 @@ class GeneralFunctions implements IGeneralFunctions {
       priceCoin = priceCoin.replaceAll(",", ".");
       result = double.parse(priceCoin) * int.parse(valueToConvert);
       res = double.parse(result.toString()).toStringAsFixed(5);
+    }
+    return res;
+  }
+
+  @override
+  String? calcLiteCoinToReal(String? priceCoin,String? valueToConvert) {
+    String? res = "";
+    var result;
+    if (priceCoin != null && valueToConvert != null) {
+      priceCoin = priceCoin.replaceAll(",", ".");
+      result = double.parse(priceCoin) * int.parse(valueToConvert);
+      res = double.parse(result.toString()).toStringAsFixed(3);
     }
     return res;
   }

@@ -166,6 +166,22 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  final _$colorLinkEvaluationAtom =
+      Atom(name: 'HomeStoreBase.colorLinkEvaluation');
+
+  @override
+  Color? get colorLinkEvaluation {
+    _$colorLinkEvaluationAtom.reportRead();
+    return super.colorLinkEvaluation;
+  }
+
+  @override
+  set colorLinkEvaluation(Color? value) {
+    _$colorLinkEvaluationAtom.reportWrite(value, super.colorLinkEvaluation, () {
+      super.colorLinkEvaluation = value;
+    });
+  }
+
   final _$progressLinkAtom = Atom(name: 'HomeStoreBase.progressLink');
 
   @override
@@ -317,6 +333,17 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
+  dynamic changesColorLinkEvaluation() {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.changesColorLinkEvaluation');
+    try {
+      return super.changesColorLinkEvaluation();
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic changesProgressLink(bool value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesProgressLink');
@@ -384,6 +411,7 @@ colorLinkEmail: ${colorLinkEmail},
 colorLinkDin: ${colorLinkDin},
 colorLinkGit: ${colorLinkGit},
 colorLinkDoc: ${colorLinkDoc},
+colorLinkEvaluation: ${colorLinkEvaluation},
 progressLink: ${progressLink},
 textValidat: ${textValidat},
 priceCoin: ${priceCoin},

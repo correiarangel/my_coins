@@ -8,11 +8,13 @@ import '../../../shared/util/value/const_colors.dart';
 import 'widgets_custom.dart';
 
 class CardSiglas extends StatelessWidget {
+  
   final genFunctions = Modular.get<IGeneralFunctions>();
   final widGetCustm = WidGetCustm();
   final List<CoinParcModel>? coins;
   final int index;
   final controller;
+
   CardSiglas(
       {Key? key,
       required this.coins,

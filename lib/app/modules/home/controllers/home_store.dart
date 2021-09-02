@@ -6,10 +6,10 @@ import 'package:mobx/mobx.dart';
 import 'package:my_coins/app/shared/util/value/const_srtring.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../shared/models/coins_model.dart';
-import '../../shared/repository/coin_repository.dart';
-import '../../shared/util/general_functions.dart';
-import '../../shared/util/value/const_colors.dart';
+import '../../../shared/models/coins_model.dart';
+import '../../../shared/repository/coin_repository.dart';
+import '../../../shared/util/general_functions.dart';
+import '../../../shared/util/value/const_colors.dart';
 
 part 'home_store.g.dart';
 
@@ -80,6 +80,8 @@ abstract class HomeStoreBase with Store {
   Color? colorLinkGit = ConstColors.colorLavenderFloral;
   @observable
   Color? colorLinkDoc = ConstColors.colorLavenderFloral;
+  
+  
   @action
   changesColorLink(String text) {
     switch (text) {
@@ -96,6 +98,13 @@ abstract class HomeStoreBase with Store {
         colorLinkDoc = ConstColors.colorSkyMagenta;
         break;
     }
+  }
+
+  @observable
+  Color? colorLinkEvaluation = ConstColors.colorLavenderFloral;
+  @action
+  changesColorLinkEvaluation() {
+     return  colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
   setFalseProgress() {
@@ -141,18 +150,28 @@ abstract class HomeStoreBase with Store {
   String? valueConvertion = "0";
   @action
   changesValueConvertion() {
+    var code = coins?.value?[0].code;
     if (isReverseConversion) {
-      if (coins != null && coins?.value?[0].code == "BTC") {
+      
+      if (coins != null && code == "BTC" ) {
         valueConvertion =
             genFunctions.calcRealToBitCoin(priceCoin, textValidat);
+      }if (coins != null && code == "LTC") {
+        valueConvertion =
+            genFunctions.calcRealToLiteCoin(priceCoin, textValidat);
       } else {
         valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
       }
+    
     } else {
-      if (coins != null && coins?.value?[0].code == "BTC") {
+
+      if (coins != null && code == "BTC") {
         valueConvertion =
             genFunctions.calcBitCoinToReal(priceCoin, textValidat);
-      } else {
+      }else if (coins != null && code == "LTC") {
+        valueConvertion =
+            genFunctions.calcLiteCoinToReal(priceCoin, textValidat);
+      }else {
         valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
       }
     }
@@ -163,10 +182,9 @@ abstract class HomeStoreBase with Store {
   bool isReverseConversion = true;
   @action
   changesIsReverseConversion() {
-
-    if(isReverseConversion){
+    if (isReverseConversion) {
       isReverseConversion = false;
-    }else if(isReverseConversion == false){
+    } else if (isReverseConversion == false) {
       isReverseConversion = true;
     }
 

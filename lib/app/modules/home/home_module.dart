@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../shared/interface/coin_repository_interface.dart';
 import '../../shared/repository/coin_repository.dart';
-import '../home/home_store.dart'; 
+import 'controllers/home_store.dart'; 
 
 import 'home_page.dart';
  

@@ -9,4 +9,6 @@ abstract class IGeneralFunctions {
   String? calcCoinToReal(String? priceCoin, String? valueToConvert) {}
   String? calcRealToBitCoin(String? priceCoin, String? valueToConvert) {}
   String? calcBitCoinToReal(String? priceCoin, String? valueToConvert) {}
+  String? calcLiteCoinToReal(String? priceCoin, String? valueToConvert) {}
+  String? calcRealToLiteCoin(String? priceCoin, String? valueToConvert) {}
 }

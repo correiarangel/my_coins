@@ -26,8 +26,8 @@ class CardCustom extends StatelessWidget {
     String? date =
         genFunctions.toBrazilTime(coins?[index].createDate.toString());
     String? priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
-    controller.changesPriceCoin(priceCoin); 
-    
+    controller.changesPriceCoin(priceCoin);
+
     return Padding(
         padding: EdgeInsets.only(left: 18.0, right: 18.0),
         child: InkWell(
@@ -60,7 +60,7 @@ class CardCustom extends StatelessWidget {
                     Text(
                       "Dados coletados em :",
                       style: TextStyle(
-                        color:ConstColors.colorLigthGray,
+                        color: ConstColors.colorLigthGray,
                         fontSize: 22.0,
                       ),
                     ),
@@ -148,7 +148,7 @@ class CardCustom extends StatelessWidget {
                         //name
                         Text(
                           "1 : ${coins?[index].code} Custa\n"
-                          " R\$ : $priceCoin",
+                          " R\$ : ${priceCoin!.replaceAll(".", ",")}",
                           style: TextStyle(
                               color: ConstColors.colorLavenderFloral,
                               fontSize: 28.0),
