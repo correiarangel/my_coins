@@ -6,10 +6,9 @@
 
 # my_coins
 
-    Simple consultation of the currency quote 
-        
-	Developed in Flatter with concept of clean architecture, unit test.
-	It should consume data from a simple API and display in listView. 
+	Simple query for quotes for cabios, dollars, euros and cryptocurrencies
+	Developed in Flatter with a clean architecture concept, and unit testing.
+	The App should consume data from a simple API and display in customized listView. 
 
 ## Getting Started
 
