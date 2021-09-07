@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:my_coins/app/page/splash_page.dart';
-import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
-import 'package:my_coins/app/shared/util/general_functions.dart';
-
 import 'modules/home/home_module.dart';
+import 'page/splash_page.dart';
 import 'shared/interface/client_http_interface.dart';
 import 'shared/interface/general_functions_interface.dart';
+import 'shared/interface/test_internet_interface.dart';
 import 'shared/services/client_http_service.dart';
+import 'shared/util/general_functions.dart';
+import 'shared/util/test_internet.dart';
+import 'shared/util/value/const_srtring_url.dart';
 
 class AppModule extends Module {
   @override
@@ -23,6 +24,7 @@ class AppModule extends Module {
             }))),
     Bind<IClientHttp>((i) => ClientHttpService(i.get())),
     Bind<IGeneralFunctions>((i) => GeneralFunctions()),
+    Bind<ITestInternet>((i)=> TestInternet()),
   ];
 
   @override

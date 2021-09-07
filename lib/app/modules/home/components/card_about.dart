@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:my_coins/app/modules/home/components/link_evaluation.dart';
+import 'link_evaluation.dart';
+import '../controllers/rate_my_app_controller.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_colors.dart';
@@ -15,16 +16,16 @@ import 'widgets_custom.dart';
 
 // ignore: must_be_immutable
 class CardAbout extends StatelessWidget {
+  final RateMyAppController rateMyAppController;
   final widGetCustm = WidGetCustm();
   final controller;
   final RateMyApp rateMyApp;
-  final mounted;
 
   CardAbout(
       {Key? key,
       required this.controller,
       required this.rateMyApp,
-      required this.mounted})
+      required this.rateMyAppController})
       : super(key: key);
 
   setVersion() {
@@ -94,7 +95,8 @@ class CardAbout extends StatelessWidget {
                         color: ConstColors.colorLavenderFloral, fontSize: 20.0),
                     textAlign: TextAlign.center,
                   )),
-               Row(
+              sizeBoxDivisor,
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -103,7 +105,7 @@ class CardAbout extends StatelessWidget {
                     color: ConstColors.colorDarkBlueGray,
                     size: 28.00,
                   ),
-                  SizedBox(width: 10.0),
+                  const SizedBox(width: 10.0),
                   Observer(
                     builder: (context) {
                       return Text(
@@ -137,18 +139,19 @@ class CardAbout extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(width: 18.0),
+              const SizedBox(height: 18.0),
               LinkEvaluation(
-                  icon: Icons.event_available_outlined,
-                  iconcor: ConstColors.colorDarkBlueGray,
-                  iconSize: 30,
-                  textSize: 18.0,
-                  textCor: controller.colorLinkEvaluation,
-                  text: 'Avaliar aplicativo',
-                  rigth: 10.0,
-                  left: 10.0,
-                  rateMyApp: rateMyApp,
-                  mounted: mounted), 
+                icon: Icons.event_available_outlined,
+                iconcor: ConstColors.colorDarkBlueGray,
+                iconSize: 30,
+                textSize: 18.0,
+                textCor: controller.colorLinkEvaluation,
+                text: 'Avaliar aplicativo',
+                rigth: 10.0,
+                left: 10.0,
+                rateMyApp: rateMyApp,
+                rateMyAppController: rateMyAppController,
+              ),
               sizeBoxDivisor,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

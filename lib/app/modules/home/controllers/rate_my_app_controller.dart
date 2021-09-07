@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_coins/app/shared/util/value/constants_id_app.dart';
@@ -8,8 +7,11 @@ import 'package:rate_my_app/rate_my_app.dart';
 import 'package:launch_review/launch_review.dart';
 
 class RateMyAppController {
-  
-  void initRate(RateMyApp rateMyApp, BuildContext context, mounted) async {
+  final mounted;
+
+  RateMyAppController({required this.mounted});
+
+  void initRate(RateMyApp rateMyApp, BuildContext context) async {
     //debugPrint("##---### @@@@@@@@@ INIT Rate");
 
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
@@ -104,7 +106,6 @@ class RateMyAppController {
     debugPrint('## ## Relembrar Launches: ${minimumLaunches.remindLaunches}');
     debugPrint('## ## Open Rating Again? $openRatingAgain');
   }  */
-
 
 /*
   void dailogStar(RateMyApp rateMyApp, BuildContext context) {

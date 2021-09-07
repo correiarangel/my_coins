@@ -190,7 +190,7 @@ class WidGetCustm {
     ));
   }
 
-  Widget buildBodyAbout(context ,RateMyApp rateMyApp,mounted) {
+  Widget buildBodyAbout(context ,RateMyApp rateMyApp,rateMyAppController) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +201,7 @@ class WidGetCustm {
           CardAbout(
             controller: controller,
             rateMyApp: rateMyApp,
-            mounted: mounted,
+            rateMyAppController:rateMyAppController,
           ),
           const SizedBox(height: 21.0),
         ],
@@ -244,14 +244,14 @@ class WidGetCustm {
     );
   }
 
-  Widget? buildBody(context,RateMyApp rateMyApp,mounted) {
+  Widget? buildBody(context,RateMyApp rateMyApp,rateMyAppController) {
     switch (controller.currentIndex) {
       case 0:
         return buildBodyCotation(context);
       case 1:
         return buildBodyCovert(context);
       case 2:
-        return buildBodyAbout(context,rateMyApp,mounted);
+        return buildBodyAbout(context,rateMyApp,rateMyAppController);
     }
   }
 

@@ -6,7 +6,6 @@ import '../controllers/home_store.dart';
 
 // ignore: must_be_immutable
 class LinkEvaluation extends StatelessWidget {
-  final rateMyAppController = RateMyAppController();
   final controller = Modular.get<HomeStore>();
   final IconData icon;
   final Color iconcor;
@@ -17,19 +16,20 @@ class LinkEvaluation extends StatelessWidget {
   final double rigth;
   final double left;
   final RateMyApp rateMyApp;
-  final mounted;
+  final RateMyAppController rateMyAppController;
 
-  LinkEvaluation(
-      {required this.icon,
-      required this.iconcor,
-      required this.iconSize,
-      required this.textSize,
-      required this.textCor,
-      required this.text,
-      required this.rigth,
-      required this.left,
-      required this.rateMyApp,
-      required this.mounted});
+  LinkEvaluation({
+    required this.icon,
+    required this.iconcor,
+    required this.iconSize,
+    required this.textSize,
+    required this.textCor,
+    required this.text,
+    required this.rigth,
+    required this.left,
+    required this.rateMyApp,
+    required this.rateMyAppController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class LinkEvaluation extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           controller.changesColorLinkEvaluation();
-          rateMyAppController.initRate(rateMyApp, context, mounted);
+          rateMyAppController.initRate(rateMyApp, context);
           rateMyAppController.setLauchRate(rateMyApp);
         },
         child: Container(
