@@ -4,8 +4,9 @@
 <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]</a> 
 <br><br>
+
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="Marcos Rangel' YouTube" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtude.svg" /> Video </a>
+  <img align="left" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtude.svg" /> Video </a>
 
 # my_coins
 
