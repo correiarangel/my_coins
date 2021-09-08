@@ -5,7 +5,7 @@
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]</a> 
 <br><br>
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="Video do aplicativo My Coins" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/yuotude.svg" /> Video </a>
+  <img align="left" alt="Marcos Rangel' YouTube" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtude.svg" /> Video </a>
 
 # my_coins
 
