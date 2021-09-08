@@ -6,7 +6,7 @@
 <br><br>
   
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="Video aplicativo" width="22px" src="https://img.shields.io/badge/youtube-%23ED8B00.svg?style=for-the-badge&logo=youtube&logoColor=white" /> Video </a>
+  <img align="left" alt="Video aplicativo" width="30px" src="https://img.shields.io/badge/youtube-%ff0000.svg?style=for-the-badge&logo=youtube&logoColor=white" /> Video </a>
   
 
 # my_coins
