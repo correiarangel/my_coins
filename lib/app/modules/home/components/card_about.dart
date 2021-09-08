@@ -241,6 +241,39 @@ class CardAbout extends StatelessWidget {
                   left: 10.0,
                   url: ConstStringUrl.urlGuitHub),
               sizeBoxDivisor,
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //coin
+
+                  Icon(
+                    Icons.local_police_rounded,
+                    color: ConstColors.colorDarkBlueGray,
+                    size: 28.0,
+                  ),
+                  SizedBox(width: 6.0),
+                  Text(
+                    "Política de Privacidade",
+                    style: TextStyle(
+                        color: ConstColors.colorLigthGray, fontSize: 26.0),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+              LinkCustom(
+                  icon: Icons.policy,
+                  iconcor: ConstColors.colorDarkBlueGray,
+                  iconSize: 30,
+                  textSize: 18.0,
+                  textCor: controller.colorLinkPolicy,
+                  text: ConstString.policy,
+                  top: 18.0,
+                  rigth: 10.0,
+                  left: 10.0,
+                  url: ConstStringUrl.urlPrivacyPolicy),
+              sizeBoxDivisor,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,

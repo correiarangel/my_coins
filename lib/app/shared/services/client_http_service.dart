@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:dio/dio.dart';
 import 'package:my_coins/app/shared/interface/client_http_interface.dart';
@@ -10,7 +10,7 @@ class ClientHttpService implements IClientHttp {
 
   @override
   Future delete(String url, String id) {
-    // TODO: implement delete
+  
     throw UnimplementedError();
   }
 
@@ -26,12 +26,14 @@ class ClientHttpService implements IClientHttp {
 
   @override
   Future patch(String url, value) {
+    // ignore: todo
     // TODO: implement patch
     throw UnimplementedError();
   }
 
   @override
   Future post(String url, FormData param, String keyRouter) {
+    // ignore: todo
     // TODO: implement post
     throw UnimplementedError();
   }

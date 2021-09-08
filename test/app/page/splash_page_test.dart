@@ -25,7 +25,7 @@ main() {
       expect(find.byType(Center), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
-      expect(find.text("My Coins Cotação de moédas"), findsNWidgets(1));
+      expect(find.text("My Coins Cotação de moedas"), findsNWidgets(1));
       expect(find.byType(SizedBox), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });

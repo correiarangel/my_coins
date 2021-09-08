@@ -10,6 +10,9 @@ class ConstStringUrl {
   static const String urlLinkDin =
       "https://www.linkedin.com/in/marcos-fabiano-correia-rangel/";
   static const String urlGuitHub = "https://github.com/correiarangel";
-static const String urlDocFlutter =
-  "https://flutter.dev/?gclid=Cj0KCQjwvaeJBhCvARIsABgTDM5MHGfYKe8rhBTbuTS7WKt8qjxDf32_nxffm6GXxSTXawei6hCKPc0aAlIXEALw_wcB&gclsrc=aw.ds";
+  static const String urlDocFlutter =
+      "https://flutter.dev/?gclid=Cj0KCQjwvaeJBhCvARIsABgTDM5MHGfYKe8rhBTbuTS7WKt8qjxDf32_nxffm6GXxSTXawei6hCKPc0aAlIXEALw_wcB&gclsrc=aw.ds";
+
+  static const String urlPrivacyPolicy =
+      "https://github.com/correiarangel/my_coins/blob/main/privacy_policy.md#policeprivacy";
 }

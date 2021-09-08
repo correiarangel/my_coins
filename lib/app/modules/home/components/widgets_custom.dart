@@ -177,7 +177,7 @@ class WidGetCustm {
         buildHeader("My Coins", context, screen: 'quotation'),
         SizedBox(height: 28.0),
         Text(
-          "Cambios, escolha a moéda:",
+          "Cambios, escolha a moeda:",
           style: TextStyle(
               color: ConstColors.colorDarkBlueGray,
               fontSize: 22.0,
@@ -214,7 +214,7 @@ class WidGetCustm {
         buildHeader("My Coins", context, screen: 'convert'),
         SizedBox(height: 28.0),
         Text(
-          "Converter Moéda",
+          "Converter Moeda",
           style: TextStyle(
               color: ConstColors.colorDarkBlueGray,
               fontSize: 22.0,

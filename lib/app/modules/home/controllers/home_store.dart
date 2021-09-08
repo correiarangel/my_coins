@@ -29,13 +29,12 @@ abstract class HomeStoreBase with Store {
     fetchCoins(itemSelect);
     changeVersion();
   }
-  
+
   @action
   fetchCoins(String? typeConin) {
     if (typeConin == null) typeConin = 'USD';
-      coins = repository.getAllCoins(typeConin)?.asObservable();
-      changeDateUpgrade("${coins?.value?[0].createDate}");
-
+    coins = repository.getAllCoins(typeConin)?.asObservable();
+    changeDateUpgrade("${coins?.value?[0].createDate}");
   }
 
   @observable
@@ -83,6 +82,8 @@ abstract class HomeStoreBase with Store {
   Color? colorLinkGit = ConstColors.colorLavenderFloral;
   @observable
   Color? colorLinkDoc = ConstColors.colorLavenderFloral;
+  @observable
+  Color? colorLinkPolicy = ConstColors.colorLavenderFloral;
 
   @action
   changesColorLink(String text) {
@@ -99,6 +100,8 @@ abstract class HomeStoreBase with Store {
       case ConstString.docFlutter:
         colorLinkDoc = ConstColors.colorSkyMagenta;
         break;
+      case ConstString.policy:
+        colorLinkPolicy = ConstColors.colorSkyMagenta;
     }
   }
 
@@ -152,24 +155,23 @@ abstract class HomeStoreBase with Store {
   changesValueConvertion() {
     var code = coins?.value?[0].code;
     if (isReverseConversion) {
-      if (coins != null && code == "BTC") {
+      if (code == "BTC") {
         valueConvertion =
             genFunctions.calcRealToBitCoin(priceCoin, textValidat);
-      }
-      if (coins != null && code == "LTC") {
+      } else if (code == "LTC" || code == "ETH") {
         valueConvertion =
             genFunctions.calcRealToLiteCoin(priceCoin, textValidat);
-      } else {
+      } else if (code != null) {
         valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
       }
     } else {
-      if (coins != null && code == "BTC") {
+      if (code == "BTC") {
         valueConvertion =
             genFunctions.calcBitCoinToReal(priceCoin, textValidat);
-      } else if (coins != null && code == "LTC") {
+      } else if (code == "LTC" || code == "ETH") {
         valueConvertion =
             genFunctions.calcLiteCoinToReal(priceCoin, textValidat);
-      } else {
+      } else if (code != null) {
         valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
       }
     }
@@ -193,5 +195,4 @@ abstract class HomeStoreBase with Store {
   var isNet;
   @action
   changesIsNet() async => isNet = await testInternet.isInternet();
-  
 }

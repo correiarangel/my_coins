@@ -166,6 +166,21 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  final _$colorLinkPolicyAtom = Atom(name: 'HomeStoreBase.colorLinkPolicy');
+
+  @override
+  Color? get colorLinkPolicy {
+    _$colorLinkPolicyAtom.reportRead();
+    return super.colorLinkPolicy;
+  }
+
+  @override
+  set colorLinkPolicy(Color? value) {
+    _$colorLinkPolicyAtom.reportWrite(value, super.colorLinkPolicy, () {
+      super.colorLinkPolicy = value;
+    });
+  }
+
   final _$colorLinkEvaluationAtom =
       Atom(name: 'HomeStoreBase.colorLinkEvaluation');
 
@@ -258,6 +273,21 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  final _$isNetAtom = Atom(name: 'HomeStoreBase.isNet');
+
+  @override
+  dynamic get isNet {
+    _$isNetAtom.reportRead();
+    return super.isNet;
+  }
+
+  @override
+  set isNet(dynamic value) {
+    _$isNetAtom.reportWrite(value, super.isNet, () {
+      super.isNet = value;
+    });
+  }
+
   final _$changeVersionAsyncAction = AsyncAction('HomeStoreBase.changeVersion');
 
   @override
@@ -272,6 +302,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   Future changesItenSelect(String? value) {
     return _$changesItenSelectAsyncAction
         .run(() => super.changesItenSelect(value));
+  }
+
+  final _$changesIsNetAsyncAction = AsyncAction('HomeStoreBase.changesIsNet');
+
+  @override
+  Future changesIsNet() {
+    return _$changesIsNetAsyncAction.run(() => super.changesIsNet());
   }
 
   final _$HomeStoreBaseActionController =
@@ -411,12 +448,14 @@ colorLinkEmail: ${colorLinkEmail},
 colorLinkDin: ${colorLinkDin},
 colorLinkGit: ${colorLinkGit},
 colorLinkDoc: ${colorLinkDoc},
+colorLinkPolicy: ${colorLinkPolicy},
 colorLinkEvaluation: ${colorLinkEvaluation},
 progressLink: ${progressLink},
 textValidat: ${textValidat},
 priceCoin: ${priceCoin},
 valueConvertion: ${valueConvertion},
 isReverseConversion: ${isReverseConversion},
+isNet: ${isNet},
 isValid: ${isValid}
     ''';
   }

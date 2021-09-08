@@ -27,6 +27,7 @@ class TestInternet implements ITestInternet {
       //throw SocketException(e.message);
     }
     finally{
+      // ignore: unnecessary_statements
       isNet == null ? isNet = false:isNet;  
     }
     return isNet;

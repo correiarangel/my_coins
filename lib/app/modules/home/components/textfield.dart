@@ -40,6 +40,7 @@ class TextFielCustom {
               borderSide: BorderSide(color: ConstColors.colorSkyMagenta),),
           contentPadding:
               EdgeInsets.only(bottom: 10.0, top: 20.0, right: 20.0, left: 0.0),
+          // ignore: unnecessary_null_comparison
           errorText: errorText == null ? null : errorText(),
           counterStyle: TextStyle(color: ConstColors.colorLavenderFloral),
         ),

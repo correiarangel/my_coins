@@ -1,5 +1,5 @@
 name: my_coins
-description: Simples consulta a cotação de moédas
+description: Simples consulta a cotação de moedas
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 

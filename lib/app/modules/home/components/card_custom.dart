@@ -109,7 +109,7 @@ class CardCustom extends StatelessWidget {
                     ),
                     sizeBoxDivisor,
                     Text(
-                      "Sigla/Moéda : ",
+                      "Sigla/Moeda : ",
                       style: TextStyle(
                           color: ConstColors.colorLigthGray, fontSize: 22.0),
                       textAlign: TextAlign.center,
