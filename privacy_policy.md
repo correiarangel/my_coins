@@ -1,12 +1,5 @@
 # My Coins App
 
-
-[![wakatime](https://wakatime.com/badge/github/correiarangel/my_coins.svg)](https://wakatime.com/badge/github/correiarangel/my_coins)
-[![GitHub issues](https://img.shields.io/github/issues/correiarangel/my_coins)](https://github.com/correiarangel/my_coins/issues)
-[![GitHub forks](https://img.shields.io/github/forks/correiarangel/my_coins)](https://github.com/correiarangel/my_coins/network)
-[![GitHub stars](https://img.shields.io/github/stars/correiarangel/my_coins)](https://github.com/correiarangel/my_coins/stargazers)
-[![GitHub last commit](https://img.shields.io/github/last-commit/correiarangel/my_coins)](https://github.com/correiarangel/my_coins/commits/master)
-
 -------
 <p align="center">
     <a href="#policeprivacy">Privacy Police [PT-BR]</a>
@@ -79,8 +72,22 @@ Estes Serviços não se dirigem a ninguém com menos de 13 anos de idade. Nós n
 
 podemos actualizar a nossa Política de Privacidade de tempos a tempos. Assim, você é aconselhado a rever esta página periodicamente para quaisquer alterações. Iremos notificá-lo de quaisquer alterações através da publicação da nova Política de Privacidade nesta página. Estas alterações entram em vigor imediatamente após serem publicadas nesta página.
 
+### Compromisso do Usuário
+
+O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o My Coins oferece no site e com caráter enunciativo, mas não limitativo:
+
+   - A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;
+   - B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, ou casas de apostas online, jogos de sorte e azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;
+   - C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do My Coins, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.
+
+### Mais informações
+
+Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.
+
+Esta política é efetiva a partir de Sep/2021.
+
 ### Contacte-nos
 
-Se você tiver alguma dúvida ou sugestão sobre nossa Política de Privacidade, não hesite em entrar em contato conosco pelo e-mail wmdigitaltechs@gmail.com 
+Se você tiver alguma dúvida ou sugestão sobre nossa Política de Privacidade, não hesite em entrar em contato conosco pelo e-mail: wmdigitaltechs@gmail.com 
 
 Esta página de política de privacidade foi criada em [privacypolicytemplate.net](https://privacypolicytemplate.net)
