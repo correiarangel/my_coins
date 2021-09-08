@@ -32,6 +32,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   void initState() {
     rateMyAppController = RateMyAppController(mounted:mounted);
     rateMyAppController.initRate(rateMyApp, context);
+    controller.changesIsNet();
     super.initState();
   }
 

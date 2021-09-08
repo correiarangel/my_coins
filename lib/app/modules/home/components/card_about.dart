@@ -87,10 +87,10 @@ class CardAbout extends StatelessWidget {
                   padding: EdgeInsets.only(left: 4.0, right: 4.0, top: 18.0),
                   child: Text(
                     "O App My Coins foi desenvolvido para consultar e exibir,"
-                    "dados cambiais, cotação de moédas de varios paises, "
-                    "e moédas digitais como BitCoin, Ethereum e outras.\n"
-                    "Com visual simple amigavel e cores inspiradas no "
-                    "consolidado thema Dracula.",
+                    "dados cambiais, cotação de moedas de vários países, "
+                    "e moedas digitais como BitCoin, Ethereum e outras.\n"
+                    "Com visual simples amigável e cores inspiradas no "
+                    "consolidado thema Drácula.",
                     style: TextStyle(
                         color: ConstColors.colorLavenderFloral, fontSize: 20.0),
                     textAlign: TextAlign.center,

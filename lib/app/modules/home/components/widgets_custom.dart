@@ -30,6 +30,64 @@ class WidGetCustm {
     ],
   );
 
+  Widget btnIconError(String title, String msg, IconData icon) {
+    return Center(
+      child: InkWell(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(height: 28.0),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //date
+                  Icon(
+                    icon,
+                    color: ConstColors.colorSkyMagenta,
+                    size: 28.00,
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 18.0),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  msg,
+                  style: TextStyle(
+                    color: ConstColors.colorSkyMagenta,
+                    fontSize: 18.0,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Icon(
+                icon == Icons.wifi_off
+                    ? Icons.restart_alt
+                    : Icons.refresh_rounded,
+                color: ConstColors.colorSkyMagenta,
+                size: 48.00,
+              ),
+              const SizedBox(height: 18.0),
+            ],
+          ),
+        ),
+        onTap: () {
+          controller.fetchCoins(controller.itemSelect!);
+        },
+      ),
+    );
+  }
+
   Widget sizeBoxDivisor() {
     return SizedBox(
       height: 28.0,
@@ -93,6 +151,22 @@ class WidGetCustm {
     );
   }
 
+  Widget isInternetBuild() {
+    Widget? winget;
+    if (controller.isNet == true) {
+      winget = btnIconError("Ops!...", "Click p/ Recarregar !", Icons.refresh);
+    } else if (controller.isNet == false) {
+      final String _msg = "Sem conexão com internet :[\n"
+          "Pedimos desculpas!\n My Coins necessita de internet\n "
+          "para entregar informações sempre atualizados";
+      winget = btnIconError("Ops!...", _msg, Icons.wifi_off);
+    } else {
+      winget =
+          btnIconError("Ops!, Erro", "Click p/ Recarregar !", Icons.refresh);
+    }
+    return winget;
+  }
+
   Widget buildBodyCotation(BuildContext context) {
     //initItensDropdown();
     return SingleChildScrollView(
@@ -113,19 +187,7 @@ class WidGetCustm {
         Observer(
           builder: (context) {
             if (controller.coins?.error != null) {
-              return Center(
-                  child: TextButton.icon(
-                autofocus: true,
-                icon: Icon(Icons.refresh),
-                label: Text(
-                  "Ops! Click p/ Recarregar !",
-                  style: TextStyle(
-                      color: ConstColors.colorSkyMagenta, fontSize: 18.0),
-                ),
-                onPressed: () {
-                  controller.fetchCoins(controller.itemSelect!);
-                },
-              ));
+              return isInternetBuild();
             } else if (controller.coins?.value == null) {
               return circularProgress;
             } else {
@@ -162,19 +224,7 @@ class WidGetCustm {
         Observer(
           builder: (context) {
             if (controller.coins?.error != null) {
-              return Center(
-                  child: TextButton.icon(
-                autofocus: true,
-                icon: Icon(Icons.refresh),
-                label: Text(
-                  "Ops! Click p/ Recarregar !",
-                  style: TextStyle(
-                      color: ConstColors.colorSkyMagenta, fontSize: 18.0),
-                ),
-                onPressed: () {
-                  controller.fetchCoins(controller.itemSelect!);
-                },
-              ));
+              return isInternetBuild();
             } else if (controller.coins?.value == null) {
               return circularProgress;
             } else {
@@ -190,7 +240,7 @@ class WidGetCustm {
     ));
   }
 
-  Widget buildBodyAbout(context ,RateMyApp rateMyApp,rateMyAppController) {
+  Widget buildBodyAbout(context, RateMyApp rateMyApp, rateMyAppController) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +251,7 @@ class WidGetCustm {
           CardAbout(
             controller: controller,
             rateMyApp: rateMyApp,
-            rateMyAppController:rateMyAppController,
+            rateMyAppController: rateMyAppController,
           ),
           const SizedBox(height: 21.0),
         ],
@@ -244,14 +294,14 @@ class WidGetCustm {
     );
   }
 
-  Widget? buildBody(context,RateMyApp rateMyApp,rateMyAppController) {
+  Widget? buildBody(context, RateMyApp rateMyApp, rateMyAppController) {
     switch (controller.currentIndex) {
       case 0:
         return buildBodyCotation(context);
       case 1:
         return buildBodyCovert(context);
       case 2:
-        return buildBodyAbout(context,rateMyApp,rateMyAppController);
+        return buildBodyAbout(context, rateMyApp, rateMyAppController);
     }
   }
 

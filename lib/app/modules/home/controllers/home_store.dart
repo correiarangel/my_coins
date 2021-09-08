@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:my_coins/app/shared/util/test_internet.dart';
 import 'package:my_coins/app/shared/util/value/const_srtring.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,6 +19,7 @@ class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
   final genFunctions = Modular.get<GeneralFunctions>();
+  final testInternet = Modular.get<TestInternet>();
   final CoinRepository repository;
 
   @observable
@@ -27,12 +29,13 @@ abstract class HomeStoreBase with Store {
     fetchCoins(itemSelect);
     changeVersion();
   }
-
+  
   @action
   fetchCoins(String? typeConin) {
     if (typeConin == null) typeConin = 'USD';
-    coins = repository.getAllCoins(typeConin)?.asObservable();
-    changeDateUpgrade("${coins?.value?[0].createDate}");
+      coins = repository.getAllCoins(typeConin)?.asObservable();
+      changeDateUpgrade("${coins?.value?[0].createDate}");
+
   }
 
   @observable
@@ -80,8 +83,7 @@ abstract class HomeStoreBase with Store {
   Color? colorLinkGit = ConstColors.colorLavenderFloral;
   @observable
   Color? colorLinkDoc = ConstColors.colorLavenderFloral;
-  
-  
+
   @action
   changesColorLink(String text) {
     switch (text) {
@@ -104,7 +106,7 @@ abstract class HomeStoreBase with Store {
   Color? colorLinkEvaluation = ConstColors.colorLavenderFloral;
   @action
   changesColorLinkEvaluation() {
-     return  colorLinkEvaluation = ConstColors.colorSkyMagenta;
+    return colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
   setFalseProgress() {
@@ -133,8 +135,6 @@ abstract class HomeStoreBase with Store {
   String? textValidat = '0';
   @action
   changesTextValidat(String? value) {
-    print(
-        "Chegou no controller @@@@@  -> $value, \n  Eu acredito em mim Choppin !");
     return textValidat = value;
   }
 
@@ -152,26 +152,24 @@ abstract class HomeStoreBase with Store {
   changesValueConvertion() {
     var code = coins?.value?[0].code;
     if (isReverseConversion) {
-      
-      if (coins != null && code == "BTC" ) {
+      if (coins != null && code == "BTC") {
         valueConvertion =
             genFunctions.calcRealToBitCoin(priceCoin, textValidat);
-      }if (coins != null && code == "LTC") {
+      }
+      if (coins != null && code == "LTC") {
         valueConvertion =
             genFunctions.calcRealToLiteCoin(priceCoin, textValidat);
       } else {
         valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
       }
-    
     } else {
-
       if (coins != null && code == "BTC") {
         valueConvertion =
             genFunctions.calcBitCoinToReal(priceCoin, textValidat);
-      }else if (coins != null && code == "LTC") {
+      } else if (coins != null && code == "LTC") {
         valueConvertion =
             genFunctions.calcLiteCoinToReal(priceCoin, textValidat);
-      }else {
+      } else {
         valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
       }
     }
@@ -190,4 +188,10 @@ abstract class HomeStoreBase with Store {
 
     return isReverseConversion;
   }
+
+  @observable
+  var isNet;
+  @action
+  changesIsNet() async => isNet = await testInternet.isInternet();
+  
 }

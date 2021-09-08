@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
-
 import '../interface/test_internet_interface.dart';
 
 class TestInternet implements ITestInternet {
@@ -22,7 +21,13 @@ class TestInternet implements ITestInternet {
       }
     } on TimeoutException catch (e) {
       debugPrint('Erro test net ${e.message}');
-      throw TimeoutException(e.message);
+      //throw TimeoutException(e.message);
+    }on SocketException catch (e) {
+      debugPrint('Erro test net ${e.message}');
+      //throw SocketException(e.message);
+    }
+    finally{
+      isNet == null ? isNet = false:isNet;  
     }
     return isNet;
   }
