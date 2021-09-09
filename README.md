@@ -5,7 +5,7 @@
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
 <br/><br/>
 <a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins">
-  <img align="left"  src=https://joseliojunior.github.io/ghc-tags/lang/Google Play/squared.svg />  </a> 
+  <img align="left" alt="GooglePlay" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /> 
 <br/><br/>
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
   <img align="left" alt="You Tube" width="32px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" />  </a> 
