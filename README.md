@@ -6,11 +6,11 @@
 <br><br>
 
 <a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins">
-  <img align="left" alt="Google Play" width="62px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /></a> 
+  <img align="left" alt="Google Play" width="70px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /></a> 
 <br><br>
   
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="You Tube" width="62px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" /></a> 
+  <img align="left" alt="You Tube" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" /></a> 
 <br><br>
   
 
