@@ -6,7 +6,7 @@
 <br><br>
 
 <a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins">
-  <img align="left" alt="My Coins' Google Play" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /></a> 
+  <img align="left" alt="Google Play" width="42px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/google.svg" /></a> 
 <br><br>
   
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
