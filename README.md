@@ -2,17 +2,15 @@
 
 
 <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
-  <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]</a> 
-<br>
+  <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
 
 <a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins">
-  <img align="left" alt="Google Play" width="80px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /></a> 
-<br>
+  <img align="left" alt="Google Play" width="80px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" />  </a> 
+
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="You Tube" width="32px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" /></a> 
+  <img align="left" alt="You Tube" width="32px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" />  </a> 
 <br><br>
   
-
 # my_coins
 
 	Simple query for quotes for cabios, dollars, euros and cryptocurrencies
