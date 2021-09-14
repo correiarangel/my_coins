@@ -15,6 +15,7 @@ class DioMock extends Mock implements DioForNative {}
 ///acredite é possivel ...
 void main() {
   final dio = DioMock();
+  // ignore: unused_local_variable
   final service = ClientServiceHttpMoc(dio);
   setUp(() {
     print("Iniciando tests ClientHttp");
