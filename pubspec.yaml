@@ -30,6 +30,7 @@ dependencies:
   rate_my_app: ^1.1.0+1
   launch_review: ^3.0.1
 
+
 flutter_icons:
   image_path_ios: "images/logo.png"
   image_path_android: "images/logo.png"
@@ -42,7 +43,6 @@ dev_dependencies:
     sdk: flutter
   mobx_codegen: ^2.0.2
   build_runner: ^2.1.0
-  mockito: ^5.0.13
   mocktail: ^0.1.4
 
 flutter:

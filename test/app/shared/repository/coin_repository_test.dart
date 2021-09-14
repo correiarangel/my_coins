@@ -1,25 +1,14 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
 
-class CoinRepositoryMock extends Mock implements CoinRepository {
-  @override
-  Future<List<CoinModel>>? getAllCoins(String typeCoin) async {
-    // ignore: unused_local_variable
-    var listCoins;
-    Iterable interbleCoins = json.decode("[$response]");
-    return listCoins = interbleCoins
-        .map((comodel) => CoinModel.fromJson(comodel[typeCoin]))
-        .toList();
-  }
-}
+class CoinRepositoryMock extends Mock implements CoinRepository {}
 
 ///acredite é possivel ...
 void main() {
   final repository = CoinRepositoryMock();
+
   setUp(() {
     print("Iniciando tests Repository");
   });
@@ -30,13 +19,26 @@ void main() {
 
   test('Deve retornar Lista do tipo CoinModel ', () async {
     //arrage
-    List<CoinModel>? coins;
-    //when(() => repository.getAllCoins()).thenReturn(() async => <CoinModel>[]);
+    var coins = <CoinModel>[];
+    when(() => repository.getAllCoins(any())).thenAnswer((_) async => coins);
     //act
-    coins = await repository.getAllCoins('USD');
+    //coins = await repository.getAllCoins('USD');
     //assert
     expect(coins, isA<List<CoinModel>>());
-    expect(coins?.isEmpty, false);
+    expect(coins.isEmpty, true);
+  });
+
+  test('Deve dar erro se parametro errado ...', () async {
+    //arrage
+    var coins;
+    when(() => repository.getAllCoins('')).thenAnswer((_) async {
+      return coins;
+    });
+    //act
+    //coins = await repository.getAllCoins('');
+    //assert
+    //expect(coins, 'Excepiton Error Get');
+    expect(coins, null);
   });
 }
 

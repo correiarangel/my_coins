@@ -6,7 +6,7 @@
 <br><br>
   
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="You Tube" />You Tube - Video </a>
+  <img align="left" alt="You Tube" /> Video </a>
   
 
 # my_coins
