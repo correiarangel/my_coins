@@ -14,5 +14,5 @@ class ConstStringUrl {
       "https://flutter.dev/?gclid=Cj0KCQjwvaeJBhCvARIsABgTDM5MHGfYKe8rhBTbuTS7WKt8qjxDf32_nxffm6GXxSTXawei6hCKPc0aAlIXEALw_wcB&gclsrc=aw.ds";
 
   static const String urlPrivacyPolicy =
-      "https://github.com/correiarangel/my_coins/blob/main/privacy_policy.md#policeprivacy";
+      "https://github.com/correiarangel/my_coins/blob/main/PRIVACY_POLICY.md";
 }
