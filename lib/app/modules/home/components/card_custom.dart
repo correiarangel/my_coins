@@ -33,7 +33,8 @@ class CardCustom extends StatelessWidget {
         child: InkWell(
             splashColor: Colors.purpleAccent.withAlpha(80),
             onTap: () {
-              controller.fetchCoins();
+              controller.changesIsNet();
+              controller.fetchCoins(controller.itemSelect);
             },
             child: Container(
               decoration: BoxDecoration(
