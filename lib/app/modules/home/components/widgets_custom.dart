@@ -153,6 +153,7 @@ class WidGetCustm {
 
   Widget isInternetBuild() {
     Widget? winget;
+    
     if (controller.isNet == true) {
       winget = btnIconError("Ops!...", "Click p/ Recarregar !", Icons.refresh);
     } else if (controller.isNet == false) {
@@ -169,6 +170,7 @@ class WidGetCustm {
 
   Widget buildBodyCotation(BuildContext context) {
     //initItensDropdown();
+    controller.changesIsNet();
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -206,6 +208,7 @@ class WidGetCustm {
   }
 
   Widget buildBodyCovert(BuildContext context) {
+    controller.changesIsNet();
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
