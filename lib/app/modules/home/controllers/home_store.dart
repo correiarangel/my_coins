@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
-import 'package:my_coins/app/shared/util/test_internet.dart';
+import 'package:my_coins/app/shared/util/check_internet.dart';
 import 'package:my_coins/app/shared/util/value/const_srtring.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,7 +19,7 @@ class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
   final genFunctions = Modular.get<GeneralFunctions>();
-  final testInternet = Modular.get<TestInternet>();
+  final testInternet = Modular.get<CheckInternet>();
   final CoinRepository repository;
 
   @observable
