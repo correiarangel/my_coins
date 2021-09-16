@@ -11,20 +11,27 @@ import 'shared/util/general_functions.dart';
 import 'shared/util/check_internet.dart';
 import 'shared/util/value/const_srtring_url.dart';
 
+
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind((i) => Dio(BaseOptions(
-            baseUrl: ConstStringUrl.baseUrl,
-            receiveTimeout: 5000,
-            connectTimeout: 15000,
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8',
-              'Charset': 'utf-8'
-            }))),
+   
+    Bind(
+      (i) => Dio(
+        BaseOptions(
+          baseUrl: ConstStringUrl.baseUrl,
+          receiveTimeout: 5000,
+          connectTimeout: 15000,
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Charset': 'utf-8',
+          },
+        ),
+      ),
+    ),
     Bind<IClientHttp>((i) => ClientHttpService(i.get())),
     Bind<IGeneralFunctions>((i) => GeneralFunctions()),
-    Bind<ICheckInternet>((i)=> CheckInternet()),
+    Bind<ICheckInternet>((i) => CheckInternet()),
   ];
 
   @override
