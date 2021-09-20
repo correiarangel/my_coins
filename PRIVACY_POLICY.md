@@ -6,7 +6,7 @@
 </p>
 
 ## Download
-*  [Google Play Page]("")
+* [Google Play Page]("https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins")
 
 ## Política de Privacidade
 
@@ -17,7 +17,7 @@ Funções adicionais do aplicativo podem sofrer cobrança monetária, os usuári
 
 Esta página é usada para informar os visitantes sobre nossas políticas de coleta, uso e divulgação de informações pessoais se alguém decidir usar nosso serviço.
 
-Não coletamos dados atualmente caso haja coleta de dados futuras os usuário serão comunicados e todas as diretrize citada em nossa política serão seguida .
+Não coletamos dados atualmente caso haja coleta de dados futuras os usuário serão consultados e todas as diretrize citada em nossa política serão seguida .
 
 Se você optar por usar o nosso Serviço, então você concorda com a coleta e uso de informações em relação a esta política. As Informações Pessoais que eventualmente coletamos são usadas para fornecer e melhorar o Serviço. Não usaremos ou compartilharemos suas informações com ninguém, exceto conforme descrito nesta Política de Privacidade.
 
