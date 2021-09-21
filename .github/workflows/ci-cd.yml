@@ -1,13 +1,9 @@
 name: CI/CD
 
-on: 
+on:
   push:
-    - develep
-    - main
-  pull_request:
-    branches:  
-      - develep
-      - main
+    tags:
+      - v*
 
 jobs:
   flutter_test:
