@@ -1,5 +1,4 @@
 class ConstString {
-  
   static const String routerDollar = "USD/";
   static const String email = "Enviar e-mail @";
   static const String linkDin = "Visitar Linkdin";
