@@ -25,11 +25,11 @@ jobs:
       - run: flutter format --dry-run --set-exit-if-changed lib/
       - run: flutter format --dry-run --set-exit-if-changed test/
       - run: flutter test --coverage
-      - run: flutter test --machine > test-results.json
+      - run: flutter test --machine > test-results-mycoins.json
       - uses: dorny/test-reporter@v1.4.2
         with:
-          name: test-results
-          path: test-results.json
+          name: test-results-mycoins
+          path: test-results-mycoins.json
           reporter: flutter-json
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
