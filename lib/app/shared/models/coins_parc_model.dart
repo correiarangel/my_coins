@@ -3,16 +3,17 @@ class CoinParcModel {
   String? code;
   String? name;
 
-  CoinParcModel(
-      {required this.id,
-        required this.code,
-      required this.name,});
+  CoinParcModel({
+    required this.id,
+    required this.code,
+    required this.name,
+  });
 
   factory CoinParcModel.fromJson(Map<String, dynamic> json) {
     return CoinParcModel(
-      id : json['id'],    
-      code : json['code'],
-      name : json['name'],
+      id: json['id'],
+      code: json['code'],
+      name: json['name'],
     );
   }
 

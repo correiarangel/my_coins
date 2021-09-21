@@ -25,18 +25,18 @@ class CoinModel {
       this.createDate});
 
   factory CoinModel.fromJson(Map<String, dynamic> json) {
-    return CoinModel(    
-      code : json['code'],
-      codein : json['codein'],
-      name : json['name'],
-      high : json['high'],
-      low : json['low'],
-      varBid : json['varBid'],
-      pctChange : json['pctChange'],
-      bid : json['bid'],
-      ask : json['ask'],
-      timestamp : json['timestamp'],
-      createDate : json['create_date'],
+    return CoinModel(
+      code: json['code'],
+      codein: json['codein'],
+      name: json['name'],
+      high: json['high'],
+      low: json['low'],
+      varBid: json['varBid'],
+      pctChange: json['pctChange'],
+      bid: json['bid'],
+      ask: json['ask'],
+      timestamp: json['timestamp'],
+      createDate: json['create_date'],
     );
   }
 
