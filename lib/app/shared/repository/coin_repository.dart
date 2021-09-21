@@ -6,7 +6,6 @@ import '../services/client_http_service.dart';
 import '../util/value/const_srtring_url.dart';
 
 class CoinRepository implements ICoinRepository {
-
   final ClientHttpService client;
   CoinRepository(this.client);
 
