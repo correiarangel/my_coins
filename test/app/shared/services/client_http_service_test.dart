@@ -25,15 +25,13 @@ void main() {
     print("Finalizando test ClientHttp");
   });
 
-  test('Deve retornar Map', () async {
+  test('Deve retornar Map / GET', () async {
     //arrage
-    
     when(() =>  dio.get(any())).thenAnswer((_) async => Response(
         requestOptions: RequestOptions(path: ''), statusCode: 200, data: {}));
     //act
     var resp = await dio.get('USD');
     //assert
-  
     expect(resp.statusCode,200);
     expect(resp.data, isA<Map>());
   });

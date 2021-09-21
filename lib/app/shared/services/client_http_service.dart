@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:my_coins/app/shared/interface/client_http_interface.dart';
+import 'package:flutter/cupertino.dart';
+import '../interface/client_http_interface.dart';
 
 class ClientHttpService implements IClientHttp {
   final Dio dio;
@@ -12,13 +13,18 @@ class ClientHttpService implements IClientHttp {
   }
 
   @override
-  Future get(String router) async {
+  Future<Response?>? get(String router) async {
+    Response? response;
     try {
-      final response = await dio.get(router);
-      return response;
+       response = await dio.get(router);
     } on Exception catch (e) {
-      throw "ERROR GET  $e";
+      debugPrint("ERROR GET  $e");
+      response = Response(
+          statusCode: 400,
+          requestOptions: RequestOptions(path: ''),
+          data: null);
     }
+    return response;
   }
 
   @override

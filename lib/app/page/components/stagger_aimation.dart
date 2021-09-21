@@ -31,7 +31,7 @@ class StaggerAnimation extends StatelessWidget {
                 height: logoSqueeze.value < 80 ? 60.0 : _height,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(216, 99, 187, 0.6),
+                    color: Color.fromRGBO(216, 99, 187, 0.9),
                     borderRadius: BorderRadius.all(Radius.circular(30.0))),
                 child: _buildInside(context))
             : Container(

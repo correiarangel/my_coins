@@ -14,7 +14,7 @@ class CoinRepository implements ICoinRepository {
   Future<List<CoinModel>>? getAllCoins(String siglaCoins) async {
     var response = await client.get(ConstStringUrl.routerAllCoins);
     var listCoins;
-    if (response.statusCode == 200) {
+    if (response!.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
       return listCoins = interbleCoins
           .map((comodel) => CoinModel.fromJson(comodel[siglaCoins]))

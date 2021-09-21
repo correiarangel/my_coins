@@ -15,19 +15,15 @@ class CheckInternet implements ICheckInternet {
             .timeout(Duration(seconds: 10));
 
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          debugPrint('Há internet..............');
           isNet = true;
         } else {
-          debugPrint('Não Há internet..............');
           isNet = false;
         }
       } catch (e) {
-        debugPrint('Não Há internet..............');
         debugPrint('Erro test net $e');
         isNet = false;
       }
     } else {
-      debugPrint('VERSION  @@@@ ${Platform.version}');
       isNet = true;
     }
 

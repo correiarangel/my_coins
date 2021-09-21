@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-//import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:flutter/scheduler.dart' show timeDilation;
 import 'components/stagger_aimation.dart';
 
 
@@ -47,7 +47,7 @@ class SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-   // timeDilation = 10;
+    timeDilation = 8;
 
     return Scaffold(
       body: Container(
@@ -61,7 +61,7 @@ class SplashPageState extends State<SplashPage>
                 Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 70.0, bottom: 38.0),
+                      padding: EdgeInsets.only(top: 90.0, bottom: 38.0),
                       child: CircleAvatar(
                         backgroundColor: Colors.transparent,
                         child: Icon(
