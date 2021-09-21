@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
+import '../../../shared/util/value/const_colors.dart';
 
 class OptionsButton extends StatelessWidget {
   final IconData btnicon;

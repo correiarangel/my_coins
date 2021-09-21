@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
-import 'package:my_coins/app/shared/util/check_internet.dart';
-import 'package:my_coins/app/shared/util/value/const_srtring.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/repository/coin_repository.dart';
+import '../../../shared/util/check_internet.dart';
 import '../../../shared/util/general_functions.dart';
 import '../../../shared/util/value/const_colors.dart';
+import '../../../shared/util/value/const_srtring.dart';
 
 part 'home_store.g.dart';
 
@@ -119,6 +119,7 @@ abstract class HomeStoreBase with Store {
   @observable
   bool progressLink = false;
   @action
+  // ignore: avoid_positional_boolean_parameters
   changesProgressLink(bool value) => progressLink = value;
 
   @computed

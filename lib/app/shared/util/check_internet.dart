@@ -17,7 +17,7 @@ class CheckInternet implements ICheckInternet {
         } else {
           isNet = false;
         }
-      } catch (e) {
+      }on Exception catch (e) {
         debugPrint('Erro test net $e');
         isNet = false;
       }

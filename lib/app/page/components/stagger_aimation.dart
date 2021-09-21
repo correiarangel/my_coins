@@ -19,7 +19,7 @@ class StaggerAnimation extends StatelessWidget {
   final Animation<double> logoZoomOut;
 
   Widget _buildAnimation(BuildContext context, Widget? child) {
-    const double _height = 250.0;
+    const _height = 250.0;
 
     return Padding(
       padding: EdgeInsets.only(bottom: 240.0),

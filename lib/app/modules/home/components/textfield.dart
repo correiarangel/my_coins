@@ -8,6 +8,7 @@ class TextFielCustom {
     String lblText,
     dynamic onChanged, 
     String? Function() errorText, 
+    // ignore: avoid_positional_boolean_parameters
     bool isObscure,
     TextEditingController textController
   ) {

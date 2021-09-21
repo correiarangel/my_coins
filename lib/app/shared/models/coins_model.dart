@@ -41,18 +41,18 @@ class CoinModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['code'] = this.code;
-    data['codein'] = this.codein;
-    data['name'] = this.name;
-    data['high'] = this.high;
-    data['low'] = this.low;
-    data['varBid'] = this.varBid;
-    data['pctChange'] = this.pctChange;
-    data['bid'] = this.bid;
-    data['ask'] = this.ask;
-    data['timestamp'] = this.timestamp;
-    data['create_date'] = this.createDate;
+    final data = <String, dynamic>{};
+    data['code'] = code;
+    data['codein'] = codein;
+    data['name'] = name;
+    data['high'] = high;
+    data['low'] = low;
+    data['varBid'] = varBid;
+    data['pctChange'] = pctChange;
+    data['bid'] = bid;
+    data['ask'] = ask;
+    data['timestamp'] = timestamp;
+    data['create_date'] = createDate;
     return data;
   }
 }

@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:ui' show Color;
 
 class ConstColors {
   static const Color colorIndependence = Color(0xff545c73);

@@ -4,14 +4,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'link_evaluation.dart';
-import '../controllers/rate_my_app_controller.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
 import '../../../shared/util/value/const_srtring_url.dart';
+import '../controllers/rate_my_app_controller.dart';
 import 'link_custon.dart';
+import 'link_evaluation.dart';
 import 'widgets_custom.dart';
 
 // ignore: must_be_immutable
@@ -29,7 +29,7 @@ class CardAbout extends StatelessWidget {
       : super(key: key);
 
   setVersion() {
-    String v = "1.0.0+1";
+    var v = "1.0.0+1";
     if (Platform.isAndroid || Platform.isIOS) {
       v = controller.version;
     }
@@ -38,7 +38,7 @@ class CardAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
+    var sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
 
     return Padding(
       padding:

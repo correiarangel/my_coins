@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../controllers/rate_my_app_controller.dart';
 import 'package:rate_my_app/rate_my_app.dart';
+
 import '../controllers/home_store.dart';
+import '../controllers/rate_my_app_controller.dart';
 
 // ignore: must_be_immutable
 class LinkEvaluation extends StatelessWidget {

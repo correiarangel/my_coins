@@ -15,7 +15,7 @@ main() {
   });
   group('SplashPage', () {
     testWidgets('Deve conter um Scaffold, ListView, Colunm, icons ...',
-        (WidgetTester tester) async {
+        (tester) async {
       //comente o timer na pg splash
       await tester.pumpWidget(buildTestableWidget(SplashPage()));
 
