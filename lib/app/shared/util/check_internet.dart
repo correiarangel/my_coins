@@ -11,20 +11,18 @@ class CheckInternet implements ICheckInternet {
       try {
         final result = await InternetAddress.lookup('www.google.com.br')
             .timeout(Duration(seconds: 10));
-
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
           isNet = true;
         } else {
           isNet = false;
         }
-      }on Exception catch (e) {
+      } on Exception catch (e) {
         debugPrint('Erro test net $e');
         isNet = false;
       }
     } else {
       isNet = true;
     }
-
     return isNet;
   }
 }
