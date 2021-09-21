@@ -1,0 +1,34 @@
+name: CI/CD
+
+on: 
+  push:
+    - develep
+    - main
+  pull_request:
+    branches:  
+      - develep
+      - main
+
+jobs:
+  flutter_test:
+    name: Run Flutter analyze and test My Coins
+    runs-on: ubuntu-latest
+    steps:
+      - users: actions/checkout@v2
+      - users: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - users: subosito/flutter-action@v1    
+        with:
+          channel: "stable"
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter format --dry-run --set-exit-if-changed lib/
+      - run: flutter format --dry-run --set-exit-if-changed test/ 
+      - run: flutter test --coverage    
+      - run: flutter test --machine > test-results-mycoins.json
+      - user: dorny/test-resporter@v1.4.2
+        with:
+          name: test-results-mycoins
+          paph: test-result-mycoins.json
+            reporte: flutter-json
