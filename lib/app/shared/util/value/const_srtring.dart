@@ -7,7 +7,7 @@ class ConstString {
   static const String docFlutter = "Ducumentação Flutter";
   static const String policy = "Política Privacidade";
 
-  static const listSiglaCoins = [
+  static const List<Map> listSiglaCoins = [
     {
       "id": "0",
       "code": "USD",
