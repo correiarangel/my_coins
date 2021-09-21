@@ -13,7 +13,7 @@ class ConstColors {
   static const Color colorCadetBlue = Color(0xff6FABAF);
   static const Color colorLigthGray = Color(0xffcccccc);
   static const Color colorSkyMagenta = Color(0xffd863bb);
- static const Color colorLavenderFloral = Color(0xffBD92F9);
+  static const Color colorLavenderFloral = Color(0xffBD92F9);
 }
 /**Palet color
  * https://coolors.co/545c73-6c7484-665992-9ca4ac-

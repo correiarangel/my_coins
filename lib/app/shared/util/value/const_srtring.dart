@@ -1,12 +1,11 @@
 class ConstString {
+  
   static const String routerDollar = "USD/";
-
   static const String email = "Enviar e-mail @";
   static const String linkDin = "Visitar Linkdin";
   static const String gitHub = "Visitar  GitHub";
   static const String docFlutter = "Ducumentação Flutter";
   static const String policy = "Política Privacidade";
-
   static const List<Map> listSiglaCoins = [
     {
       "id": "0",
