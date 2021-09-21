@@ -16,7 +16,7 @@ class ClientHttpService implements IClientHttp {
   Future<Response?>? get(String router) async {
     Response? response;
     try {
-       response = await dio.get(router);
+      response = await dio.get(router);
     } on Exception catch (e) {
       debugPrint("ERROR GET  $e");
       response = Response(
