@@ -11,11 +11,9 @@ import 'shared/util/check_internet.dart';
 import 'shared/util/general_functions.dart';
 import 'shared/util/value/const_srtring_url.dart';
 
-
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-   
     Bind(
       (i) => Dio(
         BaseOptions(

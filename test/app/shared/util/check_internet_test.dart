@@ -26,7 +26,7 @@ void main() {
     expect(result, true);
   });
 
-   test('Deve retornar tipo bool false ', () async {
+  test('Deve retornar tipo bool false ', () async {
     //arrage
     var result = false;
     when(checkNet.isInternet).thenAnswer((_) async => result);
@@ -36,5 +36,4 @@ void main() {
     expect(result, isA<bool>());
     expect(result, false);
   });
-   
 }

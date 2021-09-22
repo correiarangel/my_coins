@@ -6,12 +6,12 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       title: 'My Coins',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-        fontFamily: 'RobotoSlab'),
+        fontFamily: 'RobotoSlab',
+      ),
     ).modular();
   }
 }

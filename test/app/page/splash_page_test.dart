@@ -25,11 +25,10 @@ main() {
       expect(find.byType(ListView), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
 
-
       // ignore: non_constant_identifier_names
       var icon_trending_up = find.byIcon(Icons.trending_up);
       expect(icon_trending_up, findsOneWidget);
-    
+
       // ignore: non_constant_identifier_names
       var icon_monetization_on = find.byIcon(Icons.monetization_on);
       expect(icon_monetization_on, findsOneWidget);
@@ -40,6 +39,5 @@ main() {
       //expect(find.byType(StaggerAnimation), findsOneWidget);
       //expect(find.text("My Coins Cotação de moedas"), findsNWidgets(1));
     });
-
   });
 }
