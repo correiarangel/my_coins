@@ -161,8 +161,9 @@ class CardCoinConvert extends StatelessWidget {
               label: Text(
                 "",
                 style: TextStyle(
-                    color: ConstColors.colorLavenderFloral, 
-                    fontSize: 0.0,),
+                  color: ConstColors.colorLavenderFloral,
+                  fontSize: 0.0,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

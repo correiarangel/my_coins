@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  
   final widGetCustom = WidGetCustm();
   late RateMyAppController rateMyAppController;
   final RateMyApp rateMyApp = RateMyApp(
@@ -27,10 +26,10 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
     googlePlayIdentifier: ConstIDApp.playStoreId,
     appStoreIdentifier: ConstIDApp.appstoreId,
   );
-  
-@override
+
+  @override
   void initState() {
-    rateMyAppController = RateMyAppController(mounted:mounted);
+    rateMyAppController = RateMyAppController(mounted: mounted);
     rateMyAppController.initRate(rateMyApp, context);
     controller.changesIsNet();
     super.initState();
@@ -38,12 +37,14 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
 
   @override
   Widget build(BuildContext context) {
-
     return Observer(builder: (_) {
-
       return Scaffold(
         backgroundColor: ConstColors.colorSpaceCadet,
-        body: widGetCustom.buildBody(context,rateMyApp,rateMyAppController),
+        body: widGetCustom.buildBody(
+          context,
+          rateMyApp,
+          rateMyAppController,
+        ),
         bottomNavigationBar: widGetCustom.buildBottomBar(),
       );
     });

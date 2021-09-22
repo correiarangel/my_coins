@@ -1,10 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../shared/interface/coin_repository_interface.dart';
 import '../../shared/repository/coin_repository.dart';
-import 'controllers/home_store.dart'; 
+import 'controllers/home_store.dart';
 
 import 'home_page.dart';
- 
+
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
@@ -12,8 +12,8 @@ class HomeModule extends Module {
     Bind<ICoinRepository>((i) => CoinRepository(i.get()))
   ];
 
- @override
- final List<ModularRoute> routes = [
-   ChildRoute('/home', child: (_, args) => HomePage()),
- ];
+  @override
+  final List<ModularRoute> routes = [
+    ChildRoute('/home', child: (_, args) => HomePage()),
+  ];
 }

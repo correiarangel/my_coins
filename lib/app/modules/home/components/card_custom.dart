@@ -23,8 +23,7 @@ class CardCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
-    var date =
-        genFunctions.toBrazilTime(coins?[index].createDate.toString());
+    var date = genFunctions.toBrazilTime(coins?[index].createDate.toString());
     var priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
     controller.changesPriceCoin(priceCoin);
 
