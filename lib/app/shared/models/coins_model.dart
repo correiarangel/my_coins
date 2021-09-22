@@ -56,17 +56,3 @@ class CoinModel {
     return data;
   }
 }
-
-/*
-   code
-   codein
-   name
-   high
-   low
-   varBid
-   pctChange
-   bid
-   ask
-   timestamp
-   createDate
-*/
