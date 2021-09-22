@@ -11,7 +11,7 @@ class CardSiglas extends StatelessWidget {
   
   final genFunctions = Modular.get<IGeneralFunctions>();
   final widGetCustm = WidGetCustm();
-  final List<CoinParcModel>? coins;
+  final List<CoinsParcModel>? coins;
   final int index;
   final controller;
 

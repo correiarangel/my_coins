@@ -310,7 +310,7 @@ class WidGetCustm {
 
   Widget horizontlList() {
     // ignore: omit_local_variable_types
-    List<CoinParcModel> listCoins = fillListSiglas();
+    List<CoinsParcModel> listCoins = fillListSiglas();
     return Container(
         margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         height: 120.0,
@@ -324,10 +324,10 @@ class WidGetCustm {
         ));
   }
 
-  List<CoinParcModel> fillListSiglas() {
+  List<CoinsParcModel> fillListSiglas() {
     Iterable interbleCoins = ConstString.listSiglaCoins;
     return interbleCoins
-        .map((coinpmodel) => CoinParcModel.fromJson(coinpmodel))
+        .map((coinpmodel) => CoinsParcModel.fromJson(coinpmodel))
         .toList();
   }
 }
