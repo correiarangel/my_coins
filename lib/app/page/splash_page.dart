@@ -35,7 +35,7 @@ class SplashPageState extends State<SplashPage>
   }
 
   void startFutture() async {
-    await Future.delayed(Duration(milliseconds: 2500), start);
+    //await Future.delayed(Duration(milliseconds: 2500), start);
   }
 
   @override
