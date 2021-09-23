@@ -30,12 +30,12 @@ jobs:
           reporter: flutter-json
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          min_coverage: 10
+          min_coverage: 20
   
   build_ios:
     name: Build Flutter (iOS)
     needs: [flutter_test]
-    runs-on: macos-latest
+    runs-on: macOS-11
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
