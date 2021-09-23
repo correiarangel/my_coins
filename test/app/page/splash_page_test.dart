@@ -19,8 +19,6 @@ main() {
       //comente o timer na pg splash
       await tester.pumpWidget(buildTestableWidget(SplashPage()));
 
-      await tester.pump(const Duration(milliseconds: 3));
-
       expect(find.byType(Scaffold), findsOneWidget);
       expect(find.byType(ListView), findsOneWidget);
       expect(find.byType(Column), findsOneWidget);
@@ -32,12 +30,6 @@ main() {
       // ignore: non_constant_identifier_names
       var icon_monetization_on = find.byIcon(Icons.monetization_on);
       expect(icon_monetization_on, findsOneWidget);
-
-      //expect(find.byType(ProgressIndicator), findsOneWidget);
-      //expect(find.byType(CircleAvatar), findsOneWidget);
-      //expect(find.byType(Icon), findsOneWidget);
-      //expect(find.byType(StaggerAnimation), findsOneWidget);
-      //expect(find.text("My Coins Cotação de moedas"), findsNWidgets(1));
     });
   });
 }
