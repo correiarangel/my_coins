@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/controllers/rate_my_app_controller.dart';
-import '../../shared/util/value/constants_id_app.dart';
 import 'package:rate_my_app/rate_my_app.dart';
-import '../../shared/util/value/const_colors.dart';
 
+import '../../shared/util/value/const_colors.dart';
+import '../../shared/util/value/const_id_app.dart';
 import 'components/widgets_custom.dart';
 import 'controllers/home_store.dart';
+import 'controllers/rate_my_app_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  
   final widGetCustom = WidGetCustm();
   late RateMyAppController rateMyAppController;
   final RateMyApp rateMyApp = RateMyApp(
@@ -27,10 +26,10 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
     googlePlayIdentifier: ConstIDApp.playStoreId,
     appStoreIdentifier: ConstIDApp.appstoreId,
   );
-  
-@override
+
+  @override
   void initState() {
-    rateMyAppController = RateMyAppController(mounted:mounted);
+    rateMyAppController = RateMyAppController(mounted: mounted);
     rateMyAppController.initRate(rateMyApp, context);
     controller.changesIsNet();
     super.initState();
@@ -38,12 +37,14 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
 
   @override
   Widget build(BuildContext context) {
-
     return Observer(builder: (_) {
-
       return Scaffold(
         backgroundColor: ConstColors.colorSpaceCadet,
-        body: widGetCustom.buildBody(context,rateMyApp,rateMyAppController),
+        body: widGetCustom.buildBody(
+          context,
+          rateMyApp,
+          rateMyAppController,
+        ),
         bottomNavigationBar: widGetCustom.buildBottomBar(),
       );
     });

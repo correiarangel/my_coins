@@ -74,7 +74,7 @@ class GeneralFunctions implements IGeneralFunctions {
     return res;
   }
 
-    @override
+  @override
   String? calcRealToLiteCoin(String? priceCoin, String? valueToConvert) {
     String? res = "";
     var result;
@@ -86,9 +86,8 @@ class GeneralFunctions implements IGeneralFunctions {
     return res;
   }
 
-
   @override
-  String? calcCoinToReal(String? priceCoin,String? valueToConvert) {
+  String? calcCoinToReal(String? priceCoin, String? valueToConvert) {
     String? res = "";
     var result;
     if (priceCoin != null && valueToConvert != null) {
@@ -100,7 +99,7 @@ class GeneralFunctions implements IGeneralFunctions {
   }
 
   @override
-  String? calcBitCoinToReal(String? priceCoin,String? valueToConvert) {
+  String? calcBitCoinToReal(String? priceCoin, String? valueToConvert) {
     String? res = "";
     var result;
     if (priceCoin != null && valueToConvert != null) {
@@ -112,7 +111,7 @@ class GeneralFunctions implements IGeneralFunctions {
   }
 
   @override
-  String? calcLiteCoinToReal(String? priceCoin,String? valueToConvert) {
+  String? calcLiteCoinToReal(String? priceCoin, String? valueToConvert) {
     String? res = "";
     var result;
     if (priceCoin != null && valueToConvert != null) {

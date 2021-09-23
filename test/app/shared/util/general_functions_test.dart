@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('general functions ...', (tester) async {
+  test('general functions ...', () async {
     // ignore: todo
     // TODO: Implement test
   });

@@ -1,40 +1,27 @@
-class CoinParcModel {
+class CoinsParcModel {
   String? id;
   String? code;
   String? name;
 
-  CoinParcModel(
-      {required this.id,
-        required this.code,
-      required this.name,});
+  CoinsParcModel({
+    required this.id,
+    required this.code,
+    required this.name,
+  });
 
-  factory CoinParcModel.fromJson(Map<String, dynamic> json) {
-    return CoinParcModel(
-      id : json['id'],    
-      code : json['code'],
-      name : json['name'],
+  factory CoinsParcModel.fromJson(Map<String, dynamic> json) {
+    return CoinsParcModel(
+      id: json['id'],
+      code: json['code'],
+      name: json['name'],
     );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.id;
-    data['code'] = this.code;
-    data['name'] = this.name;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['code'] = code;
+    data['name'] = name;
     return data;
   }
 }
-
-/*
-   code
-   codein
-   name
-   high
-   low
-   varBid
-   pctChange
-   bid
-   ask
-   timestamp
-   createDate
-*/

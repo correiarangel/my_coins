@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:my_coins/app/modules/home/components/widgets_custom.dart';
-import 'package:my_coins/app/shared/models/coins_model.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
-
 import '../../../shared/interface/general_functions_interface.dart';
+import '../../../shared/models/coins_model.dart';
+import '../../../shared/util/value/const_colors.dart';
 import 'textfield.dart';
+import 'widgets_custom.dart';
 
 class CardCoinConvert extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
@@ -162,8 +161,9 @@ class CardCoinConvert extends StatelessWidget {
               label: Text(
                 "",
                 style: TextStyle(
-                    color: ConstColors.colorLavenderFloral, 
-                    fontSize: 0.0,),
+                  color: ConstColors.colorLavenderFloral,
+                  fontSize: 0.0,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

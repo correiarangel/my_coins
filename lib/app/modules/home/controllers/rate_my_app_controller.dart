@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_coins/app/shared/util/value/constants_id_app.dart';
-import 'package:rate_my_app/rate_my_app.dart';
 import 'package:launch_review/launch_review.dart';
+import 'package:rate_my_app/rate_my_app.dart';
+
+import '../../../shared/util/value/const_id_app.dart';
 
 class RateMyAppController {
   final mounted;

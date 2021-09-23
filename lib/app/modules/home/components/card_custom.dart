@@ -22,10 +22,9 @@ class CardCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
-    String? date =
-        genFunctions.toBrazilTime(coins?[index].createDate.toString());
-    String? priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
+    var sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
+    var date = genFunctions.toBrazilTime(coins?[index].createDate.toString());
+    var priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
     controller.changesPriceCoin(priceCoin);
 
     return Padding(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:flutter/scheduler.dart' show timeDilation;
 import 'components/stagger_aimation.dart';
-
 
 class SplashPage extends StatefulWidget {
   @override
@@ -36,7 +35,7 @@ class SplashPageState extends State<SplashPage>
   }
 
   void startFutture() async {
-    await Future.delayed(Duration(milliseconds: 2500), start);
+    start(); //await Timer(Duration(milliseconds: 2500), start);
   }
 
   @override
@@ -47,7 +46,7 @@ class SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 8;
+    //timeDilation = 8;
 
     return Scaffold(
       body: Container(
@@ -74,9 +73,7 @@ class SplashPageState extends State<SplashPage>
                     ),
                   ],
                 ),
-    
                 StaggerAnimation(controller: _animationController),
-        
               ],
             )
           ],
@@ -85,6 +82,3 @@ class SplashPageState extends State<SplashPage>
     );
   }
 }
-
-    
-  

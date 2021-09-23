@@ -2,17 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/card_siglas.dart';
 import 'package:rate_my_app/rate_my_app.dart';
-import 'card_coin_convert.dart';
-import '../controllers/home_store.dart';
-import '../../../shared/models/coins_parc_model.dart';
-import '../../../shared/util/value/const_srtring.dart';
 
+import '../../../shared/models/coins_parc_model.dart';
 import '../../../shared/util/general_functions.dart';
 import '../../../shared/util/value/const_colors.dart';
+import '../../../shared/util/value/const_srtring.dart';
+import '../controllers/home_store.dart';
 import 'card_about.dart';
+import 'card_coin_convert.dart';
 import 'card_custom.dart';
+import 'card_siglas.dart';
 
 class WidGetCustm {
   final genFunctions = Modular.get<GeneralFunctions>();
@@ -153,11 +153,11 @@ class WidGetCustm {
 
   Widget isInternetBuild() {
     Widget? winget;
-    
+
     if (controller.isNet == true) {
       winget = btnIconError("Ops!...", "Click p/ Recarregar !", Icons.refresh);
     } else if (controller.isNet == false) {
-      final String _msg = "Sem conexão com internet :[\n"
+      final _msg = "Sem conexão com internet :[\n"
           "Pedimos desculpas!\n My Coins necessita de internet\n "
           "para entregar informações sempre atualizados";
       winget = btnIconError("Ops!...", _msg, Icons.wifi_off);
@@ -309,7 +309,8 @@ class WidGetCustm {
   }
 
   Widget horizontlList() {
-    List<CoinParcModel> listCoins = fillListSiglas();
+    // ignore: omit_local_variable_types
+    List<CoinsParcModel> listCoins = fillListSiglas();
     return Container(
         margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         height: 120.0,
@@ -323,10 +324,10 @@ class WidGetCustm {
         ));
   }
 
-  List<CoinParcModel> fillListSiglas() {
+  List<CoinsParcModel> fillListSiglas() {
     Iterable interbleCoins = ConstString.listSiglaCoins;
     return interbleCoins
-        .map((coinpmodel) => CoinParcModel.fromJson(coinpmodel))
+        .map((coinpmodel) => CoinsParcModel.fromJson(coinpmodel))
         .toList();
   }
 }

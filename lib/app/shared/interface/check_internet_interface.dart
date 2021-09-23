@@ -1,3 +1,3 @@
-abstract class ICheckInternet {  
- Future<bool>? isInternet() {}
+abstract class ICheckInternet {
+  Future<bool>? isInternet() {}
 }

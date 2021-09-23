@@ -1,7 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:my_coins/app/shared/util/value/const_colors.dart';
+import '../../../shared/util/value/const_colors.dart';
 
 class OptionsButton extends StatelessWidget {
   final IconData btnicon;
@@ -33,7 +31,6 @@ class OptionsButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: top, left: left, right: rigth),
       child: ElevatedButton.icon(
-     
         icon: Icon(
           btnicon,
           color: iconcor,
@@ -42,22 +39,19 @@ class OptionsButton extends StatelessWidget {
         label: Text(
           text,
           style: TextStyle(
-            color: corText,
-            fontSize: textSize,
-            fontWeight: FontWeight.bold
-          ),
+              color: corText, fontSize: textSize, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
-                style: ButtonStyle(
-            backgroundColor:
-                MaterialStateProperty.all(Colors.transparent),
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.transparent),
             elevation: MaterialStateProperty.all(9.0),
             padding:
                 MaterialStateProperty.all(EdgeInsets.fromLTRB(30, 30, 30, 30)),
             shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),),
-            side:  MaterialStateProperty.all(BorderSide(color: ConstColors.colorSkyMagenta))),
-    
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+            side: MaterialStateProperty.all(
+                BorderSide(color: ConstColors.colorSkyMagenta))),
         onPressed: callback,
       ),
     );

@@ -27,25 +27,25 @@ void main() {
 
   test('Deve retornar Map / GET', () async {
     //arrage
-    when(() =>  dio.get(any())).thenAnswer((_) async => Response(
+    when(() => dio.get(any())).thenAnswer((_) async => Response(
         requestOptions: RequestOptions(path: ''), statusCode: 200, data: {}));
     //act
     var resp = await dio.get('USD');
     //assert
-    expect(resp.statusCode,200);
+    expect(resp.statusCode, 200);
     expect(resp.data, isA<Map>());
   });
 
   test('Deve retornar Erro 400', () async {
     //arrage
-    
-    when(() =>  dio.get(any())).thenAnswer((_) async => Response(
+
+    when(() => dio.get(any())).thenAnswer((_) async => Response(
         requestOptions: RequestOptions(path: ''), statusCode: 400, data: null));
     //act
     var resp = await dio.get('USD');
     //assert
-  
-    expect(resp.statusCode,400);
+
+    expect(resp.statusCode, 400);
     expect(resp.data, null);
   });
 }
