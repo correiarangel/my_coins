@@ -7,7 +7,7 @@ on:
 
 jobs:
   flutter_test:
-    name: Run Flutter analyze and test
+    name: Run Flutter analyze and test - My_Coins
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
           min_coverage: 20
   
   build_ios:
-    name: Build Flutter (iOS)
+    name: Build Flutter (iOS) - My_Coins
     needs: [flutter_test]
     runs-on: macOS-11
     steps:
@@ -49,7 +49,7 @@ jobs:
       - run: flutter build ios --release --no-codesign    
 
   build_appbundle:
-    name: Build Flutter (Android)
+    name: Build Flutter (Android) - My_Coins
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
