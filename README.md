@@ -1,6 +1,6 @@
 ### Hi there Hello welcome ;]  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
 
-[![codecov](https://codecov.io/gh/correiarangel/my_coins/branch/main/graph/badge.svg?token=49be2cb1-3ea6-4dc6-a604-882f216ec3cc)](https://codecov.io/gh/correiarangel/my_coins)
+[![codecov](https://codecov.io/gh/correiarangel/my_coins/branch/main/graph/badge.svg?token=)](https://codecov.io/gh/correiarangel/my_coins)
 
 <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
