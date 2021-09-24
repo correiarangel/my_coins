@@ -47,7 +47,6 @@ app.*.map.json
 
 #keys
 /docs/pswd
-/docs/key
 /docs/sreen.zip
 
 codecov.yml
