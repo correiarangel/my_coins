@@ -2,6 +2,7 @@
 
 [![codecov](https://codecov.io/gh/correiarangel/my_coins/branch/main/graph/badge.svg?token=FEIP7KTH3N)](https://codecov.io/gh/correiarangel/my_coins)
 
+
 <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
 <br/><br/>
