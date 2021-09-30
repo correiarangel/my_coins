@@ -46,6 +46,7 @@ app.*.map.json
 /android/app/release
 
 #keys
+/docs/key
 /docs/pswd
 /docs/sreen.zip
 
