@@ -27,6 +27,7 @@ class AppModule extends Module {
         ),
       ),
     ),
+    //Bind<IClientHttp>((i) => ClientHttpService(i.get())),
     Bind<IClientHttp>((i) => ClientHttpService(i.get())),
     Bind<IGeneralFunctions>((i) => GeneralFunctions()),
     Bind<ICheckInternet>((i) => CheckInternet()),

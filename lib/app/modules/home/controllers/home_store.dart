@@ -138,43 +138,36 @@ abstract class HomeStoreBase with Store {
   @observable
   String? textValidat = '0';
   @action
-  changesTextValidat(String? value) {
-    return textValidat = value;
-  }
+  changesTextValidat(String? value) => textValidat = value;
+  
 
   @observable
   String? priceCoin = "0";
   @action
-  changesPriceCoin(String? value) {
-    priceCoin = genFunctions.formatNumberBr(value!);
-    return priceCoin;
-  }
+  changesPriceCoin(String? value) =>  priceCoin = value; 
+  
 
   @observable
   String? valueConvertion = "0";
   @action
   changesValueConvertion() {
-    var code = coins?.value?[0].code;
+  //  var code = coins?.value?[0].code;
     if (isReverseConversion) {
-      if (code == "BTC") {
-        valueConvertion =
-            genFunctions.calcRealToBitCoin(priceCoin, textValidat);
-      } else if (code == "LTC" || code == "ETH") {
-        valueConvertion =
-            genFunctions.calcRealToLiteCoin(priceCoin, textValidat);
-      } else if (code != null) {
-        valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
-      }
+      valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
     } else {
-      if (code == "BTC") {
-        valueConvertion =
-            genFunctions.calcBitCoinToReal(priceCoin, textValidat);
-      } else if (code == "LTC" || code == "ETH") {
-        valueConvertion =
-            genFunctions.calcLiteCoinToReal(priceCoin, textValidat);
-      } else if (code != null) {
-        valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
-      }
+      valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
+    }
+
+    return valueConvertion;
+  }
+
+  @action
+  changesTestIsBitCoin(value) {
+    var code = coins?.value?[0].code;
+    if (code == "BTC") {
+      valueConvertion = genFunctions.formatNumberBitCoin(value);
+    } else {
+      valueConvertion = value;
     }
     return valueConvertion;
   }

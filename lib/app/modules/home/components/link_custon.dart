@@ -32,7 +32,11 @@ class LinkCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: top, left: left, right: rigth),
+      padding: EdgeInsets.only(
+        top: top,
+        left: left,
+        right: rigth,
+      ),
       child: GestureDetector(
         onTap: () async {
           controller.changesColorLink(text);
@@ -51,7 +55,10 @@ class LinkCustom extends StatelessWidget {
               const SizedBox(width: 8.0),
               Text(
                 text,
-                style: TextStyle(color: textCor, fontSize: 18.0),
+                style: TextStyle(
+                  color: textCor,
+                  fontSize: 18.0,
+                ),
                 textAlign: TextAlign.center,
               ),
             ],

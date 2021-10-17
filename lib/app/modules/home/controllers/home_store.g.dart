@@ -425,6 +425,17 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
+  dynamic changesTestIsBitCoin(dynamic value) {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.changesTestIsBitCoin');
+    try {
+      return super.changesTestIsBitCoin(value);
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic changesIsReverseConversion() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesIsReverseConversion');

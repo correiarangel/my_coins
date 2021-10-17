@@ -10,14 +10,14 @@ import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
 import '../../../shared/util/value/const_srtring_url.dart';
 import '../controllers/rate_my_app_controller.dart';
+import '../controllers/widgets_controller.dart';
 import 'link_custon.dart';
 import 'link_evaluation.dart';
-import 'widgets_custom.dart';
 
 // ignore: must_be_immutable
 class CardAbout extends StatelessWidget {
   final RateMyAppController rateMyAppController;
-  final widGetCustm = WidGetCustm();
+  final widGetController = WidGetController();
   final controller;
   final RateMyApp rateMyApp;
 
@@ -38,7 +38,7 @@ class CardAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
+    var sizeBoxDivisor = widGetController.sizeBoxDivisor();
 
     return Padding(
       padding:

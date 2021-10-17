@@ -6,14 +6,15 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../shared/interface/general_functions_interface.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/util/value/const_colors.dart';
+import '../controllers/widgets_controller.dart';
 import 'textfield.dart';
-import 'widgets_custom.dart';
 
 class CardCoinConvert extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
   final _textController = TextEditingController();
   final fieldText = TextFielCustom();
-  final widGetCustm = WidGetCustm();
+  final widgetController = WidGetController();
+
   final List<CoinModel>? coins;
   final int index;
   final controller;
@@ -176,25 +177,11 @@ class CardCoinConvert extends StatelessWidget {
                 child: Observer(
                   builder: (context) {
                     return controller.isReverseConversion
-                        ? Text(
-                            "${controller.textValidat == null ? '0' : controller.textValidat}"
-                            " Real(s) vale(m)\n "
-                            "${controller.valueConvertion} "
-                            "${coins?[index].name?.replaceAll("/Real Brasileiro", "")}",
-                            style: TextStyle(
-                                color: ConstColors.colorLavenderFloral,
-                                fontSize: 22.0),
-                            textAlign: TextAlign.center,
-                          )
-                        : Text(
-                            "${controller.textValidat == null ? '0' : controller.textValidat}"
-                            ", ${coins?[index].name?.replaceAll("/Real Brasileiro", "")}"
-                            " vale(m)\n ${controller.valueConvertion.replaceAll(".", ",")} Real(s)",
-                            style: TextStyle(
-                                color: ConstColors.colorLavenderFloral,
-                                fontSize: 22.0),
-                            textAlign: TextAlign.center,
-                          );
+                        ? widgetController.testTextBr(
+                            coins: coins, index: index)
+
+                        : widgetController.testCoinsText(
+                            coins: coins, index: index,);
                   },
                 )),
             const SizedBox(height: 38.0),

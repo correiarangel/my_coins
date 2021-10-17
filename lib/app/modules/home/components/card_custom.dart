@@ -4,11 +4,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../shared/interface/general_functions_interface.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/util/value/const_colors.dart';
-import 'widgets_custom.dart';
+import '../controllers/widgets_controller.dart';
 
 class CardCustom extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
-  final widGetCustm = WidGetCustm();
+  final widGetController = WidGetController();
   final List<CoinModel>? coins;
   final int index;
   final controller;
@@ -22,9 +22,9 @@ class CardCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sizeBoxDivisor = widGetCustm.sizeBoxDivisor();
+    var sizeBoxDivisor = widGetController.sizeBoxDivisor();
     var date = genFunctions.toBrazilTime(coins?[index].createDate.toString());
-    var priceCoin = genFunctions.formatNumber("${coins?[index].bid}");
+    var priceCoin = "${coins?[index].bid}";
     controller.changesPriceCoin(priceCoin);
 
     return Padding(
@@ -145,15 +145,19 @@ class CardCustom extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        widGetController.testTextCustom(
+                          coins: coins,
+                          index: index,
+                        )
                         //name
-                        Text(
+                        /*Text(
                           "1 : ${coins?[index].code} Custa\n"
-                          " R\$ : ${priceCoin!.replaceAll(".", ",")}",
+                          " R\$ : ${genFunctions.formatNumberBr(priceCoin)}",
                           style: TextStyle(
                               color: ConstColors.colorLavenderFloral,
                               fontSize: 28.0),
                           textAlign: TextAlign.center,
-                        ),
+                        ), */
                       ],
                     ),
                     SizedBox(height: 28.0),
@@ -163,55 +167,3 @@ class CardCustom extends StatelessWidget {
             )));
   }
 }
-
-/* Container(
-
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _row.twoRow(btnHistoryPoints, btnLaunchObservation),
-              Padding(
-                padding:
-                    EdgeInsets.only(top: 10, left: 18, right: 18, bottom: 0),
-                child: r
-              _prograssController == true
-                  ? _screenProgress.screenProgress("Processando aguarde ...")
-                  : Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            //se = check-out mostra ButtonActionRoud(),
-                            child: testLastBolong == 'out'
-                                ? btnMarkIn
-                                : Container(),
-                          ),
-                          Container(
-                            //se = check-in mostra ButtonActionRoud(),
-                            child: testLastBolong == 'in'
-                                ? btnMarkOut
-                                : Container(),
-                          ),
-                        ],
-                      ),
-                    ),
-              Observer(builder: (_) {
-                ///atulisa tela quando post toda
-                var sent = sentinelController.sentinelOutAuto;
-                sent == true ? getRegisterHistPoints(false) : sent;
-                return Text(
-                  '${sentinelController.sentinelOutAuto}',
-                  style: TextStyle(
-                    color: ConstColors.colorIsabelline,
-                    fontSize: 0,
-                  ),
-                );
-              }),
-            ],
-          ),
-        ),
-      ),
-  } */

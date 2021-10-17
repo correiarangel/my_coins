@@ -5,9 +5,9 @@ import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../shared/util/value/const_colors.dart';
 import '../../shared/util/value/const_id_app.dart';
-import 'components/widgets_custom.dart';
 import 'controllers/home_store.dart';
 import 'controllers/rate_my_app_controller.dart';
+import 'controllers/widgets_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  final widGetCustom = WidGetCustm();
+  final widGetCustom = WidGetController();
   late RateMyAppController rateMyAppController;
   final RateMyApp rateMyApp = RateMyApp(
     preferencesPrefix: 'rateMyApp_',
