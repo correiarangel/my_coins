@@ -139,19 +139,17 @@ abstract class HomeStoreBase with Store {
   String? textValidat = '0';
   @action
   changesTextValidat(String? value) => textValidat = value;
-  
 
   @observable
   String? priceCoin = "0";
   @action
-  changesPriceCoin(String? value) =>  priceCoin = value; 
-  
+  changesPriceCoin(String? value) => priceCoin = value;
 
   @observable
   String? valueConvertion = "0";
   @action
   changesValueConvertion() {
-  //  var code = coins?.value?[0].code;
+    //  var code = coins?.value?[0].code;
     if (isReverseConversion) {
       valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
     } else {

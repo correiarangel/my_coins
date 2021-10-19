@@ -117,7 +117,8 @@ class CardCoinConvert extends StatelessWidget {
                           controller.changesTextValidat,
                           controller.valueToConvert,
                           false,
-                          _textController)
+                          _textController,
+                        )
                       : fieldText.textFiel(
                           TextInputType.number,
                           "Digite o valor",
@@ -125,7 +126,8 @@ class CardCoinConvert extends StatelessWidget {
                           controller.changesTextValidat,
                           controller.valueToConvert,
                           false,
-                          _textController);
+                          _textController,
+                        );
                 },
               ),
             ),
@@ -153,7 +155,9 @@ class CardCoinConvert extends StatelessWidget {
             ),
             const SizedBox(height: 0.0),
             TextButton.icon(
-              onPressed: () => controller.changesIsReverseConversion(),
+              onPressed: () {
+                controller.changesIsReverseConversion();
+              },
               icon: Icon(
                 Icons.swap_vert,
                 color: ConstColors.colorLigthGray,
@@ -178,10 +182,13 @@ class CardCoinConvert extends StatelessWidget {
                   builder: (context) {
                     return controller.isReverseConversion
                         ? widgetController.testTextBr(
-                            coins: coins, index: index)
-
+                            coins: coins,
+                            index: index,
+                          )
                         : widgetController.testCoinsText(
-                            coins: coins, index: index,);
+                            coins: coins,
+                            index: index,
+                          );
                   },
                 )),
             const SizedBox(height: 38.0),
