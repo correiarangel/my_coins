@@ -1,9 +1,23 @@
 name: CI/CD
 
-on:
+#on:
+#  push:
+#    tags:
+#      - v*
+on: 
   push:
-    tags:
-      - v*
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+env:
+  JAVA_VERSION: "12.X"
+  FLUTTER_VERSION: "2.5.2"
+  FLUTTER_CHANNEL: "stable"
+  PROPERTIES_PATH: "./android/key.properties"      
 
 jobs:
   flutter_test:
@@ -13,10 +27,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
-      - uses: subosito/flutter-action@v1
+          java-version: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
+          #java-version: "12.x"   
         with:
-          channel: "stable"
+          channel: ${{env.FLUTTER_CHANNEL}}
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter format --dry-run --set-exit-if-changed lib/
@@ -24,6 +39,7 @@ jobs:
       - run: flutter test --coverage
       - run: flutter test --machine > test-results-mycoins.json
       - uses: dorny/test-reporter@v1.4.2
+      
         with:
           name: test-results-mycoins
           path: test-results-mycoins.json
@@ -31,7 +47,26 @@ jobs:
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
           min_coverage: 40
-  
+      # Creating the key.properties file
+      - run: |
+          echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
+          echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
+          echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}    
+      - uses: subosito/flutter-action@v1
+
+      # Decoding base64 key into a file
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
+        # Get dependencies and make assigned appbundle
+      - run: | 
+          flutter pub get
+          flutter build appbundle    
+      # Make appbundle downloadable
+      - name: Upload artefato
+        uses: actions/upload-artifact@v2
+        with:
+          name: appbundle
+          path: build/app/outputs/bundle/release                  
+      
   build_ios:
     name: Build Flutter (iOS) - My_Coins
     needs: [flutter_test]
@@ -40,10 +75,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          java-version: ${{env.JAVA_VERSION}}
       - uses: subosito/flutter-action@v1
         with:
-          channel: "stable"
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build ios --release --no-codesign    
@@ -56,10 +92,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          java-version: ${{env.JAVA_VERSION}}
       - uses: subosito/flutter-action@v1
         with:
-          channel: "stable"
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build appbundle
@@ -77,7 +114,7 @@ jobs:
         - uses: actions/checkout@v2
         - uses: actions/setup-java@v1
           with:
-            java-version: "12.x"                                                          
+            java-version: ${{env.JAVA_VERSION}}                                                         
         - uses: subosito/flutter-action@v1
           with:
             channel: "stable"
@@ -89,3 +126,18 @@ jobs:
           with:
             name: apk
             path: build/app/outputs/flutter-apk/app-release.apk
+  
+  build_web:
+    name: Build Flutter WEB
+    needs: [flutter_test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build web
+       

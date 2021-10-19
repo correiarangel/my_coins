@@ -8,8 +8,7 @@ import 'app/app_widget.dart';
 import 'app/shared/services/http_overrides.dart';
 
 void main() {
-   HttpOverrides.global =  MyHttpOverrides();
-  
+  HttpOverrides.global = MyHttpOverrides();
   return runApp(
     ModularApp(
       module: AppModule(),

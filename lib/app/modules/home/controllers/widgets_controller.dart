@@ -377,7 +377,7 @@ class WidGetController {
     required List<CoinModel>? coins,
     required int index,
   }) {
-     String? text;
+    String? text;
     coins![index].code == "BTC"
         ? text = "R\$ ${coins[index].bid}"
         : text = "R\$ ${genFunctions.formatNumberBr("${coins[index].bid}")}";
