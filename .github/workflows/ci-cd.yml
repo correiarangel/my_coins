@@ -7,6 +7,8 @@ on:
 env:
   PROPERTIES_PATH: "./android/key.properties"  
   JAVA_VERSION: "12.x"
+  FLUTTER_VERSION: "2.5.2"
+  FLUTTER_CHANNEL: "stable"
 
 jobs:
   flutter_test:
@@ -20,7 +22,9 @@ jobs:
           #java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
-          channel: "stable"
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
+          #channel: "stable"
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter format --dry-run --set-exit-if-changed lib/
@@ -84,7 +88,9 @@ jobs:
           #java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
-          channel: "stable"
+          channel: ${{env.FLUTTER_CHANNEL}}
+          flutter-version: ${{env.FLUTTER_VERSION}}
+          #channel: "stable"
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build appbundle
@@ -106,7 +112,9 @@ jobs:
             #java-version: "12.x"                                                          
         - uses: subosito/flutter-action@v1
           with:
-            channel: "stable"
+            channel: ${{env.FLUTTER_CHANNEL}}
+            flutter-version: ${{env.FLUTTER_VERSION}}
+            #channel: "stable"
         - run: flutter pub get
         - run: flutter clean
         - run: flutter build apk
