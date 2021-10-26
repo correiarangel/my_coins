@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:chart_sparkline/chart_sparkline.dart';
@@ -12,17 +11,19 @@ import '../../../shared/util/value/const_colors.dart';
 class CardGrafic extends StatelessWidget {
   final List<CoinModel>? coins;
   final controller;
-  // ignore: prefer_final_fields, unused_field
-  int _currentPage = 0;
-  CardGrafic({Key? key, required this.coins, required this.controller})
-      : super(key: key);
 
-  bool get isDesktopOrWeb =>
+  CardGrafic({
+    Key? key,
+    required this.coins,
+    required this.controller,
+  }) : super(key: key);
+
+/*   bool get isDesktopOrWeb =>
       Platform.isMacOS ||
       Platform.isAndroid ||
       Platform.isIOS ||
       Platform.isLinux;
-
+ */
   @override
   Widget build(BuildContext context) {
     var data = [
@@ -30,18 +31,6 @@ class CardGrafic extends StatelessWidget {
       double.parse("${coins![0].ask}"),
       double.parse("${coins![0].high}"),
       double.parse("${coins![0].low}"),
-    ];
-
-    var dataBidAsk = [
-      double.parse("${coins![0].bid}"),
-      double.parse("${coins![0].ask}"),
-      double.parse("${coins![0].high}"),
-      double.parse("${coins![0].low}"),
-    ];
-
-    var dataPercentual = [
-      double.parse("${coins![0].pctChange}"),
-      double.parse("${coins![0].varBid}"),
     ];
 
     return Padding(

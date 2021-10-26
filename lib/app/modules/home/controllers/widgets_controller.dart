@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:my_coins/app/modules/home/components/card_grafic.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/models/coins_model.dart';
@@ -13,6 +12,7 @@ import '../../../shared/util/value/const_srtring.dart';
 import '../components/card_about.dart';
 import '../components/card_coin_convert.dart';
 import '../components/card_custom.dart';
+import '../components/card_grafic.dart';
 import '../components/card_siglas.dart';
 import 'home_store.dart';
 
@@ -234,7 +234,6 @@ class WidGetController {
             }
           },
         ),
-
       ],
     ));
   }
@@ -275,7 +274,11 @@ class WidGetController {
     ));
   }
 
-  Widget buildBodyAbout(context, RateMyApp rateMyApp, rateMyAppController) {
+  Widget buildBodyAbout(
+    context,
+    RateMyApp rateMyApp,
+    rateMyAppController,
+  ) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -314,12 +317,18 @@ class WidGetController {
               title: Text("Cotação"),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calculate, color: ConstColors.colorDarkBlueGray),
+              icon: Icon(
+                Icons.calculate,
+                color: ConstColors.colorDarkBlueGray,
+              ),
               // ignore: deprecated_member_use
               title: Text("Converter"),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.info, color: ConstColors.colorDarkBlueGray),
+              icon: Icon(
+                Icons.info,
+                color: ConstColors.colorDarkBlueGray,
+              ),
               // ignore: deprecated_member_use
               title: Text("Info"),
             ),
@@ -351,7 +360,10 @@ class WidGetController {
           itemCount: listCoins.length,
           itemBuilder: (context, index) {
             return CardSiglas(
-                coins: listCoins, index: index, controller: controller);
+              coins: listCoins,
+              index: index,
+              controller: controller,
+            );
           },
         ));
   }
@@ -378,7 +390,10 @@ class WidGetController {
       " vale(m)\n "
       " $text "
       "Real(s)",
-      style: TextStyle(color: ConstColors.colorLavenderFloral, fontSize: 22.0),
+      style: TextStyle(
+        color: ConstColors.colorLavenderFloral,
+        fontSize: 22.0,
+      ),
       textAlign: TextAlign.center,
     );
   }
@@ -392,7 +407,10 @@ class WidGetController {
       " Real(s) vale(m)\n "
       "${genFunctions.formatNumberUs(controller.valueConvertion!)} "
       "${coins?[index].name?.replaceAll("/Real Brasileiro", "")}",
-      style: TextStyle(color: ConstColors.colorLavenderFloral, fontSize: 22.0),
+      style: TextStyle(
+        color: ConstColors.colorLavenderFloral,
+        fontSize: 22.0,
+      ),
       textAlign: TextAlign.center,
     );
   }
@@ -409,7 +427,10 @@ class WidGetController {
     return Text(
       "1 : ${coins[index].code} igual a\n"
       " $text",
-      style: TextStyle(color: ConstColors.colorLavenderFloral, fontSize: 28.0),
+      style: TextStyle(
+        color: ConstColors.colorLavenderFloral,
+        fontSize: 28.0,
+      ),
       textAlign: TextAlign.center,
     );
   }
