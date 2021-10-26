@@ -6,6 +6,7 @@ on:
       - v*
 env:
   PROPERTIES_PATH: "./android/key.properties"  
+  JAVA_VERSION: "12.x"
 
 jobs:
   flutter_test:
@@ -15,7 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          java-version: ${{env.JAVA_VERSION}}
+          #java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
@@ -61,7 +63,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          java-version: ${{env.JAVA_VERSION}}
+          #java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
@@ -77,7 +80,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          java-version: ${{env.JAVA_VERSION}}
+          #java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
@@ -98,7 +102,8 @@ jobs:
         - uses: actions/checkout@v2
         - uses: actions/setup-java@v1
           with:
-            java-version: "12.x"                                                          
+            java-version: ${{env.JAVA_VERSION}}
+            #java-version: "12.x"                                                          
         - uses: subosito/flutter-action@v1
           with:
             channel: "stable"
