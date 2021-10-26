@@ -4,16 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-
 class AppWidget extends StatelessWidget {
-
   static FirebaseAnalytics analytics = FirebaseAnalytics();
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorObservers: [
-         FirebaseAnalyticsObserver(analytics: analytics),
+        FirebaseAnalyticsObserver(analytics: analytics),
       ],
       debugShowCheckedModeBanner: false,
       title: 'My Coins',
