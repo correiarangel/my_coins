@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:my_coins/app/modules/home/components/card_grafic.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/models/coins_model.dart';
@@ -211,6 +212,29 @@ class WidGetController {
             }
           },
         ),
+        Observer(
+          builder: (context) {
+            if (controller.coins?.error != null) {
+              return isInternetBuild();
+            } else if (controller.coins?.value == null) {
+              return circularProgress;
+            } else {
+              var listCoins = controller.coins?.value;
+
+              return Padding(
+                padding: EdgeInsets.only(
+                  top: 20.0,
+                  bottom: 20.0,
+                ),
+                child: CardGrafic(
+                  coins: listCoins,
+                  controller: controller,
+                ),
+              );
+            }
+          },
+        ),
+
       ],
     ));
   }
@@ -383,7 +407,7 @@ class WidGetController {
         : text = "R\$ ${genFunctions.formatNumberBr("${coins[index].bid}")}";
 
     return Text(
-      "1 : ${coins[index].code} Custa\n"
+      "1 : ${coins[index].code} igual a\n"
       " $text",
       style: TextStyle(color: ConstColors.colorLavenderFloral, fontSize: 28.0),
       textAlign: TextAlign.center,
