@@ -8,7 +8,7 @@ import 'app/app_module.dart';
 import 'app/app_widget.dart';
 import 'app/shared/services/http_overrides.dart';
 
-void main() async{
+void main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
