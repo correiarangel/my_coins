@@ -15,4 +15,7 @@ class ConstStringUrl {
 
   static const String urlPrivacyPolicy =
       "https://github.com/correiarangel/my_coins/blob/main/PRIVACY_POLICY.md";
+
+  static const String urlSevenDay =
+      "https://economia.awesomeapi.com.br/json/daily/";
 }
