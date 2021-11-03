@@ -29,7 +29,7 @@ class CardAbout extends StatelessWidget {
       : super(key: key);
 
   setVersion() {
-    var v = "1.0.0+1";
+    var v = "1.0.0+7";
     if (Platform.isAndroid || Platform.isIOS) {
       v = controller.version;
     }
@@ -41,8 +41,12 @@ class CardAbout extends StatelessWidget {
     var sizeBoxDivisor = widGetController.sizeBoxDivisor();
 
     return Padding(
-      padding:
-          EdgeInsets.only(left: 10.0, right: 10.0, top: 18.0, bottom: 18.0),
+      padding: EdgeInsets.only(
+        left: 10.0,
+        right: 10.0,
+        top: 18.0,
+        bottom: 18.0,
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: ConstColors.colorSpaceCadet,
@@ -78,21 +82,25 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Info",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
               Padding(
-                  padding: EdgeInsets.only(left: 4.0, right: 4.0, top: 18.0),
+                  padding: EdgeInsets.only(
+                    left: 4.0,
+                    right: 4.0,
+                    top: 18.0,
+                  ),
                   child: Text(
-                    "O App My Coins foi desenvolvido para consultar e exibir,"
-                    "dados cambiais, cotação de moedas de vários países, "
-                    "e moedas digitais como BitCoin, Ethereum e outras.\n"
-                    "Com visual simples amigável e cores inspiradas no "
-                    "consolidado thema Drácula.",
+                    ConstString.msgTextInfo,
                     style: TextStyle(
-                        color: ConstColors.colorLavenderFloral, fontSize: 20.0),
+                      color: ConstColors.colorLavenderFloral,
+                      fontSize: 20.0,
+                    ),
                     textAlign: TextAlign.center,
                   )),
               sizeBoxDivisor,
@@ -111,7 +119,9 @@ class CardAbout extends StatelessWidget {
                       return Text(
                         "Versão ${controller.version}",
                         style: TextStyle(
-                            color: ConstColors.colorLigthGray, fontSize: 28.0),
+                          color: ConstColors.colorLigthGray,
+                          fontSize: 28.0,
+                        ),
                         textAlign: TextAlign.center,
                       );
                     },
@@ -134,7 +144,9 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Avaliar",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ],
@@ -167,19 +179,25 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Desenvolvedor",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ],
               ),
               Padding(
-                  padding: EdgeInsets.only(left: 4.0, right: 4.0, top: 18.0),
+                  padding: EdgeInsets.only(
+                    left: 4.0,
+                    right: 4.0,
+                    top: 18.0,
+                  ),
                   child: Text(
-                    "Marcos Rangel, desenvolvedor móbile Flutter.\n"
-                    "Flutte é uma poderosa ferramenta para o desenvolvimento,\n"
-                    "Móbile, Web e Desktop, documentação nos links abaixo.\n",
+                    ConstString.msgTextTheDev,
                     style: TextStyle(
-                        color: ConstColors.colorLavenderFloral, fontSize: 20.0),
+                      color: ConstColors.colorLavenderFloral,
+                      fontSize: 20.0,
+                    ),
                     textAlign: TextAlign.center,
                   )),
               sizeBoxDivisor,
@@ -198,7 +216,9 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Contato(s)",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ],
@@ -241,13 +261,11 @@ class CardAbout extends StatelessWidget {
                   left: 10.0,
                   url: ConstStringUrl.urlGuitHub),
               sizeBoxDivisor,
-
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   //coin
-
                   Icon(
                     Icons.local_police_rounded,
                     color: ConstColors.colorDarkBlueGray,
@@ -257,7 +275,9 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Política de Privacidade",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 26.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 26.0,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ],
@@ -289,7 +309,9 @@ class CardAbout extends StatelessWidget {
                   Text(
                     "Referecia(s)",
                     style: TextStyle(
-                        color: ConstColors.colorLigthGray, fontSize: 28.0),
+                      color: ConstColors.colorLigthGray,
+                      fontSize: 28.0,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ],
