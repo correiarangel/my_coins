@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'package:screenshot/screenshot.dart';
+
 import '../../../shared/interface/general_functions_interface.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/util/value/const_colors.dart';
@@ -9,16 +11,18 @@ import '../controllers/widgets_controller.dart';
 class CardCustom extends StatelessWidget {
   final genFunctions = Modular.get<IGeneralFunctions>();
   final widGetController = WidGetController();
+  final ScreenshotController screenshot;
   final List<CoinModel>? coins;
   final int index;
   final controller;
 
-  CardCustom(
-      {Key? key,
-      required this.coins,
-      required this.index,
-      required this.controller})
-      : super(key: key);
+  CardCustom({
+    Key? key,
+    required this.screenshot,
+    required this.coins,
+    required this.index,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +60,22 @@ class CardCustom extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 28.0),
+                SizedBox(height: 8.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    SizedBox(height: 4.0),
+                    TextButton.icon(
+                      onPressed: () => controller.share(screenshot),
+                      icon: Icon(
+                        Icons.share,
+                        size: 30.0,
+                        color: ConstColors.colorLavenderFloral,
+                      ),
+                      label: Text(''),
+                    ),
+                  ],
+                ),
                 Text(
                   "Dados coletados em :",
                   style: TextStyle(
