@@ -4,14 +4,14 @@ on:
   push:
     tags:
       - v*
-      
+
 env:
   JAVA_VERSION: "12.x"
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
 
-  jobs:
+jobs:
   flutter_test:
     name: Run Flutter analyze and test - My_Coins
     runs-on: ubuntu-latest
