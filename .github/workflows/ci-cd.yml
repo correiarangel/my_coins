@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - v*
+      
 env:
   JAVA_VERSION: "12.x"
  # FLUTTER_VERSION: "2.2.3"
