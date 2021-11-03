@@ -11,7 +11,7 @@ on:
       - main
 env:
   JAVA_VERSION: "12.x"
-  FLUTTER_VERSION: "2.2.3"
+  #FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"
 
@@ -28,7 +28,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
-          flutter-version: ${{env.FLUTTER_VERSION}}
+          #flutter-version: ${{env.FLUTTER_VERSION}}
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter format --dry-run --set-exit-if-changed lib/

@@ -6,7 +6,7 @@ on:
       - v*
 env:
   JAVA_VERSION: "12.x"
-  FLUTTER_VERSION: "2.2.3"
+ # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
 
@@ -23,7 +23,7 @@ env:
       - uses: subosito/flutter-action@v1
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
-          flutter-version: ${{env.FLUTTER_VERSION}}
+          #flutter-version: ${{env.FLUTTER_VERSION}}
           #channel: "stable"
       - run: flutter pub get
       - run: flutter analyze
@@ -88,7 +88,7 @@ env:
       - uses: subosito/flutter-action@v1
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
-          flutter-version: ${{env.FLUTTER_VERSION}}
+          #flutter-version: ${{env.FLUTTER_VERSION}}
           #channel: "stable"
       - run: flutter pub get
       - run: flutter clean
@@ -111,7 +111,7 @@ env:
         - uses: subosito/flutter-action@v1
           with:
             channel: ${{env.FLUTTER_CHANNEL}}
-            flutter-version: ${{env.FLUTTER_VERSION}}
+            #flutter-version: ${{env.FLUTTER_VERSION}}
             #channel: "stable"
         - run: flutter pub get
         - run: flutter clean
