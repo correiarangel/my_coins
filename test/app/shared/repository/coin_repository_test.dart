@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:my_coins/app/shared/models/coins_days_model.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
 
@@ -20,7 +21,9 @@ void main() {
   test('Deve retornar Lista do tipo CoinModel ', () async {
     //arrage
     var coins = <CoinModel>[];
-    when(() => repository.getAllCoins(any())).thenAnswer((_) async => coins);
+    when(() => repository.getAllCoins(any())).thenAnswer(
+      (_) async => coins,
+    );
     //act
     //coins = await repository.getAllCoins('USD');
     //assert
@@ -28,7 +31,7 @@ void main() {
     expect(coins.isEmpty, true);
   });
 
-  test('Deve dar erro se parametro errado ...', () async {
+  test('Deve dar erro se parametro errado para coins...', () async {
     //arrage
     var coins;
     when(() => repository.getAllCoins('')).thenAnswer((_) async {
@@ -39,6 +42,28 @@ void main() {
     //assert
     //expect(coins, 'Excepiton Error Get');
     expect(coins, null);
+  });
+
+  test('Deve retornar Lista do tipo CoinDaysModel ', () async {
+    //arrage
+    var coinsDays = <CoinDaysModel>[];
+    when(() => repository.getPeriodCoins("USD", "8")).thenAnswer(
+      (_) async => coinsDays,
+    );
+    //act
+    //assert
+    expect(coinsDays, isA<List<CoinDaysModel>>());
+    expect(coinsDays.isEmpty, true);
+  });
+
+  test('Deve dar erro se parametro errado para CoinDaysModel...', () async {
+    //arrage
+    var coinsDays;
+    when(() => repository.getPeriodCoins("USD", "8")).thenAnswer((_) async {
+      return coinsDays;
+    });
+
+    expect(coinsDays, null);
   });
 }
 
