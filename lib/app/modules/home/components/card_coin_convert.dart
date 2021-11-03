@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../../shared/interface/general_functions_interface.dart';
 import '../../../shared/models/coins_model.dart';
@@ -14,17 +15,19 @@ class CardCoinConvert extends StatelessWidget {
   final _textController = TextEditingController();
   final fieldText = TextFielCustom();
   final widgetController = WidGetController();
+  final ScreenshotController screenshot;
 
   final List<CoinModel>? coins;
   final int index;
   final controller;
 
-  CardCoinConvert(
-      {Key? key,
-      required this.coins,
-      required this.index,
-      required this.controller})
-      : super(key: key);
+  CardCoinConvert({
+    Key? key,
+    required this.coins,
+    required this.index,
+    required this.controller,
+    required this.screenshot,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +61,21 @@ class CardCoinConvert extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 38.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                SizedBox(height: 4.0),
+                TextButton.icon(
+                  onPressed: () => controller.share(screenshot),
+                  icon: Icon(
+                    Icons.share,
+                    size: 30.0,
+                    color: ConstColors.colorLavenderFloral,
+                  ),
+                  label: Text(''),
+                ),
+              ],
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
