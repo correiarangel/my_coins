@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rate_my_app/rate_my_app.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/models/coins_parc_model.dart';
@@ -14,9 +15,11 @@ import '../components/card_coin_convert.dart';
 import '../components/card_custom.dart';
 import '../components/card_grafic.dart';
 import '../components/card_siglas.dart';
+import '../components/row_custom.dart';
 import 'home_store.dart';
 
 class WidGetController {
+  final screenshot = ScreenshotController();
   final genFunctions = Modular.get<GeneralFunctions>();
   List<DropdownMenuItem<String>> listaItensDropResp = [];
   final controller = Modular.get<HomeStore>();
@@ -134,8 +137,6 @@ class WidGetController {
         color: ConstColors.colorSpaceCadet,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const SizedBox(height: 5.0),
           ListTile(
@@ -158,15 +159,12 @@ class WidGetController {
     Widget? winget;
 
     if (controller.isNet == true) {
-      winget = btnIconError("Ops!...", "Click p/ Recarregar !", Icons.refresh);
+      winget = btnIconError("Ops!...", ConstString.msgErroLoand, Icons.refresh);
     } else if (controller.isNet == false) {
-      final _msg = "Sem conexão com internet :[\n"
-          "Pedimos desculpas!\n My Coins necessita de internet\n "
-          "para entregar informações sempre atualizados";
-      winget = btnIconError("Ops!...", _msg, Icons.wifi_off);
+      winget = btnIconError("Ops!...", ConstString.msgNotNet, Icons.wifi_off);
     } else {
       winget =
-          btnIconError("Ops!, Erro", "Click p/ Recarregar !", Icons.refresh);
+          btnIconError("Ops!, Erro", ConstString.msgErroLoand, Icons.refresh);
     }
     return winget;
   }
@@ -175,67 +173,84 @@ class WidGetController {
     //initItensDropdown();
     controller.changesIsNet();
     return SingleChildScrollView(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        buildHeader("My Coins", context, screen: 'quotation'),
-        SizedBox(height: 28.0),
-        Text(
-          "Cambios, escolha a moeda:",
-          style: TextStyle(
-              color: ConstColors.colorDarkBlueGray,
-              fontSize: 22.0,
-              fontWeight: FontWeight.bold),
-        ),
-        horizontlList(),
-        Observer(
-          builder: (context) {
-            if (controller.coins?.error != null) {
-              return isInternetBuild();
-            } else if (controller.coins?.value == null) {
-              return circularProgress;
-            } else {
-              var listCoins = controller.coins?.value;
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          buildHeader("My Coins", context, screen: 'quotation'),
+          SizedBox(height: 28.0),
+          Text(
+            "Cambios, selecione a moéda:",
+            style: TextStyle(
+                color: ConstColors.colorDarkBlueGray,
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold),
+          ),
+          horizontlList(),
+          returnCardCustom(),
+          SizedBox(height: 8.0),
+          RowCustom(controller: controller),
+          SizedBox(height: 8.0),
+          returnCardGrafic(),
+        ],
+      ),
+    );
+  }
 
-              return Padding(
-                padding: EdgeInsets.only(
-                  top: 20.0,
-                  bottom: 20.0,
-                ),
-                child: CardCustom(
-                  coins: listCoins,
-                  index: 0,
-                  controller: controller,
-                ),
-              );
-            }
-          },
-        ),
-        Observer(
-          builder: (context) {
-            if (controller.coins?.error != null) {
-              return isInternetBuild();
-            } else if (controller.coins?.value == null) {
-              return circularProgress;
-            } else {
-              var listCoins = controller.coins?.value;
+  Widget returnCardCustom() {
+    return Observer(
+      builder: (context) {
+        if (controller.coins?.error != null) {
+          return isInternetBuild();
+        } else if (controller.coins?.value == null) {
+          return circularProgress;
+        } else {
+          var listCoins = controller.coins?.value;
 
-              return Padding(
-                padding: EdgeInsets.only(
-                  top: 20.0,
-                  bottom: 20.0,
-                ),
-                child: CardGrafic(
-                  coins: listCoins,
-                  controller: controller,
-                ),
-              );
-            }
-          },
-        ),
-      ],
-    ));
+          return Padding(
+            padding: EdgeInsets.only(
+              top: 20.0,
+              bottom: 20.0,
+            ),
+            child: Screenshot(
+              controller: screenshot,
+              child: CardCustom(
+                screenshot: screenshot,
+                coins: listCoins,
+                index: 0,
+                controller: controller,
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+
+  Widget returnCardGrafic() {
+    return Observer(
+      builder: (context) {
+        if (controller.coinsDays?.error != null) {
+          return Container();
+        } else if (controller.coinsDays?.value == null) {
+          return controller.progssVariation ? circularProgress : Container();
+        } else {
+          var _listCoins = controller.coinsDays?.value;
+
+          return Padding(
+            padding: EdgeInsets.only(
+              top: 20.0,
+              bottom: 20.0,
+            ),
+            child: CardGrafic(
+              coinsDays: _listCoins,
+              param: 'bid',
+              controller: controller,
+            ),
+          );
+        }
+      },
+    );
   }
 
   Widget buildBodyCovert(BuildContext context) {
@@ -262,11 +277,16 @@ class WidGetController {
             } else if (controller.coins?.value == null) {
               return circularProgress;
             } else {
-              controller.changesTextValidat('0');
-              return CardCoinConvert(
+              //controller.changesTextValidat('0');
+              return Screenshot(
+                controller: screenshot,
+                child: CardCoinConvert(
                   coins: controller.coins?.value,
                   index: 0,
-                  controller: controller);
+                  controller: controller,
+                  screenshot: screenshot,
+                ),
+              );
             }
           },
         ),
@@ -314,7 +334,7 @@ class WidGetController {
                 color: ConstColors.colorDarkBlueGray,
               ),
               // ignore: deprecated_member_use
-              title: Text("Cotação"),
+              title: Text("Cambios"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
