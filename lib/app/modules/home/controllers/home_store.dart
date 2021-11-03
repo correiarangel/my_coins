@@ -1,10 +1,16 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../shared/models/coins_days_model.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/repository/coin_repository.dart';
 import '../../../shared/util/check_internet.dart';
@@ -25,8 +31,12 @@ abstract class HomeStoreBase with Store {
   @observable
   ObservableFuture<List<CoinModel>>? coins;
 
+  @observable
+  ObservableFuture<List<CoinDaysModel>>? coinsDays;
+
   HomeStoreBase(this.repository) {
     fetchCoins(itemSelect);
+    fetchcoinsDays(itemSelect);
     changeVersion();
   }
 
@@ -37,6 +47,26 @@ abstract class HomeStoreBase with Store {
     changeDateUpgrade("${coins?.value?[0].createDate}");
   }
 
+  @action
+  fetchcoinsDays(String? _typeConin) {
+    if (_typeConin == null) _typeConin = 'USD';
+    if (days == null) days = '8';
+    coinsDays = repository.getPeriodCoins(_typeConin, days!)?.asObservable();
+  }
+
+  @observable
+  String? days = '8';
+  @action
+  changesDays(String? value) {
+    days = value;
+    fetchcoinsDays(itemSelect);
+  }
+
+  @observable
+  bool progssVariation = false;
+  @action
+  // ignore: avoid_positional_boolean_parameters
+  changesProgressVariation(bool value) => progssVariation = value;
   @observable
   int currentIndex = 0;
   @action
@@ -64,15 +94,10 @@ abstract class HomeStoreBase with Store {
   String? itemSelect = 'USD';
   @action
   changesItenSelect(String? value) async {
-    itemSelect = value;
     fetchCoins(value);
+    fetchcoinsDays(value);
+    return itemSelect = value;
   }
-
-  @observable
-  List<DropdownMenuItem<String>> listaItensDrop = [];
-  @action
-  changeslistDropdownMenuItem(List<DropdownMenuItem<String>> value) =>
-      listaItensDrop = value;
 
   @observable
   Color? colorLinkEmail = ConstColors.colorLavenderFloral;
@@ -112,9 +137,7 @@ abstract class HomeStoreBase with Store {
     return colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
-  setFalseProgress() {
-    changesProgressLink(false);
-  }
+  setFalseProgress() => changesProgressLink(false);
 
   @observable
   bool progressLink = false;
@@ -128,7 +151,7 @@ abstract class HomeStoreBase with Store {
 
   String? valueToConvert() {
     if (textValidat == null || textValidat!.isEmpty) {
-      return "É obrigatorio um valor para conversão";
+      return ConstString.msgRiqueriValue;
     } else {
       changesValueConvertion();
     }
@@ -187,4 +210,20 @@ abstract class HomeStoreBase with Store {
   var isNet;
   @action
   changesIsNet() async => isNet = await testInternet.isInternet();
+
+  Future<void> share(ScreenshotController screenshot) async {
+    if (!kIsWeb) {
+      await screenshot
+          .capture(delay: const Duration(milliseconds: 10))
+          .then((image) async {
+        if (image != null) {
+          final directory = await getApplicationDocumentsDirectory();
+          final imagePath = await File('${directory.path}/image.png').create();
+          await imagePath.writeAsBytes(image);
+
+          await Share.shareFiles([imagePath.path]);
+        }
+      });
+    }
+  }
 }
