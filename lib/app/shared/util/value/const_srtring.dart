@@ -5,6 +5,24 @@ class ConstString {
   static const String gitHub = "Visitar  GitHub";
   static const String docFlutter = "Ducumentação Flutter";
   static const String policy = "Política Privacidade";
+
+  static const String msgNotNet = "Sem conexão com internet :[\n"
+      "Pedimos desculpas!\n My Coins necessita de internet\n "
+      "para entregar informações sempre atualizados";
+
+  static const String msgRiqueriValue = "É obrigatorio um valor para conversão";
+  static const String msgErroLoand = "Click p/ Recarregar !";
+
+  static const String msgTextInfo =
+      "O App My Coins foi desenvolvido para consultar e exibir,"
+      "dados cambiais, cotação de moedas de vários países, "
+      "e moedas digitais como BitCoin, Ethereum e outras.\n"
+      "Com visual simples amigável e cores inspiradas no "
+      "consolidado thema Drácula.";
+  static const String msgTextTheDev = "Marcos Rangel, desenvolvedor Flutter.\n"
+      "Flutte é uma poderosa ferramenta para o desenvolvimento,\n"
+      "Móbile, Web e Desktop, documentação nos links abaixo.\n";
+      
   static const listSiglaCoins = [
     {
       "id": "0",
