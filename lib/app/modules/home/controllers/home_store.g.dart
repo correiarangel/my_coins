@@ -31,6 +31,51 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  final _$coinsDaysAtom = Atom(name: 'HomeStoreBase.coinsDays');
+
+  @override
+  ObservableFuture<List<CoinDaysModel>>? get coinsDays {
+    _$coinsDaysAtom.reportRead();
+    return super.coinsDays;
+  }
+
+  @override
+  set coinsDays(ObservableFuture<List<CoinDaysModel>>? value) {
+    _$coinsDaysAtom.reportWrite(value, super.coinsDays, () {
+      super.coinsDays = value;
+    });
+  }
+
+  final _$daysAtom = Atom(name: 'HomeStoreBase.days');
+
+  @override
+  String? get days {
+    _$daysAtom.reportRead();
+    return super.days;
+  }
+
+  @override
+  set days(String? value) {
+    _$daysAtom.reportWrite(value, super.days, () {
+      super.days = value;
+    });
+  }
+
+  final _$progssVariationAtom = Atom(name: 'HomeStoreBase.progssVariation');
+
+  @override
+  bool get progssVariation {
+    _$progssVariationAtom.reportRead();
+    return super.progssVariation;
+  }
+
+  @override
+  set progssVariation(bool value) {
+    _$progssVariationAtom.reportWrite(value, super.progssVariation, () {
+      super.progssVariation = value;
+    });
+  }
+
   final _$currentIndexAtom = Atom(name: 'HomeStoreBase.currentIndex');
 
   @override
@@ -88,21 +133,6 @@ mixin _$HomeStore on HomeStoreBase, Store {
   set itemSelect(String? value) {
     _$itemSelectAtom.reportWrite(value, super.itemSelect, () {
       super.itemSelect = value;
-    });
-  }
-
-  final _$listaItensDropAtom = Atom(name: 'HomeStoreBase.listaItensDrop');
-
-  @override
-  List<DropdownMenuItem<String>> get listaItensDrop {
-    _$listaItensDropAtom.reportRead();
-    return super.listaItensDrop;
-  }
-
-  @override
-  set listaItensDrop(List<DropdownMenuItem<String>> value) {
-    _$listaItensDropAtom.reportWrite(value, super.listaItensDrop, () {
-      super.listaItensDrop = value;
     });
   }
 
@@ -326,6 +356,39 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
+  dynamic fetchcoinsDays(String? _typeConin) {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.fetchcoinsDays');
+    try {
+      return super.fetchcoinsDays(_typeConin);
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changesDays(String? value) {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.changesDays');
+    try {
+      return super.changesDays(value);
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changesProgressVariation(bool value) {
+    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
+        name: 'HomeStoreBase.changesProgressVariation');
+    try {
+      return super.changesProgressVariation(value);
+    } finally {
+      _$HomeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic changePage(int index) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changePage');
@@ -342,17 +405,6 @@ mixin _$HomeStore on HomeStoreBase, Store {
         name: 'HomeStoreBase.changeDateUpgrade');
     try {
       return super.changeDateUpgrade(value);
-    } finally {
-      _$HomeStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic changeslistDropdownMenuItem(List<DropdownMenuItem<String>> value) {
-    final _$actionInfo = _$HomeStoreBaseActionController.startAction(
-        name: 'HomeStoreBase.changeslistDropdownMenuItem');
-    try {
-      return super.changeslistDropdownMenuItem(value);
     } finally {
       _$HomeStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -450,11 +502,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   String toString() {
     return '''
 coins: ${coins},
+coinsDays: ${coinsDays},
+days: ${days},
+progssVariation: ${progssVariation},
 currentIndex: ${currentIndex},
 dateUpgrade: ${dateUpgrade},
 version: ${version},
 itemSelect: ${itemSelect},
-listaItensDrop: ${listaItensDrop},
 colorLinkEmail: ${colorLinkEmail},
 colorLinkDin: ${colorLinkDin},
 colorLinkGit: ${colorLinkGit},
