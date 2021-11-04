@@ -157,17 +157,5 @@ jobs:
           releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
           whatsNewDirectory: distribution/whatsnew
            mappingFile: build/app/outputs/mapping/release/mapping.txt
-
-#  notify_telegram:
-#    name: Notify Publish Success
-#    needs: [publish_playStore]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: appleboy/telegram-action@master
-#        with:
-#          to: ${{ secrets.TELEGRAM_TO }}
-#          token: ${{ secrets.TELEGRAM_TOKEN }}
-#          message: |
-#            You've published sucessfully CNPJ_COMPANY to PLAY STORE :)
          
       
