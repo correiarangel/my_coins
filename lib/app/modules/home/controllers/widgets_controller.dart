@@ -16,14 +16,16 @@ import '../components/card_custom.dart';
 import '../components/card_grafic.dart';
 import '../components/card_siglas.dart';
 import '../components/row_custom.dart';
+import '../interface/widgets_controller_interface.dart';
 import 'home_store.dart';
 
-class WidGetController {
-  final screenshot = ScreenshotController();
+class WidGetController implements IWidGetController {
+  ScreenshotController? screenshot;
   final genFunctions = Modular.get<GeneralFunctions>();
-  List<DropdownMenuItem<String>> listaItensDropResp = [];
   final controller = Modular.get<HomeStore>();
-
+  WidGetController() {
+    screenshot = ScreenshotController();
+  }
   final Widget circularProgress = Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -34,8 +36,8 @@ class WidGetController {
       ),
     ],
   );
-
-  Widget btnIconError(String title, String msg, IconData icon) {
+  @override
+  Center btnIconError(String title, String msg, IconData icon) {
     return Center(
       child: InkWell(
         child: Container(
@@ -93,6 +95,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget sizeBoxDivisor() {
     return SizedBox(
       height: 28.0,
@@ -105,6 +108,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget flotBtnSearsh() {
     return FloatingActionButton(
       elevation: 8.0,
@@ -119,6 +123,7 @@ class WidGetController {
     );
   }
 
+  @override
   Container buildHeader(String? titulo, BuildContext _context,
       {required String? screen}) {
     return Container(
@@ -155,6 +160,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget isInternetBuild() {
     Widget? winget;
 
@@ -169,7 +175,8 @@ class WidGetController {
     return winget;
   }
 
-  Widget buildBodyCotation(BuildContext context) {
+  @override
+  SingleChildScrollView buildBodyCotation(BuildContext context) {
     //initItensDropdown();
     controller.changesIsNet();
     return SingleChildScrollView(
@@ -197,6 +204,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget returnCardCustom() {
     return Observer(
       builder: (context) {
@@ -213,9 +221,9 @@ class WidGetController {
               bottom: 20.0,
             ),
             child: Screenshot(
-              controller: screenshot,
+              controller: screenshot!,
               child: CardCustom(
-                screenshot: screenshot,
+                screenshot: screenshot!,
                 coins: listCoins,
                 index: 0,
                 controller: controller,
@@ -227,6 +235,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget returnCardGrafic() {
     return Observer(
       builder: (context) {
@@ -253,7 +262,8 @@ class WidGetController {
     );
   }
 
-  Widget buildBodyCovert(BuildContext context) {
+  @override
+  SingleChildScrollView buildBodyCovert(BuildContext context) {
     controller.changesIsNet();
     return SingleChildScrollView(
         child: Column(
@@ -279,12 +289,12 @@ class WidGetController {
             } else {
               //controller.changesTextValidat('0');
               return Screenshot(
-                controller: screenshot,
+                controller: screenshot!,
                 child: CardCoinConvert(
                   coins: controller.coins?.value,
                   index: 0,
                   controller: controller,
-                  screenshot: screenshot,
+                  screenshot: screenshot!,
                 ),
               );
             }
@@ -294,7 +304,8 @@ class WidGetController {
     ));
   }
 
-  Widget buildBodyAbout(
+  @override
+  SingleChildScrollView buildBodyAbout(
     context,
     RateMyApp rateMyApp,
     rateMyAppController,
@@ -318,6 +329,7 @@ class WidGetController {
   }
 
   ///barra inferior
+  @override
   Widget buildBottomBar() {
     return Observer(
       builder: (context) {
@@ -358,6 +370,7 @@ class WidGetController {
     );
   }
 
+  @override
   Widget? buildBody(context, RateMyApp rateMyApp, rateMyAppController) {
     switch (controller.currentIndex) {
       case 0:
@@ -369,7 +382,8 @@ class WidGetController {
     }
   }
 
-  Widget horizontlList() {
+  @override
+  Container horizontlList() {
     // ignore: omit_local_variable_types
     List<CoinsParcModel> listCoins = fillListSiglas();
     return Container(
@@ -388,6 +402,7 @@ class WidGetController {
         ));
   }
 
+  @override
   List<CoinsParcModel> fillListSiglas() {
     Iterable interbleCoins = ConstString.listSiglaCoins;
     return interbleCoins
@@ -395,7 +410,8 @@ class WidGetController {
         .toList();
   }
 
-  Widget testCoinsText({
+  @override
+  Text testCoinsText({
     required List<CoinModel>? coins,
     required int index,
   }) {
@@ -418,7 +434,8 @@ class WidGetController {
     );
   }
 
-  Widget testTextBr({
+  @override
+  Text testTextBr({
     required List<CoinModel>? coins,
     required int index,
   }) {
@@ -435,7 +452,8 @@ class WidGetController {
     );
   }
 
-  Widget testTextCustom({
+  @override
+  Text testTextCustom({
     required List<CoinModel>? coins,
     required int index,
   }) {
