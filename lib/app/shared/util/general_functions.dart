@@ -1,6 +1,4 @@
 import 'package:intl/intl.dart';
-import 'package:package_info/package_info.dart';
-
 import '../interface/general_functions_interface.dart';
 
 class GeneralFunctions implements IGeneralFunctions {
@@ -12,16 +10,6 @@ class GeneralFunctions implements IGeneralFunctions {
       formatedHour = format.format(date);
     }
     return formatedHour;
-  }
-
-  @override
-  Future<String?>? getBuildAndVersion() async {
-    try {
-      var packageInfo = await PackageInfo.fromPlatform();
-      return '${packageInfo.version}+${packageInfo.buildNumber}';
-    } on Exception catch (_) {
-      return '';
-    }
   }
 
   @override
