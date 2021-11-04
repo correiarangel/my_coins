@@ -15,6 +15,7 @@ import '../../../shared/models/coins_model.dart';
 import '../../../shared/repository/coin_repository.dart';
 import '../../../shared/util/check_internet.dart';
 import '../../../shared/util/general_functions.dart';
+import '../../../shared/util/general_version.dart';
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
 
@@ -25,6 +26,7 @@ class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
   final genFunctions = Modular.get<GeneralFunctions>();
+  final genVersion = Modular.get<GeneralVersion>();
   final testInternet = Modular.get<CheckInternet>();
   final CoinRepository repository;
 
@@ -87,7 +89,7 @@ abstract class HomeStoreBase with Store {
   String? version = "";
   @action
   changeVersion() async {
-    version = await genFunctions.getBuildAndVersion();
+    version = await genVersion.getBuildAndVersion();
   }
 
   @observable
