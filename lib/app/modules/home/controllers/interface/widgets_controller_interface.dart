@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
-import '../../../shared/models/coins_model.dart';
-import '../../../shared/models/coins_parc_model.dart';
+import '../../../../shared/models/coins_model.dart';
+import '../../../../shared/models/coins_parc_model.dart';
 
 abstract class IWidGetController {
   Center? btnIconError(String title, String msg, IconData icon) {}

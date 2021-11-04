@@ -16,8 +16,8 @@ import '../components/card_custom.dart';
 import '../components/card_grafic.dart';
 import '../components/card_siglas.dart';
 import '../components/row_custom.dart';
-import '../interface/widgets_controller_interface.dart';
 import 'home_store.dart';
+import 'interface/widgets_controller_interface.dart';
 
 class WidGetController implements IWidGetController {
   ScreenshotController? screenshot;
