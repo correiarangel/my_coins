@@ -19,7 +19,7 @@ env:
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
-  GOOGLE_SERVECE: "./android/app/google-services.json"
+  #GOOGLE_SERVECE: "./android/google-services.json"
 
 jobs:
   flutter_test:
@@ -122,8 +122,8 @@ jobs:
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
 
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks
-      - run: echo "${{ secrets.GOOGLE_SERVECE }}" | base64 --decode > android/app/google-services.json
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
+      - run: echo "${{ secrets.GOOGLE_SERVECE }}" > android/app/google-services.json
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
