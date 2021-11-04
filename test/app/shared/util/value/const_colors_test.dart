@@ -3,8 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_coins/app/shared/util/value/const_colors.dart';
 
 void main() {
-  testWidgets('Deve comparar e retornar true para cores corretas ...',
-      (_) async {
+  setUp(() {
+    print("Iniciando tests ConstColors");
+  });
+
+  tearDown(() {
+    print("Finalizando test ConstColors");
+  });
+  test('Deve comparar e retornar true para cores corretas ...', () async {
     expect(ConstColors.colorIndependence, isA<Color>());
     expect(ConstColors.colorIndependence, Color(0xff545c73));
     expect(ConstColors.colorStateGray, isA<Color>());
