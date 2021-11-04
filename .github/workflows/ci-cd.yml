@@ -156,6 +156,6 @@ jobs:
           inAppUpdatePriority: 2
           releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
           whatsNewDirectory: distribution/whatsnew
-           mappingFile: build/app/outputs/mapping/release/mapping.txt
+          mappingFile: build/app/outputs/mapping/release/mapping.txt
          
       
