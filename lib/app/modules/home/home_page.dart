@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  final widGetCustom = WidGetController();
+  final widGetCustom = Modular.get<WidGetController>();
   late RateMyAppController rateMyAppController;
   final RateMyApp rateMyApp = RateMyApp(
     preferencesPrefix: 'rateMyApp_',
