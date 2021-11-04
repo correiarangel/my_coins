@@ -11,10 +11,10 @@ import '../controllers/widgets_controller.dart';
 import 'textfield.dart';
 
 class CardCoinConvert extends StatelessWidget {
+  final widgetController = Modular.get<WidGetController>();
   final genFunctions = Modular.get<IGeneralFunctions>();
   final _textController = TextEditingController();
   final fieldText = TextFielCustom();
-  final widgetController = WidGetController();
   final ScreenshotController screenshot;
 
   final List<CoinModel>? coins;

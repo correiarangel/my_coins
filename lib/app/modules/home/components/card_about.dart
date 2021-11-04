@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_colors.dart';
@@ -16,8 +17,8 @@ import 'link_evaluation.dart';
 
 // ignore: must_be_immutable
 class CardAbout extends StatelessWidget {
+  final widGetController = Modular.get<WidGetController>();
   final RateMyAppController rateMyAppController;
-  final widGetController = WidGetController();
   final controller;
   final RateMyApp rateMyApp;
 

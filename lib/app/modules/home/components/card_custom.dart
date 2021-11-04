@@ -9,8 +9,8 @@ import '../../../shared/util/value/const_colors.dart';
 import '../controllers/widgets_controller.dart';
 
 class CardCustom extends StatelessWidget {
+  final widGetController = Modular.get<WidGetController>();
   final genFunctions = Modular.get<IGeneralFunctions>();
-  final widGetController = WidGetController();
   final ScreenshotController screenshot;
   final List<CoinModel>? coins;
   final int index;
