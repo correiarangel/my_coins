@@ -109,7 +109,7 @@ class WidGetController implements IWidGetController {
   }
 
   @override
-  Widget flotBtnSearsh() {
+  FloatingActionButton flotBtnSearsh() {
     return FloatingActionButton(
       elevation: 8.0,
       hoverColor: ConstColors.colorDarkBlueGray,
@@ -124,7 +124,7 @@ class WidGetController implements IWidGetController {
   }
 
   @override
-  Container buildHeader(String? titulo, BuildContext _context,
+  Container buildHeader(String? titulo, BuildContext? _context,
       {required String? screen}) {
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 32.0),
@@ -176,7 +176,7 @@ class WidGetController implements IWidGetController {
   }
 
   @override
-  SingleChildScrollView buildBodyCotation(BuildContext context) {
+  SingleChildScrollView buildBodyCotation(BuildContext? context) {
     //initItensDropdown();
     controller.changesIsNet();
     return SingleChildScrollView(
@@ -184,7 +184,7 @@ class WidGetController implements IWidGetController {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildHeader("My Coins", context, screen: 'quotation'),
+          buildHeader("My Coins", context!, screen: 'quotation'),
           SizedBox(height: 28.0),
           Text(
             "Cambios, selecione a moéda:",
@@ -263,14 +263,14 @@ class WidGetController implements IWidGetController {
   }
 
   @override
-  SingleChildScrollView buildBodyCovert(BuildContext context) {
+  SingleChildScrollView buildBodyCovert(BuildContext? context) {
     controller.changesIsNet();
     return SingleChildScrollView(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        buildHeader("My Coins", context, screen: 'convert'),
+        buildHeader("My Coins", context!, screen: 'convert'),
         SizedBox(height: 28.0),
         Text(
           "Converter Moeda",

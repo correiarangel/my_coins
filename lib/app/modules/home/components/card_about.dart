@@ -134,8 +134,6 @@ class CardAbout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  //coin
-
                   Icon(
                     Icons.event_available_rounded,
                     color: ConstColors.colorDarkBlueGray,
@@ -318,7 +316,7 @@ class CardAbout extends StatelessWidget {
                 ],
               ),
               LinkCustom(
-                  icon: Icons.flutter_dash_outlined,
+                  icon: Icons.file_present,
                   iconcor: ConstColors.colorDarkBlueGray,
                   iconSize: 30,
                   textSize: 18.0,

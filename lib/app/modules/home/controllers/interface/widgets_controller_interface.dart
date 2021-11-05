@@ -8,14 +8,14 @@ import '../../../../shared/models/coins_parc_model.dart';
 abstract class IWidGetController {
   Center? btnIconError(String title, String msg, IconData icon) {}
   Widget? sizeBoxDivisor() {}
-  Widget? flotBtnSearsh() {}
-  Container? buildHeader(String? titulo, BuildContext _context,
+  FloatingActionButton? flotBtnSearsh() {}
+  Container? buildHeader(String? titulo, BuildContext? _context,
       {required String? screen}) {}
   Widget? isInternetBuild() {}
-  SingleChildScrollView? buildBodyCotation(BuildContext context) {}
+  SingleChildScrollView? buildBodyCotation(BuildContext? context) {}
   Widget? returnCardCustom() {}
   Widget? returnCardGrafic() {}
-  SingleChildScrollView? buildBodyCovert(BuildContext context) {}
+  SingleChildScrollView? buildBodyCovert(BuildContext? context) {}
   SingleChildScrollView? buildBodyAbout(
     context,
     RateMyApp rateMyApp,
