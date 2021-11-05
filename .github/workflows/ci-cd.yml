@@ -129,7 +129,7 @@ jobs:
       - run: tar xvf $HOME/private/services.tar         
       
       env:
-        FIREBASE_SECRET: ${{ secrets.GOOGLE_SERVECE }}
+        GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }}
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
