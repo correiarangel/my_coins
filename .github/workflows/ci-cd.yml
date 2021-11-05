@@ -19,7 +19,7 @@ env:
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
-  GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }}
+  GOOGLE_SERVECE: "secrets.FIREBASE_SECRET"
 
 jobs:
   flutter_test:
