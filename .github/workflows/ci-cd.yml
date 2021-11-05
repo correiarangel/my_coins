@@ -123,12 +123,11 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVECE" \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
-          
+      - run: mkdir $HOME/private
+      - run: gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVECE" \
+      - run: --output $HOME/private/services.tar services.tar.gpg
+      - run: tar xvf $HOME/private/services.tar         
+      
       env:
         FIREBASE_SECRET: ${{ secrets.GOOGLE_SERVECE }}
       # Get dependencies and make assigned appbundle
