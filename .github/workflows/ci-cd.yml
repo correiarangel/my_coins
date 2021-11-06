@@ -113,12 +113,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
-          #flutter-version: ${{env.FLUTTER_VERSION}}
-      - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase=${{secrets.GOOGLE_SERVECE}} \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
+          #flutter-version: ${{env.FLUTTER_VERSION}}    
       # Creating the key.properties file
       - run: |
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
@@ -136,7 +131,12 @@ jobs:
           cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}+${{ env.NUMBER_OF_COMMITS }}
           flutter pub get
           flutter build appbundle
-
+        run: |
+          mkdir $HOME/private
+          gpg --quiet --batch --yes --decrypt --passphrase="$FIREBASE_SECRET" \
+          --output $HOME/private/services.tar services.tar.gpg
+          tar xvf $HOME/private/services.tar
+          flutter build appbundle
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
