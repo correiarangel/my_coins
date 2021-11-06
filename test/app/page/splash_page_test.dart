@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_test/flutter_modular_test.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:my_coins/app/page/splash_page.dart';
+
+Widget createSplashPage() {
+  return MaterialApp(home: SplashPage());
+}
 
 main() {
   setUp(() {
@@ -17,7 +21,7 @@ main() {
     testWidgets('Deve conter um Scaffold, ListView, Colunm, icons ...',
         (tester) async {
       //comente o timer na pg splash
-      await tester.pumpWidget(buildTestableWidget(SplashPage()));
+      await tester.pumpWidget(createSplashPage.call());
 
       expect(find.byType(Scaffold), findsOneWidget);
       expect(find.byType(ListView), findsOneWidget);

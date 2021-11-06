@@ -36,6 +36,8 @@ dependencies:
   screenshot: ^1.2.3
   share_plus: ^3.0.4
   path_provider: ^2.0.6
+  provider: ^6.0.1
+  
 
 flutter_icons:
   image_path_ios: "images/logo.png"
@@ -44,7 +46,7 @@ flutter_icons:
   ios: true
 
 dev_dependencies:
-
+  modular_test: ^1.0.1+1
   flutter_test:
     sdk: flutter
   mobx_codegen: ^2.0.2
