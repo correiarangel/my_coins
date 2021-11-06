@@ -19,8 +19,8 @@ env:
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
-  GOOGLE_SERVECE: "secrets.GOOGLE_SERVECE"
-  #FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }
+  #GOOGLE_SERVECE: "secrets.GOOGLE_SERVECE"
+  GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }
 jobs:
   flutter_test:
     name: Run Flutter analyze and Test - My_Coins
