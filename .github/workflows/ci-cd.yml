@@ -86,6 +86,13 @@ jobs:
           flutter pub get
           flutter build appbundle --debug
           flutter build apk --debug
+      - run: |
+          mkdir $HOME/private
+          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.FIREBASE_SECRET }} \
+          --output $HOME/private/services.tar services.tar.gpg
+          tar xvf $HOME/private/services.tar
+          flutter build appbundle 
+      
       - name: Upload appbundle
         uses: actions/upload-artifact@v2.1.4
         with:
