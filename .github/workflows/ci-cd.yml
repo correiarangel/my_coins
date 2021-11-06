@@ -122,7 +122,12 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-         
+      - run: |
+          mkdir $HOME/private
+          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.FIREBASE_SECRET }} \
+          --output $HOME/private/services.tar services.tar.gpg
+          tar xvf $HOME/private/services.tar
+          flutter build appbundle 
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -131,12 +136,7 @@ jobs:
           cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}+${{ env.NUMBER_OF_COMMITS }}
           flutter pub get
           flutter build appbundle
-        run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase="$FIREBASE_SECRET" \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
-          flutter build appbundle
+
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
