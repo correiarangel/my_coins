@@ -81,12 +81,12 @@ jobs:
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
           #flutter-version: ${{env.FLUTTER_VERSION}}
-      - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
-          flutter build appbundle 
+      #- run: |
+      #    mkdir $HOME/private
+      #    gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
+      #    --output $HOME/private/services.tar services.tar.gpg
+      #    tar xvf $HOME/private/services.tar
+      #    flutter build appbundle 
       - run: |
           flutter clean
           flutter pub get
@@ -129,12 +129,6 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
-          flutter build appbundle 
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
