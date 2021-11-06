@@ -134,10 +134,10 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
-          cider version ${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }}+${{ env.NUMBER_OF_COMMITS }}
+          cider version 1.0.0+8
           flutter pub get
           flutter build appbundle
-
+      
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
