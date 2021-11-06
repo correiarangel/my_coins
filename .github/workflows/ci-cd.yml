@@ -82,16 +82,16 @@ jobs:
           channel: ${{env.FLUTTER_CHANNEL}}
           #flutter-version: ${{env.FLUTTER_VERSION}}
       - run: |
-          flutter clean
-          flutter pub get
-          flutter build appbundle --debug
-          flutter build apk --debug
-      - run: |
           mkdir $HOME/private
           gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
           --output $HOME/private/services.tar services.tar.gpg
           tar xvf $HOME/private/services.tar
           flutter build appbundle 
+      - run: |
+          flutter clean
+          flutter pub get
+          flutter build appbundle --debug
+          flutter build apk --debug
       
       - name: Upload appbundle
         uses: actions/upload-artifact@v2.1.4
