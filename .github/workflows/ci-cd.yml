@@ -20,7 +20,7 @@ env:
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
   #GOOGLE_SERVECE: "secrets.GOOGLE_SERVECE"
-  GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }
+   
 jobs:
   flutter_test:
     name: Run Flutter analyze and Test - My_Coins
@@ -116,7 +116,7 @@ jobs:
           #flutter-version: ${{env.FLUTTER_VERSION}}
       - run: |
           mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVECE" \
+          gpg --quiet --batch --yes --decrypt --passphrase=${{secrets.GOOGLE_SERVECE}} \
           --output $HOME/private/services.tar services.tar.gpg
           tar xvf $HOME/private/services.tar
       # Creating the key.properties file
