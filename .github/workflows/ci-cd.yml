@@ -88,7 +88,7 @@ jobs:
           flutter build apk --debug
       - run: |
           mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.FIREBASE_SECRET }} \
+          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
           --output $HOME/private/services.tar services.tar.gpg
           tar xvf $HOME/private/services.tar
           flutter build appbundle 
@@ -131,7 +131,7 @@ jobs:
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
       - run: |
           mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.FIREBASE_SECRET }} \
+          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
           --output $HOME/private/services.tar services.tar.gpg
           tar xvf $HOME/private/services.tar
           flutter build appbundle 
