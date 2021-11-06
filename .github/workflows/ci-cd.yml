@@ -20,7 +20,7 @@ env:
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
   GOOGLE_SERVECE: "secrets.GOOGLE_SERVECE"
-
+  #FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }
 jobs:
   flutter_test:
     name: Run Flutter analyze and Test - My_Coins
@@ -114,7 +114,11 @@ jobs:
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
           #flutter-version: ${{env.FLUTTER_VERSION}}
-
+      - run: |
+          mkdir $HOME/private
+          gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVECE" \
+          --output $HOME/private/services.tar services.tar.gpg
+          tar xvf $HOME/private/services.tar
       # Creating the key.properties file
       - run: |
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
@@ -123,11 +127,6 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVECE" \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar
          
       # Get dependencies and make assigned appbundle
       - run: |
