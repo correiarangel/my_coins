@@ -16,8 +16,6 @@ import 'package:my_coins/app/shared/repository/coin_repository.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 import 'package:my_coins/app/shared/util/general_version.dart';
 
-import 'controllers/home_store_test.dart';
-
 class CoinRepositoryMock extends Mock implements CoinRepository {
   final ClientHttpService client;
   CoinRepositoryMock(this.client);
@@ -67,30 +65,25 @@ void main() {
     print("Finalizando test HomePage");
   });
   testWidgets('home page ...', (tester) async {
-    //  tester.pumpWidget(MaterialApp(home: HomePage()));
-    //
-    // final scffold = find.byWidget(Scaffold());
-    //   expect(scffold, findsOneWidget);
-/*     final titleFinder = find.text('My Coins');
-    expect(titleFinder, findsOneWidget); */
+/*     tester.pumpWidget(MaterialApp(home: HomePage()));
 
-    /*  tester.pumpWidget(MaterialApp(home: HomePage()));
+    final scffold = find.byWidget(Scaffold());
+    expect(scffold, findsOneWidget);
+    final titleFinder = find.text('My Coins');
+    expect(titleFinder, findsOneWidget);
+
+    tester.pumpWidget(MaterialApp(home: HomePage()));
     tester.allStates.cast();
-    expect(
-      widgetPage,
-      isA<HomePage>(),
-    );
- */
-/*       expect(find.byType(Scaffold), findsOneWidget);
-      expect(find.byType(Observer), findsOneWidget);
 
+    expect(find.byType(Scaffold), findsOneWidget);
+    expect(find.byType(Observer), findsOneWidget);
 
-      // ignore: non_constant_identifier_names
-      var conteinerCard = find.byWidget(Container());
-      expect(conteinerCard, findsOneWidget);
+    // ignore: non_constant_identifier_names
+    var conteinerCard = find.byWidget(Container());
+    expect(conteinerCard, findsOneWidget);
 
-      // ignore: non_constant_identifier_names
-      var icon_monetization_on = find.byIcon(Icons.monetization_on);
-      expect(icon_monetization_on, findsOneWidget); */
+    // ignore: non_constant_identifier_names
+    var icon_monetization_on = find.byIcon(Icons.monetization_on);
+    expect(icon_monetization_on, findsOneWidget); */
   });
 }
