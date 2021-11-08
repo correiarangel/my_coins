@@ -159,7 +159,7 @@ jobs:
           track: internal
           status: completed
           inAppUpdatePriority: 2
-          releaseName: ${{ env.NUMBER_OF_COMMITS }} (${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCH }})
+          releaseName: 1.0.0+8
           whatsNewDirectory: distribution/whatsnew
           mappingFile: build/app/outputs/mapping/release/mapping.txt
          
