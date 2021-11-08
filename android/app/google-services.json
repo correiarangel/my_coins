@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1049160908591",
+    "project_id": "app-my-coins",
+    "storage_bucket": "app-my-coins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049160908591:android:39abc92f6bd0d2bccdebda",
+        "android_client_info": {
+          "package_name": "br.com.rangeldev.my_coins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049160908591-f2hpd50h1uo37ujp5h859i58k9kte3r7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.rangeldev.my_coins",
+            "certificate_hash": "68b0f0b865cae8a3cf5e3ebd5becffe87e371551"
+          }
+        },
+        {
+          "client_id": "1049160908591-aqf86vv4hghq7kmibr59v5phvj8ri301.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsWlDBq0F9taYeqxVPP-Qy_t3GpG7syJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049160908591-aqf86vv4hghq7kmibr59v5phvj8ri301.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
