@@ -12,8 +12,8 @@ import 'home_page.dart';
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => HomeStore(i.get())),
     Bind<ICoinRepository>((i) => CoinRepository(i.get())),
+    Bind.lazySingleton((i) => HomeStore(i.get())),
     Bind<IGeneralVersion>((i) => GeneralVersion()),
     Bind<IWidGetController>((i) => WidGetController())
   ];
