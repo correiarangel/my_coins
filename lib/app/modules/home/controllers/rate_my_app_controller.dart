@@ -12,7 +12,7 @@ class RateMyAppController {
 
   RateMyAppController({required this.mounted});
 
-  void initRate(RateMyApp rateMyApp, BuildContext context) async {
+  void initRate(RateMyApp rateMyApp, BuildContext? context) async {
     //debugPrint("##---### @@@@@@@@@ INIT Rate");
 
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
@@ -21,7 +21,7 @@ class RateMyAppController {
       if (mounted && rateMyApp.shouldOpenDialog) {
         //debugPrint("##---### entrou 1 if initRate");
 
-        dailogRate(rateMyApp, context);
+        dailogRate(rateMyApp, context!);
       }
     });
   }

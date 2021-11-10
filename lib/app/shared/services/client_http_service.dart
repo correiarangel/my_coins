@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import '../interface/client_http_interface.dart';
 
 class ClientHttpService implements IClientHttp {
@@ -17,8 +16,8 @@ class ClientHttpService implements IClientHttp {
     Response? response;
     try {
       response = await dio.get(router);
-    } on Exception catch (e) {
-      debugPrint("ERROR GET  $e");
+    } on Exception catch (_) {
+      // debugPrint("ClientHttpService ERROR GET  $e",wrapWidth: 4);
       response = Response(
           statusCode: 400,
           requestOptions: RequestOptions(path: ''),

@@ -96,32 +96,29 @@ class WidGetController implements IWidGetController {
   }
 
   @override
-  Widget sizeBoxDivisor() {
-    return SizedBox(
-      height: 28.0,
-      child: Divider(
+  Widget sizeBoxDivisor() => SizedBox(
+        height: 28.0,
+        child: Divider(
           height: 3.0,
           thickness: 3.0,
           indent: 50.0,
           endIndent: 50.0,
-          color: ConstColors.colorDarkBlueGray),
-    );
-  }
+          color: ConstColors.colorDarkBlueGray,
+        ),
+      );
 
   @override
-  FloatingActionButton flotBtnSearsh() {
-    return FloatingActionButton(
-      elevation: 8.0,
-      hoverColor: ConstColors.colorDarkBlueGray,
-      backgroundColor: ConstColors.colorSkyMagenta,
-      child: Icon(
-        Icons.search,
-        color: ConstColors.colorDarkBlueGray,
-        size: 38.0,
-      ),
-      onPressed: () {},
-    );
-  }
+  FloatingActionButton flotBtnSearsh() => FloatingActionButton(
+        elevation: 8.0,
+        hoverColor: ConstColors.colorDarkBlueGray,
+        backgroundColor: ConstColors.colorSkyMagenta,
+        child: Icon(
+          Icons.search,
+          color: ConstColors.colorDarkBlueGray,
+          size: 38.0,
+        ),
+        onPressed: () {},
+      );
 
   @override
   Container buildHeader(String? titulo, BuildContext? _context,

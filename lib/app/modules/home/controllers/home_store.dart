@@ -53,13 +53,14 @@ abstract class HomeStoreBase with Store {
   fetchcoinsDays(String? _typeConin) {
     if (_typeConin == null) _typeConin = 'USD';
     if (days == null) days = '8';
-    coinsDays = repository.getPeriodCoins(_typeConin, days!)?.asObservable();
+    return coinsDays =
+        repository.getPeriodCoins(_typeConin, days!)?.asObservable();
   }
 
   @observable
   String? days = '8';
   @action
-  changesDays(String? value) {
+  String? changesDays(String? value) {
     days = value;
     fetchcoinsDays(itemSelect);
   }
@@ -68,16 +69,16 @@ abstract class HomeStoreBase with Store {
   bool progssVariation = false;
   @action
   // ignore: avoid_positional_boolean_parameters
-  changesProgressVariation(bool value) => progssVariation = value;
+  bool changesProgressVariation(bool value) => progssVariation = value;
   @observable
   int currentIndex = 0;
   @action
-  changePage(int index) => currentIndex = index;
+  int changePage(int index) => currentIndex = index;
 
   @observable
   String dateUpgrade = "";
   @action
-  changeDateUpgrade(String? value) =>
+  String changeDateUpgrade(String? value) =>
       value != null ? dateUpgrade = value : dateUpgrade;
 
   launchURL(_url) async {
@@ -98,7 +99,7 @@ abstract class HomeStoreBase with Store {
   changesItenSelect(String? value) async {
     fetchCoins(value);
     fetchcoinsDays(value);
-    return itemSelect = value;
+    return itemSelect = value!;
   }
 
   @observable
@@ -113,29 +114,25 @@ abstract class HomeStoreBase with Store {
   Color? colorLinkPolicy = ConstColors.colorLavenderFloral;
 
   @action
-  changesColorLink(String text) {
+  Color? changesColorLink(String text) {
     switch (text) {
       case ConstString.email:
-        colorLinkEmail = ConstColors.colorSkyMagenta;
-        break;
+        return colorLinkEmail = ConstColors.colorSkyMagenta;
       case ConstString.linkDin:
-        colorLinkDin = ConstColors.colorSkyMagenta;
-        break;
+        return colorLinkDin = ConstColors.colorSkyMagenta;
       case ConstString.gitHub:
-        colorLinkGit = ConstColors.colorSkyMagenta;
-        break;
+        return colorLinkGit = ConstColors.colorSkyMagenta;
       case ConstString.docFlutter:
-        colorLinkDoc = ConstColors.colorSkyMagenta;
-        break;
+        return colorLinkDoc = ConstColors.colorSkyMagenta;
       case ConstString.policy:
-        colorLinkPolicy = ConstColors.colorSkyMagenta;
+        return colorLinkPolicy = ConstColors.colorSkyMagenta;
     }
   }
 
   @observable
   Color? colorLinkEvaluation = ConstColors.colorLavenderFloral;
   @action
-  changesColorLinkEvaluation() {
+  Color? changesColorLinkEvaluation() {
     return colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
@@ -145,7 +142,7 @@ abstract class HomeStoreBase with Store {
   bool progressLink = false;
   @action
   // ignore: avoid_positional_boolean_parameters
-  changesProgressLink(bool value) => progressLink = value;
+  bool changesProgressLink(bool value) => progressLink = value;
 
   @computed
   // ignore: unnecessary_null_comparison
@@ -163,17 +160,17 @@ abstract class HomeStoreBase with Store {
   @observable
   String? textValidat = '0';
   @action
-  changesTextValidat(String? value) => textValidat = value;
+  String? changesTextValidat(String? value) => textValidat = value;
 
   @observable
   String? priceCoin = "0";
   @action
-  changesPriceCoin(String? value) => priceCoin = value;
+  String? changesPriceCoin(String? value) => priceCoin = value;
 
   @observable
   String? valueConvertion = "0";
   @action
-  changesValueConvertion() {
+  String? changesValueConvertion() {
     //  var code = coins?.value?[0].code;
     if (isReverseConversion) {
       valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
@@ -185,7 +182,7 @@ abstract class HomeStoreBase with Store {
   }
 
   @action
-  changesTestIsBitCoin(value) {
+  String? changesTestIsBitCoin(value) {
     var code = coins?.value?[0].code;
     if (code == "BTC") {
       valueConvertion = genFunctions.formatNumberBitCoin(value);
@@ -198,7 +195,7 @@ abstract class HomeStoreBase with Store {
   @observable
   bool isReverseConversion = true;
   @action
-  changesIsReverseConversion() {
+  bool changesIsReverseConversion() {
     if (isReverseConversion) {
       isReverseConversion = false;
     } else if (isReverseConversion == false) {
@@ -209,9 +206,11 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  var isNet;
+  bool? isNet;
   @action
-  changesIsNet() async => isNet = await testInternet.isInternet();
+  changesIsNet() async {
+    return isNet = await testInternet.isInternet();
+  }
 
   Future<void> share(ScreenshotController screenshot) async {
     if (!kIsWeb) {

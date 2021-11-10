@@ -306,13 +306,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$isNetAtom = Atom(name: 'HomeStoreBase.isNet');
 
   @override
-  dynamic get isNet {
+  bool? get isNet {
     _$isNetAtom.reportRead();
     return super.isNet;
   }
 
   @override
-  set isNet(dynamic value) {
+  set isNet(bool? value) {
     _$isNetAtom.reportWrite(value, super.isNet, () {
       super.isNet = value;
     });
@@ -367,7 +367,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesDays(String? value) {
+  String? changesDays(String? value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesDays');
     try {
@@ -378,7 +378,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesProgressVariation(bool value) {
+  bool changesProgressVariation(bool value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesProgressVariation');
     try {
@@ -389,7 +389,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changePage(int index) {
+  int changePage(int index) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changePage');
     try {
@@ -400,7 +400,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changeDateUpgrade(String? value) {
+  String changeDateUpgrade(String? value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changeDateUpgrade');
     try {
@@ -411,7 +411,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesColorLink(String text) {
+  Color? changesColorLink(String text) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesColorLink');
     try {
@@ -422,7 +422,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesColorLinkEvaluation() {
+  Color? changesColorLinkEvaluation() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesColorLinkEvaluation');
     try {
@@ -433,7 +433,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesProgressLink(bool value) {
+  bool changesProgressLink(bool value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesProgressLink');
     try {
@@ -444,7 +444,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesTextValidat(String? value) {
+  String? changesTextValidat(String? value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesTextValidat');
     try {
@@ -455,7 +455,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesPriceCoin(String? value) {
+  String? changesPriceCoin(String? value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesPriceCoin');
     try {
@@ -466,7 +466,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesValueConvertion() {
+  String? changesValueConvertion() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesValueConvertion');
     try {
@@ -477,7 +477,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesTestIsBitCoin(dynamic value) {
+  String? changesTestIsBitCoin(dynamic value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesTestIsBitCoin');
     try {
@@ -488,7 +488,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic changesIsReverseConversion() {
+  bool changesIsReverseConversion() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesIsReverseConversion');
     try {

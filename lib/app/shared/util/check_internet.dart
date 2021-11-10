@@ -5,7 +5,7 @@ import '../interface/check_internet_interface.dart';
 
 class CheckInternet implements ICheckInternet {
   @override
-  Future<bool>? isInternet() async {
+  Future<bool> isInternet() async {
     bool? isNet;
     if (Platform.isAndroid || Platform.isIOS) {
       try {

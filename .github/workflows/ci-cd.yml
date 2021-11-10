@@ -1,18 +1,9 @@
 name: CI/CD
 
-on: 
+on:
   push:
-    branches:
-      - develop
-      - main
-  pull_request:
-    branches:
-      - develop
-      - main
-#on:
-#  push:
-#    tags:
-#      - v*
+    tags:
+      - v*
 
 env:
   JAVA_VERSION: "12.x"
@@ -81,12 +72,7 @@ jobs:
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
           #flutter-version: ${{env.FLUTTER_VERSION}}
-      #- run: |
-      #    mkdir $HOME/private
-      #    gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_SERVECE }} \
-      #    --output $HOME/private/services.tar services.tar.gpg
-      #    tar xvf $HOME/private/services.tar
-      #    flutter build appbundle 
+
       - run: |
           flutter clean
           flutter pub get
@@ -134,7 +120,7 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
-          cider version 1.0.0+8
+          cider version 1.0.0+9
           flutter pub get
           flutter build appbundle
       
@@ -145,9 +131,12 @@ jobs:
           name: appbundle_release
           path: build/app/outputs/bundle/release
 
-      # Creating googleServices.json
+      # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+      # Creating googleServices.json
+      - name: Create service-services.json FROM secrets.GOOGLE_SERVECE
+        run: echo '${{ secrets.GOOGLE_SERVECE }}' > service-services.json  
 
       # Upload file to Play Store
       - name: Upload play store
@@ -159,7 +148,7 @@ jobs:
           track: production
           status: completed
           inAppUpdatePriority: 2
-          releaseName: 1.0.0+8
+          releaseName: 1.0.0+9
           whatsNewDirectory: distribution/whatsnew
           mappingFile: build/app/outputs/mapping/release/mapping.txt
          

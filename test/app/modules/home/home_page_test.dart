@@ -1,12 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:dio/native_imp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:modular_test/modular_test.dart';
-
 import 'package:my_coins/app/app_module.dart';
 import 'package:my_coins/app/modules/home/controllers/home_store.dart';
 import 'package:my_coins/app/modules/home/controllers/widgets_controller.dart';
@@ -16,13 +14,20 @@ import 'package:my_coins/app/shared/repository/coin_repository.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 import 'package:my_coins/app/shared/util/general_version.dart';
 
+class DioMock extends Mock implements Dio {}
+
+class ClientHttpServiceMock extends Mock implements ClientHttpService {
+  final DioMock dio;
+  ClientHttpServiceMock(this.dio);
+}
+
 class CoinRepositoryMock extends Mock implements CoinRepository {
-  final ClientHttpService client;
+  final ClientHttpServiceMock client;
   CoinRepositoryMock(this.client);
 }
 
 class HomeStoreMock extends Mock implements HomeStore {
-  final CoinRepository repository;
+  final CoinRepositoryMock repository;
   HomeStoreMock(this.repository);
 }
 
@@ -30,60 +35,53 @@ class GeneralVersionMock extends Mock implements GeneralVersion {}
 
 class WidgetControllerMock extends Mock implements WidGetController {}
 
-Widget createHomePage() {
-  return MaterialApp(home: HomePage());
-}
-
-class DioMock extends Mock implements DioForNative {}
-
-class ClientHttpServiceMock extends Mock implements ClientHttpService {}
-
 void main() {
   final dioMock = DioMock();
-  final client = ClientHttpServiceMock();
-  final repository = CoinRepositoryMock(client);
+  final clietHttp = ClientHttpServiceMock(dioMock);
+  final repository = CoinRepositoryMock(clietHttp);
   final homeStore = HomeStoreMock(repository);
   final widGetController = WidgetControllerMock();
   final generalVersion = GeneralVersionMock();
 
   setUp(() {
     print("Iniciando tests HomePage");
-
     initModule(AppModule(), replaceBinds: [
-      Bind.instance<Dio>(dioMock),
+      Bind.instance<DioMock>(dioMock),
     ]);
 
     initModule(HomeModule(), replaceBinds: [
       Bind.instance<CoinRepository>(repository),
       Bind.instance<HomeStore>(homeStore),
       Bind.instance<GeneralVersion>(generalVersion),
-      Bind.instance<WidGetController>(widGetController),
+      Bind.instance<WidgetControllerMock>(widGetController),
     ]);
   });
 
   tearDown(() {
     print("Finalizando test HomePage");
   });
-  testWidgets('home page ...', (tester) async {
-/*     tester.pumpWidget(MaterialApp(home: HomePage()));
+  testWidgets(
+      'Deve conter Scaffold/SingleChildScrollView/Column/Container/texto nome app ...',
+      (tester) async {
+    await tester.pumpWidget(MaterialApp(home: HomePage()));
+    await tester.pump(Duration(seconds: 2));
 
-    final scffold = find.byWidget(Scaffold());
+    final scffold = find.byType(Scaffold);
+    final singleChildScrollView = find.byType(SingleChildScrollView);
+    final column = find.byType(Column);
+    final container = find.byType(Container);
+    //final icon = find.byIcon(Icons.share);
+
+    await tester.pump();
+
     expect(scffold, findsOneWidget);
-    final titleFinder = find.text('My Coins');
+    final titleFinder = await find.text('My Coins');
     expect(titleFinder, findsOneWidget);
 
-    tester.pumpWidget(MaterialApp(home: HomePage()));
-    tester.allStates.cast();
-
-    expect(find.byType(Scaffold), findsOneWidget);
-    expect(find.byType(Observer), findsOneWidget);
-
-    // ignore: non_constant_identifier_names
-    var conteinerCard = find.byWidget(Container());
-    expect(conteinerCard, findsOneWidget);
-
-    // ignore: non_constant_identifier_names
-    var icon_monetization_on = find.byIcon(Icons.monetization_on);
-    expect(icon_monetization_on, findsOneWidget); */
+    expect(column, findsWidgets);
+    expect(singleChildScrollView, findsOneWidget);
+    expect(container, findsWidgets);
+    // expect(icon, findsOneWidget);
+    // await tester.tap(icon);
   });
 }
