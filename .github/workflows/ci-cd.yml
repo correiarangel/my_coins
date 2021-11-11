@@ -1,16 +1,24 @@
 name: CI/CD
-
-on:
+#on:
+#  push:
+#    tags:
+#      - v*
+on: 
   push:
-    tags:
-      - v*
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
 
 env:
   JAVA_VERSION: "12.x"
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
-     
+
 jobs:
   flutter_test:
     name: Run Flutter analyze and Test - My_Coins
@@ -133,11 +141,11 @@ jobs:
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-      # Creating googleServices.json
-      - name: Create service-services.json FROM secrets.GOOGLE_SERVECE
-      # run: echo '${{ secrets.GOOGLE_SERVECE }}' > service-services.json  
-        run: echo '${{ secrets.GOOGLE_SERVECE }}' >  android/app/google-services.json
-
+      # Decode Google services configuration file
+      - name: Decode google-services.json
+        env:
+          GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }}
+        run: echo $GOOGLE_SERVECE > my_coins/app/google-services.json
       # Upload file to Play Store
       - name: Upload play store
         uses: r0adkll/upload-google-play@v1
