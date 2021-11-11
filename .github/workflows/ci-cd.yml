@@ -136,7 +136,7 @@ jobs:
       # Creating googleServices.json
       - name: Create service-services.json FROM secrets.GOOGLE_SERVECE
       # run: echo '${{ secrets.GOOGLE_SERVECE }}' > service-services.json  
-        execute: echo ${{secrets.GOOGLE_SERVECE}} >  android/app/google-services.json
+        execute: echo '${{ secrets.GOOGLE_SERVECE }}' >  android/app/google-services.json
 
       # Upload file to Play Store
       - name: Upload play store
