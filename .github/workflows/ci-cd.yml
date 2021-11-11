@@ -9,10 +9,6 @@ on:
     branches:
       - develop
       - main
-#on:
-#  push:
-#    tags:
-#      - v*
 
 env:
   JAVA_VERSION: "12.x"
