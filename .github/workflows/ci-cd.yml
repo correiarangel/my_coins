@@ -145,7 +145,7 @@ jobs:
       - name: Decode google-services.json
         env:
           GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }}
-        run: echo $GOOGLE_SERVECE > my_coins/app/google-services.json
+        run: echo $GOOGLE_SERVECE > my_coins/android/app/google-services.json
       # Upload file to Play Store
       - name: Upload play store
         uses: r0adkll/upload-google-play@v1
