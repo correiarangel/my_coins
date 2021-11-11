@@ -1,17 +1,26 @@
 name: CI/CD
 
-on:
+on: 
   push:
-    tags:
-      - v*
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+#on:
+#  push:
+#    tags:
+#      - v*
 
 env:
   JAVA_VERSION: "12.x"
  # FLUTTER_VERSION: "2.2.3"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"  
-  #GOOGLE_SERVECE: "secrets.GOOGLE_SERVECE"
-   
+  GOOGLE_SERVECE: $ {{secrets.GOOGLE_SERVECE}}
+     
 jobs:
   flutter_test:
     name: Run Flutter analyze and Test - My_Coins
@@ -136,7 +145,8 @@ jobs:
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
       # Creating googleServices.json
       - name: Create service-services.json FROM secrets.GOOGLE_SERVECE
-        run: echo '${{ secrets.GOOGLE_SERVECE }}' > service-services.json  
+      # run: echo '${{ secrets.GOOGLE_SERVECE }}' > service-services.json  
+        execute: echo $GOOGLE_SERVECE >  android/app/google-services.json
 
       # Upload file to Play Store
       - name: Upload play store
