@@ -124,6 +124,10 @@ jobs:
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
       # Get dependencies and make assigned appbundle
       - run: |
+          mkdir $HOME/private
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_PASSWORD }}" \
+          --output $HOME/private/services.tar services.tar.gpg
+          tar xvf $HOME/private/services.tar > android/app/google-services.json
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
@@ -139,7 +143,7 @@ jobs:
           path: build/app/outputs/bundle/release
       # Decode Google services configuration file
       - name: Decode google-services.json
-        run: echo ${{ secrets.GOOGLE_SERVECE }} > /home/runner/work/my_coins/my_coins/android/app/google-services.json
+        #run: echo ${{ secrets.GOOGLE_SERVECE }} > /home/runner/work/my_coins/my_coins/android/app/google-services.json
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
