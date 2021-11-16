@@ -139,9 +139,7 @@ jobs:
           path: build/app/outputs/bundle/release
       # Decode Google services configuration file
       - name: Decode google-services.json
-        env:
-          GOOGLE_SERVECE: ${{ secrets.GOOGLE_SERVECE }}
-        run: echo $GOOGLE_SERVECE > ./android/app/google-services.json
+        run: echo ${{ secrets.GOOGLE_SERVECE }} > google-services.json
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
