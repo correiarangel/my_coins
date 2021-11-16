@@ -122,7 +122,7 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: echo "${{GOOGLE_SERVICES }}" > android/app/google-services.json
+      - run: echo "${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
 
       # Get dependencies and make assigned appbundle
       - run: |
