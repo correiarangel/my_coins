@@ -127,7 +127,7 @@ jobs:
           mkdir $HOME/private
           gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_PASSWORD }}" \
           --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar > android/app/google-services.json
+          tar xvf $HOME/private/services.tar 
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
