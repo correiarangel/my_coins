@@ -121,8 +121,8 @@ jobs:
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
 
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks && echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
+      #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
 
       # Get dependencies and make assigned appbundle
       - run: |
