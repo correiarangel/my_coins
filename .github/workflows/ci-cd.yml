@@ -122,12 +122,9 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
+      - run: echo "${{ secrets.GOOGLE_SERVECE }}" > android/app/google-services.json
       # Get dependencies and make assigned appbundle
       - run: |
-          mkdir $HOME/private
-          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_PASSWORD }}" \
-          --output $HOME/private/services.tar services.tar.gpg
-          tar xvf $HOME/private/services.tar 
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
