@@ -122,7 +122,7 @@ jobs:
 
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
-      - run: echo "${{ secrets.GOOGLE_SERVECE }}" | > android/app/google-services.json
+
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -131,7 +131,16 @@ jobs:
           cider version 1.0.0+9
           flutter pub get
           flutter build appbundle
-      
+      - name: Build
+        run: |
+          mkdir $HOME/secrets
+          gpg --quiet --batch --yes --decrypt --passphrase="$SECRET_PASSPHRASE" \
+          --output $HOME/secrets/secrets.tar secrets.tar.gpg
+          tar xvf $HOME/secrets/secrets.tar
+          flutter build appbundle
+          flutter build apk
+        env:
+          SECRET_PASSPHRASE: ${{ secrets.KEY_PASSWORD }}
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -139,8 +148,8 @@ jobs:
           name: appbundle_release
           path: build/app/outputs/bundle/release
       # Decode Google services configuration file
-      - name: Decode google-services.json
-        #run: echo ${{ secrets.GOOGLE_SERVECE }} > /home/runner/work/my_coins/my_coins/android/app/google-services.json
+      #- name: Decode google-services.json
+      #  run: echo ${{ secrets.GOOGLE_SERVECE }} > android/app/google-services.json
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json

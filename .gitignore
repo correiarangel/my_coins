@@ -46,7 +46,7 @@ app.*.map.json
 /android/app/release
 /android/app/services.tar
 /android/app/google-services.json
-
+/android/app/secrets.tar
 #keys
 /docs/key
 /docs/pswd
