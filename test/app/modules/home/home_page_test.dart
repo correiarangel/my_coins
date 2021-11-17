@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dio/native_imp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -14,7 +15,7 @@ import 'package:my_coins/app/shared/repository/coin_repository.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 import 'package:my_coins/app/shared/util/general_version.dart';
 
-class DioMock extends Mock implements Dio {}
+class DioMock extends Mock implements DioForNative {}
 
 class ClientHttpServiceMock extends Mock implements ClientHttpService {
   final DioMock dio;

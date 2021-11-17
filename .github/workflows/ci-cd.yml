@@ -116,16 +116,14 @@ jobs:
           #flutter-version: ${{env.FLUTTER_VERSION}}    
       #Creating the key.properties file
       - run: |
+          echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
           echo keyPassword=\${{ secrets.KEY_STORE }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.KEY_PASSWORD }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
 
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks && echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
       #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
-      - run: |
-          mkdir $HOME/secrets
-          echo "${{ secrets.GOOGLE_SERVICE }}" > $HOME/secrets/google-services.json
           
       # Get dependencies and make assigned appbundle
       - run: |
