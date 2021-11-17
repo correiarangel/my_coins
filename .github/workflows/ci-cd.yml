@@ -123,7 +123,11 @@ jobs:
       # Decoding base64 key into a file
       - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks && echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
       #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
-
+      - run: |
+          mkdir $HOME/secrets
+          gpg --quiet --batch --yes --decrypt --passphrase="$SECRET_PASSPHRASE" \
+          --output $HOME/secrets/services.tar services.tar.gpg
+          tar xvf $HOME/secrets/services.tar
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
@@ -132,7 +136,9 @@ jobs:
           cider version 1.0.0+9
           flutter pub get
           flutter build appbundle
-      
+
+      env:
+        SECRET_PASSPHRASE: ${{ secrets.KEY_PASSWORD }}
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
