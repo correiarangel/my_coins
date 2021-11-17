@@ -1,8 +1,17 @@
 name: CI/CD
-on:
+#on:
+#  push:
+#    tags:
+#      - v*
+on: 
   push:
-    tags:
-      - v*
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
 
 env:
   JAVA_VERSION: "12.x"
@@ -112,7 +121,8 @@ jobs:
           echo keyAlias=\${{ secrets.KEY_ALIAS }} >> ${{env.PROPERTIES_PATH}}
     
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks 
+      - run: echo "${{ secrets.KEYSTORE2 }}" | base64 --decode > android/app/key.jks    
+      -  run: echo '${{ secrets.GOOGLE_SERVECE }}' > my_coins/android/app/google-services.json
       #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
           
       # Get dependencies and make assigned appbundle
@@ -130,14 +140,7 @@ jobs:
         with:
           name: appbundle_release
           path: build/app/outputs/bundle/release
-      # Decode Google services configuration file
-      #- name: Decode google-services.json
-      # run: echo '${{ secrets.GOOGLE_SERVECE }}' > android/app/google-services.json  
-      # Decode Google services configuration file
-      #- name: Decode google-services.json
-      #  env:
-      #    FIREBASE_CONFIG: ${{ secrets.GOOGLE_SERVECE }}
-      #  run: echo $FIREBASE_CONFIG > app/google-services.json
+        
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
