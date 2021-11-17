@@ -51,7 +51,6 @@ android {
         release {
             //From decoded key
             storeFile = file('key.jks')
-            storeFile = file('google-services.json')
             //From key.properties
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
