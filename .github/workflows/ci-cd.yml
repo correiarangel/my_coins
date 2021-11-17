@@ -125,7 +125,7 @@ jobs:
       #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
       - run: |
           mkdir $HOME/secrets
-          gpg --quiet --batch --yes --decrypt --passphrase="$SECRET_PASSPHRASE" \
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_PASSWORD }}" \
           --output $HOME/secrets/services.tar services.tar.gpg
           tar xvf $HOME/secrets/services.tar
       # Get dependencies and make assigned appbundle
@@ -137,8 +137,6 @@ jobs:
           flutter pub get
           flutter build appbundle
 
-      env:
-        SECRET_PASSPHRASE: ${{ secrets.KEY_PASSWORD }}
       # Make appbundle downloadable
       - name: Upload artifact
         uses: actions/upload-artifact@v2
