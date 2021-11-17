@@ -125,9 +125,8 @@ jobs:
       #- run: echo "${{ secrets.GOOGLE_SERVICE }}" > android/app/google-services.json
       - run: |
           mkdir $HOME/secrets
-          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_PASSWORD }}" \
-          --output $HOME/secrets/services.tar services.tar.gpg
-          tar xvf $HOME/secrets/services.tar
+          echo "${{ secrets.GOOGLE_SERVICE }}" > $HOME/secrets/google-services.json
+          
       # Get dependencies and make assigned appbundle
       - run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
