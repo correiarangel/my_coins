@@ -1,17 +1,8 @@
 name: CI/CD
-#on:
-#  push:
-#    tags:
-#      - v*
-on: 
+on:
   push:
-    branches:
-      - develop
-      - main
-  pull_request:
-    branches:
-      - develop
-      - main
+    tags:
+      - v*
 
 env:
   JAVA_VERSION: "12.x"
@@ -143,11 +134,10 @@ jobs:
       #- name: Decode google-services.json
       # run: echo '${{ secrets.GOOGLE_SERVECE }}' > android/app/google-services.json  
       # Decode Google services configuration file
-      - name: Decode google-services.json
-        env:
-          FIREBASE_CONFIG: ${{ secrets.GOOGLE_SERVECE }}
-        run: echo $FIREBASE_CONFIG > app/google-services.json
-
+      #- name: Decode google-services.json
+      #  env:
+      #    FIREBASE_CONFIG: ${{ secrets.GOOGLE_SERVECE }}
+      #  run: echo $FIREBASE_CONFIG > app/google-services.json
       # Creating service_account.json
       - name: Create service_account.json FROM secrets.SERVICE_ACCOUNT_JSON
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json

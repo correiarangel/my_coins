@@ -44,9 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/android/app/services.tar
-/android/app/google-services.json
-/android/app/secrets.tar
+#/android/app/google-services.json
 #keys
 /docs/key
 /docs/pswd
