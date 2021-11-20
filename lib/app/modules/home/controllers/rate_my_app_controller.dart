@@ -53,8 +53,8 @@ class RateMyAppController {
 
       onDismissed: () => rateMyApp.callEvent(RateMyAppEventType
           .laterButtonPressed), // Chamado quando o usuário dispensou a caixa de diálogo (gravando externamente ou pressionando o botão "voltar").
-      //contentBuilder: (context, defaultContent) => content, // Este permite que você altere o conteúdo da caixa de diálogo padrão.
-      // actionsBuilder: (context) => [], // Este permite que você use seus próprios botões.
+      //contentBuilder: (context, defaultContent) => content, //  permite que você altere o conteúdo da caixa de diálogo padrão.
+      // actionsBuilder: (context) => [], // permite que você use seus próprios botões.
       listener: (button) {
         //  The button click listener (useful if you want to cancel the click event).
         switch (button) {
@@ -108,15 +108,15 @@ class RateMyAppController {
     debugPrint('## ## Open Rating Again? $openRatingAgain');
   }  */
 
-/*
+
   void dailogStar(RateMyApp rateMyApp, BuildContext context) {
     // Or if you prefer to show a star rating bar (powered by `flutter_rating_bar`) :
 
     rateMyApp.showStarRateDialog(
       context,
-      title: 'Avaliação Portal Amazonas', // The dialog title.
+      title: 'Avaliação My Coins', // The dialog title.
       message:
-          'Quantas estrela você da para Portal Amazonas App', // The dialog message.
+          'Quantas estrela para  My Coins App', // The dialog message.
       // contentBuilder: (context, defaultContent) => content, // This one allows you to change the default dialog content.
 
       actionsBuilder: (context, stars) {
@@ -132,7 +132,7 @@ class RateMyAppController {
               //Navigator.pop<RateMyAppDialogButton>(
               //    context, RateMyAppDialogButton.rate);
 
-              final launchAppStore = stars >= 4;
+              final launchAppStore = stars! >= 4;
               final event = await RateMyAppEventType.rateButtonPressed;
 
               rateMyApp.callEvent(event);
@@ -159,5 +159,5 @@ class RateMyAppController {
       onDismissed: () => rateMyApp.callEvent(RateMyAppEventType
           .laterButtonPressed), // Called when the user dismissed the dialog (either by taping outside or by pressing the "back" button).
     );
-  }*/
+  }
 }
