@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
