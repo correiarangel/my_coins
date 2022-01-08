@@ -33,6 +33,10 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter format --dry-run --set-exit-if-changed lib/
+      - run: flutter format --dry-run --set-exit-if-changed lib/app/
+      - run: flutter format --dry-run --set-exit-if-changed lib/app/modules/
+      - run: flutter format --dry-run --set-exit-if-changed lib/app/pages/
+      - run: flutter format --dry-run --set-exit-if-changed lib/app/shared/
       - run: flutter format --dry-run --set-exit-if-changed test/
       - run: flutter test --coverage
       - run: flutter test --machine > test-results-mycoins.json
