@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 import '../interface/check_internet_interface.dart';
 
 class CheckInternet implements ICheckInternet {
