@@ -12,14 +12,9 @@ class RateMyAppController {
   RateMyAppController({required this.mounted});
 
   void initRate(RateMyApp rateMyApp, BuildContext? context) async {
-    //debugPrint("##---### @@@@@@@@@ INIT Rate");
-
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
       await rateMyApp.init();
-      //infoRate(rateMyApp,context);
       if (mounted && rateMyApp.shouldOpenDialog) {
-        //debugPrint("##---### entrou 1 if initRate");
-
         dailogRate(rateMyApp, context!);
       }
     });
@@ -50,23 +45,17 @@ class RateMyAppController {
         messageAlign: TextAlign.center,
       ), // Estilos de diálogo personalizados.
 
-      onDismissed: () => rateMyApp.callEvent(RateMyAppEventType
-          .laterButtonPressed), // Chamado quando o usuário dispensou a caixa de diálogo (gravando externamente ou pressionando o botão "voltar").
-      //contentBuilder: (context, defaultContent) => content, //  permite que você altere o conteúdo da caixa de diálogo padrão.
-      // actionsBuilder: (context) => [], // permite que você use seus próprios botões.
+      onDismissed: () =>
+          rateMyApp.callEvent(RateMyAppEventType.laterButtonPressed),
       listener: (button) {
-        //  The button click listener (useful if you want to cancel the click event).
         switch (button) {
           case RateMyAppDialogButton.rate:
-            //debugPrint('@@@@  Clicked on "Rate".');
             setLauchRate(rateMyApp);
             break;
           case RateMyAppDialogButton.later:
-            //debugPrint('@@@@@  Clicked on "Later".');
             rateMyApp.callEvent(RateMyAppEventType.laterButtonPressed);
             break;
           case RateMyAppDialogButton.no:
-            //debugPrint('@@@@@  Clicked on "No".');
             rateMyApp.callEvent(RateMyAppEventType.noButtonPressed);
             break;
         }
@@ -77,16 +66,12 @@ class RateMyAppController {
   }
 
   void setLauchRate(RateMyApp rateMyApp) async {
-    //debugPrint('@@@@  Clicked on "setLauchRate".');
     await rateMyApp.callEvent(RateMyAppEventType.rateButtonPressed);
     await rateMyApp.launchStore().then((value) {
-      //debugPrint('@@@@@@ RERULT launchStore *-> $value');
       if (value == LaunchStoreResult.errorOccurred) {
-        // print('@@@@ ENTROU NO IF Value - $value');
         initLaunchReview();
       }
     }).onError((error, stackTrace) {
-      //debugPrint('@@@@  ERROR - $error');
       initLaunchReview();
     });
   }
@@ -107,30 +92,21 @@ class RateMyAppController {
     debugPrint('## ## Open Rating Again? $openRatingAgain');
   }  */
 
-
   void dailogStar(RateMyApp rateMyApp, BuildContext context) {
-    // Or if you prefer to show a star rating bar (powered by `flutter_rating_bar`) :
-
     rateMyApp.showStarRateDialog(
       context,
       title: 'Avaliação My Coins', // The dialog title.
-      message:
-          'Quantas estrela para  My Coins App', // The dialog message.
-      // contentBuilder: (context, defaultContent) => content, // This one allows you to change the default dialog content.
+      message: 'Quantas estrela para  My Coins App', // The dialog message.
 
       actionsBuilder: (context, stars) {
-        // Triggered when the user updates the star rating.
         return [
-          // Return a list of actions (that will be shown at the bottom of the dialog).
           TextButton(
             child: Text('OK'),
             onPressed: () async {
-             // print(
-               //   'Obrigado por ${stars == null ? '0' : stars.round().toString()} star(s) !');
-
+              // print(
+              //   'Obrigado por ${stars == null ? '0' : stars.round().toString()} star(s) !');
               //Navigator.pop<RateMyAppDialogButton>(
               //    context, RateMyAppDialogButton.rate);
-
               final launchAppStore = stars! >= 4;
               final event = await RateMyAppEventType.rateButtonPressed;
 
