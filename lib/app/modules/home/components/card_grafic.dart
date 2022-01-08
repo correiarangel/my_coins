@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../shared/models/coins_days_model.dart';

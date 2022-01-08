@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
