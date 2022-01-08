@@ -33,10 +33,6 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter format --dry-run --set-exit-if-changed lib/
-      - run: flutter format --dry-run --set-exit-if-changed lib/app/
-      - run: flutter format --dry-run --set-exit-if-changed lib/app/modules/
-      - run: flutter format --dry-run --set-exit-if-changed lib/app/pages/
-      - run: flutter format --dry-run --set-exit-if-changed lib/app/shared/
       - run: flutter format --dry-run --set-exit-if-changed test/
       - run: flutter test --coverage
       - run: flutter test --machine > test-results-mycoins.json
@@ -47,7 +43,7 @@ jobs:
           reporter: flutter-json
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          min_coverage: 0
+          min_coverage: 20
       - uses: codecov/codecov-action@v2
         with:
           #token: ${{ secrets.CODECOV_TOKEN }}
