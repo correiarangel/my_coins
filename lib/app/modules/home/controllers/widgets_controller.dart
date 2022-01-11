@@ -314,6 +314,7 @@ class WidGetController implements IWidGetController {
           buildHeader("My Coins", context, screen: 'about'),
           const SizedBox(height: 30.0),
           CardAbout(
+            sizeBoxDivisor: sizeBoxDivisor(),
             controller: controller,
             rateMyApp: rateMyApp,
             rateMyAppController: rateMyAppController,

@@ -1,0 +1,55 @@
+default_platform(:android)
+
+platform :android do
+  desc "Suite de tests "
+  lane :tests do
+    gradle(task: "test")
+  end
+  desc "Deploy nova versão para Google Play Store"
+  lane :publish do
+    begin      
+      initialDir = Dir.pwd 
+
+      newVersion = ""
+
+      Dir.chdir("../..") do
+        sh("cider bump build")
+        #sh("cider bump patch -b")
+        puts Dir.pwd
+      end
+
+      Dir.chdir(initialDir) do
+        #newVersion = "#{flutter_version()['version_name']}+#{flutter_version()['version_code']}"
+
+        sh("flutter clean")
+        sh("flutter pub get")
+        sh("flutter build appbundle --release")
+
+        upload_to_play_store(
+          aab: "../build/app/outputs/bundle/release/app-release.aab",
+          track: "production",
+          skip_upload_images: true,
+          skip_upload_screenshots: true,
+          skip_upload_apk: true,
+          validate_only: false
+        )
+
+        #Dir.chdir("../..") do
+        #  sh("git add pubspec.yaml")
+        #  sh("git commit -m #{newVersion}")
+        #  sh("git tag -a #{newVersion} -m #{newVersion}")
+        #  sh("git push origin")
+        #end
+
+  
+
+      rescue => exception
+        raise exception unless exception.message.include?('APK specifies a version code that has already been used.')
+        puts 'Essa versão de código já está em uso 🤨'
+      end
+
+    end
+
+  end
+
+end

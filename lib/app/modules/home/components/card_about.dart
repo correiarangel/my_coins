@@ -3,32 +3,31 @@ import 'dart:io';
 /// יְהֹוָה my create
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
 import '../../../shared/util/value/const_srtring_url.dart';
 import '../controllers/rate_my_app_controller.dart';
-import '../controllers/widgets_controller.dart';
 import 'link_custon.dart';
 import 'link_evaluation.dart';
 
 // ignore: must_be_immutable
 class CardAbout extends StatelessWidget {
-  final widGetController = Modular.get<WidGetController>();
+  final Widget sizeBoxDivisor;
   final RateMyAppController rateMyAppController;
   final controller;
   final RateMyApp rateMyApp;
 
-  CardAbout(
-      {Key? key,
-      required this.controller,
-      required this.rateMyApp,
-      required this.rateMyAppController})
-      : super(key: key);
+  CardAbout({
+    Key? key,
+    required this.sizeBoxDivisor,
+    required this.controller,
+    required this.rateMyApp,
+    required this.rateMyAppController,
+  }) : super(key: key);
 
-  setVersion() {
+  String setVersion() {
     var v = "1.0.0+7";
     if (Platform.isAndroid || Platform.isIOS) {
       v = controller.version;
@@ -38,7 +37,6 @@ class CardAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sizeBoxDivisor = widGetController.sizeBoxDivisor();
 
     return Padding(
       padding: EdgeInsets.only(
@@ -297,7 +295,6 @@ class CardAbout extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   //coin
-
                   Icon(
                     Icons.recent_actors,
                     color: ConstColors.colorDarkBlueGray,
