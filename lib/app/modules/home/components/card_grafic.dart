@@ -96,7 +96,7 @@ class CardGrafic extends StatelessWidget {
                     pointSize: 10.0,
                     pointColor: ConstColors.colorSkyMagenta,
                     enableGridLines: true,
-                    averageLable: true,
+                    averageLabel: true,
                     gridLinelabelPrefix: " R\$ ",
                     gridLineLabelColor: ConstColors.colorLigthGray,
                     averageLine: true,
