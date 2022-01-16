@@ -4,7 +4,7 @@ import '../controllers/home_store.dart';
 
 // ignore: must_be_immutable
 class LinkCustom extends StatelessWidget {
-  final controller = Modular.get<HomeStore>();
+  final HomeStore controller;
   final IconData icon;
   final Color iconcor;
   final double iconSize;
@@ -17,6 +17,7 @@ class LinkCustom extends StatelessWidget {
   final String url;
 
   LinkCustom({
+    required this.controller,
     required this.icon,
     required this.iconcor,
     required this.iconSize,

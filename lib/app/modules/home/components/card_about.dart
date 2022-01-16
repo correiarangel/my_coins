@@ -8,6 +8,7 @@ import 'package:rate_my_app/rate_my_app.dart';
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_srtring.dart';
 import '../../../shared/util/value/const_srtring_url.dart';
+import '../controllers/home_store.dart';
 import '../controllers/rate_my_app_controller.dart';
 import 'link_custon.dart';
 import 'link_evaluation.dart';
@@ -16,7 +17,7 @@ import 'link_evaluation.dart';
 class CardAbout extends StatelessWidget {
   final Widget sizeBoxDivisor;
   final RateMyAppController rateMyAppController;
-  final controller;
+  final HomeStore controller;
   final RateMyApp rateMyApp;
 
   CardAbout({
@@ -28,9 +29,9 @@ class CardAbout extends StatelessWidget {
   }) : super(key: key);
 
   String setVersion() {
-    var v = "1.0.0+7";
+    var v = "1.0.0+10";
     if (Platform.isAndroid || Platform.isIOS) {
-      v = controller.version;
+      v = controller.version ?? "1.0.0+10";
     }
     return v;
   }
@@ -152,7 +153,7 @@ class CardAbout extends StatelessWidget {
                 iconcor: ConstColors.colorDarkBlueGray,
                 iconSize: 30,
                 textSize: 18.0,
-                textCor: controller.colorLinkEvaluation,
+                textCor: controller.colorLinkEvaluation!,
                 text: 'Avaliar aplicativo',
                 rigth: 10.0,
                 left: 10.0,
@@ -219,11 +220,12 @@ class CardAbout extends StatelessWidget {
                 ],
               ),
               LinkCustom(
+                controller: controller,
                 icon: Icons.email,
                 iconcor: ConstColors.colorDarkBlueGray,
                 iconSize: 30,
                 textSize: 18.0,
-                textCor: controller.colorLinkEmail,
+                textCor: controller.colorLinkEmail!,
                 text: ConstString.email,
                 top: 18.0,
                 rigth: 10.0,
@@ -232,11 +234,12 @@ class CardAbout extends StatelessWidget {
               ),
               //sizeBoxDivisor,
               LinkCustom(
+                controller: controller,
                 icon: Icons.pages,
                 iconcor: ConstColors.colorDarkBlueGray,
                 iconSize: 30,
                 textSize: 18.0,
-                textCor: controller.colorLinkDin,
+                textCor: controller.colorLinkDin!,
                 text: ConstString.linkDin,
                 top: 18.0,
                 rigth: 10.0,
@@ -245,11 +248,12 @@ class CardAbout extends StatelessWidget {
               ),
               // sizeBoxDivisor,
               LinkCustom(
+                  controller: controller,
                   icon: Icons.category,
                   iconcor: ConstColors.colorDarkBlueGray,
                   iconSize: 30,
                   textSize: 18.0,
-                  textCor: controller.colorLinkGit,
+                  textCor: controller.colorLinkGit!,
                   text: ConstString.gitHub,
                   top: 18.0,
                   rigth: 10.0,
@@ -278,11 +282,12 @@ class CardAbout extends StatelessWidget {
                 ],
               ),
               LinkCustom(
+                  controller: controller,
                   icon: Icons.policy,
                   iconcor: ConstColors.colorDarkBlueGray,
                   iconSize: 30,
                   textSize: 18.0,
-                  textCor: controller.colorLinkPolicy,
+                  textCor: controller.colorLinkPolicy!,
                   text: ConstString.policy,
                   top: 18.0,
                   rigth: 10.0,
@@ -311,11 +316,12 @@ class CardAbout extends StatelessWidget {
                 ],
               ),
               LinkCustom(
+                  controller: controller,
                   icon: Icons.file_present,
                   iconcor: ConstColors.colorDarkBlueGray,
                   iconSize: 30,
                   textSize: 18.0,
-                  textCor: controller.colorLinkDoc,
+                  textCor: controller.colorLinkDoc!,
                   text: ConstString.docFlutter,
                   top: 10.0,
                   rigth: 10.0,

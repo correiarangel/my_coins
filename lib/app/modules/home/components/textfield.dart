@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../../shared/util/value/const_colors.dart';
 
 class TextFielCustom {
@@ -31,18 +32,30 @@ class TextFielCustom {
           fillColor: ConstColors.colorSkyMagenta,
           hintText: hintText,
           labelText: lblText,
-          labelStyle:
-              TextStyle(color: ConstColors.colorLigthGray, fontSize: 18.0),
-          hintStyle:
-              TextStyle(color: Colors.white.withAlpha(50), fontSize: 18.0),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: ConstColors.colorSkyMagenta),
+          labelStyle: TextStyle(
+            color: ConstColors.colorLigthGray,
+            fontSize: 18.0,
           ),
-          contentPadding:
-              EdgeInsets.only(bottom: 10.0, top: 20.0, right: 20.0, left: 0.0),
+          hintStyle: TextStyle(
+            color: Colors.white.withAlpha(50),
+            fontSize: 18.0,
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: ConstColors.colorSkyMagenta,
+            ),
+          ),
+          contentPadding: EdgeInsets.only(
+            bottom: 10.0,
+            top: 20.0,
+            right: 20.0,
+            left: 0.0,
+          ),
           // ignore: unnecessary_null_comparison
           errorText: errorText == null ? null : errorText(),
-          counterStyle: TextStyle(color: ConstColors.colorLavenderFloral),
+          counterStyle: TextStyle(
+            color: ConstColors.colorLavenderFloral,
+          ),
         ),
       ),
     );

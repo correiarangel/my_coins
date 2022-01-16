@@ -14,12 +14,12 @@ platform :android do
 
       Dir.chdir("../..") do
         sh("cider bump build")
-        #sh("cider bump patch -b")
+        sh("cider bump patch -b")
         puts Dir.pwd
       end
 
       Dir.chdir(initialDir) do
-        #newVersion = "#{flutter_version()['version_name']}+#{flutter_version()['version_code']}"
+        newVersion = "#{flutter_version()['version_name']}+#{flutter_version()['version_code']}"
 
         sh("flutter clean")
         sh("flutter pub get")
@@ -34,15 +34,13 @@ platform :android do
           validate_only: false
         )
 
-        #Dir.chdir("../..") do
-        #  sh("git add pubspec.yaml")
-        #  sh("git commit -m #{newVersion}")
-        #  sh("git tag -a #{newVersion} -m #{newVersion}")
-        #  sh("git push origin")
-        #end
-
-  
-
+        Dir.chdir("../..") do
+          sh("git add pubspec.yaml")
+          sh("git commit -m #{newVersion}")
+          sh("git tag -a #{newVersion} -m #{newVersion}")
+          sh("git push origin")
+        end
+        
       rescue => exception
         raise exception unless exception.message.include?('APK specifies a version code that has already been used.')
         puts 'Essa versão de código já está em uso 🤨'
