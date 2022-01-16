@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import '../controllers/home_store.dart';
 
 // ignore: must_be_immutable
