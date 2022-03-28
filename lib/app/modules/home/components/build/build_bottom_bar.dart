@@ -27,8 +27,7 @@ class BuildBottomBar extends StatelessWidget {
                 Icons.poll,
                 color: ConstColors.colorDarkBlueGray,
               ),
-              // ignore: deprecated_member_use
-              title: Text("Cambios"),
+              label: "Cambios",
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -36,7 +35,7 @@ class BuildBottomBar extends StatelessWidget {
                 color: ConstColors.colorDarkBlueGray,
               ),
               // ignore: deprecated_member_use
-              title: Text("Converter"),
+              label: "Converter",
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -44,7 +43,7 @@ class BuildBottomBar extends StatelessWidget {
                 color: ConstColors.colorDarkBlueGray,
               ),
               // ignore: deprecated_member_use
-              title: Text("Info"),
+              label: "Info",
             ),
           ],
         );

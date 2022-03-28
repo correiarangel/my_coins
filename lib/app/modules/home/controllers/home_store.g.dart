@@ -215,13 +215,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
       Atom(name: 'HomeStoreBase.colorLinkEvaluation');
 
   @override
-  Color? get colorLinkEvaluation {
+  Color get colorLinkEvaluation {
     _$colorLinkEvaluationAtom.reportRead();
     return super.colorLinkEvaluation;
   }
 
   @override
-  set colorLinkEvaluation(Color? value) {
+  set colorLinkEvaluation(Color value) {
     _$colorLinkEvaluationAtom.reportWrite(value, super.colorLinkEvaluation, () {
       super.colorLinkEvaluation = value;
     });
@@ -422,7 +422,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  Color? changesColorLinkEvaluation() {
+  Color changesColorLinkEvaluation() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesColorLinkEvaluation');
     try {

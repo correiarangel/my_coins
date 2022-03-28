@@ -25,7 +25,7 @@ class TestTextBR extends StatelessWidget {
       children: <Widget>[
         Observer(builder: (_) {
           return Text(
-            "${controller.textValidat == null ? '0' : controller.textValidat}"
+            "${controller.textValidat}"
             " Real(s) vale(m)",
             style: TextStyle(
               color: ConstColors.colorLavenderFloral,
