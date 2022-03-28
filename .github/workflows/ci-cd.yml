@@ -37,7 +37,7 @@ jobs:
           reporter: flutter-json
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          min_coverage: 30
+          min_coverage: 20
       - uses: codecov/codecov-action@v2
         with:
           file: coverage/lcov.info    
@@ -119,7 +119,7 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
-          cider version 1.0.0+9
+          cider version 1.0.0+11
           flutter pub get
           flutter build appbundle
 
@@ -146,7 +146,7 @@ jobs:
           track: production
           status: completed
           inAppUpdatePriority: 2
-          releaseName: 1.0.0+9
+          releaseName: 1.0.0+11
           whatsNewDirectory: distribution/whatsnew
           mappingFile: build/app/outputs/mapping/release/mapping.txt
          

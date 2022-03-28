@@ -22,6 +22,9 @@ class BuildBodyCovert extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenshot = ScreenshotController();
     controller.changesIsNet();
+    controller.changesTextValidat('0');
+    controller.valueToConvert();
+    
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
