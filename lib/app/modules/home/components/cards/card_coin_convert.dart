@@ -3,22 +3,23 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../../../shared/interface/general_functions_interface.dart';
-import '../../../shared/models/coins_model.dart';
-import '../../../shared/util/value/const_colors.dart';
-import '../controllers/widgets_controller.dart';
-import 'textfield.dart';
+import '../../../../shared/models/coins_model.dart';
+import '../../../../shared/util/general_functions.dart';
+import '../../../../shared/util/value/const_colors.dart';
+import '../../controllers/home_store.dart';
+import '../../number_custom.dart';
+import '../buttons/button_increment_decrement.dart';
+import '../buttons/small_button.dart';
+import '../buttons/small_button_ziro.dart';
+import '../texts/test_coins_text.dart';
+import '../texts/test_textbr.dart';
 
 class CardCoinConvert extends StatelessWidget {
-  final widgetController = Modular.get<WidGetController>();
-  final genFunctions = Modular.get<IGeneralFunctions>();
-  final _textController = TextEditingController();
-  final fieldText = TextFielCustom();
+  final GeneralFunctions genFunctions = Modular.get();
   final ScreenshotController screenshot;
-
   final List<CoinModel>? coins;
   final int index;
-  final controller;
+  final HomeStore controller;
 
   CardCoinConvert({
     Key? key,
@@ -30,8 +31,6 @@ class CardCoinConvert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    controller.changesPriceCoin("${coins?[index].bid}");
-
     return Padding(
       padding: EdgeInsets.only(
         left: 18.0,
@@ -97,83 +96,57 @@ class CardCoinConvert extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 28.0),
-            Observer(
-              builder: (context) {
-                String? _text = controller.textValidat;
-                return TextButton.icon(
-                  onPressed: () {
-                    int? cont = int.parse(_text!);
-                    cont += 1;
-                    // ignore: unnecessary_null_comparison
-                    if (cont == null) cont = 0;
-                    _textController.text = "$cont";
-                    controller.changesTextValidat("$cont");
-                  },
-                  icon: Icon(
-                    Icons.add,
-                    color: ConstColors.colorSkyMagenta,
-                    size: 38.0,
-                  ),
-                  label: Text(''),
-                );
-              },
+            SmallButton(
+              textValidat: 10,
+              text: '   +10   ',
+              store: controller,
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: 28.0,
-                left: 8.0,
-                right: 8.0,
-              ),
-              child: Observer(
-                builder: (context) {
-                  return controller.isReverseConversion
-                      ? fieldText.textFiel(
-                          TextInputType.number,
-                          "Digite o valor",
-                          "De Real para ${coins?[index].code}:",
-                          controller.changesTextValidat,
-                          controller.valueToConvert,
-                          false,
-                          _textController,
-                        )
-                      : fieldText.textFiel(
-                          TextInputType.number,
-                          "Digite o valor",
-                          "De ${coins?[index].code} para Real :",
-                          controller.changesTextValidat,
-                          controller.valueToConvert,
-                          false,
-                          _textController,
-                        );
-                },
-              ),
-            ),
-            Observer(
-              builder: (context) {
-                String? text = controller.textValidat;
-                return TextButton.icon(
-                  onPressed: () {
-                    int? _cont = int.parse(text!);
-                    // ignore: unnecessary_statements
-                    text == "0" ? _cont : _cont -= 1;
-                    // ignore: unnecessary_null_comparison
-                    if (_cont == null) _cont = 0;
-                    _textController.text = "$_cont";
-                    controller.changesTextValidat("$_cont");
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Observer(
+                  builder: (context) {
+                    var text = controller.textValidat;
+                    return ButtonIncrementDecrement(
+                      voidCallback: () {
+                        var _cont = controller.textCont(text: int.parse(text));
+                        controller.changesTextValidat("$_cont");
+                        controller.valueToConvert();
+                      },
+                      text: '   -1    ',
+                    );
                   },
-                  icon: Icon(
-                    Icons.remove,
-                    color: ConstColors.colorSkyMagenta,
-                    size: 38.0,
-                  ),
-                  label: Text(''),
-                );
-              },
+                ),
+                NumberCustom(store: controller),
+                Observer(
+                  builder: (context) {
+                    var _text = controller.textValidat;
+                    return ButtonIncrementDecrement(
+                      voidCallback: () {
+                        int? cont = int.parse(_text);
+                        cont += 1;
+                        if (cont < 0) cont = 0;
+
+                        controller.changesTextValidat("$cont");
+                        controller.valueToConvert();
+                      },
+                      text: '   +1   ',
+                    );
+                  },
+                ),
+              ],
             ),
             const SizedBox(height: 0.0),
+            SmallButtonZiro(
+              store: controller,
+            ),
             TextButton.icon(
               onPressed: () {
                 controller.changesIsReverseConversion();
+                controller.changesTextValidat(
+                  controller.textValidat,
+                );
+                controller.changesValueConvertion();
               },
               icon: Icon(
                 Icons.swap_vert,
@@ -181,7 +154,7 @@ class CardCoinConvert extends StatelessWidget {
                 size: 48.0,
               ),
               label: Text(
-                "",
+                '',
                 style: TextStyle(
                   color: ConstColors.colorLavenderFloral,
                   fontSize: 0.0,
@@ -198,12 +171,16 @@ class CardCoinConvert extends StatelessWidget {
                 child: Observer(
                   builder: (context) {
                     return controller.isReverseConversion
-                        ? widgetController.testTextBr(
-                            coins: coins,
+                        ? TestTextBR(
+                            genFunctions: genFunctions,
+                            controller: controller,
+                            coins: coins!,
                             index: index,
                           )
-                        : widgetController.testCoinsText(
-                            coins: coins,
+                        : TestCoinsText(
+                            genFunctions: genFunctions,
+                            controller: controller,
+                            coins: coins!,
                             index: index,
                           );
                   },

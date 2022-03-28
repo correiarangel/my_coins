@@ -2,8 +2,8 @@ import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../../../shared/models/coins_days_model.dart';
-import '../../../shared/util/value/const_colors.dart';
+import '../../../../shared/models/coins_days_model.dart';
+import '../../../../shared/util/value/const_colors.dart';
 
 // ignore: must_be_immutable
 class CardGrafic extends StatelessWidget {
@@ -35,10 +35,10 @@ class CardGrafic extends StatelessWidget {
     var days = controller.days;
     days == "8" ? days = "7" : days;
     var text = "";
-    if (param == 'bid') text = "Variação ultimos $days dias,\n Valor de Compra";
-    if (param == 'ask') text = "Variação ultimos $days dias,\n Valor de Venda";
-    if (param == 'high') text = "Variação ultimos $days dias,\n Valor Max.";
-    if (param == 'low') text = "Variação ultimos $days dias,\n Valor Min.";
+    if (param == 'bid') text = "Hitórico ultimos $days dias,\n Valor de Compra";
+    if (param == 'ask') text = "Hitórico ultimos $days dias,\n Valor de Venda";
+    if (param == 'high') text = "Hitórico ultimos $days dias,\n Valor Max.";
+    if (param == 'low') text = "Hitórico ultimos $days dias,\n Valor Min.";
     return text;
   }
 

@@ -245,13 +245,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$textValidatAtom = Atom(name: 'HomeStoreBase.textValidat');
 
   @override
-  String? get textValidat {
+  String get textValidat {
     _$textValidatAtom.reportRead();
     return super.textValidat;
   }
 
   @override
-  set textValidat(String? value) {
+  set textValidat(String value) {
     _$textValidatAtom.reportWrite(value, super.textValidat, () {
       super.textValidat = value;
     });
@@ -444,7 +444,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  String? changesTextValidat(String? value) {
+  String changesTextValidat(String value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesTextValidat');
     try {

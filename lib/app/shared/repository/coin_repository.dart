@@ -32,7 +32,7 @@ class CoinRepository implements ICoinRepository {
     var url = ConstStringUrl.urlSevenDay;
 
     var response = await client.get("$url$siglaCoin/$days/");
-    var listCoins;
+
     if (response!.statusCode == 200) {
       response.data.removeAt(0);
       Iterable interbleCoins = response.data;
@@ -40,6 +40,7 @@ class CoinRepository implements ICoinRepository {
           .map((comodel) => CoinDaysModel.fromJson(comodel))
           .toList();
     } else {
+      List<CoinDaysModel>? listCoins = [];
       return listCoins;
     }
   }

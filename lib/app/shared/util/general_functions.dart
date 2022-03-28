@@ -30,7 +30,7 @@ class GeneralFunctions implements IGeneralFunctions {
 
   @override
   String realToCoin(String? priceCoin) {
-    String? res = "";
+    String? res = '';
     if (priceCoin != null) {
       //priceCoin = priceCoin.replaceAll(",", ".");
       //res = formatNumber((1 / double.parse(priceCoin)).toString());
@@ -41,7 +41,7 @@ class GeneralFunctions implements IGeneralFunctions {
 
   @override
   String? calcRealToCoin(String? priceCoin, String? valueToConvert) {
-    String? res = "";
+    String? res = '';
     var result;
     if (priceCoin != null && valueToConvert != null) {
       result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
@@ -52,7 +52,7 @@ class GeneralFunctions implements IGeneralFunctions {
 
   @override
   String? calcCoinToReal(String? priceCoin, String? valueToConvert) {
-    String? res = "";
+    String? res = '';
     var result;
     if (priceCoin != null && valueToConvert != null) {
       result = double.parse(priceCoin) * int.parse(valueToConvert);
@@ -75,27 +75,29 @@ class GeneralFunctions implements IGeneralFunctions {
 
   @override
   String? formatNumberBr(String number) {
-    var formatter = NumberFormat.decimalPattern("pt_BR");
+    var formatter = NumberFormat.decimalPattern('pt_BR');
     String? resnumber;
     // ignore: unnecessary_null_comparison
     if (number != null) {
       resnumber = formatter.format(double.parse(number));
     } else {
-      resnumber = "0";
+      resnumber = '0';
     }
+    print('REAL  : $resnumber');
     return resnumber;
   }
 
   @override
   String? formatNumberUs(String number) {
-    var formatter = NumberFormat.decimalPattern("en_US");
+    var formatter = NumberFormat.decimalPattern('en_US');
     String? resnumber;
     // ignore: unnecessary_null_comparison
     if (number != null) {
       resnumber = formatter.format(double.parse(number));
     } else {
-      resnumber = "0";
+      resnumber = '0';
     }
+    print('DOLLAR US : $resnumber');
     return resnumber;
   }
 }

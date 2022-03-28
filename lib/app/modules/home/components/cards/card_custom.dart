@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'package:screenshot/screenshot.dart';
 
-import '../../../shared/interface/general_functions_interface.dart';
-import '../../../shared/models/coins_model.dart';
-import '../../../shared/util/value/const_colors.dart';
-import '../controllers/widgets_controller.dart';
+import '../../../../shared/models/coins_model.dart';
+import '../../../../shared/util/general_functions.dart';
+import '../../../../shared/util/value/const_colors.dart';
+import '../sizebox_divisor.dart';
+import '../texts/test_text_custom.dart';
 
 class CardCustom extends StatelessWidget {
-  final widGetController = Modular.get<WidGetController>();
-  final genFunctions = Modular.get<IGeneralFunctions>();
+  final GeneralFunctions genFunctions = Modular.get();
   final ScreenshotController screenshot;
   final List<CoinModel>? coins;
   final int index;
@@ -26,8 +25,9 @@ class CardCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sizeBoxDivisor = widGetController.sizeBoxDivisor();
-    var date = genFunctions.toBrazilTime(coins?[index].createDate.toString());
+    var date = genFunctions.toBrazilTime(
+      coins?[index].createDate.toString(),
+    );
     var priceCoin = "${coins?[index].bid}";
     controller.changesPriceCoin(priceCoin);
 
@@ -104,7 +104,7 @@ class CardCustom extends StatelessWidget {
                     ),
                   ],
                 ),
-                sizeBoxDivisor,
+                SizeBoxDivisor(),
                 Text(
                   "Tipo de converção :",
                   style: TextStyle(
@@ -126,7 +126,7 @@ class CardCustom extends StatelessWidget {
                     ),
                   ],
                 ),
-                sizeBoxDivisor,
+                SizeBoxDivisor(),
                 Text(
                   "Sigla/Moeda : ",
                   style: TextStyle(
@@ -153,7 +153,7 @@ class CardCustom extends StatelessWidget {
                     ),
                   ],
                 ),
-                sizeBoxDivisor,
+                SizeBoxDivisor(),
                 Text(
                   "Cotação :",
                   style: TextStyle(
@@ -164,19 +164,12 @@ class CardCustom extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    widGetController.testTextCustom(
-                      coins: coins,
+                    TestTextCustom(
+                      controller: controller,
+                      genFunctions: genFunctions,
+                      coins: coins!,
                       index: index,
                     )
-                    //name
-                    /*Text(
-                          "1 : ${coins?[index].code} Custa\n"
-                          " R\$ : ${genFunctions.formatNumberBr(priceCoin)}",
-                          style: TextStyle(
-                              color: ConstColors.colorLavenderFloral,
-                              fontSize: 28.0),
-                          textAlign: TextAlign.center,
-                        ), */
                   ],
                 ),
                 SizedBox(height: 28.0),

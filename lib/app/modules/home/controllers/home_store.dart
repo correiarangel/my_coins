@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../shared/models/coins_days_model.dart';
 import '../../../shared/models/coins_model.dart';
+import '../../../shared/models/coins_parc_model.dart';
 import '../../../shared/repository/coin_repository.dart';
 import '../../../shared/util/check_internet.dart';
 import '../../../shared/util/general_functions.dart';
@@ -81,7 +82,7 @@ abstract class HomeStoreBase with Store {
   String changeDateUpgrade(String? value) =>
       value != null ? dateUpgrade = value : dateUpgrade;
 
-  launchURL(_url) async {
+  Future<void> launchURL(_url) async {
     final url = Uri.encodeFull(_url);
     await launch(url);
   }
@@ -145,11 +146,10 @@ abstract class HomeStoreBase with Store {
   bool changesProgressLink(bool value) => progressLink = value;
 
   @computed
-  // ignore: unnecessary_null_comparison
   bool get isValid => valueToConvert == null;
 
   String? valueToConvert() {
-    if (textValidat == null || textValidat!.isEmpty) {
+    if (textValidat.isEmpty) {
       return ConstString.msgRiqueriValue;
     } else {
       changesValueConvertion();
@@ -158,9 +158,9 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  String? textValidat = '0';
+  String textValidat = '0';
   @action
-  String? changesTextValidat(String? value) => textValidat = value;
+  String changesTextValidat(String value) => textValidat = value;
 
   @observable
   String? priceCoin = "0";
@@ -225,6 +225,22 @@ abstract class HomeStoreBase with Store {
           await Share.shareFiles([imagePath.path]);
         }
       });
+    }
+  }
+
+  List<CoinsParcModel> fillListSiglas() {
+    Iterable interbleCoins = ConstString.listSiglaCoins;
+    return interbleCoins
+        .map((coinpmodel) => CoinsParcModel.fromJson(coinpmodel))
+        .toList();
+  }
+
+  int textCont({required int text}) {
+    int? _cont = int.parse(text.toString());
+    if (_cont <= 0) {
+      return _cont = 0;
+    } else {
+      return _cont -= 1;
     }
   }
 }

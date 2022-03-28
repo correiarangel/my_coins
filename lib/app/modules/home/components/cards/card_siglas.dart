@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../shared/interface/general_functions_interface.dart';
-import '../../../shared/models/coins_parc_model.dart';
-import '../../../shared/util/value/const_colors.dart';
+import '../../../../shared/models/coins_parc_model.dart';
+import '../../../../shared/util/value/const_colors.dart';
+import '../../controllers/home_store.dart';
 
 class CardSiglas extends StatelessWidget {
-  final genFunctions = Modular.get<IGeneralFunctions>();
   final List<CoinsParcModel>? coins;
   final int index;
-  final controller;
+  final HomeStore controller;
 
   CardSiglas({
     Key? key,

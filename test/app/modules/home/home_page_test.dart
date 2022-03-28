@@ -6,7 +6,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:my_coins/app/app_module.dart';
 import 'package:my_coins/app/modules/home/controllers/home_store.dart';
-import 'package:my_coins/app/modules/home/controllers/widgets_controller.dart';
 import 'package:my_coins/app/modules/home/home_module.dart';
 import 'package:my_coins/app/modules/home/home_page.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
@@ -32,14 +31,11 @@ class HomeStoreMock extends Mock implements HomeStore {
 
 class GeneralVersionMock extends Mock implements GeneralVersion {}
 
-class WidgetControllerMock extends Mock implements WidGetController {}
-
 void main() {
   final dioMock = DioMock();
   final clietHttp = ClientHttpServiceMock(dioMock);
   final repository = CoinRepositoryMock(clietHttp);
   final homeStore = HomeStoreMock(repository);
-  final widGetController = WidgetControllerMock();
   final generalVersion = GeneralVersionMock();
 
   setUp(() {
@@ -52,7 +48,6 @@ void main() {
       Bind.instance<CoinRepository>(repository),
       Bind.instance<HomeStore>(homeStore),
       Bind.instance<GeneralVersion>(generalVersion),
-      Bind.instance<WidgetControllerMock>(widGetController),
     ]);
   });
 

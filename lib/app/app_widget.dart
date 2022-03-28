@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'shared/util/push.dart';
 
 class AppWidget extends StatelessWidget {
+//  final themeController = Modular.get<ThemeStore>();
   static FirebaseAnalytics analytics = FirebaseAnalytics();
   final Push push = Push();
   @override

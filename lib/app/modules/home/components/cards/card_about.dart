@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
-import '../../../shared/util/value/const_colors.dart';
-import '../../../shared/util/value/const_srtring.dart';
-import '../../../shared/util/value/const_srtring_url.dart';
-import '../controllers/home_store.dart';
-import '../controllers/rate_my_app_controller.dart';
-import 'link_custon.dart';
-import 'link_evaluation.dart';
+import '../../../../shared/util/value/const_colors.dart';
+import '../../../../shared/util/value/const_srtring.dart';
+import '../../../../shared/util/value/const_srtring_url.dart';
+import '../../controllers/home_store.dart';
+import '../../controllers/rate_my_app_controller.dart';
+import '../link_custon.dart';
+import '../link_evaluation.dart';
 
 // ignore: must_be_immutable
 class CardAbout extends StatelessWidget {

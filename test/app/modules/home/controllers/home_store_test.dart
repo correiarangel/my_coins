@@ -6,9 +6,9 @@ import 'package:mocktail/mocktail.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:my_coins/app/app_module.dart';
 import 'package:my_coins/app/modules/home/controllers/home_store.dart';
-import 'package:my_coins/app/modules/home/controllers/widgets_controller.dart';
 import 'package:my_coins/app/modules/home/home_module.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
+import 'package:my_coins/app/shared/models/coins_parc_model.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 import 'package:my_coins/app/shared/util/general_version.dart';
@@ -29,14 +29,11 @@ class HomeStoreMock extends Mock implements HomeStore {
 
 class GeneralVersionMock extends Mock implements GeneralVersion {}
 
-class WidgetControllerMock extends Mock implements WidGetController {}
-
 void main() {
   final dioMock = DioMock();
   final client = ClientHttpServiceMock();
   final repository = CoinRepositoryMock(client);
   final homeStore = HomeStoreMock(repository);
-  final widGetController = WidgetControllerMock();
   final generalVersion = GeneralVersionMock();
 
   // ignore: unused_element
@@ -50,7 +47,6 @@ void main() {
       Bind.instance<CoinRepository>(repository),
       Bind.instance<HomeStore>(homeStore),
       Bind.instance<GeneralVersion>(generalVersion),
-      Bind.instance<WidGetController>(widGetController),
     ]);
   }
 
@@ -68,4 +64,15 @@ void main() {
     expect(coins, isA<List<CoinModel>?>());
     expect(coins.isEmpty, true);
   });
+
+  test('Deve lista de CoinsParcModel fillListSiglas', () async {
+    //assert
+    when(homeStore.fillListSiglas).thenAnswer((_) => list);
+    expect(
+      homeStore.fillListSiglas(),
+      isA<List<CoinsParcModel>>(),
+    );
+  });
 }
+
+final list = <CoinsParcModel>[];
