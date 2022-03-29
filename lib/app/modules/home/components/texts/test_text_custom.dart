@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../../shared/models/coins_model.dart';
 import '../../../../shared/util/general_functions.dart';
 import '../../../../shared/util/value/const_colors.dart';
-import '../../controllers/home_store.dart';
 
 class TestTextCustom extends StatelessWidget {
   final List<CoinModel> coins;
-  final HomeStore controller;
   final int index;
   final GeneralFunctions genFunctions;
   const TestTextCustom({
     Key? key,
     required this.index,
     required this.coins,
-    required this.controller,
     required this.genFunctions,
   }) : super(key: key);
 

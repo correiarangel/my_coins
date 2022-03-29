@@ -5,7 +5,6 @@ import '../../controllers/home_store.dart';
 import '../horizontl_list.dart';
 import '../return_card_custom.dart';
 import '../return_card_grafic.dart';
-import '../row_custom.dart';
 import 'build_header.dart';
 
 class BuildBodyCotation extends StatelessWidget {
@@ -43,7 +42,6 @@ class BuildBodyCotation extends StatelessWidget {
           ),
           ReturnCardCuston(controller: controller),
           SizedBox(height: 8.0),
-          RowCustom(controller: controller),
           SizedBox(height: 8.0),
           ReturnCardGrafic(controller: controller),
         ],

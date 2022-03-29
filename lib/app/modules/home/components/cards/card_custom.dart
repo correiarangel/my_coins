@@ -5,6 +5,7 @@ import 'package:screenshot/screenshot.dart';
 import '../../../../shared/models/coins_model.dart';
 import '../../../../shared/util/general_functions.dart';
 import '../../../../shared/util/value/const_colors.dart';
+import '../../controllers/home_store.dart';
 import '../sizebox_divisor.dart';
 import '../texts/test_text_custom.dart';
 
@@ -13,14 +14,14 @@ class CardCustom extends StatelessWidget {
   final ScreenshotController screenshot;
   final List<CoinModel>? coins;
   final int index;
-  final controller;
+  final HomeStore store;
 
   CardCustom({
     Key? key,
     required this.screenshot,
     required this.coins,
     required this.index,
-    required this.controller,
+    required this.store,
   }) : super(key: key);
 
   @override
@@ -29,15 +30,15 @@ class CardCustom extends StatelessWidget {
       coins?[index].createDate.toString(),
     );
     var priceCoin = "${coins?[index].bid}";
-    controller.changesPriceCoin(priceCoin);
+    store.changesPriceCoin(priceCoin);
 
     return Padding(
       padding: EdgeInsets.only(left: 18.0, right: 18.0),
       child: InkWell(
         splashColor: Colors.purpleAccent.withAlpha(80),
         onTap: () {
-          controller.changesIsNet();
-          controller.fetchCoins(controller.itemSelect);
+          store.changesIsNet();
+          store.fetchCoins(store.itemSelect);
         },
         child: Container(
           decoration: BoxDecoration(
@@ -66,7 +67,7 @@ class CardCustom extends StatelessWidget {
                   children: <Widget>[
                     SizedBox(height: 4.0),
                     TextButton.icon(
-                      onPressed: () => controller.share(screenshot),
+                      onPressed: () => store.share(screenshot),
                       icon: Icon(
                         Icons.share,
                         size: 30.0,
@@ -157,7 +158,9 @@ class CardCustom extends StatelessWidget {
                 Text(
                   "Cotação :",
                   style: TextStyle(
-                      color: ConstColors.colorLigthGray, fontSize: 22.0),
+                    color: ConstColors.colorLigthGray,
+                    fontSize: 22.0,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 Row(
@@ -165,7 +168,6 @@ class CardCustom extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     TestTextCustom(
-                      controller: controller,
                       genFunctions: genFunctions,
                       coins: coins!,
                       index: index,

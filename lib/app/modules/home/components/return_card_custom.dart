@@ -38,7 +38,7 @@ class ReturnCardCuston extends StatelessWidget {
                 screenshot: screenshot,
                 coins: listCoins,
                 index: 0,
-                controller: controller,
+                store: controller,
               ),
             ),
           );
