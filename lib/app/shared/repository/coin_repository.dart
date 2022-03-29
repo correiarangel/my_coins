@@ -15,7 +15,7 @@ class CoinRepository implements ICoinRepository {
     var response = await client.get(ConstStringUrl.routerAllCoins);
     // ignore: unused_local_variable
     var listCoins;
-    if (response != null && response.statusCode == 200) {
+    if (response.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
       return listCoins = interbleCoins
           .map((comodel) => CoinModel.fromJson(comodel[siglaCoins]))
@@ -35,7 +35,7 @@ class CoinRepository implements ICoinRepository {
 
     var response = await client.get("$url$siglaCoin/$days/");
 
-    if (response!.statusCode == 200) {
+    if (response.statusCode == 200) {
       response.data.removeAt(0);
       Iterable interbleCoins = response.data;
       return interbleCoins

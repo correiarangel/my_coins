@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import '../interface/client_http_interface.dart';
 
@@ -12,16 +14,17 @@ class ClientHttpService implements IClientHttp {
   }
 
   @override
-  Future<Response?>? get(String router) async {
+  Future<Response> get(String router) async {
     Response? response;
     try {
       response = await dio.get(router);
-    } on Exception catch (_) {
-      // debugPrint("ClientHttpService ERROR GET  $e",wrapWidth: 4);
+    } on Exception catch (e, s) {
+      log("ClientHttpService ERROR GET ", error: e, stackTrace: s);
       response = Response(
-          statusCode: 400,
-          requestOptions: RequestOptions(path: ''),
-          data: null);
+        statusCode: 400,
+        requestOptions: RequestOptions(path: ''),
+        data: [],
+      );
     }
     return response;
   }
