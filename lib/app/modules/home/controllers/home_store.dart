@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -104,18 +104,18 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  Color? colorLinkEmail = ConstColors.colorLavenderFloral;
+  Color colorLinkEmail = ConstColors.colorLavenderFloral;
   @observable
-  Color? colorLinkDin = ConstColors.colorLavenderFloral;
+  Color colorLinkDin = ConstColors.colorLavenderFloral;
   @observable
-  Color? colorLinkGit = ConstColors.colorLavenderFloral;
+  Color colorLinkGit = ConstColors.colorLavenderFloral;
   @observable
-  Color? colorLinkDoc = ConstColors.colorLavenderFloral;
+  Color colorLinkDoc = ConstColors.colorLavenderFloral;
   @observable
-  Color? colorLinkPolicy = ConstColors.colorLavenderFloral;
+  Color colorLinkPolicy = ConstColors.colorLavenderFloral;
 
   @action
-  Color? changesColorLink(String text) {
+  changesColorLink(String text) {
     switch (text) {
       case ConstString.email:
         return colorLinkEmail = ConstColors.colorSkyMagenta;
@@ -131,9 +131,9 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  Color? colorLinkEvaluation = ConstColors.colorLavenderFloral;
+  Color colorLinkEvaluation = ConstColors.colorLavenderFloral;
   @action
-  Color? changesColorLinkEvaluation() {
+  Color changesColorLinkEvaluation() {
     return colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
@@ -164,29 +164,28 @@ abstract class HomeStoreBase with Store {
   String changesTextValidat(String value) => textValidat = value;
 
   @observable
-  String? priceCoin = "0";
+  String priceCoin = "0";
   @action
-  String? changesPriceCoin(String? value) => priceCoin = value;
+  String changesPriceCoin(String value) => priceCoin = value;
 
   @observable
-  String? valueConvertion = "0";
+  String valueConvertion = "0";
   @action
-  String? changesValueConvertion() {
-
+  String changesValueConvertion() {
     if (isReverseConversion) {
-      valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
+      valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat)!;
     } else {
-      valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat);
+      valueConvertion = genFunctions.calcCoinToReal(priceCoin, textValidat)!;
     }
 
     return valueConvertion;
   }
 
   @action
-  String? changesTestIsBitCoin(value) {
+  String changesTestIsBitCoin(value) {
     var code = coins?.value?[0].code;
     if (code == "BTC") {
-      valueConvertion = genFunctions.formatNumberBitCoin(value);
+      valueConvertion = genFunctions.formatNumberBitCoin(value)!;
     } else {
       valueConvertion = value;
     }
@@ -207,7 +206,7 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  bool? isNet;
+  late bool isNet;
   @action
   changesIsNet() async {
     return isNet = await testInternet.isInternet();

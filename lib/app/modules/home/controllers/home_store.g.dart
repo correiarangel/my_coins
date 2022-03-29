@@ -139,13 +139,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$colorLinkEmailAtom = Atom(name: 'HomeStoreBase.colorLinkEmail');
 
   @override
-  Color? get colorLinkEmail {
+  Color get colorLinkEmail {
     _$colorLinkEmailAtom.reportRead();
     return super.colorLinkEmail;
   }
 
   @override
-  set colorLinkEmail(Color? value) {
+  set colorLinkEmail(Color value) {
     _$colorLinkEmailAtom.reportWrite(value, super.colorLinkEmail, () {
       super.colorLinkEmail = value;
     });
@@ -154,13 +154,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$colorLinkDinAtom = Atom(name: 'HomeStoreBase.colorLinkDin');
 
   @override
-  Color? get colorLinkDin {
+  Color get colorLinkDin {
     _$colorLinkDinAtom.reportRead();
     return super.colorLinkDin;
   }
 
   @override
-  set colorLinkDin(Color? value) {
+  set colorLinkDin(Color value) {
     _$colorLinkDinAtom.reportWrite(value, super.colorLinkDin, () {
       super.colorLinkDin = value;
     });
@@ -169,13 +169,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$colorLinkGitAtom = Atom(name: 'HomeStoreBase.colorLinkGit');
 
   @override
-  Color? get colorLinkGit {
+  Color get colorLinkGit {
     _$colorLinkGitAtom.reportRead();
     return super.colorLinkGit;
   }
 
   @override
-  set colorLinkGit(Color? value) {
+  set colorLinkGit(Color value) {
     _$colorLinkGitAtom.reportWrite(value, super.colorLinkGit, () {
       super.colorLinkGit = value;
     });
@@ -184,13 +184,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$colorLinkDocAtom = Atom(name: 'HomeStoreBase.colorLinkDoc');
 
   @override
-  Color? get colorLinkDoc {
+  Color get colorLinkDoc {
     _$colorLinkDocAtom.reportRead();
     return super.colorLinkDoc;
   }
 
   @override
-  set colorLinkDoc(Color? value) {
+  set colorLinkDoc(Color value) {
     _$colorLinkDocAtom.reportWrite(value, super.colorLinkDoc, () {
       super.colorLinkDoc = value;
     });
@@ -199,13 +199,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$colorLinkPolicyAtom = Atom(name: 'HomeStoreBase.colorLinkPolicy');
 
   @override
-  Color? get colorLinkPolicy {
+  Color get colorLinkPolicy {
     _$colorLinkPolicyAtom.reportRead();
     return super.colorLinkPolicy;
   }
 
   @override
-  set colorLinkPolicy(Color? value) {
+  set colorLinkPolicy(Color value) {
     _$colorLinkPolicyAtom.reportWrite(value, super.colorLinkPolicy, () {
       super.colorLinkPolicy = value;
     });
@@ -215,13 +215,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
       Atom(name: 'HomeStoreBase.colorLinkEvaluation');
 
   @override
-  Color? get colorLinkEvaluation {
+  Color get colorLinkEvaluation {
     _$colorLinkEvaluationAtom.reportRead();
     return super.colorLinkEvaluation;
   }
 
   @override
-  set colorLinkEvaluation(Color? value) {
+  set colorLinkEvaluation(Color value) {
     _$colorLinkEvaluationAtom.reportWrite(value, super.colorLinkEvaluation, () {
       super.colorLinkEvaluation = value;
     });
@@ -260,13 +260,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$priceCoinAtom = Atom(name: 'HomeStoreBase.priceCoin');
 
   @override
-  String? get priceCoin {
+  String get priceCoin {
     _$priceCoinAtom.reportRead();
     return super.priceCoin;
   }
 
   @override
-  set priceCoin(String? value) {
+  set priceCoin(String value) {
     _$priceCoinAtom.reportWrite(value, super.priceCoin, () {
       super.priceCoin = value;
     });
@@ -275,13 +275,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$valueConvertionAtom = Atom(name: 'HomeStoreBase.valueConvertion');
 
   @override
-  String? get valueConvertion {
+  String get valueConvertion {
     _$valueConvertionAtom.reportRead();
     return super.valueConvertion;
   }
 
   @override
-  set valueConvertion(String? value) {
+  set valueConvertion(String value) {
     _$valueConvertionAtom.reportWrite(value, super.valueConvertion, () {
       super.valueConvertion = value;
     });
@@ -306,13 +306,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$isNetAtom = Atom(name: 'HomeStoreBase.isNet');
 
   @override
-  bool? get isNet {
+  bool get isNet {
     _$isNetAtom.reportRead();
     return super.isNet;
   }
 
   @override
-  set isNet(bool? value) {
+  set isNet(bool value) {
     _$isNetAtom.reportWrite(value, super.isNet, () {
       super.isNet = value;
     });
@@ -411,7 +411,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  Color? changesColorLink(String text) {
+  dynamic changesColorLink(String text) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesColorLink');
     try {
@@ -422,7 +422,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  Color? changesColorLinkEvaluation() {
+  Color changesColorLinkEvaluation() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesColorLinkEvaluation');
     try {
@@ -455,7 +455,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  String? changesPriceCoin(String? value) {
+  String changesPriceCoin(String value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesPriceCoin');
     try {
@@ -466,7 +466,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  String? changesValueConvertion() {
+  String changesValueConvertion() {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesValueConvertion');
     try {
@@ -477,7 +477,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  String? changesTestIsBitCoin(dynamic value) {
+  String changesTestIsBitCoin(dynamic value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesTestIsBitCoin');
     try {

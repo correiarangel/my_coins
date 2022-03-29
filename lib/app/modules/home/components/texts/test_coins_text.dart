@@ -24,8 +24,8 @@ class TestCoinsText extends StatelessWidget {
     return Observer(builder: (_) {
       String? text = '';
       coins[index].code == "BTC"
-          ? text = "R\$ ${controller.valueConvertion!}"
-          : text = genFunctions.formatNumberBr(controller.valueConvertion!);
+          ? text = "R\$ ${controller.valueConvertion}"
+          : text = genFunctions.formatNumberBr(controller.valueConvertion);
       return Text(
         "${controller.textValidat}"
         ", ${coins[index].name?.replaceAll("/Real Brasileiro", "")}"
