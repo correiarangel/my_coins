@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -32,10 +31,10 @@ abstract class HomeStoreBase with Store {
   final CoinRepository repository;
 
   @observable
-  ObservableFuture<List<CoinModel>>? coins;
+   ObservableFuture<List<CoinModel>>? coins;
 
   @observable
-  ObservableFuture<List<CoinDaysModel>>? coinsDays;
+   ObservableFuture<List<CoinDaysModel>>? coinsDays ;
 
   HomeStoreBase(this.repository) {
     fetchCoins(itemSelect);
@@ -46,8 +45,8 @@ abstract class HomeStoreBase with Store {
   @action
   fetchCoins(String? typeConin) {
     if (typeConin == null) typeConin = 'USD';
-    coins = repository.getAllCoins(typeConin)?.asObservable();
-    changeDateUpgrade("${coins?.value?[0].createDate}");
+    coins = repository.getAllCoins(typeConin).asObservable();
+    changeDateUpgrade("${coins!.value?[0].createDate}");
   }
 
   @action
@@ -55,7 +54,7 @@ abstract class HomeStoreBase with Store {
     if (_typeConin == null) _typeConin = 'USD';
     if (days == null) days = '8';
     return coinsDays =
-        repository.getPeriodCoins(_typeConin, days!)?.asObservable();
+        repository.getPeriodCoins(_typeConin, days!).asObservable();
   }
 
   @observable
@@ -183,7 +182,7 @@ abstract class HomeStoreBase with Store {
 
   @action
   String changesTestIsBitCoin(value) {
-    var code = coins?.value?[0].code;
+    var code = coins!.value?[0].code;
     if (code == "BTC") {
       valueConvertion = genFunctions.formatNumberBitCoin(value)!;
     } else {
@@ -206,7 +205,7 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  late bool isNet;
+   bool isNet = true;
   @action
   changesIsNet() async {
     return isNet = await testInternet.isInternet();

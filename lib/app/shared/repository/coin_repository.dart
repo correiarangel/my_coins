@@ -11,21 +11,23 @@ class CoinRepository implements ICoinRepository {
   CoinRepository(this.client);
 
   @override
-  Future<List<CoinModel>>? getAllCoins(String siglaCoins) async {
+  Future<List<CoinModel>> getAllCoins(String siglaCoins) async {
     var response = await client.get(ConstStringUrl.routerAllCoins);
+    // ignore: unused_local_variable
     var listCoins;
-    if (response!.statusCode == 200) {
+    if (response != null && response.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
       return listCoins = interbleCoins
           .map((comodel) => CoinModel.fromJson(comodel[siglaCoins]))
           .toList();
     } else {
-      return listCoins;
+      var _listCoins = <CoinModel>[];
+      return _listCoins;
     }
   }
 
   @override
-  Future<List<CoinDaysModel>>? getPeriodCoins(
+  Future<List<CoinDaysModel>> getPeriodCoins(
     String siglaCoin,
     String days,
   ) async {
@@ -40,7 +42,7 @@ class CoinRepository implements ICoinRepository {
           .map((comodel) => CoinDaysModel.fromJson(comodel))
           .toList();
     } else {
-      List<CoinDaysModel>? listCoins = [];
+      var listCoins = <CoinDaysModel>[];
       return listCoins;
     }
   }
