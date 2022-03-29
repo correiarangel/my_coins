@@ -24,7 +24,7 @@ class BuildBodyCovert extends StatelessWidget {
     controller.changesIsNet();
     controller.changesTextValidat('0');
     controller.valueToConvert();
-    
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
