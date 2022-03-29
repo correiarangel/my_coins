@@ -30,6 +30,7 @@ class HomeStoreMock extends Mock implements HomeStore {
 class GeneralVersionMock extends Mock implements GeneralVersion {}
 
 void main() {
+  
   final dioMock = DioMock();
   final client = ClientHttpServiceMock();
   final repository = CoinRepositoryMock(client);

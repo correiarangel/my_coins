@@ -116,23 +116,24 @@ abstract class HomeStoreBase with Store {
 
   @action
   Color? changesColorLink(String text) {
-    if (text == ConstString.email) {
-      return colorLinkEmail = ConstColors.colorSkyMagenta;
-    } else if (text == ConstString.linkDin) {
-      return colorLinkDin = ConstColors.colorSkyMagenta;
-    } else if (text == ConstString.gitHub) {
-      return colorLinkGit = ConstColors.colorSkyMagenta;
-    } else if (text == ConstString.docFlutter) {
-      return colorLinkDoc = ConstColors.colorSkyMagenta;
-    } else if (text == ConstString.policy) {
-      return colorLinkPolicy = ConstColors.colorSkyMagenta;
+    switch (text) {
+      case ConstString.email:
+        return colorLinkEmail = ConstColors.colorSkyMagenta;
+      case ConstString.linkDin:
+        return colorLinkDin = ConstColors.colorSkyMagenta;
+      case ConstString.gitHub:
+        return colorLinkGit = ConstColors.colorSkyMagenta;
+      case ConstString.docFlutter:
+        return colorLinkDoc = ConstColors.colorSkyMagenta;
+      case ConstString.policy:
+        return colorLinkPolicy = ConstColors.colorSkyMagenta;
     }
   }
 
   @observable
-  Color colorLinkEvaluation = ConstColors.colorLavenderFloral;
+  Color? colorLinkEvaluation = ConstColors.colorLavenderFloral;
   @action
-  Color changesColorLinkEvaluation() {
+  Color? changesColorLinkEvaluation() {
     return colorLinkEvaluation = ConstColors.colorSkyMagenta;
   }
 
@@ -171,6 +172,7 @@ abstract class HomeStoreBase with Store {
   String? valueConvertion = "0";
   @action
   String? changesValueConvertion() {
+
     if (isReverseConversion) {
       valueConvertion = genFunctions.calcRealToCoin(priceCoin, textValidat);
     } else {

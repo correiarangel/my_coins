@@ -153,7 +153,7 @@ class CardAbout extends StatelessWidget {
                 iconcor: ConstColors.colorDarkBlueGray,
                 iconSize: 30,
                 textSize: 18.0,
-                textCor: controller.colorLinkEvaluation,
+                textCor: controller.colorLinkEvaluation!,
                 text: 'Avaliar aplicativo',
                 rigth: 10.0,
                 left: 10.0,
