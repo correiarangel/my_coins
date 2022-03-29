@@ -31,10 +31,10 @@ abstract class HomeStoreBase with Store {
   final CoinRepository repository;
 
   @observable
-   ObservableFuture<List<CoinModel>>? coins;
+  ObservableFuture<List<CoinModel>>? coins;
 
   @observable
-   ObservableFuture<List<CoinDaysModel>>? coinsDays ;
+  ObservableFuture<List<CoinDaysModel>>? coinsDays;
 
   HomeStoreBase(this.repository) {
     fetchCoins(itemSelect);
@@ -47,22 +47,23 @@ abstract class HomeStoreBase with Store {
     if (typeConin == null) typeConin = 'USD';
     coins = repository.getAllCoins(typeConin).asObservable();
     changeDateUpgrade("${coins!.value?[0].createDate}");
+    return coins;
   }
 
   @action
   fetchcoinsDays(String? _typeConin) {
     if (_typeConin == null) _typeConin = 'USD';
-    if (days == null) days = '8';
+    days = '8';
     return coinsDays =
-        repository.getPeriodCoins(_typeConin, days!).asObservable();
+        repository.getPeriodCoins(_typeConin, days).asObservable();
   }
 
   @observable
-  String? days = '8';
+  String days = '8';
   @action
-  String? changesDays(String? value) {
-    days = value;
+  String changesDays(String value) {
     fetchcoinsDays(itemSelect);
+    return days = value;
   }
 
   @observable
@@ -87,10 +88,10 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  String? version = "";
+  String version = "";
   @action
   changeVersion() async {
-    version = await genVersion.getBuildAndVersion();
+    return version = await genVersion.getBuildAndVersion() ?? '0';
   }
 
   @observable
@@ -205,7 +206,7 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-   bool isNet = true;
+  bool isNet = true;
   @action
   changesIsNet() async {
     return isNet = await testInternet.isInternet();

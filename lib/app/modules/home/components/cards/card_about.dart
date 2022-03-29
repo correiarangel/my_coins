@@ -31,7 +31,7 @@ class CardAbout extends StatelessWidget {
   String setVersion() {
     var v = "1.0.0+10";
     if (Platform.isAndroid || Platform.isIOS) {
-      v = controller.version ?? "1.0.0+10";
+      v = controller.version;
     }
     return v;
   }

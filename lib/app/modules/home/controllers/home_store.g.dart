@@ -49,13 +49,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$daysAtom = Atom(name: 'HomeStoreBase.days');
 
   @override
-  String? get days {
+  String get days {
     _$daysAtom.reportRead();
     return super.days;
   }
 
   @override
-  set days(String? value) {
+  set days(String value) {
     _$daysAtom.reportWrite(value, super.days, () {
       super.days = value;
     });
@@ -109,13 +109,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$versionAtom = Atom(name: 'HomeStoreBase.version');
 
   @override
-  String? get version {
+  String get version {
     _$versionAtom.reportRead();
     return super.version;
   }
 
   @override
-  set version(String? value) {
+  set version(String value) {
     _$versionAtom.reportWrite(value, super.version, () {
       super.version = value;
     });
@@ -367,7 +367,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  String? changesDays(String? value) {
+  String changesDays(String value) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.changesDays');
     try {
