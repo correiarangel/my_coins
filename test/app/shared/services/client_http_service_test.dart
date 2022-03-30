@@ -15,6 +15,7 @@ void main() {
   
   setUp(() {
     print("Iniciando tests ClientHttp");
+    print("acredite é possivel ... ");
   });
 
   tearDown(() {

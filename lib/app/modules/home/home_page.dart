@@ -8,11 +8,13 @@ import 'controllers/home_store.dart';
 import 'controllers/rate_my_app_controller.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
+  final Key keyScafodId = Key('scfuldHome');
   @override
   void initState() {
     super.initState();
@@ -29,6 +31,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: keyScafodId,
       backgroundColor: ConstColors.colorSpaceCadet,
       body: BuildBody(
         context: context,

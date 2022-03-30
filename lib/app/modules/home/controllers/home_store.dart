@@ -31,6 +31,7 @@ abstract class HomeStoreBase with Store {
   final genFunctions = Modular.get<GeneralFunctions>();
   final genVersion = Modular.get<GeneralVersion>();
   final testInternet = Modular.get<CheckInternet>();
+  
   final CoinRepository repository;
 
   @observable
