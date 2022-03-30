@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+
+@immutable
 class CoinsParcModel {
-  String? id;
-  String? code;
-  String? name;
+  final String id;
+  final String code;
+  final String name;
 
   CoinsParcModel({
     required this.id,
@@ -17,11 +20,15 @@ class CoinsParcModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['id'] = id;
-    data['code'] = code;
-    data['name'] = name;
-    return data;
+  CoinsParcModel copyWith({
+    String? id,
+    String? code,
+    String? name,
+  }) {
+    return CoinsParcModel(
+      code: code ?? this.code,
+      id: id ?? this.id,
+      name: name ?? this.name,
+    );
   }
 }

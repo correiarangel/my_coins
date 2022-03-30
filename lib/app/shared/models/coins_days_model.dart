@@ -1,20 +1,23 @@
+import 'package:flutter/material.dart';
+
+@immutable
 class CoinDaysModel {
-  String? high;
-  String? low;
-  String? varBid;
-  String? pctChange;
-  String? bid;
-  String? ask;
-  String? timestamp;
+  final String? high;
+  final String? low;
+  final String? varBid;
+  final String? pctChange;
+  final String? bid;
+  final String? ask;
+  final String? timestamp;
 
   CoinDaysModel({
-    this.high,
-    this.low,
-    this.varBid,
-    this.pctChange,
-    this.bid,
-    this.ask,
-    this.timestamp,
+    required this.high,
+    required this.low,
+    required this.varBid,
+    required this.pctChange,
+    required this.bid,
+    required this.ask,
+    required this.timestamp,
   });
 
   factory CoinDaysModel.fromJson(Map<String, dynamic> json) {
@@ -29,15 +32,23 @@ class CoinDaysModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['high'] = high;
-    data['low'] = low;
-    data['varBid'] = varBid;
-    data['pctChange'] = pctChange;
-    data['bid'] = bid;
-    data['ask'] = ask;
-    data['timestamp'] = timestamp;
-    return data;
+  CoinDaysModel copyWith({
+    String? high,
+    String? low,
+    String? varBid,
+    String? pctChange,
+    String? bid,
+    String? ask,
+    String? timestamp,
+  }) {
+    return CoinDaysModel(
+      high: high ?? this.high,
+      low: low ?? this.low,
+      varBid: varBid ?? this.varBid,
+      pctChange: pctChange ?? this.pctChange,
+      bid: bid ?? this.bid,
+      ask: ask ?? this.ask,
+      timestamp: timestamp ?? this.timestamp,
+    );
   }
 }

@@ -12,7 +12,7 @@ import '../texts/test_text_custom.dart';
 class CardCustom extends StatelessWidget {
   final GeneralFunctions genFunctions = Modular.get();
   final ScreenshotController screenshot;
-  final List<CoinModel>? coins;
+  final List<CoinModel> coins;
   final int index;
   final HomeStore store;
 
@@ -27,9 +27,9 @@ class CardCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var date = genFunctions.toBrazilTime(
-      coins?[index].createDate.toString(),
+      coins[index].createDate.toString(),
     );
-    var priceCoin = "${coins?[index].bid}";
+    var priceCoin = "${coins[index].bid}";
     store.changesPriceCoin(priceCoin);
 
     return Padding(
@@ -118,7 +118,7 @@ class CardCustom extends StatelessWidget {
                   children: <Widget>[
                     //name
                     Text(
-                      "De : ${coins?[index].name?.replaceAll("/", " p. \n")}",
+                      "De : ${coins[index].name.replaceAll("/", " p. \n")}",
                       style: TextStyle(
                         color: ConstColors.colorLavenderFloral,
                         fontSize: 22.0,
@@ -146,7 +146,7 @@ class CardCustom extends StatelessWidget {
                     ),
                     SizedBox(width: 10.0),
                     Text(
-                      "${coins?[index].code}",
+                      "${coins[index].code}",
                       style: TextStyle(
                           color: ConstColors.colorLavenderFloral,
                           fontSize: 28.0),
@@ -169,7 +169,7 @@ class CardCustom extends StatelessWidget {
                   children: <Widget>[
                     TestTextCustom(
                       genFunctions: genFunctions,
-                      coins: coins!,
+                      coins: coins,
                       index: index,
                     )
                   ],

@@ -36,7 +36,7 @@ class ReturnCardCuston extends StatelessWidget {
               controller: screenshot,
               child: CardCustom(
                 screenshot: screenshot,
-                coins: listCoins,
+                coins: listCoins ?? [],
                 index: 0,
                 store: controller,
               ),

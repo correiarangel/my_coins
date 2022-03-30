@@ -37,7 +37,7 @@ class TestTextBR extends StatelessWidget {
         Observer(builder: (_) {
           return Text(
             "${genFunctions.formatNumberUs(controller.valueConvertion)} "
-            "${coins[index].name?.replaceAll("/Real Brasileiro", "")}",
+            "${coins[index].name.replaceAll("/Real Brasileiro", "")}",
             style: TextStyle(
               color: ConstColors.colorLavenderFloral,
               fontSize: 22.0,

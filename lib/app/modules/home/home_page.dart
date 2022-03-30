@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../shared/util/value/const_colors.dart';
-import '../../shared/util/value/const_id_app.dart';
 import 'components/build/build_body.dart';
 import 'components/build/build_bottom_bar.dart';
 import 'controllers/home_store.dart';
@@ -15,23 +13,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  final textController = TextEditingController();
-  late RateMyAppController rateMyAppController;
-  final RateMyApp rateMyApp = RateMyApp(
-    preferencesPrefix: 'rateMyApp_',
-    minDays: 4,
-    minLaunches: 4,
-    remindDays: 5,
-    remindLaunches: 5,
-    googlePlayIdentifier: ConstIDApp.playStoreId,
-    appStoreIdentifier: ConstIDApp.appstoreId,
-  );
-
   @override
   void initState() {
     super.initState();
-    rateMyAppController = RateMyAppController(mounted: mounted);
-    rateMyAppController.initRate(rateMyApp, context);
+    controller.rateMyAppController = RateMyAppController(
+      mounted: mounted,
+    );
+    controller.rateMyAppController.initRate(
+      controller.rateMyApp,
+      context,
+    );
     controller.changesIsNet();
   }
 
@@ -41,10 +32,10 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
       backgroundColor: ConstColors.colorSpaceCadet,
       body: BuildBody(
         context: context,
-        rateMyApp: rateMyApp,
-        rateMyAppController: rateMyAppController,
+        rateMyApp: controller.rateMyApp,
+        rateMyAppController: controller.rateMyAppController,
         controller: controller,
-        textController: textController,
+        textController: controller.textController,
       ),
       bottomNavigationBar: BuildBottomBar(
         controller: controller,

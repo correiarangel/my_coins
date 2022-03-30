@@ -28,7 +28,7 @@ class TestCoinsText extends StatelessWidget {
           : text = genFunctions.formatNumberBr(controller.valueConvertion);
       return Text(
         "${controller.textValidat}"
-        ", ${coins[index].name?.replaceAll("/Real Brasileiro", "")}"
+        ", ${coins[index].name.replaceAll("/Real Brasileiro", "")}"
         " vale(m)\n "
         " $text "
         "Real(s)",

@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../controllers/home_store.dart';
+import '../../controllers/rate_my_app_controller.dart';
 import 'build_body_about.dart';
 import 'build_body_cotation.dart';
 import 'build_body_covert.dart';
@@ -10,7 +11,7 @@ import 'build_body_covert.dart';
 class BuildBody extends StatelessWidget {
   final BuildContext context;
   final RateMyApp rateMyApp;
-  final rateMyAppController;
+  final RateMyAppController rateMyAppController;
   final HomeStore controller;
 
   final TextEditingController textController;

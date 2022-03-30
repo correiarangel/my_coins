@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,7 +18,9 @@ import '../../../shared/util/check_internet.dart';
 import '../../../shared/util/general_functions.dart';
 import '../../../shared/util/general_version.dart';
 import '../../../shared/util/value/const_colors.dart';
+import '../../../shared/util/value/const_id_app.dart';
 import '../../../shared/util/value/const_srtring.dart';
+import 'rate_my_app_controller.dart';
 
 part 'home_store.g.dart';
 
@@ -243,4 +246,16 @@ abstract class HomeStoreBase with Store {
       return _cont -= 1;
     }
   }
+
+    final textController = TextEditingController();
+  late RateMyAppController rateMyAppController;
+  final RateMyApp rateMyApp = RateMyApp(
+    preferencesPrefix: 'rateMyApp_',
+    minDays: 4,
+    minLaunches: 4,
+    remindDays: 5,
+    remindLaunches: 5,
+    googlePlayIdentifier: ConstIDApp.playStoreId,
+    appStoreIdentifier: ConstIDApp.appstoreId,
+  );
 }

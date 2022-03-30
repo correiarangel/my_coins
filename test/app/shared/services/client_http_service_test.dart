@@ -5,18 +5,14 @@ import 'package:mocktail/mocktail.dart';
 
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 
-class ClientServiceHttpMoc extends Mock implements ClientHttpService {
-  final Dio dio;
-  ClientServiceHttpMoc(this.dio);
-}
+class ClientServiceHttpMoc extends Mock implements ClientHttpService {}
 
 class DioMock extends Mock implements DioForNative {}
 
 ///acredite é possivel ...
 void main() {
   final dio = DioMock();
-  // ignore: unused_local_variable
-  final service = ClientServiceHttpMoc(dio);
+  
   setUp(() {
     print("Iniciando tests ClientHttp");
   });
