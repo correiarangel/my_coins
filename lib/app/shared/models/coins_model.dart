@@ -72,16 +72,16 @@ class CoinModel {
   }
 
   factory CoinModel.empty() => CoinModel(
-      code: '',
-      codein: '',
-      name: '',
-      high: '',
-      low: '',
-      varBid: '',
-      pctChange: '',
-      bid: '',
-      ask: '',
-      timestamp: '',
-      createDate: '',
-    );
+        code: '',
+        codein: '',
+        name: '',
+        high: '',
+        low: '',
+        varBid: '',
+        pctChange: '',
+        bid: '',
+        ask: '',
+        timestamp: '',
+        createDate: '',
+      );
 }

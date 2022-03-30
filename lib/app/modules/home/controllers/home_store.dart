@@ -31,7 +31,7 @@ abstract class HomeStoreBase with Store {
   final genFunctions = Modular.get<GeneralFunctions>();
   final genVersion = Modular.get<GeneralVersion>();
   final testInternet = Modular.get<CheckInternet>();
-  
+
   final CoinRepository repository;
 
   @observable
@@ -248,7 +248,7 @@ abstract class HomeStoreBase with Store {
     }
   }
 
-    final textController = TextEditingController();
+  final textController = TextEditingController();
   late RateMyAppController rateMyAppController;
   final RateMyApp rateMyApp = RateMyApp(
     preferencesPrefix: 'rateMyApp_',
