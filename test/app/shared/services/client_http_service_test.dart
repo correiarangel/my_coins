@@ -12,7 +12,7 @@ class DioMock extends Mock implements DioForNative {}
 ///acredite é possivel ...
 void main() {
   final dio = DioMock();
-  
+
   setUp(() {
     print("Iniciando tests ClientHttp");
     print("acredite é possivel ... ");
