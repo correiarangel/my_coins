@@ -43,7 +43,7 @@ jobs:
           reporter: flutter-json
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          min_coverage: 20
+          min_coverage: 4
       - uses: codecov/codecov-action@v2
         with:
           #token: ${{ secrets.CODECOV_TOKEN }}
