@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane android tests
 ```
 
-Suite de tests
+Suite de tests 
 
 ### android publish
 
