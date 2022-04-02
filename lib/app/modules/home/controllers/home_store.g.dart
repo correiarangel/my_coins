@@ -124,13 +124,13 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$itemSelectAtom = Atom(name: 'HomeStoreBase.itemSelect');
 
   @override
-  String? get itemSelect {
+  String get itemSelect {
     _$itemSelectAtom.reportRead();
     return super.itemSelect;
   }
 
   @override
-  set itemSelect(String? value) {
+  set itemSelect(String value) {
     _$itemSelectAtom.reportWrite(value, super.itemSelect, () {
       super.itemSelect = value;
     });
@@ -345,7 +345,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
       ActionController(name: 'HomeStoreBase');
 
   @override
-  dynamic fetchCoins(String? typeConin) {
+  Future<List<CoinModel>> fetchCoins(String typeConin) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.fetchCoins');
     try {
@@ -356,7 +356,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  dynamic fetchcoinsDays(String? _typeConin) {
+  Future<List<CoinDaysModel>> fetchcoinsDays(String _typeConin) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.fetchcoinsDays');
     try {

@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:rate_my_app/rate_my_app.dart';
@@ -28,35 +27,38 @@ part 'home_store.g.dart';
 class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
-  final genFunctions = Modular.get<GeneralFunctions>();
-  final genVersion = Modular.get<GeneralVersion>();
-  final testInternet = Modular.get<CheckInternet>();
-
+  final GeneralFunctions genFunctions;
+  final GeneralVersion genVersion;
+  final CheckInternet testInternet;
   final CoinRepository repository;
 
+  HomeStoreBase(
+    this.repository,
+    this.genFunctions,
+    this.genVersion,
+    this.testInternet,
+  ) {
+    fetchCoins(itemSelect);
+    fetchcoinsDays(itemSelect);
+    changeVersion();
+  }
   @observable
   ObservableFuture<List<CoinModel>>? coins;
 
   @observable
   ObservableFuture<List<CoinDaysModel>>? coinsDays;
 
-  HomeStoreBase(this.repository) {
-    fetchCoins(itemSelect);
-    fetchcoinsDays(itemSelect);
-    changeVersion();
-  }
-
   @action
-  fetchCoins(String? typeConin) {
-    if (typeConin == null) typeConin = 'USD';
+  Future<List<CoinModel>> fetchCoins(String typeConin) {
+    if (typeConin.isEmpty) typeConin = 'USD';
     coins = repository.getAllCoins(typeConin).asObservable();
     changeDateUpgrade("${coins!.value?[0].createDate}");
-    return coins;
+    return coins!;
   }
 
   @action
-  fetchcoinsDays(String? _typeConin) {
-    if (_typeConin == null) _typeConin = 'USD';
+  Future<List<CoinDaysModel>> fetchcoinsDays(String _typeConin) {
+    if (_typeConin.isEmpty) _typeConin = 'USD';
     days = '8';
     return coinsDays =
         repository.getPeriodCoins(_typeConin, days).asObservable();
@@ -99,11 +101,11 @@ abstract class HomeStoreBase with Store {
   }
 
   @observable
-  String? itemSelect = 'USD';
+  String itemSelect = 'USD';
   @action
   changesItenSelect(String? value) async {
-    fetchCoins(value);
-    fetchcoinsDays(value);
+    fetchCoins(value ?? 'USD');
+    fetchcoinsDays(value ?? 'USD');
     return itemSelect = value!;
   }
 
@@ -234,9 +236,9 @@ abstract class HomeStoreBase with Store {
 
   List<CoinsParcModel> fillListSiglas() {
     Iterable interbleCoins = ConstString.listSiglaCoins;
-    return interbleCoins
-        .map((coinpmodel) => CoinsParcModel.fromJson(coinpmodel))
-        .toList();
+    return interbleCoins.map((coinpmodel) {
+      return CoinsParcModel.fromJson(coinpmodel);
+    }).toList();
   }
 
   int textCont({required int text}) {

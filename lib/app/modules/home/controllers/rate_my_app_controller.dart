@@ -11,7 +11,8 @@ class RateMyAppController {
 
   RateMyAppController({required this.mounted});
 
-  void initRate(RateMyApp rateMyApp, BuildContext? context) async {
+  void initRate(
+      {required RateMyApp rateMyApp, required BuildContext? context}) async {
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
       await rateMyApp.init();
       if (mounted && rateMyApp.shouldOpenDialog) {
@@ -27,8 +28,8 @@ class RateMyAppController {
     );
   }
 
-  T getCondition<T>(_rateMyApp) {
-    return _rateMyApp.conditions.whereType<T>().toList().first;
+  T getCondition<T>({required RateMyApp rateMyApp}) {
+    return rateMyApp.conditions.whereType<T>().toList().first;
   }
 
   void dailogRate(RateMyApp rateMyApp, BuildContext context) async {

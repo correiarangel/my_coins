@@ -69,7 +69,7 @@ class ButtonIconError extends StatelessWidget {
           ),
         ),
         onTap: () {
-          controller.fetchCoins(controller.itemSelect!);
+          controller.fetchCoins(controller.itemSelect);
         },
       ),
     );

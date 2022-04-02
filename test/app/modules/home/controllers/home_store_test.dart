@@ -1,73 +1,88 @@
-import 'package:dio/dio.dart';
-import 'package:dio/native_imp.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:modular_test/modular_test.dart';
-import 'package:my_coins/app/app_module.dart';
+
 import 'package:my_coins/app/modules/home/controllers/home_store.dart';
-import 'package:my_coins/app/modules/home/home_module.dart';
+
 import 'package:my_coins/app/shared/models/coins_model.dart';
 import 'package:my_coins/app/shared/models/coins_parc_model.dart';
 import 'package:my_coins/app/shared/repository/coin_repository.dart';
-import 'package:my_coins/app/shared/services/client_http_service.dart';
+import 'package:my_coins/app/shared/util/check_internet.dart';
+import 'package:my_coins/app/shared/util/general_functions.dart';
 import 'package:my_coins/app/shared/util/general_version.dart';
 
-class DioMock extends Mock implements DioForNative {}
+class GeneralFunctionsMock extends Mock implements GeneralFunctions {}
 
-class ClientHttpServiceMock extends Mock implements ClientHttpService {}
+class CheckInternetMock extends Mock implements CheckInternet {}
 
-class CoinRepositoryMock extends Mock implements CoinRepository {
-  final ClientHttpService client;
-  CoinRepositoryMock(this.client);
-}
-
-class HomeStoreMock extends Mock implements HomeStore {
-  final CoinRepository repository;
-  HomeStoreMock(this.repository);
-}
+class CoinRepositoryMock extends Mock implements CoinRepository {}
 
 class GeneralVersionMock extends Mock implements GeneralVersion {}
 
+class HomeStoreMock extends Mock implements HomeStore {
+  final CoinRepository repository;
+  final GeneralFunctions genFunctions;
+  final CheckInternet testInternet;
+  final GeneralVersion generalVersion;
+
+  HomeStoreMock(
+    this.repository,
+    this.genFunctions,
+    this.testInternet,
+    this.generalVersion,
+  );
+}
+
+Future<List<CoinModel>> retunFutureListMock() async {
+  var list = <CoinModel>[];
+  return list;
+}
+
 void main() {
-  final dioMock = DioMock();
-  final client = ClientHttpServiceMock();
-  final repository = CoinRepositoryMock(client);
-  final homeStore = HomeStoreMock(repository);
-  final generalVersion = GeneralVersionMock();
+  late CoinRepository repository;
+  late GeneralFunctions genFunctions;
+  late CheckInternet testInternet;
+  late GeneralVersion generalVersion;
+  late HomeStore homeStore;
 
+  genFunctions = GeneralFunctionsMock();
+  testInternet = CheckInternetMock();
+  generalVersion = GeneralVersionMock();
+  repository = CoinRepositoryMock();
+  homeStore = HomeStoreMock(
+    repository,
+    genFunctions,
+    testInternet,
+    generalVersion,
+  );
   // ignore: unused_element
-  setUp() {
-    print("Iniciando tests HomeStore");
-    initModule(AppModule(), replaceBinds: [
-      Bind.instance<Dio>(dioMock),
-    ]);
-
-    initModule(HomeModule(), replaceBinds: [
-      Bind.instance<CoinRepository>(repository),
-      Bind.instance<HomeStore>(homeStore),
-      Bind.instance<GeneralVersion>(generalVersion),
-    ]);
+  setUpAll() {
+    print("tests HomeStore");
   }
 
-  tearDown(() {
-    print("Finalizando test HomeStore");
+  setUp(() {
+    print("Iniciando tests");
   });
-  test('home store ...', () async {
-    var coins = <CoinModel>[];
-    when(() => homeStore.fetchCoins(any())).thenAnswer(
+
+  tearDown(() {
+    print("Finalizando test ");
+  });
+
+  tearDownAll(() {
+    print("Teste HomeStore");
+  });
+  test('Deve retornar List do tipo quando setar tipo de moeda CoinModel ...',
+      () async {
+    var coins = await retunFutureListMock();
+    when(() => homeStore.fetchCoins('US')).thenAnswer(
       (_) async => coins,
     );
-    //act
-    //coins = await repository.getAllCoins('USD');
-    //assert
-    expect(coins, isA<List<CoinModel>?>());
+    expect(coins, isA<List<CoinModel>>());
     expect(coins.isEmpty, true);
   });
 
   test('Deve lista de CoinsParcModel fillListSiglas', () async {
     //assert
-    when(homeStore.fillListSiglas).thenAnswer((_) => list);
+    when(() => homeStore.fillListSiglas()).thenAnswer((_) => list);
     expect(
       homeStore.fillListSiglas(),
       isA<List<CoinsParcModel>>(),

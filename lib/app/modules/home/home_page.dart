@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeStore> {
-  final Key keyScafodId = Key('scfuldHome');
   @override
   void initState() {
     super.initState();
@@ -22,8 +21,8 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
       mounted: mounted,
     );
     controller.rateMyAppController.initRate(
-      controller.rateMyApp,
-      context,
+      rateMyApp: controller.rateMyApp,
+      context: context,
     );
     controller.changesIsNet();
   }
@@ -31,7 +30,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: keyScafodId,
+      key: Key('scfuldHome'),
       backgroundColor: ConstColors.colorSpaceCadet,
       body: BuildBody(
         context: context,

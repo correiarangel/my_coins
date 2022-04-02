@@ -38,9 +38,9 @@ class CoinRepository implements ICoinRepository {
     if (response.statusCode == 200) {
       response.data.removeAt(0);
       Iterable interbleCoins = response.data;
-      return interbleCoins
-          .map((comodel) => CoinDaysModel.fromJson(comodel))
-          .toList();
+      return interbleCoins.map((comodel) {
+        return CoinDaysModel.fromJson(comodel);
+      }).toList();
     } else {
       var listCoins = <CoinDaysModel>[];
       return listCoins;

@@ -39,7 +39,7 @@ class LinkEvaluation extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           controller.changesColorLinkEvaluation();
-          rateMyAppController.initRate(rateMyApp, context);
+          rateMyAppController.initRate(rateMyApp: rateMyApp, context: context);
           rateMyAppController.setLauchRate(rateMyApp);
         },
         child: Container(
