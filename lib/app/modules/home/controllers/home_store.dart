@@ -51,7 +51,7 @@ abstract class HomeStoreBase with Store {
   @action
   Future<List<CoinModel>> fetchCoins(String typeConin) {
     if (typeConin.isEmpty) typeConin = 'USD';
-    coins = repository.getAllCoins(typeConin).asObservable();
+    coins = repository.getAllCoins(siglaCoin: typeConin).asObservable();
     changeDateUpgrade("${coins!.value?[0].createDate}");
     return coins!;
   }
@@ -60,8 +60,9 @@ abstract class HomeStoreBase with Store {
   Future<List<CoinDaysModel>> fetchcoinsDays(String _typeConin) {
     if (_typeConin.isEmpty) _typeConin = 'USD';
     days = '8';
-    return coinsDays =
-        repository.getPeriodCoins(_typeConin, days).asObservable();
+    return coinsDays = repository
+        .getPeriodCoins(siglaCoin: _typeConin, days: days)
+        .asObservable();
   }
 
   @observable

@@ -32,6 +32,18 @@ class CoinDaysModel {
     );
   }
 
+  factory CoinDaysModel.empty() {
+    return CoinDaysModel(
+      high: '',
+      low: '',
+      varBid: '',
+      pctChange: '',
+      bid: '',
+      ask: '',
+      timestamp: '',
+    );
+  }
+
   CoinDaysModel copyWith({
     String? high,
     String? low,

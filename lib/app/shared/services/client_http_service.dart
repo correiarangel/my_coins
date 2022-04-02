@@ -9,15 +9,10 @@ class ClientHttpService implements IClientHttp {
   ClientHttpService(this.dio);
 
   @override
-  Future delete(String url, String id) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Response> get(String router) async {
-    Response? response;
+  Future<Response> get({required String url}) async {
+    Response response;
     try {
-      response = await dio.get(router);
+      response = await dio.get(url);
     } on Exception catch (e, s) {
       log("ClientHttpService ERROR GET ", error: e, stackTrace: s);
       response = Response(
@@ -27,19 +22,5 @@ class ClientHttpService implements IClientHttp {
       );
     }
     return response;
-  }
-
-  @override
-  Future patch(String url, value) {
-    // ignore: todo
-    // TODO: implement patch
-    throw UnimplementedError();
-  }
-
-  @override
-  Future post(String url, FormData param, String keyRouter) {
-    // ignore: todo
-    // TODO: implement post
-    throw UnimplementedError();
   }
 }

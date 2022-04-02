@@ -11,14 +11,16 @@ class CoinRepository implements ICoinRepository {
   CoinRepository(this.client);
 
   @override
-  Future<List<CoinModel>> getAllCoins(String siglaCoins) async {
-    var response = await client.get(ConstStringUrl.routerAllCoins);
+  Future<List<CoinModel>> getAllCoins({
+    required String siglaCoin,
+  }) async {
+    var response = await client.get(url: ConstStringUrl.routerAllCoins);
     // ignore: unused_local_variable
     var listCoins;
     if (response.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
       return listCoins = interbleCoins
-          .map((comodel) => CoinModel.fromJson(comodel[siglaCoins]))
+          .map((comodel) => CoinModel.fromJson(comodel[siglaCoin]))
           .toList();
     } else {
       var _listCoins = <CoinModel>[];
@@ -27,13 +29,13 @@ class CoinRepository implements ICoinRepository {
   }
 
   @override
-  Future<List<CoinDaysModel>> getPeriodCoins(
-    String siglaCoin,
-    String days,
-  ) async {
+  Future<List<CoinDaysModel>> getPeriodCoins({
+    required String siglaCoin,
+    required String days,
+  }) async {
     var url = ConstStringUrl.urlSevenDay;
 
-    var response = await client.get("$url$siglaCoin/$days/");
+    var response = await client.get(url: "$url$siglaCoin/$days/");
 
     if (response.statusCode == 200) {
       response.data.removeAt(0);

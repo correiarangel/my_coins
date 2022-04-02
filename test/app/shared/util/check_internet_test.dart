@@ -5,17 +5,23 @@ import 'package:my_coins/app/shared/util/check_internet.dart';
 class CheckInternetMock extends Mock implements CheckInternet {}
 
 void main() {
-  final checkNet = CheckInternetMock();
+  late CheckInternet checkNet;
 
+  setUpAll(() {
+    print("Testes CheckInternet");
+  });
   setUp(() {
-    print("Iniciando tests CheckInternet");
+    print("Iniciando tests");
+    checkNet = CheckInternetMock();
   });
 
   tearDown(() {
+    print("Teste CheckInternet");
+  });
+  tearDownAll(() {
     print("Finalizando test CheckInternet");
   });
-
-  test('Deve retornar tipo bool true ', () async {
+  test('Deve retornar tipo bool true Caminho feliz', () async {
     //arrage
     var result = true;
     when(checkNet.isInternet).thenAnswer((_) async => result);
@@ -26,10 +32,10 @@ void main() {
     expect(result, true);
   });
 
-  test('Deve retornar tipo bool false ', () async {
+  test('Deve retornar tipo bool false Caminho triste', () async {
     //arrage
     var result = false;
-    when(checkNet.isInternet).thenAnswer((_) async => result);
+    when(() => checkNet.isInternet()).thenAnswer((_) async => result);
     //act
     //coins = await repository.getAllCoins('USD');
     //assert
