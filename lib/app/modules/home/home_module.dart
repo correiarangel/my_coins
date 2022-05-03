@@ -14,10 +14,15 @@ import 'home_page.dart';
 class HomeModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind<ICoinRepository>((i) => CoinRepository(i.get())),
+    Bind<ICheckInternet>((i) => CheckInternet()),
+    Bind<ICoinRepository>(
+      (i) => CoinRepository(
+        i.get(),
+        i.get(),
+      ),
+    ),
     Bind<IGeneralVersion>((i) => GeneralVersion()),
     Bind<IGeneralFunctions>((i) => GeneralFunctions()),
-    Bind<ICheckInternet>((i) => CheckInternet()),
     Bind.lazySingleton(
       (i) => HomeStore(
         i.get(),

@@ -1,28 +1,25 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:my_coins/app/shared/interface/coin_repository_interface.dart';
 import 'package:my_coins/app/shared/models/coins_days_model.dart';
 import 'package:my_coins/app/shared/models/coins_model.dart';
-import 'package:my_coins/app/shared/repository/coin_repository.dart';
 import 'package:my_coins/app/shared/services/client_http_service.dart';
 
-class CoinRepositoryMock extends Mock implements CoinRepository {
-  final ClientHttpService client;
-  CoinRepositoryMock(this.client);
-}
+class CoinRepositoryMock extends Mock implements ICoinRepository {}
 
 class ClientServiceHttpMoc extends Mock implements ClientHttpService {}
 
 ///acredite é possivel ...
 void main() {
-  late CoinRepository repository;
-  late ClientHttpService client;
+  late ICoinRepository repository;
+
   setUpAll(() {
     print("Tests Repository");
   });
   setUp(() {
     print("Iniciando teste");
-    client = ClientServiceHttpMoc();
-    repository = CoinRepositoryMock(client);
+
+    repository = CoinRepositoryMock();
   });
 
   tearDown(() {
@@ -48,6 +45,7 @@ void main() {
     when(() => repository.getAllCoins(siglaCoin: 'USD')).thenAnswer((_) async {
       return coins;
     });
+
     expect(coins.length, 0);
   });
 
@@ -71,6 +69,19 @@ void main() {
   });
 }
 
-var response =
-    '{"USD": {"code": "USD","codein": "BRL","name": "Dólar Americano/Real Brasileiro","high": "5.1982","low": "5.1979","varBid": "0.0015","pctChange": "0.03","bid": "5.1967","ask": "5.1997","timestamp": "1628024400","create_date": "2021-08-03 21:00:02"}}';
+var response = {
+  "USD": {
+    "code": "USD",
+    "codein": "BRL",
+    "name": "Dólar Americano/Real Brasileiro",
+    "high": "5.1982",
+    "low": "5.1979",
+    "varBid": "0.0015",
+    "pctChange": "0.03",
+    "bid": "5.1967",
+    "ask": "5.1997",
+    "timestamp": "1628024400",
+    "create_date": "2021-08-03 21:00:02"
+  }
+};
 var coinsDays = <CoinDaysModel>[];

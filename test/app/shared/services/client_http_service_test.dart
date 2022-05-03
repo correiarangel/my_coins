@@ -2,28 +2,35 @@ import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:my_coins/app/shared/services/client_http_service.dart';
+import 'package:my_coins/app/shared/interface/check_internet_interface.dart';
+import 'package:my_coins/app/shared/interface/client_http_interface.dart';
 import 'package:my_coins/app/shared/util/value/const_srtring_url.dart';
-
-class ClientServiceHttpMoc extends Mock implements ClientHttpService {
-  final Dio dio;
-  ClientServiceHttpMoc(this.dio);
-}
 
 class DioMock extends Mock implements DioForNative {}
 
+class ResponseMock extends Mock implements Response {}
+
+class IClientHttpMock extends Mock implements IClientHttp {}
+
+class ICheckInternetMock extends Mock implements ICheckInternet {}
+
 ///acredite é possivel ...
 void main() {
-  late ClientHttpService client;
+  late IClientHttp client;
+  late Response response;
+
   setUpAll(() {
     print("Teste ClientHttp");
     print("acredite é possivel ... ");
+    response = Response(
+      requestOptions: RequestOptions(path: ''),
+      data: data,
+      statusCode: 200,
+    );
   });
   setUp(() {
-    var dio = DioMock();
     print("Iniciando testes");
-
-    client = ClientServiceHttpMoc(dio);
+    client = IClientHttpMock();
   });
 
   tearDown(() {
@@ -36,67 +43,27 @@ void main() {
 
   group('Caminho Fefiz ;)', () {
     test('Deve retornar Status code 200 / GET', () async {
-      //arrage
-      var resp = Response(
-        requestOptions: RequestOptions(path: ''),
-        statusCode: 200,
-        data: data,
+      when(() => client.get(ConstStringUrl.routerAllCoins)).thenAnswer(
+        (_) async => response,
       );
-      //act
-      when(
-        () => client.get(
-          url: ConstStringUrl.routerAllCoins,
-        ),
-      ).thenAnswer(
-        (_) async => resp,
-      );
-
       //assert
-      expect(resp.statusCode, 200);
+      expect(response.statusCode, 200);
     });
     test('Deve retornar Map com 2 posição / GET', () async {
       //arrage
-      var resp = Response(
-        requestOptions: RequestOptions(path: ''),
-        statusCode: 200,
-        data: data,
-      );
+
       //act
-      when(
-        () => client.get(
-          url: ConstStringUrl.routerAllCoins,
-        ),
-      ).thenAnswer(
-        (_) async => resp,
+      when(() => client.get(ConstStringUrl.routerAllCoins)).thenAnswer(
+        (_) async => response,
       );
 
       //assert
-      expect(resp.data, isA<Map>());
-      expect(resp.data?.length, 2);
+      expect(response.data, isA<Map>());
+      expect(response.data?.length, 2);
     });
   });
 
-  group('Caminho Triste :(', () {
-    test('Deve retornar Erro 400', () async {
-      //arrage
-      var resp = Response(
-        requestOptions: RequestOptions(path: ''),
-        statusCode: 400,
-        data: null,
-      );
-      when(
-        () => client.get(
-          url: ConstStringUrl.routerAllCoins,
-        ),
-      ).thenAnswer(
-        (_) async => resp,
-      );
-      //act
 
-      expect(resp.statusCode, 400);
-      expect(resp.data, null);
-    });
-  });
 }
 
 const Map data = {

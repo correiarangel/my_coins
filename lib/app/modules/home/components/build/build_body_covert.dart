@@ -46,7 +46,7 @@ class BuildBodyCovert extends StatelessWidget {
           const SizedBox(width: 30.0),
           Observer(
             builder: (context) {
-              if (controller.coins?.error != null) {
+              if (controller.coins?.error != null || controller.isNet == false) {
                 return IsIneternetBuild(
                   controller: controller,
                 );

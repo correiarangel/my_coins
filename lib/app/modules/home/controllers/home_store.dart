@@ -38,9 +38,7 @@ abstract class HomeStoreBase with Store {
     this.genVersion,
     this.testInternet,
   ) {
-    fetchCoins(itemSelect);
-    fetchcoinsDays(itemSelect);
-    changeVersion();
+    shouldCallAPI();
   }
   @observable
   ObservableFuture<List<CoinModel>>? coins;
@@ -215,8 +213,9 @@ abstract class HomeStoreBase with Store {
   @observable
   bool isNet = true;
   @action
-  changesIsNet() async {
-    return isNet = await testInternet.isInternet();
+  Future<bool> changesIsNet() async {
+    isNet = await testInternet.isInternet();
+    return isNet;
   }
 
   Future<void> share(ScreenshotController screenshot) async {
@@ -262,4 +261,13 @@ abstract class HomeStoreBase with Store {
     googlePlayIdentifier: ConstIDApp.playStoreId,
     appStoreIdentifier: ConstIDApp.appstoreId,
   );
+
+  Future<void> shouldCallAPI() async {
+    await changesIsNet();
+    if (isNet) {
+      fetchCoins(itemSelect);
+      fetchcoinsDays(itemSelect);
+      changeVersion();
+    }
+  }
 }

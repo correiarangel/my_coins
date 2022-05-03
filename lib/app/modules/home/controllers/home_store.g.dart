@@ -337,7 +337,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   final _$changesIsNetAsyncAction = AsyncAction('HomeStoreBase.changesIsNet');
 
   @override
-  Future changesIsNet() {
+  Future<bool> changesIsNet() {
     return _$changesIsNetAsyncAction.run(() => super.changesIsNet());
   }
 

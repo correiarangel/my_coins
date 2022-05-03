@@ -14,8 +14,8 @@ class ReturnCardGrafic extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        if (controller.coinsDays?.error != null) {
-          return Container();
+        if (controller.coinsDays?.error != null || controller.isNet == false) {
+          return SizedBox.shrink();
         } else if (controller.coinsDays?.value == null) {
           return controller.progssVariation ? CircularProgress() : Container();
         } else {

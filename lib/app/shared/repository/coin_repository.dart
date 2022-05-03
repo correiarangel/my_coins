@@ -1,20 +1,31 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
+
 import '../interface/coin_repository_interface.dart';
 import '../models/coins_days_model.dart';
 import '../models/coins_model.dart';
 import '../services/client_http_service.dart';
+import '../util/check_internet.dart';
 import '../util/value/const_srtring_url.dart';
 
 class CoinRepository implements ICoinRepository {
+  final CheckInternet checkInternet;
   final ClientHttpService client;
-  CoinRepository(this.client);
+  CoinRepository(this.client, this.checkInternet);
 
   @override
   Future<List<CoinModel>> getAllCoins({
     required String siglaCoin,
   }) async {
-    var response = await client.get(url: ConstStringUrl.routerAllCoins);
+    late Response response;
+    var isNet = await checkInternet.isInternet();
+    if (isNet) {
+      print("Não deveria passar aqui...");
+      response = await client.get(
+        ConstStringUrl.routerAllCoins,
+      );
+    }
     // ignore: unused_local_variable
     var listCoins;
     if (response.statusCode == 200) {
@@ -35,7 +46,11 @@ class CoinRepository implements ICoinRepository {
   }) async {
     var url = ConstStringUrl.urlSevenDay;
 
-    var response = await client.get(url: "$url$siglaCoin/$days/");
+    late Response response;
+    var isNet = await checkInternet.isInternet();
+    if (isNet) {
+      response = await client.get("$url$siglaCoin/$days/");
+    }
 
     if (response.statusCode == 200) {
       response.data.removeAt(0);

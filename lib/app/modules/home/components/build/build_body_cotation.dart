@@ -35,11 +35,9 @@ class BuildBodyCotation extends StatelessWidget {
             style: TextStyle(
                 color: ConstColors.colorDarkBlueGray,
                 fontSize: 22.0,
-                fontWeight: FontWeight.bold),
+                fontWeight: FontWeight.bold,),
           ),
-          HorizontlList(
-            controller: controller,
-          ),
+          HorizontlList(controller: controller),
           ReturnCardCuston(controller: controller),
           SizedBox(height: 8.0),
           SizedBox(height: 8.0),

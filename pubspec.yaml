@@ -12,8 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_modular: ^4.2.0 #3.3.1
   mobx: ^2.0.3
@@ -57,9 +55,7 @@ dev_dependencies:
   cider: 
 
 flutter:
-
   uses-material-design: true
-
 
   fonts:
   - family: RobotoSlab
