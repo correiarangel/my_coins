@@ -4,31 +4,22 @@ import 'package:flutter/material.dart';
 class CoinDaysModel {
   final String? high;
   final String? low;
-  final String? varBid;
-  final String? pctChange;
   final String? bid;
   final String? ask;
-  final String? timestamp;
 
   CoinDaysModel({
     required this.high,
     required this.low,
-    required this.varBid,
-    required this.pctChange,
     required this.bid,
     required this.ask,
-    required this.timestamp,
   });
 
   factory CoinDaysModel.fromJson(Map<String, dynamic> json) {
     return CoinDaysModel(
       high: json['high'],
       low: json['low'],
-      varBid: json['varBid'],
-      pctChange: json['pctChange'],
       bid: json['bid'],
       ask: json['ask'],
-      timestamp: json['timestamp'],
     );
   }
 
@@ -36,31 +27,23 @@ class CoinDaysModel {
     return CoinDaysModel(
       high: '',
       low: '',
-      varBid: '',
-      pctChange: '',
       bid: '',
       ask: '',
-      timestamp: '',
     );
   }
 
   CoinDaysModel copyWith({
     String? high,
     String? low,
-    String? varBid,
-    String? pctChange,
     String? bid,
     String? ask,
-    String? timestamp,
+
   }) {
     return CoinDaysModel(
       high: high ?? this.high,
       low: low ?? this.low,
-      varBid: varBid ?? this.varBid,
-      pctChange: pctChange ?? this.pctChange,
       bid: bid ?? this.bid,
       ask: ask ?? this.ask,
-      timestamp: timestamp ?? this.timestamp,
     );
   }
 }

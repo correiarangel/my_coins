@@ -33,9 +33,10 @@ class BuildBodyCotation extends StatelessWidget {
           Text(
             "Cambios, selecione a moéda:",
             style: TextStyle(
-                color: ConstColors.colorDarkBlueGray,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,),
+              color: ConstColors.colorDarkBlueGray,
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           HorizontlList(controller: controller),
           ReturnCardCuston(controller: controller),

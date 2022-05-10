@@ -17,7 +17,6 @@ dependencies:
   mobx: ^2.0.3
   flutter_mobx: ^2.0.1
   dio: ^4.0.0
-  shared_preferences: ^2.0.6
   fpdart: ^0.0.10
   intl: ^0.17.0
   package_info: ^2.0.2
@@ -27,14 +26,12 @@ dependencies:
   rate_my_app: ^1.1.0+1
   launch_review: ^3.0.1
   http: ^0.13.4
-  fl_chart: ^0.40.2
   firebase_analytics: ^8.3.4
   firebase_core: ^1.8.0
   chart_sparkline: ^1.0.5
   screenshot: ^1.2.3
   share_plus: ^3.0.4
   path_provider: ^2.0.6
-  provider: ^6.0.1
   onesignal_flutter: ^3.2.7
   numberpicker: ^2.1.1
   

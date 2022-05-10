@@ -29,6 +29,5 @@ class TestA {
 class TestB extends TestA {
   final Key key;
 
-  TestB( this.key) : super(key:key);
-
+  TestB(this.key) : super(key: key);
 }

@@ -20,7 +20,7 @@ class ReturnCardCuston extends StatelessWidget {
     var screenshot = ScreenshotController();
     return Observer(
       builder: (context) {
-        if (controller.coins?.error != null ||  controller.isNet == false) {
+        if (controller.coins?.error != null || controller.isNet == false) {
           return IsIneternetBuild(controller: controller);
         } else if (controller.coins?.value == null) {
           return CircularProgress();
