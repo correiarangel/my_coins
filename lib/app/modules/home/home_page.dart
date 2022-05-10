@@ -30,7 +30,6 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       key: Key('scfuldHome'),
       backgroundColor: ConstColors.colorSpaceCadet,
       body: BuildBody(

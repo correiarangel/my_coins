@@ -37,7 +37,6 @@ class CoinDaysModel {
     String? low,
     String? bid,
     String? ask,
-
   }) {
     return CoinDaysModel(
       high: high ?? this.high,
