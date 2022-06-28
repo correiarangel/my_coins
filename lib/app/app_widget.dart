@@ -10,17 +10,17 @@ class AppWidget extends StatelessWidget {
   final Push push = Push();
   @override
   Widget build(BuildContext context) {
+    FirebaseAnalyticsObserver(analytics: analytics);
     push.initOneSignal();
-    return MaterialApp(
-      navigatorObservers: [
-        FirebaseAnalyticsObserver(analytics: analytics),
-      ],
+    return MaterialApp.router(
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
       debugShowCheckedModeBanner: false,
       title: 'My Coins',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         fontFamily: 'RobotoSlab',
       ),
-    ).modular();
+    );
   }
 }

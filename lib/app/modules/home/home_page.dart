@@ -13,7 +13,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _HomePageState extends State<HomePage> {
+  final controller = Modular.get<HomeStore>();
   @override
   void initState() {
     super.initState();

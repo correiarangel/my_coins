@@ -19,15 +19,3 @@ void main() async {
     ),
   );
 }
-
-class TestA {
-  final Key key;
-
-  TestA({required this.key});
-}
-
-class TestB extends TestA {
-  final Key key;
-
-  TestB(this.key) : super(key: key);
-}
