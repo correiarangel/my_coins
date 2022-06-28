@@ -9,6 +9,7 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 import '../../../shared/models/coins_days_model.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/models/coins_parc_model.dart';
