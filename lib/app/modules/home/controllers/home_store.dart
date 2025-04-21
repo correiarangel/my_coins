@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:developer' as developer;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,6 @@ import 'package:rate_my_app/rate_my_app.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 import '../../../shared/models/coins_days_model.dart';
 import '../../../shared/models/coins_model.dart';
@@ -59,9 +59,10 @@ abstract class HomeStoreBase with Store {
   Future<List<CoinDaysModel>> fetchcoinsDays(String _typeConin) {
     if (_typeConin.isEmpty) _typeConin = 'USD';
     days = '8';
-    return coinsDays = repository
-        .getPeriodCoins(siglaCoin: _typeConin, days: days)
-        .asObservable();
+    return coinsDays =
+        repository
+            .getPeriodCoins(siglaCoin: _typeConin, days: days)
+            .asObservable();
   }
 
   @observable
@@ -88,16 +89,20 @@ abstract class HomeStoreBase with Store {
   String changeDateUpgrade(String? value) =>
       value != null ? dateUpgrade = value : dateUpgrade;
 
-  Future<void> launchURL(_url) async {
-    final url = Uri.encodeFull(_url);
-    await launch(url);
+  Future<void> launchURL(String url) async {
+    final uri = Uri.parse(url);
+    developer.log(uri.toString());
+
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+   
   }
 
   @observable
-  String version = "";
+  String version_ = "";
   @action
   changeVersion() async {
-    return version = await genVersion.getBuildAndVersion() ?? '0';
+    version_ = await genVersion.getBuildAndVersion() ?? '0';
+    return version;
   }
 
   @observable
@@ -221,15 +226,15 @@ abstract class HomeStoreBase with Store {
 
   Future<void> share(ScreenshotController screenshot) async {
     if (!kIsWeb) {
-      await screenshot
-          .capture(delay: const Duration(milliseconds: 10))
-          .then((image) async {
+      await screenshot.capture(delay: const Duration(milliseconds: 10)).then((
+        image,
+      ) async {
         if (image != null) {
           final directory = await getApplicationDocumentsDirectory();
           final imagePath = await File('${directory.path}/image.png').create();
           await imagePath.writeAsBytes(image);
 
-          await Share.shareFiles([imagePath.path]);
+          await Share.share(imagePath.path, subject: 'My Coins');
         }
       });
     }

@@ -1,3 +1,10 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -6,78 +13,73 @@ if (localPropertiesFile.exists()) {
     }
 }
 
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
-
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
-}
-
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
-}
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0'
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    keystorePropertiesFile.withInputStream { stream ->
+        keystoreProperties.load(stream)
+    }
 }
 
 android {
-    compileSdkVersion 32
+    namespace "br.com.rangeldev.mycoins"
+    compileSdkVersion 35
+    ndkVersion "26.1.10909125"
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "br.com.rangeldev.my_coins"
-        minSdkVersion 20
-        targetSdkVersion 32
+        applicationId "br.com.rangeldev.mycoins"
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName 
+        versionName flutterVersionName
         multiDexEnabled true
     }
-    
+
     signingConfigs {
+        debug {
+            // Use default debug signing
+        }
         release {
-            //From decoded key
-            //storeFile = file('key.jks')
-            //From key.properties
             if (keystorePropertiesFile.exists()) {
-                //From decoded key
-                storeFile = file(keystoreProperties['storeFile'])
-                //From key.properties
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
-                storePassword keystoreProperties['storePassword']
-            }else {
-                storeFile = file('key.jks')
-                keyAlias keystoreProperties['keyAlias']
-                keyPassword keystoreProperties['keyPassword']
-                storePassword keystoreProperties['storePassword']
             }
         }
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            //signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
+    }
+
+    lint {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false
     }
 }
 
@@ -86,8 +88,13 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+    implementation 'androidx.window:window:1.3.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.fragment:fragment:1.7.1'
+    implementation 'androidx.activity:activity:1.8.2'
+    implementation 'androidx.window:window-java:1.3.0'
+    implementation 'androidx.annotation:annotation:1.7.1'
+    implementation 'com.google.android.material:material:1.11.0'
 }
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-apply plugin: 'com.google.gms.google-services'

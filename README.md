@@ -6,7 +6,7 @@
 <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
   <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins">
+<a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.mycoins">
   <img align="left" alt="GooglePlay" width="88px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /> 
 <br/><br/>
 <a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">

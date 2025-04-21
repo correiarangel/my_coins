@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "br.com.rangeldev.mycoins.app-mergeDebugResources-67:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/rangel/.gradle/caches/transforms-4/5bf2582318d46576f34210f23e695ba0/transformed/preference-1.2.1/res/values-sw360dp-v13/values-sw360dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "71",
+                        "endOffsets": "122"
+                    }
+                }
+            ]
+        }
+    ]
+}

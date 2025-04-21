@@ -25,7 +25,7 @@ class NumberCustom extends StatelessWidget {
           ),
           selectedTextStyle: TextStyle(
             color: ConstColors.colorSkyMagenta,
-            fontSize: 48.0,
+            fontSize: 28.0,
           ),
           value: int.parse(store.textValidat),
           minValue: 0,

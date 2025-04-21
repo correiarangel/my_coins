@@ -1,14 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:my_coins/app/shared/interface/push_interface.dart';
-import 'package:my_coins/app/shared/util/push.dart';
-import 'package:my_coins/app/shared/util/value/constants_onesinnal.dart';
 
-class PushMock extends Mock implements Push {}
+
+//class PushMock extends Mock implements Push {}
 
 void main() {
-  late IPush push;
+/*  late IPush push;
 
   setUpAll(() {
     debugPrint("Inicio de Suite Testes Push");
@@ -103,23 +98,24 @@ void main() {
     });
   });
 }
-
-Map map = <String, dynamic>{
-  "payload": {
-    "google.delivered_priority": "normal",
-    "google.sent_time": 1637787569185,
-    "google.ttl": "259200",
-    "google.original_priority": "normal",
-    "custom": "{}",
-    "from": "26119908998",
-    "alert": "clique para acessar o produtividade ...",
-    "title": "Boa tarde Portal Amazonas ...",
-    "google.message_id": "0:1637787569208287%6477d272f9fd7ecd",
-    "google.c.sender.id": 26119908998,
-    "androidNotificationId": -959757189
-  },
-  "displayType": 2,
-  "shown": true,
-  "appInFocus": true,
-  "silent": null
-};
+*/
+  Map map = <String, dynamic>{
+    "payload": {
+      "google.delivered_priority": "normal",
+      "google.sent_time": 1637787569185,
+      "google.ttl": "259200",
+      "google.original_priority": "normal",
+      "custom": "{}",
+      "from": "26119908998",
+      "alert": "clique para acessar o produtividade ...",
+      "title": "Boa tarde Portal Amazonas ...",
+      "google.message_id": "0:1637787569208287%6477d272f9fd7ecd",
+      "google.c.sender.id": 26119908998,
+      "androidNotificationId": -959757189
+    },
+    "displayType": 2,
+    "shown": true,
+    "appInFocus": true,
+    "silent": null
+  };
+}

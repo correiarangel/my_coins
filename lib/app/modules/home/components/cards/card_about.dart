@@ -31,7 +31,7 @@ class CardAbout extends StatelessWidget {
   String setVersion() {
     var v = "1.0.0+10";
     if (Platform.isAndroid || Platform.isIOS) {
-      v = controller.version;
+      v = controller.version_;
     }
     return v;
   }
@@ -115,7 +115,7 @@ class CardAbout extends StatelessWidget {
                   Observer(
                     builder: (context) {
                       return Text(
-                        "Versão ${controller.version}",
+                        "Versão ${controller.version_}",
                         style: TextStyle(
                           color: ConstColors.colorLigthGray,
                           fontSize: 28.0,

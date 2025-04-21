@@ -6,7 +6,7 @@ part of 'home_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$HomeStore on HomeStoreBase, Store {
   Computed<bool>? _$isValidComputed;
@@ -16,7 +16,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
           Computed<bool>(() => super.isValid, name: 'HomeStoreBase.isValid'))
       .value;
 
-  final _$coinsAtom = Atom(name: 'HomeStoreBase.coins');
+  late final _$coinsAtom = Atom(name: 'HomeStoreBase.coins', context: context);
 
   @override
   ObservableFuture<List<CoinModel>>? get coins {
@@ -31,7 +31,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$coinsDaysAtom = Atom(name: 'HomeStoreBase.coinsDays');
+  late final _$coinsDaysAtom =
+      Atom(name: 'HomeStoreBase.coinsDays', context: context);
 
   @override
   ObservableFuture<List<CoinDaysModel>>? get coinsDays {
@@ -46,7 +47,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$daysAtom = Atom(name: 'HomeStoreBase.days');
+  late final _$daysAtom = Atom(name: 'HomeStoreBase.days', context: context);
 
   @override
   String get days {
@@ -61,7 +62,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$progssVariationAtom = Atom(name: 'HomeStoreBase.progssVariation');
+  late final _$progssVariationAtom =
+      Atom(name: 'HomeStoreBase.progssVariation', context: context);
 
   @override
   bool get progssVariation {
@@ -76,7 +78,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$currentIndexAtom = Atom(name: 'HomeStoreBase.currentIndex');
+  late final _$currentIndexAtom =
+      Atom(name: 'HomeStoreBase.currentIndex', context: context);
 
   @override
   int get currentIndex {
@@ -91,7 +94,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$dateUpgradeAtom = Atom(name: 'HomeStoreBase.dateUpgrade');
+  late final _$dateUpgradeAtom =
+      Atom(name: 'HomeStoreBase.dateUpgrade', context: context);
 
   @override
   String get dateUpgrade {
@@ -106,22 +110,24 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$versionAtom = Atom(name: 'HomeStoreBase.version');
+  late final _$version_Atom =
+      Atom(name: 'HomeStoreBase.version_', context: context);
 
   @override
-  String get version {
-    _$versionAtom.reportRead();
-    return super.version;
+  String get version_ {
+    _$version_Atom.reportRead();
+    return super.version_;
   }
 
   @override
-  set version(String value) {
-    _$versionAtom.reportWrite(value, super.version, () {
-      super.version = value;
+  set version_(String value) {
+    _$version_Atom.reportWrite(value, super.version_, () {
+      super.version_ = value;
     });
   }
 
-  final _$itemSelectAtom = Atom(name: 'HomeStoreBase.itemSelect');
+  late final _$itemSelectAtom =
+      Atom(name: 'HomeStoreBase.itemSelect', context: context);
 
   @override
   String get itemSelect {
@@ -136,7 +142,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkEmailAtom = Atom(name: 'HomeStoreBase.colorLinkEmail');
+  late final _$colorLinkEmailAtom =
+      Atom(name: 'HomeStoreBase.colorLinkEmail', context: context);
 
   @override
   Color get colorLinkEmail {
@@ -151,7 +158,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkDinAtom = Atom(name: 'HomeStoreBase.colorLinkDin');
+  late final _$colorLinkDinAtom =
+      Atom(name: 'HomeStoreBase.colorLinkDin', context: context);
 
   @override
   Color get colorLinkDin {
@@ -166,7 +174,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkGitAtom = Atom(name: 'HomeStoreBase.colorLinkGit');
+  late final _$colorLinkGitAtom =
+      Atom(name: 'HomeStoreBase.colorLinkGit', context: context);
 
   @override
   Color get colorLinkGit {
@@ -181,7 +190,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkDocAtom = Atom(name: 'HomeStoreBase.colorLinkDoc');
+  late final _$colorLinkDocAtom =
+      Atom(name: 'HomeStoreBase.colorLinkDoc', context: context);
 
   @override
   Color get colorLinkDoc {
@@ -196,7 +206,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkPolicyAtom = Atom(name: 'HomeStoreBase.colorLinkPolicy');
+  late final _$colorLinkPolicyAtom =
+      Atom(name: 'HomeStoreBase.colorLinkPolicy', context: context);
 
   @override
   Color get colorLinkPolicy {
@@ -211,8 +222,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$colorLinkEvaluationAtom =
-      Atom(name: 'HomeStoreBase.colorLinkEvaluation');
+  late final _$colorLinkEvaluationAtom =
+      Atom(name: 'HomeStoreBase.colorLinkEvaluation', context: context);
 
   @override
   Color get colorLinkEvaluation {
@@ -227,7 +238,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$progressLinkAtom = Atom(name: 'HomeStoreBase.progressLink');
+  late final _$progressLinkAtom =
+      Atom(name: 'HomeStoreBase.progressLink', context: context);
 
   @override
   bool get progressLink {
@@ -242,7 +254,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$textValidatAtom = Atom(name: 'HomeStoreBase.textValidat');
+  late final _$textValidatAtom =
+      Atom(name: 'HomeStoreBase.textValidat', context: context);
 
   @override
   String get textValidat {
@@ -257,7 +270,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$priceCoinAtom = Atom(name: 'HomeStoreBase.priceCoin');
+  late final _$priceCoinAtom =
+      Atom(name: 'HomeStoreBase.priceCoin', context: context);
 
   @override
   String get priceCoin {
@@ -272,7 +286,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$valueConvertionAtom = Atom(name: 'HomeStoreBase.valueConvertion');
+  late final _$valueConvertionAtom =
+      Atom(name: 'HomeStoreBase.valueConvertion', context: context);
 
   @override
   String get valueConvertion {
@@ -287,8 +302,8 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$isReverseConversionAtom =
-      Atom(name: 'HomeStoreBase.isReverseConversion');
+  late final _$isReverseConversionAtom =
+      Atom(name: 'HomeStoreBase.isReverseConversion', context: context);
 
   @override
   bool get isReverseConversion {
@@ -303,7 +318,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$isNetAtom = Atom(name: 'HomeStoreBase.isNet');
+  late final _$isNetAtom = Atom(name: 'HomeStoreBase.isNet', context: context);
 
   @override
   bool get isNet {
@@ -318,15 +333,16 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$changeVersionAsyncAction = AsyncAction('HomeStoreBase.changeVersion');
+  late final _$changeVersionAsyncAction =
+      AsyncAction('HomeStoreBase.changeVersion', context: context);
 
   @override
   Future changeVersion() {
     return _$changeVersionAsyncAction.run(() => super.changeVersion());
   }
 
-  final _$changesItenSelectAsyncAction =
-      AsyncAction('HomeStoreBase.changesItenSelect');
+  late final _$changesItenSelectAsyncAction =
+      AsyncAction('HomeStoreBase.changesItenSelect', context: context);
 
   @override
   Future changesItenSelect(String? value) {
@@ -334,15 +350,16 @@ mixin _$HomeStore on HomeStoreBase, Store {
         .run(() => super.changesItenSelect(value));
   }
 
-  final _$changesIsNetAsyncAction = AsyncAction('HomeStoreBase.changesIsNet');
+  late final _$changesIsNetAsyncAction =
+      AsyncAction('HomeStoreBase.changesIsNet', context: context);
 
   @override
   Future<bool> changesIsNet() {
     return _$changesIsNetAsyncAction.run(() => super.changesIsNet());
   }
 
-  final _$HomeStoreBaseActionController =
-      ActionController(name: 'HomeStoreBase');
+  late final _$HomeStoreBaseActionController =
+      ActionController(name: 'HomeStoreBase', context: context);
 
   @override
   Future<List<CoinModel>> fetchCoins(String typeConin) {
@@ -507,7 +524,7 @@ days: ${days},
 progssVariation: ${progssVariation},
 currentIndex: ${currentIndex},
 dateUpgrade: ${dateUpgrade},
-version: ${version},
+version_: ${version_},
 itemSelect: ${itemSelect},
 colorLinkEmail: ${colorLinkEmail},
 colorLinkDin: ${colorLinkDin},

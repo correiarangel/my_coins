@@ -1,0 +1,2 @@
+/home/rangel/git-dev/Flutter/my_coins/android/app/.cxx/RelWithDebInfo/o5r3e136/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/rangel/git-dev/Flutter/my_coins/android/app/.cxx/RelWithDebInfo/o5r3e136/armeabi-v7a/CMakeFiles/rebuild_cache.dir

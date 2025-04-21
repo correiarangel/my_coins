@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:launch_review/launch_review.dart';
+import 'package:launch_review_latest/launch_review_latest.dart';
+
 import 'package:rate_my_app/rate_my_app.dart';
 
 import '../../../shared/util/value/const_id_app.dart';
@@ -22,7 +23,7 @@ class RateMyAppController {
   }
 
   void initLaunchReview() {
-    LaunchReview.launch(
+    LaunchReviewLatest.launch(
       androidAppId: ConstIDApp.playStoreId,
       iOSAppId: ConstIDApp.appstoreId,
     );

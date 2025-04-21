@@ -1,0 +1,1 @@
+/home/rangel/git-dev/Flutter/my_coins/android/app/build/intermediates/cxx/Debug/6k3a6o1k/obj/x86_64

@@ -1,0 +1,2 @@
+/home/rangel/git-dev/Flutter/my_coins/android/app/.cxx/Debug/26xe2561/x86/CMakeFiles/edit_cache.dir
+/home/rangel/git-dev/Flutter/my_coins/android/app/.cxx/Debug/26xe2561/x86/CMakeFiles/rebuild_cache.dir

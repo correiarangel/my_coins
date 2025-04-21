@@ -1,13 +1,14 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'shared/util/push.dart';
+import 'shared/interface/push_interface.dart';
+import 'shared/services/Onesignal_push_service.dart';
+
 
 class AppWidget extends StatelessWidget {
 //  final themeController = Modular.get<ThemeStore>();
-  static FirebaseAnalytics analytics = FirebaseAnalytics();
-  final Push push = Push();
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  final IPush push = OneSignalPushService();
   @override
   Widget build(BuildContext context) {
     FirebaseAnalyticsObserver(analytics: analytics);

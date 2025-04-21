@@ -6,7 +6,7 @@
 </p>
 
 ## Download
-* [Google Play Page]("https://play.google.com/store/apps/details?id=br.com.rangeldev.my_coins")
+* [Google Play Page]("https://play.google.com/store/apps/details?id=br.com.rangeldev.mycoins")
 
 ## Política de Privacidade
 

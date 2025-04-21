@@ -141,7 +141,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: service_account.json
-          packageName: br.com.rangeldev.my_coins
+          packageName: br.com.rangeldev.mycoins
           releaseFiles: build/app/outputs/bundle/release/*.aab
           track: production
           status: completed

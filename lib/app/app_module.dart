@@ -15,8 +15,8 @@ class AppModule extends Module {
       (i) => Dio(
         BaseOptions(
           baseUrl: ConstStringUrl.baseUrl,
-          receiveTimeout: 5000,
-          connectTimeout: 15000,
+          receiveTimeout: Duration(seconds: 5),
+          connectTimeout: Duration(seconds: 15),
           headers: {
             'Content-Type': 'application/json;charset=UTF-8',
             'Charset': 'utf-8',

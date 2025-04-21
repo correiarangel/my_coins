@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "br.com.rangeldev.mycoins.app-mergeDebugResources-67:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/rangel/.gradle/caches/transforms-4/639bed9524ef5424137a95ee11f22d50/transformed/appcompat-1.1.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        }
+    ]
+}

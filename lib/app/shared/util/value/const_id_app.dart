@@ -1,6 +1,6 @@
 class ConstIDApp {
-  static const String playStoreId = "br.com.rangeldev.my_coins";
-  static const String appstoreId = "br.com.rangeldev.my_coins";
+  static const String playStoreId = "br.com.rangeldev.mycoins";
+  static const String appstoreId = "br.com.rangeldev.mycoins";
   static const String title = 'My Coins';
   static const String message =
       'Estamos muito felizes em tê-lo conosco, sua opinião é muito importante '

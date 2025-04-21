@@ -1,9 +1,10 @@
 abstract class IPush {
-  Future<String> initOneSignal();
-  Future<String> removeUser();
-  Future<String> registerUserIdInTag();
-  dynamic setNotificationOpHandler();
-  Future setNotificationOpenHardler();
-  Future<String> setRuoterPush({required String body});
-  Future<bool> changesPermissions();
+  Future<bool> initOneSignal();
+  Future<void> registerUserIdInTag();
+  Future<bool> changesPermissions(bool fallbackToSettings);
+  void setNotificationOpenHardlerForeground();
+  String setRuoterPush(String body);
+  Future<bool> clearOneSignal();
+  void setAddClickListemer();
+  void removeAddClickListemer();
 }

@@ -2,102 +2,126 @@ import 'package:intl/intl.dart';
 import '../interface/general_functions_interface.dart';
 
 class GeneralFunctions implements IGeneralFunctions {
+  static final _brlFormatter = NumberFormat.currency(
+    locale: 'pt_BR',
+    symbol: 'R\$',
+    decimalDigits: 2,
+  );
+
+  static final _usdFormatter = NumberFormat.currency(
+    locale: 'en_US',
+    symbol: '\$',
+    decimalDigits: 2,
+  );
+
+  static final _eurFormatter = NumberFormat.currency(
+    locale: 'de_DE',
+    symbol: '€',
+    decimalDigits: 2,
+  );
+
+  static final _btcFormatter = NumberFormat.currency(
+    locale: 'en_US',
+    symbol: '₿',
+    decimalDigits: 8,
+  );
+
   @override
   String? formatNtpHour(DateTime? date) {
-    var formatedHour;
-    if (date != null) {
-      var format = DateFormat('yyyy-MM-dd HH:mm');
-      formatedHour = format.format(date);
-    }
-    return formatedHour;
+    if (date == null) return null;
+    return DateFormat('yyyy-MM-dd HH:mm').format(date);
   }
 
   @override
   String? toBrazilTime(String? date) {
-    var formatedHour;
-    if (date != null) {
-      var format = DateFormat('dd/MM/yyyy HH:mm:ss');
-      formatedHour = format.format(DateTime.parse(date));
-    }
-    return formatedHour;
+    if (date == null) return null;
+    return DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.parse(date));
   }
 
   @override
   String? formatNumber(String num) {
-    var numDoub = double.parse(num).toStringAsFixed(2);
-    return numDoub.toString();
+    try {
+      return double.parse(num).toStringAsFixed(2);
+    } catch (e) {
+      return '0.00';
+    }
   }
 
   @override
   String realToCoin(String? priceCoin) {
-    String? res = '';
-    if (priceCoin != null) {
-      //priceCoin = priceCoin.replaceAll(",", ".");
-      //res = formatNumber((1 / double.parse(priceCoin)).toString());
-      res = (1 / double.parse(priceCoin)).toString();
+    if (priceCoin == null) return '0';
+    try {
+      return (1 / double.parse(priceCoin)).toStringAsFixed(8);
+    } catch (e) {
+      return '0';
     }
-    return res;
   }
 
   @override
   String? calcRealToCoin(String? priceCoin, String? valueToConvert) {
-    String? res = '';
-    var result;
-    if (priceCoin != null && valueToConvert != null) {
-      result = 1 / double.parse(priceCoin) * int.parse(valueToConvert);
-      res = result.toString();
+    if (priceCoin == null || valueToConvert == null) return '0';
+    try {
+      return (1 / double.parse(priceCoin) * int.parse(valueToConvert))
+          .toStringAsFixed(8);
+    } catch (e) {
+      return '0';
     }
-    return res;
   }
 
   @override
   String? calcCoinToReal(String? priceCoin, String? valueToConvert) {
-    String? res = '';
-    var result;
-    if (priceCoin != null && valueToConvert != null) {
-      result = double.parse(priceCoin) * int.parse(valueToConvert);
-      res = result.toString();
+    if (priceCoin == null || valueToConvert == null) return '0';
+    try {
+      return (double.parse(priceCoin) * int.parse(valueToConvert))
+          .toStringAsFixed(2);
+    } catch (e) {
+      return '0';
     }
-    return res;
   }
 
   @override
   String? formatNumberBitCoin(String number) {
-    String? resnumber;
-    // ignore: unnecessary_null_comparison
-    if (number != null) {
-      resnumber = "R\$ $number";
-    } else {
-      resnumber = "0";
+    try {
+      return _btcFormatter.format(double.parse(number));
+    } catch (e) {
+      return _btcFormatter.format(0);
     }
-    return resnumber;
   }
 
   @override
   String? formatNumberBr(String number) {
-    var formatter = NumberFormat.decimalPattern('pt_BR');
-    String? resnumber;
-    // ignore: unnecessary_null_comparison
-    if (number != null) {
-      resnumber = formatter.format(double.parse(number));
-    } else {
-      resnumber = '0';
+    try {
+      return _brlFormatter.format(double.parse(number));
+    } catch (e) {
+      return _brlFormatter.format(0);
     }
-    print('REAL  : $resnumber');
-    return resnumber;
   }
 
   @override
   String? formatNumberUs(String number) {
-    var formatter = NumberFormat.decimalPattern('en_US');
-    String? resnumber;
-    // ignore: unnecessary_null_comparison
-    if (number != null) {
-      resnumber = formatter.format(double.parse(number));
-    } else {
-      resnumber = '0';
+    try {
+      return _usdFormatter.format(double.parse(number));
+    } catch (e) {
+      return _usdFormatter.format(0);
     }
-    print('DOLLAR US : $resnumber');
-    return resnumber;
+  }
+
+  String? formatCurrency(String number, String currencyCode) {
+    try {
+      switch (currencyCode.toUpperCase()) {
+        case 'BRL':
+          return _brlFormatter.format(double.parse(number));
+        case 'USD':
+          return _usdFormatter.format(double.parse(number));
+        case 'EUR':
+          return _eurFormatter.format(double.parse(number));
+        case 'BTC':
+          return _btcFormatter.format(double.parse(number));
+        default:
+          return _usdFormatter.format(double.parse(number));
+      }
+    } catch (e) {
+      return _usdFormatter.format(0);
+    }
   }
 }

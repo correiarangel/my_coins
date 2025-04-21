@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1049160908591-aqf86vv4hghq7kmibr59v5phvj8ri301.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1049160908591</string>
+    <string name="google_api_key" translatable="false">AIzaSyDsWlDBq0F9taYeqxVPP-Qy_t3GpG7syJ4</string>
+    <string name="google_app_id" translatable="false">1:1049160908591:android:39abc92f6bd0d2bccdebda</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDsWlDBq0F9taYeqxVPP-Qy_t3GpG7syJ4</string>
+    <string name="google_storage_bucket" translatable="false">app-my-coins.appspot.com</string>
+    <string name="project_id" translatable="false">app-my-coins</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

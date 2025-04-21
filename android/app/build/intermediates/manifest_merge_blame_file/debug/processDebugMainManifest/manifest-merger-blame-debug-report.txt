@@ -1,0 +1,870 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="br.com.rangeldev.mycoins"
+4    android:versionCode="15"
+5    android:versionName="1.2.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:44:7-68
+14-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:44:24-66
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:43:7-68
+15-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:43:24-65
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-79
+16-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:22-76
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:5-68
+17-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:22-65
+18    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
+19    <permission
+19-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:10:5-12:47
+20        android:name="br.com.rangeldev.mycoins.permission.C2D_MESSAGE"
+20-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:11:9-63
+21        android:protectionLevel="signature" />
+21-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:12:9-44
+22
+23    <uses-permission android:name="br.com.rangeldev.mycoins.permission.C2D_MESSAGE" /> <!-- Required runtime permission to display notifications on Android 13 -->
+23-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:14:5-79
+23-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:14:22-76
+24    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- c2dm RECEIVE are basic requirements for push messages through Google's FCM -->
+24-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:17:5-77
+24-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:17:22-74
+25    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+25-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:19:5-82
+25-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:19:22-79
+26    <!--
+27 Use to restore notifications the user hasn't interacted with.
+28     They could be missed notifications if the user reboots their device if this isn't in place.
+29    -->
+30    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- START: ShortcutBadger -->
+30-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:29:5-81
+30-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:29:22-78
+31    <!-- Samsung -->
+32    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+32-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:31:5-86
+32-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:31:22-83
+33    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- HTC -->
+33-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:32:5-87
+33-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:32:22-84
+34    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+34-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:33:5-81
+34-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:33:22-78
+35    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- Sony -->
+35-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:34:5-83
+35-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:34:22-80
+36    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+36-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:35:5-88
+36-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:35:22-85
+37    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- Apex -->
+37-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:36:5-92
+37-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:36:22-89
+38    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- Solid -->
+38-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:37:5-84
+38-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:37:22-81
+39    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- Huawei -->
+39-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:38:5-83
+39-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:38:22-80
+40    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+40-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:39:5-91
+40-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:39:22-88
+41    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+41-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:40:5-92
+41-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:40:22-89
+42    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- ZUK -->
+42-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:41:5-93
+42-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:41:22-90
+43    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- OPPO -->
+43-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:42:5-73
+43-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:42:22-70
+44    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+44-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:43:5-82
+44-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:43:22-79
+45    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- EvMe -->
+45-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:44:5-83
+45-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:44:22-80
+46    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+46-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:45:5-88
+46-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:45:22-85
+47    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+47-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:46:5-89
+47-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:46:22-86
+48    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+48-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:25:5-79
+48-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:25:22-76
+49    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+49-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:26:5-88
+49-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:26:22-85
+50    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+50-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:27:5-82
+50-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:27:22-79
+51    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+51-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:26:5-110
+51-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:26:22-107
+52    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+52-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:26:5-77
+52-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:26:22-74
+53
+54    <permission
+54-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+55        android:name="br.com.rangeldev.mycoins.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+55-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+56        android:protectionLevel="signature" />
+56-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+57
+58    <uses-permission android:name="br.com.rangeldev.mycoins.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+58-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+58-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+59
+60    <application
+60-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:3:4-42:19
+61        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+61-->[androidx.core:core:1.13.1] /home/rangel/.gradle/caches/transforms-4/515a5e0fcd15ef28f47ffa3d6962ced1/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+62        android:debuggable="true"
+63        android:extractNativeLibs="true"
+64        android:icon="@mipmap/ic_launcher"
+64-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:5:9-43
+65        android:label="my_coins" >
+65-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:4:9-33
+66        <activity
+66-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:6:9-36:20
+67            android:name="br.com.rangeldev.mycoins.MainActivity"
+67-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:7:13-41
+68            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+68-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:10:13-163
+69            android:exported="true"
+69-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:14:13-36
+70            android:hardwareAccelerated="true"
+70-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:11:13-47
+71            android:launchMode="singleTop"
+71-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:8:13-43
+72            android:theme="@style/LaunchTheme"
+72-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:9:13-47
+73            android:usesCleartextTraffic="true"
+73-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:13:13-48
+74            android:windowSoftInputMode="adjustResize" >
+74-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:12:13-55
+75
+76            <!--
+77                 Specifies an Android theme to apply to this Activity as soon as
+78                 the Android process has started. This theme is visible to the user
+79                 while the Flutter UI initializes. After that, this theme continues
+80                 to determine the Window background behind the Flutter UI.
+81            -->
+82            <meta-data
+82-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:19:13-22:17
+83                android:name="io.flutter.embedding.android.NormalTheme"
+83-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:20:15-70
+84                android:resource="@style/NormalTheme" />
+84-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:21:15-52
+85            <!--
+86                 Displays an Android View that continues showing the launch screen
+87                 Drawable until Flutter paints its first frame, then this splash
+88                 screen fades out. A splash screen is useful to avoid any visual
+89                 gap between the end of Android's launch screen and the painting of
+90                 Flutter's first frame.
+91            -->
+92            <meta-data
+92-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:28:13-31:17
+93                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+93-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:29:15-79
+94                android:resource="@drawable/launch_background" />
+94-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:30:15-61
+95
+96            <intent-filter>
+96-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:32:13-35:29
+97                <action android:name="android.intent.action.MAIN" />
+97-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:33:17-68
+97-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:33:25-66
+98
+99                <category android:name="android.intent.category.LAUNCHER" />
+99-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:34:17-76
+99-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:34:27-74
+100            </intent-filter>
+101        </activity>
+102        <!--
+103             Don't delete the meta-data below.
+104             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+105        -->
+106        <meta-data
+106-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:39:9-41:33
+107            android:name="flutterEmbedding"
+107-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:40:13-44
+108            android:value="2" />
+108-->/home/rangel/git-dev/Flutter/my_coins/android/app/src/main/AndroidManifest.xml:41:13-30
+109        <!--
+110           Declares a provider which allows us to store files to share in
+111           '.../caches/share_plus' and grant the receiving action access
+112        -->
+113        <provider
+113-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:9-21:20
+114            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+114-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-77
+115            android:authorities="br.com.rangeldev.mycoins.flutter.share_provider"
+115-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-74
+116            android:exported="false"
+116-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-37
+117            android:grantUriPermissions="true" >
+117-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:17:13-47
+118            <meta-data
+118-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:18:13-20:68
+119                android:name="android.support.FILE_PROVIDER_PATHS"
+119-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:17-67
+120                android:resource="@xml/flutter_share_file_paths" />
+120-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:17-65
+121        </provider>
+122        <!--
+123           This manifest declared broadcast receiver allows us to use an explicit
+124           Intent when creating a PendingItent to be informed of the user's choice
+125        -->
+126        <receiver
+126-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:9-32:20
+127            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+127-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:13-82
+128            android:exported="false" >
+128-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-37
+129            <intent-filter>
+129-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:13-31:29
+130                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+130-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-65
+130-->[:share_plus] /home/rangel/.pub-cache/hosted/pub.dev/share_plus-7.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:25-62
+131            </intent-filter>
+132        </receiver>
+133
+134        <service
+134-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:9-16:19
+135            android:name="com.google.firebase.components.ComponentDiscoveryService"
+135-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:18-89
+136            android:directBootAware="true"
+136-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:32:13-43
+137            android:exported="false" >
+137-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:36:13-37
+138            <meta-data
+138-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-15:85
+139                android:name="com.google.firebase.components:io.flutter.plugins.firebase.analytics.FlutterFirebaseAppRegistrar"
+139-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:17-128
+140                android:value="com.google.firebase.components.ComponentRegistrar" />
+140-->[:firebase_analytics] /home/rangel/.pub-cache/hosted/pub.dev/firebase_analytics-10.10.7/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-82
+141            <meta-data
+141-->[:firebase_core] /home/rangel/.pub-cache/hosted/pub.dev/firebase_core-2.32.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-11:85
+142                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+142-->[:firebase_core] /home/rangel/.pub-cache/hosted/pub.dev/firebase_core-2.32.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:17-124
+143                android:value="com.google.firebase.components.ComponentRegistrar" />
+143-->[:firebase_core] /home/rangel/.pub-cache/hosted/pub.dev/firebase_core-2.32.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:17-82
+144            <meta-data
+144-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:37:13-39:85
+145                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+145-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:38:17-139
+146                android:value="com.google.firebase.components.ComponentRegistrar" />
+146-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:39:17-82
+147            <meta-data
+147-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:57:13-59:85
+148                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+148-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:58:17-122
+149                android:value="com.google.firebase.components.ComponentRegistrar" />
+149-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:59:17-82
+150            <meta-data
+150-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:60:13-62:85
+151                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+151-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:61:17-119
+152                android:value="com.google.firebase.components.ComponentRegistrar" />
+152-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:62:17-82
+153            <meta-data
+153-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+154                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+154-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+155                android:value="com.google.firebase.components.ComponentRegistrar" />
+155-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+156            <meta-data
+156-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+157                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+157-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+158                android:value="com.google.firebase.components.ComponentRegistrar" />
+158-->[com.google.firebase:firebase-installations:17.2.0] /home/rangel/.gradle/caches/transforms-4/4722376c35bcba2624428a2338d0e190/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+159            <meta-data
+159-->[com.google.firebase:firebase-common-ktx:20.4.3] /home/rangel/.gradle/caches/transforms-4/98620bd3ba945e5522a135a520fdfcb3/transformed/jetified-firebase-common-ktx-20.4.3/AndroidManifest.xml:12:13-14:85
+160                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+160-->[com.google.firebase:firebase-common-ktx:20.4.3] /home/rangel/.gradle/caches/transforms-4/98620bd3ba945e5522a135a520fdfcb3/transformed/jetified-firebase-common-ktx-20.4.3/AndroidManifest.xml:13:17-116
+161                android:value="com.google.firebase.components.ComponentRegistrar" />
+161-->[com.google.firebase:firebase-common-ktx:20.4.3] /home/rangel/.gradle/caches/transforms-4/98620bd3ba945e5522a135a520fdfcb3/transformed/jetified-firebase-common-ktx-20.4.3/AndroidManifest.xml:14:17-82
+162            <meta-data
+162-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:35:13-37:85
+163                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+163-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:36:17-109
+164                android:value="com.google.firebase.components.ComponentRegistrar" />
+164-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:37:17-82
+165            <meta-data
+165-->[com.google.firebase:firebase-datatransport:18.1.7] /home/rangel/.gradle/caches/transforms-4/13e5c798e9c35ae89993d4ba26526cc0/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+166                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+166-->[com.google.firebase:firebase-datatransport:18.1.7] /home/rangel/.gradle/caches/transforms-4/13e5c798e9c35ae89993d4ba26526cc0/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+167                android:value="com.google.firebase.components.ComponentRegistrar" />
+167-->[com.google.firebase:firebase-datatransport:18.1.7] /home/rangel/.gradle/caches/transforms-4/13e5c798e9c35ae89993d4ba26526cc0/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+168        </service>
+169
+170        <uses-library
+170-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:23:9-25:40
+171            android:name="androidx.window.extensions"
+171-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:24:13-54
+172            android:required="false" />
+172-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:25:13-37
+173        <uses-library
+173-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:26:9-28:40
+174            android:name="androidx.window.sidecar"
+174-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:27:13-51
+175            android:required="false" />
+175-->[androidx.window:window:1.3.0] /home/rangel/.gradle/caches/transforms-4/fc7a95694e862da228bd0360b2523e43/transformed/jetified-window-1.3.0/AndroidManifest.xml:28:13-37
+176
+177        <receiver
+177-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:49:9-60:20
+178            android:name="com.onesignal.notifications.receivers.FCMBroadcastReceiver"
+178-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:50:13-86
+179            android:exported="true"
+179-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:51:13-36
+180            android:permission="com.google.android.c2dm.permission.SEND" >
+180-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:52:13-73
+181
+182            <!-- High priority so OneSignal payloads can be filtered from other FCM receivers -->
+183            <intent-filter android:priority="999" >
+183-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:55:13-59:29
+183-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:55:28-50
+184                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+184-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:56:17-81
+184-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:56:25-78
+185
+186                <category android:name="br.com.rangeldev.mycoins" />
+186-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:58:17-61
+186-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:58:27-58
+187            </intent-filter>
+188        </receiver>
+189
+190        <service
+190-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:62:9-68:19
+191            android:name="com.onesignal.notifications.services.HmsMessageServiceOneSignal"
+191-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:63:13-91
+192            android:exported="false" >
+192-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:64:13-37
+193            <intent-filter>
+193-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:65:13-67:29
+194                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+194-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:66:17-81
+194-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:66:25-78
+195            </intent-filter>
+196        </service> <!-- CAUTION: OneSignal backend includes the activity name in the payload, modifying the name without sync may result in notification click not firing -->
+197        <activity
+197-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:69:9-77:20
+198            android:name="com.onesignal.NotificationOpenedActivityHMS"
+198-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:70:13-71
+199            android:exported="true"
+199-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:71:13-36
+200            android:noHistory="true"
+200-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:72:13-37
+201            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+201-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:73:13-72
+202            <intent-filter>
+202-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:74:13-76:29
+203                <action android:name="android.intent.action.VIEW" />
+203-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:75:17-69
+203-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:75:25-66
+204            </intent-filter>
+205        </activity>
+206
+207        <receiver
+207-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:79:9-81:39
+208            android:name="com.onesignal.notifications.receivers.NotificationDismissReceiver"
+208-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:80:13-93
+209            android:exported="true" />
+209-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:81:13-36
+210        <receiver
+210-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:82:9-89:20
+211            android:name="com.onesignal.notifications.receivers.BootUpReceiver"
+211-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:83:13-80
+212            android:exported="true" >
+212-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:84:13-36
+213            <intent-filter>
+213-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:85:13-88:29
+214                <action android:name="android.intent.action.BOOT_COMPLETED" />
+214-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:86:17-79
+214-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:86:25-76
+215                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+215-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:87:17-82
+215-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:87:25-79
+216            </intent-filter>
+217        </receiver>
+218        <receiver
+218-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:90:9-96:20
+219            android:name="com.onesignal.notifications.receivers.UpgradeReceiver"
+219-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:91:13-81
+220            android:exported="true" >
+220-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:92:13-36
+221            <intent-filter>
+221-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:93:13-95:29
+222                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+222-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:94:17-84
+222-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:94:25-81
+223            </intent-filter>
+224        </receiver>
+225
+226        <activity
+226-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:98:9-104:75
+227            android:name="com.onesignal.notifications.activities.NotificationOpenedActivity"
+227-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:99:13-93
+228            android:excludeFromRecents="true"
+228-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:100:13-46
+229            android:exported="true"
+229-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:101:13-36
+230            android:noHistory="true"
+230-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:102:13-37
+231            android:taskAffinity=""
+231-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:103:13-36
+232            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+232-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:104:13-72
+233        <activity
+233-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:105:9-110:75
+234            android:name="com.onesignal.notifications.activities.NotificationOpenedActivityAndroid22AndOlder"
+234-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:106:13-110
+235            android:excludeFromRecents="true"
+235-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:107:13-46
+236            android:exported="true"
+236-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:108:13-36
+237            android:noHistory="true"
+237-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:109:13-37
+238            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+238-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:110:13-72
+239
+240        <service
+240-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:13:9-16:72
+241            android:name="com.onesignal.core.services.SyncJobService"
+241-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:14:13-70
+242            android:exported="false"
+242-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:15:13-37
+243            android:permission="android.permission.BIND_JOB_SERVICE" />
+243-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:16:13-69
+244
+245        <activity
+245-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:18:9-21:75
+246            android:name="com.onesignal.core.activities.PermissionsActivity"
+246-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:19:13-77
+247            android:exported="false"
+247-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:20:13-37
+248            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+248-->[com.onesignal:core:5.1.29] /home/rangel/.gradle/caches/transforms-4/e20e3652125fa796feafff0b7e7d9233/transformed/jetified-core-5.1.29/AndroidManifest.xml:21:13-72
+249
+250        <property
+250-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:30:9-32:61
+251            android:name="android.adservices.AD_SERVICES_CONFIG"
+251-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:31:13-65
+252            android:resource="@xml/ga_ad_services_config" />
+252-->[com.google.android.gms:play-services-measurement-api:21.6.1] /home/rangel/.gradle/caches/transforms-4/06881f7374d6e499966ef5bda6d3fb6e/transformed/jetified-play-services-measurement-api-21.6.1/AndroidManifest.xml:32:13-58
+253
+254        <receiver
+254-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:29:9-40:20
+255            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+255-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:30:13-78
+256            android:exported="true"
+256-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:31:13-36
+257            android:permission="com.google.android.c2dm.permission.SEND" >
+257-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:32:13-73
+258            <intent-filter>
+258-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:33:13-35:29
+259                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+259-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:56:17-81
+259-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:56:25-78
+260            </intent-filter>
+261
+262            <meta-data
+262-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:37:13-39:40
+263                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+263-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:38:17-92
+264                android:value="true" />
+264-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:39:17-37
+265        </receiver>
+266        <!--
+267             FirebaseMessagingService performs security checks at runtime,
+268             but set to not exported to explicitly avoid allowing another app to call it.
+269        -->
+270        <service
+270-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:46:9-53:19
+271            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+271-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:47:13-82
+272            android:directBootAware="true"
+272-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:48:13-43
+273            android:exported="false" >
+273-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:49:13-37
+274            <intent-filter android:priority="-500" >
+274-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:50:13-52:29
+274-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:50:28-51
+275                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+275-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:51:17-78
+275-->[com.google.firebase:firebase-messaging:23.4.1] /home/rangel/.gradle/caches/transforms-4/183e7eda9fc639fff7b6d61c502980ca/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:51:25-75
+276            </intent-filter>
+277        </service>
+278
+279        <provider
+279-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:23:9-28:39
+280            android:name="com.google.firebase.provider.FirebaseInitProvider"
+280-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:24:13-77
+281            android:authorities="br.com.rangeldev.mycoins.firebaseinitprovider"
+281-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:25:13-72
+282            android:directBootAware="true"
+282-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:26:13-43
+283            android:exported="false"
+283-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:27:13-37
+284            android:initOrder="100" />
+284-->[com.google.firebase:firebase-common:20.4.3] /home/rangel/.gradle/caches/transforms-4/e2f8619fe7f8bb48348f36f0f470d2f9/transformed/jetified-firebase-common-20.4.3/AndroidManifest.xml:28:13-36
+285
+286        <receiver
+286-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:29:9-33:20
+287            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+287-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:30:13-85
+288            android:enabled="true"
+288-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:31:13-35
+289            android:exported="false" >
+289-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:32:13-37
+290        </receiver>
+291
+292        <service
+292-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:35:9-38:40
+293            android:name="com.google.android.gms.measurement.AppMeasurementService"
+293-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:36:13-84
+294            android:enabled="true"
+294-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:37:13-35
+295            android:exported="false" />
+295-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:38:13-37
+296        <service
+296-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:39:9-43:72
+297            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+297-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:40:13-87
+298            android:enabled="true"
+298-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:41:13-35
+299            android:exported="false"
+299-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:42:13-37
+300            android:permission="android.permission.BIND_JOB_SERVICE" />
+300-->[com.google.android.gms:play-services-measurement:21.6.1] /home/rangel/.gradle/caches/transforms-4/493e30f5636a19acc4ae8fecff737c55/transformed/jetified-play-services-measurement-21.6.1/AndroidManifest.xml:43:13-69
+301
+302        <provider
+302-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:29:9-37:20
+303            android:name="androidx.startup.InitializationProvider"
+303-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:30:13-67
+304            android:authorities="br.com.rangeldev.mycoins.androidx-startup"
+304-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:31:13-68
+305            android:exported="false" >
+305-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:32:13-37
+306            <meta-data
+306-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:34:13-36:52
+307                android:name="androidx.work.WorkManagerInitializer"
+307-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:35:17-68
+308                android:value="androidx.startup" />
+308-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:36:17-49
+309            <meta-data
+309-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rangel/.gradle/caches/transforms-4/f81e7dfdf2116ac70e766674ad218837/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+310                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+310-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rangel/.gradle/caches/transforms-4/f81e7dfdf2116ac70e766674ad218837/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+311                android:value="androidx.startup" />
+311-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rangel/.gradle/caches/transforms-4/f81e7dfdf2116ac70e766674ad218837/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+312            <meta-data
+312-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+313                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+313-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+314                android:value="androidx.startup" />
+314-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+315        </provider>
+316
+317        <service
+317-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:39:9-45:35
+318            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+318-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:40:13-88
+319            android:directBootAware="false"
+319-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:41:13-44
+320            android:enabled="@bool/enable_system_alarm_service_default"
+320-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:42:13-72
+321            android:exported="false" />
+321-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:43:13-37
+322        <service
+322-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:46:9-52:35
+323            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+323-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:47:13-84
+324            android:directBootAware="false"
+324-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:48:13-44
+325            android:enabled="@bool/enable_system_job_service_default"
+325-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:49:13-70
+326            android:exported="true"
+326-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:50:13-36
+327            android:permission="android.permission.BIND_JOB_SERVICE" />
+327-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:51:13-69
+328        <service
+328-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:53:9-59:35
+329            android:name="androidx.work.impl.foreground.SystemForegroundService"
+329-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:54:13-81
+330            android:directBootAware="false"
+330-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:55:13-44
+331            android:enabled="@bool/enable_system_foreground_service_default"
+331-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:56:13-77
+332            android:exported="false" />
+332-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:57:13-37
+333
+334        <receiver
+334-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:61:9-66:35
+335            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+335-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:62:13-88
+336            android:directBootAware="false"
+336-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:63:13-44
+337            android:enabled="true"
+337-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:64:13-35
+338            android:exported="false" />
+338-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:65:13-37
+339        <receiver
+339-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:67:9-77:20
+340            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+340-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:68:13-106
+341            android:directBootAware="false"
+341-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:69:13-44
+342            android:enabled="false"
+342-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:70:13-36
+343            android:exported="false" >
+343-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:71:13-37
+344            <intent-filter>
+344-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:73:13-76:29
+345                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+345-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:17-87
+345-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:25-84
+346                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+346-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:17-90
+346-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:25-87
+347            </intent-filter>
+348        </receiver>
+349        <receiver
+349-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:78:9-88:20
+350            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+350-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:79:13-104
+351            android:directBootAware="false"
+351-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:80:13-44
+352            android:enabled="false"
+352-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:81:13-36
+353            android:exported="false" >
+353-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:82:13-37
+354            <intent-filter>
+354-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:84:13-87:29
+355                <action android:name="android.intent.action.BATTERY_OKAY" />
+355-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:17-77
+355-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:25-74
+356                <action android:name="android.intent.action.BATTERY_LOW" />
+356-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:17-76
+356-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:25-73
+357            </intent-filter>
+358        </receiver>
+359        <receiver
+359-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:89:9-99:20
+360            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+360-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:90:13-104
+361            android:directBootAware="false"
+361-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:91:13-44
+362            android:enabled="false"
+362-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:92:13-36
+363            android:exported="false" >
+363-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:93:13-37
+364            <intent-filter>
+364-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:95:13-98:29
+365                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+365-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:17-83
+365-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:25-80
+366                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+366-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:17-82
+366-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:25-79
+367            </intent-filter>
+368        </receiver>
+369        <receiver
+369-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:100:9-109:20
+370            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+370-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:101:13-103
+371            android:directBootAware="false"
+371-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:102:13-44
+372            android:enabled="false"
+372-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:103:13-36
+373            android:exported="false" >
+373-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:104:13-37
+374            <intent-filter>
+374-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:106:13-108:29
+375                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+375-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:17-79
+375-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:25-76
+376            </intent-filter>
+377        </receiver>
+378        <receiver
+378-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:110:9-121:20
+379            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+379-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:111:13-88
+380            android:directBootAware="false"
+380-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:112:13-44
+381            android:enabled="false"
+381-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:113:13-36
+382            android:exported="false" >
+382-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:114:13-37
+383            <intent-filter>
+383-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:116:13-120:29
+384                <action android:name="android.intent.action.BOOT_COMPLETED" />
+384-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:86:17-79
+384-->[com.onesignal:notifications:5.1.29] /home/rangel/.gradle/caches/transforms-4/f9b513d61fed8a86c94b567739b1ed52/transformed/jetified-notifications-5.1.29/AndroidManifest.xml:86:25-76
+385                <action android:name="android.intent.action.TIME_SET" />
+385-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:17-73
+385-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:25-70
+386                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+386-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:17-81
+386-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:25-78
+387            </intent-filter>
+388        </receiver>
+389        <receiver
+389-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:122:9-131:20
+390            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+390-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:123:13-99
+391            android:directBootAware="false"
+391-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:124:13-44
+392            android:enabled="@bool/enable_system_alarm_service_default"
+392-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:125:13-72
+393            android:exported="false" >
+393-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:126:13-37
+394            <intent-filter>
+394-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:128:13-130:29
+395                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+395-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:17-98
+395-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:25-95
+396            </intent-filter>
+397        </receiver>
+398        <receiver
+398-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:132:9-142:20
+399            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+399-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:133:13-78
+400            android:directBootAware="false"
+400-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:134:13-44
+401            android:enabled="true"
+401-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:135:13-35
+402            android:exported="true"
+402-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:136:13-36
+403            android:permission="android.permission.DUMP" >
+403-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:137:13-57
+404            <intent-filter>
+404-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:139:13-141:29
+405                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+405-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:17-88
+405-->[androidx.work:work-runtime:2.8.1] /home/rangel/.gradle/caches/transforms-4/3fdc536e6f3f4e50beec235a939fc2ac/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:25-85
+406            </intent-filter>
+407        </receiver>
+408
+409        <uses-library
+409-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/rangel/.gradle/caches/transforms-4/f0a20acebd2e1ca0acc098ef1b0bfd02/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+410            android:name="android.ext.adservices"
+410-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/rangel/.gradle/caches/transforms-4/f0a20acebd2e1ca0acc098ef1b0bfd02/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+411            android:required="false" />
+411-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/rangel/.gradle/caches/transforms-4/f0a20acebd2e1ca0acc098ef1b0bfd02/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+412
+413        <activity
+413-->[com.google.android.gms:play-services-base:18.0.1] /home/rangel/.gradle/caches/transforms-4/0f4d348edea0592a4da80e68352dc8b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+414            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+414-->[com.google.android.gms:play-services-base:18.0.1] /home/rangel/.gradle/caches/transforms-4/0f4d348edea0592a4da80e68352dc8b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+415            android:exported="false"
+415-->[com.google.android.gms:play-services-base:18.0.1] /home/rangel/.gradle/caches/transforms-4/0f4d348edea0592a4da80e68352dc8b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+416            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+416-->[com.google.android.gms:play-services-base:18.0.1] /home/rangel/.gradle/caches/transforms-4/0f4d348edea0592a4da80e68352dc8b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+417
+418        <meta-data
+418-->[com.google.android.gms:play-services-basement:18.3.0] /home/rangel/.gradle/caches/transforms-4/164a47152a6f95bc04a82555d1b58bb4/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+419            android:name="com.google.android.gms.version"
+419-->[com.google.android.gms:play-services-basement:18.3.0] /home/rangel/.gradle/caches/transforms-4/164a47152a6f95bc04a82555d1b58bb4/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+420            android:value="@integer/google_play_services_version" />
+420-->[com.google.android.gms:play-services-basement:18.3.0] /home/rangel/.gradle/caches/transforms-4/164a47152a6f95bc04a82555d1b58bb4/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+421
+422        <service
+422-->[androidx.room:room-runtime:2.5.0] /home/rangel/.gradle/caches/transforms-4/71eee24fc1dfa8585d83988e98855757/transformed/room-runtime-2.5.0/AndroidManifest.xml:24:9-28:63
+423            android:name="androidx.room.MultiInstanceInvalidationService"
+423-->[androidx.room:room-runtime:2.5.0] /home/rangel/.gradle/caches/transforms-4/71eee24fc1dfa8585d83988e98855757/transformed/room-runtime-2.5.0/AndroidManifest.xml:25:13-74
+424            android:directBootAware="true"
+424-->[androidx.room:room-runtime:2.5.0] /home/rangel/.gradle/caches/transforms-4/71eee24fc1dfa8585d83988e98855757/transformed/room-runtime-2.5.0/AndroidManifest.xml:26:13-43
+425            android:exported="false" />
+425-->[androidx.room:room-runtime:2.5.0] /home/rangel/.gradle/caches/transforms-4/71eee24fc1dfa8585d83988e98855757/transformed/room-runtime-2.5.0/AndroidManifest.xml:27:13-37
+426
+427        <receiver
+427-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+428            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+428-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+429            android:directBootAware="false"
+429-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+430            android:enabled="true"
+430-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+431            android:exported="true"
+431-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+432            android:permission="android.permission.DUMP" >
+432-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+433            <intent-filter>
+433-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+434                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+434-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+434-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+435            </intent-filter>
+436            <intent-filter>
+436-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+437                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+437-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+437-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+438            </intent-filter>
+439            <intent-filter>
+439-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+440                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+440-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+440-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+441            </intent-filter>
+442            <intent-filter>
+442-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+443                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+443-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+443-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rangel/.gradle/caches/transforms-4/89d14b6c3b9b462186fd8c460e7691f7/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+444            </intent-filter>
+445        </receiver>
+446
+447        <service
+447-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+448            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+448-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+449            android:exported="false" >
+449-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+450            <meta-data
+450-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+451                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+451-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+452                android:value="cct" />
+452-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/rangel/.gradle/caches/transforms-4/0317673fa55f8fc33cd5aa2a28738ae1/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+453        </service>
+454        <service
+454-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+455            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+455-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+456            android:exported="false"
+456-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+457            android:permission="android.permission.BIND_JOB_SERVICE" >
+457-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+458        </service>
+459
+460        <receiver
+460-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+461            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+461-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+462            android:exported="false" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+462-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/rangel/.gradle/caches/transforms-4/a3410b46b3237aa9b20ad3f47a446849/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+463        <activity
+463-->[com.google.android.play:core-common:2.0.2] /home/rangel/.gradle/caches/transforms-4/360bb408a6b4151d69645224acb1ebd6/transformed/jetified-core-common-2.0.2/AndroidManifest.xml:14:9-18:65
+464            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+464-->[com.google.android.play:core-common:2.0.2] /home/rangel/.gradle/caches/transforms-4/360bb408a6b4151d69645224acb1ebd6/transformed/jetified-core-common-2.0.2/AndroidManifest.xml:15:13-93
+465            android:exported="false"
+465-->[com.google.android.play:core-common:2.0.2] /home/rangel/.gradle/caches/transforms-4/360bb408a6b4151d69645224acb1ebd6/transformed/jetified-core-common-2.0.2/AndroidManifest.xml:16:13-37
+466            android:stateNotNeeded="true"
+466-->[com.google.android.play:core-common:2.0.2] /home/rangel/.gradle/caches/transforms-4/360bb408a6b4151d69645224acb1ebd6/transformed/jetified-core-common-2.0.2/AndroidManifest.xml:17:13-42
+467            android:theme="@style/Theme.PlayCore.Transparent" />
+467-->[com.google.android.play:core-common:2.0.2] /home/rangel/.gradle/caches/transforms-4/360bb408a6b4151d69645224acb1ebd6/transformed/jetified-core-common-2.0.2/AndroidManifest.xml:18:13-62
+468    </application>
+469
+470</manifest>

@@ -1,6 +1,8 @@
 import 'dart:developer';
 
-import 'package:package_info/package_info.dart';
+
+
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../interface/general_version_interface.dart';
 

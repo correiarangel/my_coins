@@ -11,7 +11,8 @@ class SplashPage extends StatefulWidget {
 
 class SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
-  AnimationController? _animationController;
+  late AnimationController _animationController;
+  late Animation<double> _fadeAnimation;
 
   @override
   void initState() {
@@ -19,28 +20,32 @@ class SplashPageState extends State<SplashPage>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: Duration(milliseconds: 5000),
     );
 
-    _animationController!.addStatusListener((status) {
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Modular.to.pushReplacementNamed('/home');
       }
     });
-    startFutture();
+
+    _startAnimation();
   }
 
-  void start() async {
-    await _animationController!.forward();
-  }
-
-  void startFutture() async {
-    start(); //await Timer(Duration(milliseconds: 2500), start);
+  Future<void> _startAnimation() async {
+    await Future.delayed(Duration(milliseconds: 300));
+    if (mounted) {
+      _animationController.forward();
+    }
   }
 
   @override
   void dispose() {
-    if (_animationController != null) _animationController!.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -51,32 +56,35 @@ class SplashPageState extends State<SplashPage>
     return Scaffold(
       body: Container(
         color: Color.fromRGBO(56, 59, 91, 1.0),
-        child: ListView(
-          padding: EdgeInsets.only(top: 28),
-          children: <Widget>[
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(top: 90.0, bottom: 38.0),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.transparent,
-                        child: Icon(
-                          Icons.trending_up,
-                          color: Color.fromRGBO(216, 99, 187, 1.0),
-                          size: 150.0,
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: ListView(
+            padding: EdgeInsets.only(top: 28),
+            children: <Widget>[
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 90.0, bottom: 38.0),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: Icon(
+                            Icons.trending_up,
+                            color: Color.fromRGBO(216, 99, 187, 1.0),
+                            size: 150.0,
+                          ),
+                          radius: 100.0,
                         ),
-                        radius: 100.0,
                       ),
-                    ),
-                  ],
-                ),
-                StaggerAnimation(controller: _animationController),
-              ],
-            )
-          ],
+                    ],
+                  ),
+                  StaggerAnimation(controller: _animationController),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

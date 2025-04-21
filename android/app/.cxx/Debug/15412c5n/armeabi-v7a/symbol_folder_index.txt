@@ -1,0 +1,1 @@
+/home/rangel/git-dev/Flutter/my_coins/android/app/build/intermediates/cxx/Debug/15412c5n/obj/armeabi-v7a

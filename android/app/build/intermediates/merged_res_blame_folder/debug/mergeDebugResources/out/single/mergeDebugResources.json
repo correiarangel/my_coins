@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/drawable-v21_launch_background.xml.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "br.com.rangeldev.mycoins.app-debug-69:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "br.com.rangeldev.mycoins.app-main-71:/mipmap-xxhdpi/ic_launcher.png"
+    }
+]
