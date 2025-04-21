@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.rangeldev.mycoins">
    <application
-        android:label="my_coins"
-        android:icon="@mipmap/ic_launcher">
+        android:label="My Coins"
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true">
+                <!-- Declaração de que não usa o Advertising ID -->
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_ID_OPT_OUT"
+            android:value="true" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -11,7 +16,8 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             android:usesCleartextTraffic="true"
-            android:exported="true">
+            android:exported="true"
+            android:enableOnBackInvokedCallback="true">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
