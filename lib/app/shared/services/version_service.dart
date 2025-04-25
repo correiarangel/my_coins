@@ -1,12 +1,10 @@
 import 'dart:developer';
 
-
-
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../interface/general_version_interface.dart';
+import '../interface/version_interface.dart';
 
-class GeneralVersion implements IGeneralVersion {
+class VersionService implements IVersion {
   @override
   Future<String>? getBuildAndVersion() async {
     final packageInfo = await PackageInfo.fromPlatform();

@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../shared/models/coins_model.dart';
-import '../../../../shared/util/general_functions.dart';
+import '../../../../shared/services/format_service.dart';
 import '../../../../shared/util/value/const_colors.dart';
 import '../../controllers/home_store.dart';
 import '../../number_custom.dart';
@@ -15,7 +15,7 @@ import '../texts/test_coins_text.dart';
 import '../texts/test_textbr.dart';
 
 class CardCoinConvert extends StatelessWidget {
-  final GeneralFunctions genFunctions = Modular.get();
+  final FormatService genFunctions = Modular.get();
   final ScreenshotController screenshot;
   final List<CoinModel>? coins;
   final int index;
@@ -51,7 +51,7 @@ class CardCoinConvert extends StatelessWidget {
                 2.0, // Move to right 10  horizontally
                 2.0, // Move to bottom 5 Vertically
               ),
-            )
+            ),
           ],
         ),
         child: Column(
@@ -96,11 +96,7 @@ class CardCoinConvert extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 28.0),
-            SmallButton(
-              textValidat: 10,
-              text: '   +10   ',
-              store: controller,
-            ),
+            SmallButton(textValidat: 10, text: '   +10   ', store: controller),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -137,15 +133,11 @@ class CardCoinConvert extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 0.0),
-            SmallButtonZiro(
-              store: controller,
-            ),
+            SmallButtonZiro(store: controller),
             TextButton.icon(
               onPressed: () {
                 controller.changesIsReverseConversion();
-                controller.changesTextValidat(
-                  controller.textValidat,
-                );
+                controller.changesTextValidat(controller.textValidat);
                 controller.changesValueConvertion();
               },
               icon: Icon(
@@ -164,27 +156,25 @@ class CardCoinConvert extends StatelessWidget {
             ),
             const SizedBox(height: 28.0),
             Padding(
-                padding: EdgeInsets.only(
-                  left: 4.0,
-                  right: 4.0,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return controller.isReverseConversion
-                        ? TestTextBR(
-                            genFunctions: genFunctions,
-                            controller: controller,
-                            coins: coins!,
-                            index: index,
-                          )
-                        : TestCoinsText(
-                            genFunctions: genFunctions,
-                            controller: controller,
-                            coins: coins!,
-                            index: index,
-                          );
-                  },
-                )),
+              padding: EdgeInsets.only(left: 4.0, right: 4.0),
+              child: Observer(
+                builder: (context) {
+                  return controller.isReverseConversion
+                      ? TestTextBR(
+                        genFunctions: genFunctions,
+                        controller: controller,
+                        coins: coins!,
+                        index: index,
+                      )
+                      : TestCoinsText(
+                        genFunctions: genFunctions,
+                        controller: controller,
+                        coins: coins!,
+                        index: index,
+                      );
+                },
+              ),
+            ),
             const SizedBox(height: 38.0),
           ],
         ),

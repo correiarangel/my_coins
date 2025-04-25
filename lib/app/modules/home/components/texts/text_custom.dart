@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../../shared/models/coins_model.dart';
-import '../../../../shared/util/general_functions.dart';
+import '../../../../shared/services/format_service.dart';
 import '../../../../shared/util/value/const_colors.dart';
 
-class TestTextCustom extends StatelessWidget {
+class TextCustom extends StatelessWidget {
   final List<CoinModel> coins;
   final int index;
-  final GeneralFunctions genFunctions;
-  const TestTextCustom({
+  final FormatService genFunctions;
+
+  const TextCustom({
     Key? key,
     required this.index,
     required this.coins,
@@ -17,15 +18,14 @@ class TestTextCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? text;
-    coins[index].code == "BTC"
-        ? text = "R\$ ${coins[index].bid}"
-        : text = "R\$ ${genFunctions.formatNumberBr("${coins[index].bid}")}";
+    final coin = coins[index];
+
+    // Formata usando o FormatService com fallback
+    final formattedValue = genFunctions.formatNumberBr(coin.bid.toString()) ?? "R\$ 0,00";
 
     return Text(
-      "1 : ${coins[index].code} igual a\n"
-      " $text",
-      style: TextStyle(
+      "1 : ${coin.code} igual a\n$formattedValue",
+      style: const TextStyle(
         color: ConstColors.colorLavenderFloral,
         fontSize: 28.0,
       ),

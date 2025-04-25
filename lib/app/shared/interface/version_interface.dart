@@ -1,4 +1,4 @@
 // ignore: one_member_abstracts
-abstract class IGeneralVersion {
+abstract class IVersion {
   Future<String>? getBuildAndVersion();
 }

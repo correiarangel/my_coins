@@ -44,9 +44,9 @@ void main() {
 
   group('Caminho Fefiz ;)', () {
     test('Deve retornar Status code 200 / GET', () async {
-      when(() => client.get(ConstStringUrl.routerAllCoins)).thenAnswer(
-        (_) async => response,
-      );
+      when(
+        () => client.get(ConstStringUrl.routerAllCoins),
+      ).thenAnswer((_) async => response);
       //assert
       expect(response.statusCode, 200);
     });
@@ -54,9 +54,9 @@ void main() {
       //arrage
 
       //act
-      when(() => client.get(ConstStringUrl.routerAllCoins)).thenAnswer(
-        (_) async => response,
-      );
+      when(
+        () => client.get(ConstStringUrl.routerAllCoins),
+      ).thenAnswer((_) async => response);
 
       //assert
       expect(response.data, isA<Map>());
@@ -77,7 +77,7 @@ const Map data = {
     "bid": "5.1967",
     "ask": "5.1997",
     "timestamp": "1628024400",
-    "create_date": "2021-08-03 21:00:02"
+    "create_date": "2021-08-03 21:00:02",
   },
   "USDT": {
     "code": "USD",
@@ -90,11 +90,11 @@ const Map data = {
     "bid": "5.29",
     "ask": "5.62",
     "timestamp": "1628024402",
-    "create_date": "2021-08-03 21:00:03"
+    "create_date": "2021-08-03 21:00:03",
   },
 };
 
 var headers = {
   'Content-Type': 'application/json;charset=UTF-8',
-  'Charset': 'utf-8'
+  'Charset': 'utf-8',
 };

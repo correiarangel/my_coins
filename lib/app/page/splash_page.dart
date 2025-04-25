@@ -37,7 +37,7 @@ class SplashPageState extends State<SplashPage>
   }
 
   Future<void> _startAnimation() async {
-    await Future.delayed(Duration(milliseconds: 300));
+    await Future.delayed(Duration(milliseconds: 3000));
     if (mounted) {
       _animationController.forward();
     }

@@ -1,4 +1,4 @@
-abstract class IGeneralFunctions {
+abstract class IFormat {
   String? formatNtpHour(DateTime? date);
   String? toBrazilTime(String? date);
   String? formatNumber(String num);

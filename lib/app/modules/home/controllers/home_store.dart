@@ -14,9 +14,9 @@ import '../../../shared/models/coins_days_model.dart';
 import '../../../shared/models/coins_model.dart';
 import '../../../shared/models/coins_parc_model.dart';
 import '../../../shared/repository/coin_repository.dart';
-import '../../../shared/util/check_internet.dart';
-import '../../../shared/util/general_functions.dart';
-import '../../../shared/util/general_version.dart';
+import '../../../shared/services/check_internet_service.dart';
+import '../../../shared/services/format_service.dart';
+import '../../../shared/services/version_service.dart';
 import '../../../shared/util/value/const_colors.dart';
 import '../../../shared/util/value/const_id_app.dart';
 import '../../../shared/util/value/const_srtring.dart';
@@ -28,9 +28,9 @@ part 'home_store.g.dart';
 class HomeStore = HomeStoreBase with _$HomeStore;
 
 abstract class HomeStoreBase with Store {
-  final GeneralFunctions genFunctions;
-  final GeneralVersion genVersion;
-  final CheckInternet testInternet;
+  final FormatService genFunctions;
+  final VersionService genVersion;
+  final CheckInternetService testInternet;
   final CoinRepository repository;
 
   HomeStoreBase(
@@ -93,8 +93,7 @@ abstract class HomeStoreBase with Store {
     final uri = Uri.parse(url);
     developer.log(uri.toString());
 
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-   
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
   @observable

@@ -6,33 +6,30 @@ import '../interface/coin_repository_interface.dart';
 import '../models/coins_days_model.dart';
 import '../models/coins_model.dart';
 import '../services/client_http_service.dart';
-import '../util/check_internet.dart';
+import '../services/check_internet_service.dart';
 import '../util/value/const_srtring_url.dart';
 
 class CoinRepository implements ICoinRepository {
-  final CheckInternet checkInternet;
+  final CheckInternetService checkInternet;
   final ClientHttpService client;
   CoinRepository(this.client, this.checkInternet);
 
   @override
-  Future<List<CoinModel>> getAllCoins({
-    required String siglaCoin,
-  }) async {
+  Future<List<CoinModel>> getAllCoins({required String siglaCoin}) async {
     late Response response;
     var isNet = await checkInternet.isInternet();
     if (isNet) {
       print("Não deveria passar aqui...");
-      response = await client.get(
-        ConstStringUrl.routerAllCoins,
-      );
+      response = await client.get(ConstStringUrl.routerAllCoins);
     }
     // ignore: unused_local_variable
     var listCoins;
     if (response.statusCode == 200) {
       Iterable interbleCoins = json.decode("[$response]");
-      return listCoins = interbleCoins
-          .map((comodel) => CoinModel.fromJson(comodel[siglaCoin]))
-          .toList();
+      return listCoins =
+          interbleCoins
+              .map((comodel) => CoinModel.fromJson(comodel[siglaCoin]))
+              .toList();
     } else {
       var _listCoins = <CoinModel>[];
       return _listCoins;

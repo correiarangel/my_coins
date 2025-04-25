@@ -17,7 +17,7 @@ class BuildBottomBar extends StatelessWidget {
       builder: (context) {
         return BottomNavigationBar(
           selectedItemColor: ConstColors.colorSkyMagenta,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: ConstColors.colorLavenderFloral,
           backgroundColor: ConstColors.colorSpaceCadet,
           currentIndex: controller.currentIndex,
           onTap: controller.changePage,

@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:my_coins/app/shared/util/check_internet.dart';
+import 'package:my_coins/app/shared/services/check_internet_service.dart';
 
-class CheckInternetMock extends Mock implements CheckInternet {}
+class CheckInternetMock extends Mock implements CheckInternetService {}
 
 void main() {
-  late CheckInternet checkNet;
+  late CheckInternetService checkNet;
 
   setUpAll(() {
     print("Testes CheckInternet");

@@ -31,7 +31,7 @@ class BuildBodyCotation extends StatelessWidget {
           ),
           SizedBox(height: 28.0),
           Text(
-            "Cambios, selecione a moéda:",
+            "Cámbios, selecione a moeda:",
             style: TextStyle(
               color: ConstColors.colorDarkBlueGray,
               fontSize: 22.0,
