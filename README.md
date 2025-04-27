@@ -1,52 +1,59 @@
-### Hi there Hello welcome ;]  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
+Beleza! Vou converter e refatorar todo o seu texto, deixando em **Markdown puro**, mais limpo, bem formatado e apresentável, sem HTML quebrado. Aqui está a nova versão:
 
-[![codecov](https://codecov.io/gh/correiarangel/my_coins/branch/main/graph/badge.svg?token=FEIP7KTH3N)](https://codecov.io/gh/correiarangel/my_coins)
+---
 
+# 👋 Olá, seja bem-vindo!
 
-<a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/">
-  <img align="left" alt="Marcos Rangel' LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" /> Linkdin ;]  </a> 
-<br/><br/>
-<a href="https://play.google.com/store/apps/details?id=br.com.rangeldev.mycoins">
-  <img align="left" alt="GooglePlay" width="88px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/googleplay.svg" /> 
-<br/><br/>
-<a href="https://www.youtube.com/watch?v=PqIcWPnEfyE">
-  <img align="left" alt="You Tube" width="32px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/youtube.svg" />  </a> 
-<br>
-  
+[![LinkedIn](https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg) LinkedIn Always On](https://www.linkedin.com/in/marcos-fabiano-correia-rangel/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/correiarangel)
 
-# my_coins
+[![Codecov](https://codecov.io/gh/correiarangel/my_coins/branch/main/graph/badge.svg?token=FEIP7KTH3N)](https://codecov.io/gh/correiarangel/my_coins)
 
-	Simple query for quotes for cabios, dollars, euros and cryptocurrencies
-	Developed in Flatter with a clean architecture concept, and unit testing.
-	The App should consume data from a simple API and display in customized listView. 
+[**▶️ Google Play**](https://play.google.com/store/apps/details?id=br.com.rangeldev.mycoins)
 
-## Getting Started
+[**📺 YouTube**](https://www.youtube.com/watch?v=PqIcWPnEfyE)
 
-	This project is a starting point for a Flutter application.
+---
 
-	A few resources to get you started if this is your first Flutter project:
+# 📱 My Coins
 
-	- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-	- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+> Consulta simples de cotações de câmbio, como dólares, euros e criptomoedas.
 
-	For help getting started with Flutter, view our
-	[online documentation](https://flutter.dev/docs), which offers tutorials,
-	samples, guidance on mobile development, and a full API reference.
+Aplicativo desenvolvido em **Flutter** utilizando conceitos de **Clean Architecture** e **Testes Unitários**.
 
-## Modular 
+O app consome dados de uma API simples e exibe as informações em uma **ListView customizada**.
 
-	https://github.com/Flutterando/modular
+---
 
-#### flutter_modular Documentation
-	
-	https://github.com/Flutterando/modular/tree/master/flutter_modular
+## 🚀 Começando
 
-#### flutter_modular_test Documentation
-	
-	https://github.com/Flutterando/modular/tree/master/flutter_modular_test
-	
-#### API Docs
+Este projeto é um ponto de partida para um aplicativo Flutter.
 
-	https://docs.awesomeapi.com.br/	
+Alguns recursos úteis para começar, se este for seu primeiro projeto Flutter:
 
+- [Lab: Escreva seu primeiro app Flutter](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Exemplos úteis de Flutter](https://flutter.dev/docs/cookbook)
 
+Para mais ajuda, acesse a [documentação online do Flutter](https://flutter.dev/docs), que oferece tutoriais, exemplos e uma referência completa da API.
+
+---
+
+## 🧩 Modular
+
+- [Flutter Modular (GitHub)](https://github.com/Flutterando/modular)
+
+### 📚 Documentação
+
+- [flutter_modular Documentation](https://github.com/Flutterando/modular/tree/master/flutter_modular)
+- [flutter_modular_test Documentation](https://github.com/Flutterando/modular/tree/master/flutter_modular_test)
+
+---
+
+## 🌐 API utilizada
+
+- [AwesomeAPI - Documentação](https://docs.awesomeapi.com.br/)
+
+---
+
+Quer que eu também crie uma segunda versão ainda mais estilizada, usando emojis e divisores, para um README mais chamativo? 🚀🎯
+Se quiser, é só pedir!
