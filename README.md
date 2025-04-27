@@ -55,5 +55,38 @@ Para mais ajuda, acesse a [documentação online do Flutter](https://flutter.dev
 
 ---
 
-Quer que eu também crie uma segunda versão ainda mais estilizada, usando emojis e divisores, para um README mais chamativo? 🚀🎯
-Se quiser, é só pedir!
+
+
+### Run Project Android/iOS
+
+- flutter run 
+- flutter run lib/main.dart 
+
+### Run Build appbundle Android
+
+- flutter build appbundle --obfuscate --split-debug-info \app -t lib/main.dart
+
+### Run Build apk Android
+
+- flutter build apk --obfuscate --split-debug-info \app -t lib/main.dart
+
+# Run the package Android/iOS
+
+After setting up the configuration, all that is left to do is run the package.
+
+- flutter pub get
+- flutter pub run flutter_launcher_icons
+
+### After adding your settings, run the following command in the terminal  Android/iOS:
+
+- dart run flutter_native_splash:create
+
+### When the package finishes running, your splash screen is ready Android/iOS.
+
+To specify the YAML file location just add --path with the command in the terminal:
+
+- dart run flutter_native_splash:create --path=path/to/my/file.yaml
+
+### flutter_flavorizr Android/iOS
+
+- flutter pub run flutter_flavorizr
