@@ -32,155 +32,148 @@ class CardCustom extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(left: 18.0, right: 18.0),
-      child: InkWell(
-        splashColor: Colors.purpleAccent.withAlpha(80),
-        onTap: () {
-          store.changesIsNet();
-          store.fetchCoins(store.itemSelect);
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: ConstColors.colorSpaceCadet,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                color: ConstColors.colorSkyMagenta,
-                blurRadius: 10.0, // soften the shadow
-                spreadRadius: 2.0, //extend the shadow
-                offset: Offset(
-                  2.0, // Move to right 10  horizontally
-                  2.0, // Move to bottom 5 Vertically
+      child: Container(
+        decoration: BoxDecoration(
+          color: ConstColors.colorSpaceCadet,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: ConstColors.colorSkyMagenta,
+              blurRadius: 10.0, // soften the shadow
+              spreadRadius: 2.0, //extend the shadow
+              offset: Offset(
+                2.0, // Move to right 10  horizontally
+                2.0, // Move to bottom 5 Vertically
+              ),
+            ),
+          ],
+        ),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 8.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  SizedBox(height: 4.0),
+                  TextButton.icon(
+                    onPressed: () => store.share(screenshot),
+                    icon: Icon(
+                      Icons.share,
+                      size: 30.0,
+                      color: ConstColors.colorLavenderFloral,
+                    ),
+                    label: Text(''),
+                  ),
+                ],
+              ),
+              Text(
+                "Dados coletados em :",
+                style: TextStyle(
+                  color: ConstColors.colorLigthGray,
+                  fontSize: 22.0,
                 ),
               ),
+              SizedBox(height: 4.0),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //date
+                  Icon(
+                    Icons.calendar_today,
+                    color: ConstColors.colorDarkBlueGray,
+                    size: 22.00,
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    date == null ? "" : date,
+                    style: TextStyle(
+                      color: ConstColors.colorLavenderFloral,
+                      fontSize: 22.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              SizeBoxDivisor(),
+              Text(
+                "Tipo de converção :",
+                style: TextStyle(
+                  color: ConstColors.colorLigthGray,
+                  fontSize: 22.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //name
+                  Text(
+                    "De : ${coins[index].name.replaceAll("/", " p. \n")}",
+                    style: TextStyle(
+                      color: ConstColors.colorLavenderFloral,
+                      fontSize: 22.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              SizeBoxDivisor(),
+              Text(
+                "Sigla/Moeda : ",
+                style: TextStyle(
+                  color: ConstColors.colorLigthGray,
+                  fontSize: 22.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //coin
+                  Icon(
+                    Icons.monetization_on,
+                    color: ConstColors.colorDarkBlueGray,
+                    size: 30.0,
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    "${coins[index].code}",
+                    style: TextStyle(
+                      color: ConstColors.colorLavenderFloral,
+                      fontSize: 28.0,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+              SizeBoxDivisor(),
+              Text(
+                "Cotação :",
+                style: TextStyle(
+                  color: ConstColors.colorLigthGray,
+                  fontSize: 22.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextCustom(
+                    genFunctions: genFunctions,
+                    coins: coins,
+                    index: index,
+                  ),
+                ],
+              ),
+              SizedBox(height: 28.0),
             ],
-          ),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 8.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    SizedBox(height: 4.0),
-                    TextButton.icon(
-                      onPressed: () => store.share(screenshot),
-                      icon: Icon(
-                        Icons.share,
-                        size: 30.0,
-                        color: ConstColors.colorLavenderFloral,
-                      ),
-                      label: Text(''),
-                    ),
-                  ],
-                ),
-                Text(
-                  "Dados coletados em :",
-                  style: TextStyle(
-                    color: ConstColors.colorLigthGray,
-                    fontSize: 22.0,
-                  ),
-                ),
-                SizedBox(height: 4.0),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //date
-                    Icon(
-                      Icons.calendar_today,
-                      color: ConstColors.colorDarkBlueGray,
-                      size: 22.00,
-                    ),
-                    SizedBox(width: 10.0),
-                    Text(
-                      date == null ? "" : date,
-                      style: TextStyle(
-                        color: ConstColors.colorLavenderFloral,
-                        fontSize: 22.0,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                SizeBoxDivisor(),
-                Text(
-                  "Tipo de converção :",
-                  style: TextStyle(
-                    color: ConstColors.colorLigthGray,
-                    fontSize: 22.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //name
-                    Text(
-                      "De : ${coins[index].name.replaceAll("/", " p. \n")}",
-                      style: TextStyle(
-                        color: ConstColors.colorLavenderFloral,
-                        fontSize: 22.0,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-                SizeBoxDivisor(),
-                Text(
-                  "Sigla/Moeda : ",
-                  style: TextStyle(
-                    color: ConstColors.colorLigthGray,
-                    fontSize: 22.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //coin
-                    Icon(
-                      Icons.monetization_on,
-                      color: ConstColors.colorDarkBlueGray,
-                      size: 30.0,
-                    ),
-                    SizedBox(width: 10.0),
-                    Text(
-                      "${coins[index].code}",
-                      style: TextStyle(
-                        color: ConstColors.colorLavenderFloral,
-                        fontSize: 28.0,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ],
-                ),
-                SizeBoxDivisor(),
-                Text(
-                  "Cotação :",
-                  style: TextStyle(
-                    color: ConstColors.colorLigthGray,
-                    fontSize: 22.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    TextCustom(
-                      genFunctions: genFunctions,
-                      coins: coins,
-                      index: index,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 28.0),
-              ],
-            ),
           ),
         ),
       ),
