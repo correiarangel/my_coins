@@ -119,7 +119,7 @@ jobs:
           export PATH="$PATH":"$HOME/.pub-cache/bin"
           pub global activate cider
           cider release
-          cider version 1.2.0+14
+          cider version 1.0.0+5
           flutter pub get
           flutter build appbundle
 
@@ -146,7 +146,7 @@ jobs:
           track: production
           status: completed
           inAppUpdatePriority: 2
-          releaseName: 1.2.0+14
+          releaseName: 1.2.0+5
           whatsNewDirectory: distribution/whatsnew
           mappingFile: build/app/outputs/mapping/release/mapping.txt
          
