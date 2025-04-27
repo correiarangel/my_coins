@@ -5,20 +5,19 @@ class ConstString {
   static const String gitHub = "Visitar  GitHub";
   static const String docFlutter = "Ducumentação Flutter";
   static const String policy = "Política Privacidade";
-  static const String msgNotNet = "Sem conexão com internet :[\n"
-      "Pedimos desculpas!\n My Coins necessita de internet\n "
-      "para entregar informações sempre atualizados";
+  static const String msgNotNet = "Sem conexão com a internet :[\n"
+  "Pedimos desculpas! My Coins precisa de acesso à internet para"
+  " fornecer informações sempre atualizadas.";
   static const String msgRiqueriValue = "É obrigatorio um valor para conversão";
-  static const String msgErroLoand = "Click p/ Recarregar !";
+  static const String msgErroLoand = "Clique p/ Recarregar !";
   static const String msgTextInfo =
-      "O App My Coins foi desenvolvido para consultar e exibir,"
-      "dados cambiais, cotação de moedas de vários países, "
-      "e moedas digitais como BitCoin, Ethereum e outras.\n"
-      "Com visual simples amigável e cores inspiradas no "
-      "consolidado thema Drácula.";
-  static const String msgTextTheDev = "Marcos Rangel, desenvolvedor Flutter.\n"
-      "Flutte é uma poderosa ferramenta para o desenvolvimento,\n"
-      "Móbile, Web e Desktop, documentação nos links abaixo.\n";
+     "O aplicativo My Coins foi desenvolvido para consultar e exibir dados de"
+     " câmbio, incluindo cotações de moedas de diversos países e criptomoedas"
+     " como Bitcoin, Ethereum, entre outras. Apresenta um visual simples e"
+     " amigável, com uma paleta de cores inspirada no consagrado tema Dracula.";
+  static const String msgTextTheDev = "Marcos Rangel, desenvolvedor mobile com"
+  " experiência em Flutter/Dart, C# .NET\n"
+  " (Blazor e MAUI), Cordova e Android Nativo.";
   static const listSiglaCoins = [
     {
       "id": "0",
